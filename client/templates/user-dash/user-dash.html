@@ -1,0 +1,80 @@
+<template name="UserDash">
+    <div class="row">
+        <div class="col s12 m6 ">
+          <div class="card hoverable cyan last_wk">
+            <div class="card-content white-text">
+              <span class="card-title">Dernier entrainement</span>
+              {{#each workouts}}
+                <p>{{title}}</p>
+                <p>{{distance}}km</p>
+                <p>{{length}}h</p>
+                <p>{{description}}</p>
+                <p>CR10 : {{crten}}</p>
+              {{/each}}
+            </div>
+            <div class="card-action right-align">
+                <a href='#' class=""></a>
+                <a href='/workouts' class="yellow-text">Plus</a>
+            </div>
+          </div>
+        </div>
+            <div class="col s12 m6 ">
+        <div class="card hoverable pink last_pl">
+            <div class="card-content white-text">
+             {{#each plans}}
+               <span class="card-title">{{title}}</span>
+                <p>Lundi : {{monday}}</p>
+                <p>Mardi : {{tuesday}}</p>
+                <p>Mercredi : {{wednesday}}</p>
+                <p>Jeudi : {{thursday}}</p>
+                <p>Vendredi : {{friday}}</p>
+                <p>Samedi : {{saturday}}</p>
+                <p>Dimanche : {{sunday}}</p>
+                <p>{{comments}}</p>
+              {{/each}}
+            </div>
+            <div class="card-action right-align">
+              <a href="#" class="white-text"></a>
+              <a href='/plans' class="white-text">Plus</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12">
+        <div id="columnchart" class="card hoverable teal white-text">
+            <div class="card-content"> 
+            <div class="row">
+                    <i class="material-icons  right-align col s1" id="previous" style="padding-top:10px;">arrow_back</i>
+                    <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
+                    <i class="material-icons col s1 left-align" style="padding-top:10px;" id="next">arrow_forward</i>
+                 </div>
+                 <div class="ct-chart">
+                    <canvas id="chart" height="80px"></canvas>
+                </div>
+                </div>  
+            </div>
+        </div>
+        <div class="col s12 m4">
+        <div id="piechart" class="card hoverable red white-text">
+            <div class="card-content"> 
+            <div class="row">
+                    <i class="material-icons  right-align col s1" id="previous" style="padding-top:10px;">arrow_back</i>
+                    <span class="col s9 center-align card-title" id="sports_graph_title">Juillet</span>
+                    <i class="material-icons col s1 left-align" style="padding-top:10px;" id="next">arrow_forward</i>
+                 </div>
+                 <div class="ct-chart">
+                    <canvas id="pie-chart" height="170px"></canvas>
+                </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+            var l_wk = document.querySelectorAll(".last_wk"), l_pl = document.querySelectorAll(".last_pl");
+            var t1, t2;
+            for(i in l_wk) {
+                l_wk[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
+                 l_pl[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
+            }
+    </script>
+    {{invokeAfterLoad}}
+</template>

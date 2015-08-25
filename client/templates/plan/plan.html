@@ -1,0 +1,24 @@
+<template name="plan">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">done</i>{{title}} - {{date}}</div>
+      <div class="collapsible-body">
+          <ul class="collection transparent">
+              <li class="collection-item transparent">Lundi : {{monday}}</li>
+              <li class="collection-item transparent">Mardi : {{tuesday}}</li>
+              <li class="collection-item transparent">Mercredi : {{wednesday}}</li>
+              <li class="collection-item transparent">Jeudi : {{thursday}}</li>
+              <li class="collection-item transparent">Vendredi : {{friday}}</li>
+              <li class="collection-item transparent">Samedi : {{saturday}}</li>
+              <li class="collection-item transparent">Dimanche : {{sunday}}</li>
+              <li class="collection-item transparent">{{comments}}</li>
+            </ul>
+      </div>
+    </li>
+    <script type="text/javascript">
+          $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+    </script>
+</template>

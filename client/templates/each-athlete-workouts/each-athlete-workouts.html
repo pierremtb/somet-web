@@ -1,0 +1,9 @@
+<template name="AthleteWorkouts">
+        <div class="row">
+          <ul class="collapsible popout col s12" data-collapsible="accordion">
+             {{#each workouts}}
+                {{> Workout id=_id title=title length=length distance=distance hrvalues=hrvalues distancevalues=distancevalues crten=crten elevvalues=elevvalues}}
+              {{/each}}
+          </ul>
+        </div>
+</template>

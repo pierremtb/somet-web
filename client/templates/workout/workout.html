@@ -1,0 +1,31 @@
+<template name="Workout">
+    <li>
+      <div class="collapsible-header"><i class="{{#if mtb}}mdi-maps-directions-bike{{else}}{{#if road}}mdi-maps-directions-bike{{else}}mdi-maps-directions-walk{{/if}}{{/if}}"></i>{{title}} - {{date}}</div>
+      <div class="collapsible-body">
+          <ul class="collection transparent">
+              <li class="collection-item transparent">Durée : {{duration}}</li>
+              <li class="collection-item transparent">Distance : {{distance}}km</li>
+              <li class="collection-item transparent">CR10 : {{crten}}</li>
+              <li class="collection-item transparent">{{description}}</li>
+            </ul>
+
+           <div id="workout_chart">
+             {{#if elevvalues}}
+              <h5>Profil</h5>
+              <canvas class="elev_chart" height="120px"></canvas>
+              {{/if}}
+              {{#if hrvalues}}
+              <h5>Activité cardiaque</h5>
+              <canvas class="hr_chart" height="120px"></canvas>
+              {{/if}}
+           </div>
+      </div>
+    </li>
+    <script type="text/javascript">
+          $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+    </script>
+</template>
