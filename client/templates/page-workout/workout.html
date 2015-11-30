@@ -1,0 +1,56 @@
+<template name="Workout">
+    {{> Nav page="Entrainements" color="blue-grey"}}
+    <div id="side_nav" class="hide-on-small-only">
+        <ul class="hide-on-med-and-down">
+            {{> SideNav dashboard=false workouts=true plans=false calendar=false
+            analysis=false}}
+        </ul>
+    </div>
+    <div class="row" style="padding-top:90px">
+            <div class="col l2 hide-on-med-and-down ">
+                <h5> </h5>
+
+            </div>
+
+            <div class="col l10 s12 m12 scroll ">
+                <div class="dash_container">
+                    <p><a class="btn-flat waves-effect primary_txt" href="/workouts"><i class="material-icons left">arrow_back</i> GO BACK TO LIST</a></p>
+                      <div class="card" style="padding:5px 20px">
+                            <h4>{{title}}</h4>
+                            <h5 class="grey-text">{{date}} - {{duration}} - {{distance}}km</h5>
+                            <p>{{description}}</p>
+                      </div>
+                </div>
+          </div>
+      </div>
+<!--
+    <li>
+      <div class="collapsible-header"><i class="{{#if mtb}}mdi-maps-directions-bike{{else}}{{#if road}}mdi-maps-directions-bike{{else}}mdi-maps-directions-walk{{/if}}{{/if}}"></i>{{title}} - {{date}}</div>
+      <div class="collapsible-body">
+          <ul class="collection transparent">
+              <li class="collection-item transparent">Durée : {{duration}}</li>
+              <li class="collection-item transparent">Distance : {{distance}}km</li>
+              <li class="collection-item transparent">CR10 : {{crten}}</li>
+              <li class="collection-item transparent">{{description}}</li>
+            </ul>
+
+           <div id="workout_chart">
+             {{#if elevvalues}}
+              <h5>Profil</h5>
+              <canvas class="elev_chart" height="120px"></canvas>
+              {{/if}}
+              {{#if hrvalues}}
+              <h5>Activité cardiaque</h5>
+              <canvas class="hr_chart" height="120px"></canvas>
+              {{/if}}
+           </div>
+      </div>
+    </li>
+    <script type="text/javascript">
+          $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+    </script>-->
+</template>

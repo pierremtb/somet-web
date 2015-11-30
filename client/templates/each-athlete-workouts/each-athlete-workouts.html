@@ -1,9 +1,18 @@
 <template name="AthleteWorkouts">
-        <div class="row">
-          <ul class="collapsible popout col s12" data-collapsible="accordion">
+    <table class="highlight" style="padding: 15px">
+        <thead>
+          <tr>
+              <th data-field="title">Title</th>
+              <th data-field="date">Date</th>
+              <th data-field="duration">Duration (h)</th>
+              <th data-field="distance">Distance (km)</th>
+              <th data-field="actions">Actions</th>
+          </tr>
+        </thead>
+         <tbody>
              {{#each workouts}}
-                {{> Workout id=_id title=title length=length distance=distance hrvalues=hrvalues distancevalues=distancevalues crten=crten elevvalues=elevvalues}}
+                {{> WorkoutTableLine id=_id date=date duration=length title=title length=length distance=distance hrvalues=hrvalues distancevalues=distancevalues crten=crten elevvalues=elevvalues}}
               {{/each}}
-          </ul>
-        </div>
+         </tbody>
+     </table>
 </template>

@@ -1,9 +1,17 @@
 <template name="AthletePlans">
-        <div class="row">
-          <ul class="collapsible popout col s12" data-collapsible="accordion">
+    <table class="highlight" style="padding: 15px">
+        <thead>
+          <tr>
+              <th data-field="title">Titre</th>
+              <th data-field="comments">Commentaires</th>
+              <th data-field="date">Soumis le</th>
+              <th data-field="actions">Actions</th>
+          </tr>
+        </thead>
+         <tbody>
              {{#each plans}}
-                {{> plan}}
+                {{> PlanTableLine id=_id title=title comments=comments date=date }}
               {{/each}}
-          </ul>
-        </div>
+         </tbody>
+     </table>
 </template>

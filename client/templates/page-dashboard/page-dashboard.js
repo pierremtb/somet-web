@@ -14,10 +14,10 @@ Template.Dashboard.helpers({
     alltrainers: function () {
       return TrainersDB.find({});
     },
-    trainerIs: function(){ 
-        if(Meteor.user().profile === "trainer") 
-            return true; 
-        else 
+    trainerIs: function(){
+        if(Meteor.user().profile === "trainer")
+            return true;
+        else
             return false;
     },
     trainerIsMe: function() {
@@ -26,7 +26,8 @@ Template.Dashboard.helpers({
             return true;
         else
             return false;
-        }
+        },
+    selectedAthlete: function() { return Session.get("selectedAthlete"); }
   });
 
 Template.Dashboard.events({
@@ -39,6 +40,3 @@ Template.Dashboard.events({
         Materialize.toast("Une invitation a été envoyée à " + this.username + ".", 1000);
     }
 });
-
-
-      

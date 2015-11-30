@@ -34,7 +34,6 @@ function drawMonthGraph(me,t) {
     }
 
     t.find("#monthly_graph_title").innerHTML = months[month - 1] + " " + year;
-    t.find("#sports_graph_title").innerHTML = months[month - 1] + " " + year;
     var mtbs = WorkoutsDB.find({user: me, month: month, year: year, mtb: true}).fetch().length;
     var roads = WorkoutsDB.find({user: me, month: month, year: year, road: true}).fetch().length;
     var others = WorkoutsDB.find({user: me, month: month, year: year, other: true}).fetch().length;
@@ -42,20 +41,20 @@ function drawMonthGraph(me,t) {
     var datac = [
     {
         value: mtbs,
-        color:"#4CAF50",
-        highlight: "#66BB6A",
+        color:"#ec407a",
+        highlight: "#f06292",
         label: "VTT"
     },
     {
         value: roads,
-        color: "#FFEB3B",
-        highlight: "#FFEE58",
+        color: "#03a9f4",
+        highlight: "#29b6f6",
         label: "Route"
     },
     {
         value: others,
-        color: "#78909C",
-        highlight: "#90A4AE",
+        color: "#455a64",
+        highlight: "#29b6f6",
         label: "Autre"
     }
 ]
@@ -63,13 +62,18 @@ function drawMonthGraph(me,t) {
         labels: daysinmonth,
         datasets: [
             {
-                data: fin
+                data: fin,
+                strokeColor: "#ec407a",
+                fillColor: "#ec407a"
             }
         ]
     };
     options = {
       responsive: true,
-      scaleFontColor: "#fff"
+      scaleFontColor: "#000",
+      legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+
+
     };
     var ctx = t.find("#chart").getContext("2d");
     var piectx = t.find("#pie-chart").getContext("2d");
@@ -104,9 +108,9 @@ Template.UserDash.helpers({
     plans: function () {
           return PlansDB.find({username: this.username + ""},{sort: {date: -1}, limit:1});
     },
-    user: function() { 
+    user: function() {
           return this.username + "";
-    }    
+    }
 });
 
 Template.UserDash.events({

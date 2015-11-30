@@ -1,0 +1,23 @@
+<template name="PlanTableLine">
+    <tr data-href="/plan/{{id}}">
+        <td>{{title}}</td>
+        <td>{{comments}}</td>
+        <td>{{date}}</td>
+        <td><a href="/plan/{{id}}"><i class="material-icons small accent_txt">pageview</i></a><a class="modal-trigger" href="#modal1"><i class=" accent_txt material-icons small l10p">delete</i></a></td>
+    </tr>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Voulez-vous vraiment supprimer ce plan ?</h4>
+          <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA LE PLAN <span class="plid">{{id}}</span></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+          <a href="#!" id="delete_btn" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
+        </div>
+  </div>
+    <script>
+        /*$('tr[data-href]').on("click", function() {
+            document.location = $(this).data('href');
+        });*/
+    </script>
+</template>

@@ -1,99 +1,101 @@
 <template name="Plans">
   {{> Nav page="Plans" color="blue-grey"}}
-<div class="container">
-   {{#if trainerIs}}
-    <div class="row">
-        <div class="col s12">
-          <ul class="tabs z-depth-1 pink white-text">
-          {{#each athletes}}
-            <li class="tab col s3 white-text"><a href="#{{username}}" class="white-text">{{username}}</a></li>
-          {{/each}}
+  <div id="side_nav" class="hide-on-small-only">
+      <ul class="hide-on-med-and-down">
+          {{> SideNav dashboard=false workouts=false plans=true calendar=false
+          analysis=false}}
       </ul>
-    </div>
-    {{#each athletes}}
-        <div id="{{username}}" class="col s12">
-            {{> AthletePlans username=username}}
-        </div>
-    {{/each}}
-    </div>        
-  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large pink waves-light modal-trigger" href="#add_plan">
-      <i class="large mdi-content-add"></i>
-    </a>
   </div>
-  
-  <div id="add_plan" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Ajouter un plan</h4>
-        <div class="row">
-    <form class="">
-         <div class="row">
-          <div class="input-field col s12">
-            <select id="n_pl_athlete" class="browser-default">
-              <option value="" disabled selected>Choisissez le sportif désiré...</option>
-                  {{#each athletes}}
-              <option value="{{username}}">{{username}}</option>
-                {{/each}}
-              </select>
+
+  <div class="row" style="padding-top:90px">
+         {{#if currentUser}}
+
+          <div class="col l2 hide-on-med-and-down ">
+              <h5> </h5>
+
           </div>
-        <div class="input-field col s12 m6">
-          <input id="n_pl_title" type="text" class="validate">
-          <label for="n_pl_title">Semaine du JJ/MM/AAAA</label>
+
+          <div class="col l10 s12 m12 scroll ">
+
+
+        <div class="dash_container">
+            <div class="card" style="padding:10px">
+                {{#if trainerIs}}
+                    {{> AthletePlans username=selectedAthlete}}
+                {{else}}
+                    {{> AthletePlans username=currentUser.username}}
+                {{/if}}
+                </div>
+                <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                  <a class="btn-floating btn-large pink waves-light modal-trigger" href="#add_plan">
+                    <i class="large mdi-content-add"></i>
+                  </a>
+                </div>
+
+                <div id="add_plan" class="modal modal-fixed-footer">
+                  <div class="modal-content">
+                    <h4>Ajouter un plan</h4>
+                      <div class="row">
+                  <form class="">
+                       <div class="row">
+                        <div class="input-field col s12">
+                        </div>
+                      <div class="input-field col s12 m6">
+                        <input id="n_pl_title" type="text" class="validate">
+                        <label for="n_pl_title">Semaine du JJ/MM/AAAA</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                            <input type="date" id="n_pl_date" class="datepicker" placeholder="15 June, 2015">
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <textarea id="n_pl_mon" class="materialize-textarea"></textarea>
+                        <label for="n_pl_mon">Lundi</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <textarea id="n_pl_tue" class="materialize-textarea"></textarea>
+                        <label for="n_pl_tue">Mardi</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <textarea id="n_pl_wed" class="materialize-textarea"></textarea>
+                        <label for="n_pl_wed">Mercredi</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <textarea id="n_pl_thu" class="materialize-textarea"></textarea>
+                        <label for="n_pl_thu">Jeudi</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <textarea id="n_pl_fri" class="materialize-textarea"></textarea>
+                        <label for="n_pl_fri">Vendredi</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <textarea id="n_pl_sat" class="materialize-textarea"></textarea>
+                        <label for="n_pl_sat">Samedi</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <textarea id="n_pl_sun" class="materialize-textarea"></textarea>
+                        <label for="n_pl_sun">Dimanche</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <textarea id="n_pl_com" class="materialize-textarea"></textarea>
+                        <label for="n_pl_com">Commentaires</label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" id="n_pl_submit" class=" modal-action modal-close waves-effect waves-cyan pink-text btn-flat">Ajouter</a>
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
+
+                  </div>
+                </div>
+                </div>
         </div>
-        <div class="input-field col s12 m6">
-              <input type="date" id="n_pl_date" class="datepicker" placeholder="15 June, 2015">
-        </div>
-        <div class="input-field col s12 m6">
-          <textarea id="n_pl_mon" class="materialize-textarea"></textarea>
-          <label for="n_pl_mon">Lundi</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <textarea id="n_pl_tue" class="materialize-textarea"></textarea>
-          <label for="n_pl_tue">Mardi</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <textarea id="n_pl_wed" class="materialize-textarea"></textarea>
-          <label for="n_pl_wed">Mercredi</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <textarea id="n_pl_thu" class="materialize-textarea"></textarea>
-          <label for="n_pl_thu">Jeudi</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <textarea id="n_pl_fri" class="materialize-textarea"></textarea>
-          <label for="n_pl_fri">Vendredi</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <textarea id="n_pl_sat" class="materialize-textarea"></textarea>
-          <label for="n_pl_sat">Samedi</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <textarea id="n_pl_sun" class="materialize-textarea"></textarea>
-          <label for="n_pl_sun">Dimanche</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <textarea id="n_pl_com" class="materialize-textarea"></textarea>
-          <label for="n_pl_com">Commentaires</label>
-        </div>
-      </div>
-    </form>
-  </div>
-        
+        {{/if}}
     </div>
-    <div class="modal-footer">
-      <a href="#!" id="n_pl_submit" class=" modal-action modal-close waves-effect waves-cyan pink-text btn-flat">Ajouter</a>
-        <a href="#!" class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
-        
-    </div>
-  </div>
-    {{else}}
-    <div class="row">
-            {{> AthletePlans username=currentUser.username}}
-        </div>
-    {{/if}}
-</div>
     <script type="text/javascript">
- 
+
   $(document).ready(function(){
      $('ul.tabs').tabs();
     $('.modal-trigger').leanModal();
@@ -104,12 +106,3 @@
   });
     </script>
 </template>
-
-
-
-
-
-
-
-
-

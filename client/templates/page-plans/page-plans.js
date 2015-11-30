@@ -5,12 +5,13 @@ Template.Plans.helpers({
     athletes: function () {
       return AthletesDB.find({trainer: Meteor.user().username});
     },
-    trainerIs: function(){ 
-        if(Meteor.user().profile === "trainer") 
-            return true; 
-        else 
+    trainerIs: function(){
+        if(Meteor.user().profile === "trainer")
+            return true;
+        else
             return false;
-    }
+    },
+    selectedAthlete: function() { return Session.get("selectedAthlete"); }
   });
 
 Template.Plans.events({
@@ -26,7 +27,7 @@ Template.Plans.events({
           saturday: template.find('#n_pl_sat').value,
           sunday: template.find('#n_pl_sun').value,
           comments: template.find('#n_pl_com').value,
-          username: template.find('#n_pl_athlete').value
+          username: Session.get("selectedAthlete")
         });
     }
 });

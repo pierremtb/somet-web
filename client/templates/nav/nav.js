@@ -1,4 +1,4 @@
-Template.Nav.events({  
+Template.Nav.events({
   'click #logout_button': function() {
     Meteor.logout(function() {
       // Redirect to login
@@ -6,15 +6,18 @@ Template.Nav.events({
     });
 
     return;
+    },
+  'click .athleteD': function() {
+      Session.set("selectedAthlete", this.username)
   }
 });
 
 
 Template.Nav.helpers({
-    trainerIs: function(){ 
-        if(Meteor.user().profile === "trainer") 
-            return true; 
-        else 
+    trainerIs: function(){
+        if(Meteor.user().profile === "trainer")
+            return true;
+        else
             return false;
     },
     notificationsNotRead: function (){
@@ -28,6 +31,10 @@ Template.Nav.helpers({
         }
         else
             return false;
+    },
+    selectedAthlete: function () { return Session.get("selectedAthlete") ? Session.get("selectedAthlete") : AthletesDB.findOne({"trainer":Meteor.user().username}).username},
+    athletes: function () {
+      return AthletesDB.find({trainer: Meteor.user().username});
     }
 });
 

@@ -5,15 +5,16 @@ Template.Workouts.helpers({
     athletes: function () {
       return AthletesDB.find({trainer: Meteor.user().username});
     },
-    trainerIs: function(){ 
-        if(Meteor.user().profile === "trainer") 
-            return true; 
-        else 
+    trainerIs: function(){
+        if(Meteor.user().profile === "trainer")
+            return true;
+        else
             return false;
     },
     me: function() {
         return Meteor.user().username;
-    }
+    },
+    selectedAthlete: function() { return Session.get("selectedAthlete"); }
 });
 
 Template.Workouts.events({

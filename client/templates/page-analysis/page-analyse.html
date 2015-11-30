@@ -1,0 +1,16 @@
+<template name="Analysis">
+    {{> Nav page="Analyse" color="blue-grey"}}
+    <div id="side_nav" class="hide-on-small-only">
+        <ul class="hide-on-med-and-down">
+            {{> SideNav dashboard=false workouts=false plans=false calendar=true analysis=false}}
+        </ul>
+    </div>
+
+    <div class="row" style="padding-top:90px">
+        {{#if currentUser}}
+        {{/if}}
+    </div>
+    <script type="text/javascript">
+
+    </script>
+</template>

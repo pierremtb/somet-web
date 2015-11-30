@@ -1,0 +1,13 @@
+.legend li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.legend .legend_indicator {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}

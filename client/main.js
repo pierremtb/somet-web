@@ -19,12 +19,41 @@ Router.route('/trainer', function () {
       this.render('MyTrainer');
 });
 
+Router.route('/calendar', function () {
+      this.render('Calendar');
+});
+
+Router.route('/analysis', function () {
+      this.render('Analysis');
+});
+
+
 Router.route('/', function () {
   if(Meteor.user()) {
     this.render('Dashboard');
   } else {
      this.render('Login');
   }
+});
+
+Router.route('/workout/:id', function() {
+    if(Meteor.user()) {
+      this.render('Workout', {
+          data: function() { return WorkoutsDB.findOne({"_id":this.params.id})}
+      });
+    } else {
+       this.render('Login');
+    }
+});
+
+Router.route('/plan/:id', function() {
+    if(Meteor.user()) {
+      this.render('Plan', {
+          data: function() { return PlansDB.findOne({"_id":this.params.id})}
+      });
+    } else {
+       this.render('Login');
+    }
 });
 
 

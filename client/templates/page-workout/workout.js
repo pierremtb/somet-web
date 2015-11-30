@@ -1,4 +1,4 @@
-
+/*
 function drawWorkoutGraphs(xaxis,id,elev_elem, hr_elem) {
   var elev = WorkoutsDB.findOne({_id: id}).elevvalues;
   var hr = WorkoutsDB.findOne({_id: id}).hrvalues;
@@ -86,4 +86,27 @@ Template.Workout.helpers({
     var seconds = parseInt(minutes_part * 60) < 10 ? "0" + parseInt(minutes_part * 60) : parseInt(minutes_part * 60) ;
     return hours + ":" + minutes + ":" + seconds;
   }
-});
+});*/
+
+Template.Workout.helpers({
+    title: data.title,
+    description: data.description,
+    date: data.date,
+    duration: function() {
+      var hours = parseInt(data.length) < 10 ? "0" + parseInt(data.length) : parseInt(data.length);
+      var hours_part = data.length - hours;
+      var minutes = parseInt(hours_part * 60) < 10 ? "0" + parseInt(hours_part * 60) : parseInt(hours_part * 60);
+      var minutes_part = hours_part * 60 - minutes;
+      var seconds = parseInt(minutes_part * 60) < 10 ? "0" + parseInt(minutes_part * 60) : parseInt(minutes_part * 60) ;
+      return hours + ":" + minutes + ":" + seconds;
+    },
+    distance: data.distance,
+    mtb: data.mtb,
+    road: data.road,
+    other: data.other,
+    user: data.user,
+    crten: data.crten,
+    day: data.day,
+    month: data.month,
+    year: data.year
+})

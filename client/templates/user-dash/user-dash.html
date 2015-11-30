@@ -1,27 +1,27 @@
 <template name="UserDash">
     <div class="row">
         <div class="col s12 m6 ">
-          <div class="card hoverable cyan last_wk">
-            <div class="card-content white-text">
+        {{#each workouts}}
+          <div class="card white last_wk">
+            <div class="card-content ">
               <span class="card-title">Dernier entrainement</span>
-              {{#each workouts}}
                 <p>{{title}}</p>
                 <p>{{distance}}km</p>
                 <p>{{length}}h</p>
                 <p>{{description}}</p>
                 <p>CR10 : {{crten}}</p>
-              {{/each}}
             </div>
-            <div class="card-action right-align">
-                <a href='#' class=""></a>
-                <a href='/workouts' class="yellow-text">Plus</a>
+            <div class="card-action right-align ">
+                <a href='/workouts' class="">Plus</a>
+                <a href="/workout/{{_id}}" class="">Details</a>
             </div>
           </div>
+        {{/each}}
         </div>
             <div class="col s12 m6 ">
-        <div class="card hoverable pink last_pl">
-            <div class="card-content white-text">
-             {{#each plans}}
+        <div class="card  last_pl">
+            {{#each plans}}
+            <div class="card-content">
                <span class="card-title">{{title}}</span>
                 <p>Lundi : {{monday}}</p>
                 <p>Mardi : {{tuesday}}</p>
@@ -31,41 +31,54 @@
                 <p>Samedi : {{saturday}}</p>
                 <p>Dimanche : {{sunday}}</p>
                 <p>{{comments}}</p>
-              {{/each}}
             </div>
             <div class="card-action right-align">
-              <a href="#" class="white-text"></a>
-              <a href='/plans' class="white-text">Plus</a>
+              <a href='/plans' class="">Plus</a>
+              <a href="/plan/{{_id}}" class="">Details</a>
             </div>
+            {{/each}}
           </div>
         </div>
+        <div class="col s12 primary_txt">
+            <div class="row card accent_bg" style="padding: 20px 0;">
+                <i class="material-icons  right-align col s1 mt5p" id="previous" style="padding-top:10px;">arrow_back</i>
+                <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
+                <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;" id="next">arrow_forward</i>
+            </div>
+        </div>
         <div class="col s12">
-        <div id="columnchart" class="card hoverable teal white-text">
-            <div class="card-content"> 
-            <div class="row">
-                    <i class="material-icons  right-align col s1" id="previous" style="padding-top:10px;">arrow_back</i>
-                    <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
-                    <i class="material-icons col s1 left-align" style="padding-top:10px;" id="next">arrow_forward</i>
-                 </div>
+        <div id="columnchart" class="card  ">
+            <div class="card-content">
+                <div class="row">
+                        <span class="col s12 center-align card-title">Heures d'entrainements</span>
+                     </div>
                  <div class="ct-chart">
                     <canvas id="chart" height="80px"></canvas>
                 </div>
-                </div>  
+
+                </div>
             </div>
         </div>
         <div class="col s12 m4">
-        <div id="piechart" class="card hoverable red white-text">
-            <div class="card-content"> 
+        <div id="piechart" class="card  ">
+            <div class="card-content">
             <div class="row">
-                    <i class="material-icons  right-align col s1" id="previous" style="padding-top:10px;">arrow_back</i>
-                    <span class="col s9 center-align card-title" id="sports_graph_title">Juillet</span>
-                    <i class="material-icons col s1 left-align" style="padding-top:10px;" id="next">arrow_forward</i>
+                    <span class="col s12 center-align card-title">Répartition</span>
                  </div>
                  <div class="ct-chart">
                     <canvas id="pie-chart" height="170px"></canvas>
                 </div>
-                </div>  
+                <ul class="center-align legend">
+                    <li><div class="legend_indicator primary_bg"></div>VTT</li>
+                    <li><div class="legend_indicator accent_bg"></div>Route</li>
+                    <li><div class="legend_indicator grey_bg"></div>Autres</li>
+                </ul>
+                </div>
             </div>
+        </div>
+        <div class="col s12 m8">
+            <div id="t" class="card">
+                </div>
         </div>
     </div>
     <script type="text/javascript">

@@ -1,0 +1,19 @@
+<template name="WorkoutTableLine">
+    <tr data-href="/workout/{{id}}">
+        <td>{{title}}</td>
+        <td>{{date}}</td>
+        <td>{{duration}}</td>
+        <td>{{distance}}</td>
+        <td><a href="/workout/{{id}}"><i class="material-icons small accent_txt">pageview</i></a><a class="modal-trigger" href="#modal2"><i class=" accent_txt material-icons small l10p">delete</i></a></td>
+    </tr>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Voulez-vous vraiment supprimer ce plan ?</h4>
+          <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span class="wkid">{{id}}</span></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+          <a href="#!" id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
+        </div>
+    </div>
+</template>
