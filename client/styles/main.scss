@@ -20,6 +20,42 @@ $tabs-underline-color: #fff;
 $grey-color: #37474f;
 
 
+input[type=range] + .thumb {
+  position: absolute;
+  border: none;
+  height: 0;
+  width: 0;
+  border-radius: 50%;
+  top: 10px;
+  margin-left: -6px;
+  display: none;
+
+
+  .value {
+    display: none;
+    width: 30px;
+    text-align: center;
+    font-size: 0;
+  }
+
+  &.active {
+    border-radius: 50% 50% 50% 0;
+    display: none;
+
+    .value {
+      margin-left: -1px;
+      display: none;
+      margin-top: 8px;
+      font-size: 10px;
+    }
+  }
+}
+
+.modal {
+    width: 75%;
+}
+
+
 // import main scss file
 @import "{poetic:materialize-scss}/sass/materialize.scss";
 

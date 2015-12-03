@@ -205,6 +205,16 @@ i {
     }
 }
 
+.hidden {
+    display: none;
+}
+
+.modal_title {
+    color: rgb(54,54,54);
+    font-weight: 600;
+    font-size: 20px;
+}
+
 /*
 .scroll {
     overflow: scroll;
