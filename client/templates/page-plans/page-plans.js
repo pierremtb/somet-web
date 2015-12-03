@@ -129,38 +129,38 @@ Template.Plans.events({
           monday_type: Session.get("day_0_type"),
           monday_support: Session.get('day_0_type') && Session.get('day_0_type')!="nth" ? t.find('#day_0_support').value : "",
           monday_desc: Session.get('day_0_type') && Session.get('day_0_type')!="nth" ? t.find('#day_0_desc').value : "",
-          monday_duration: Session.get('day_0_duration'),
-          monday_comments: Session.get('day_0_type') && Session.get('day_0_type')!="nth" ? t.find('#day_0_comments').value : "",
+          monday_duration: Session.get('day_0_type')=="wk" ? Session.get('day_0_duration') : "",
+          monday_comments: Session.get('day_0_type') && Session.get('day_0_type')=="wk"  ? t.find('#day_0_comments').value : "",
           tuesday_type: Session.get("day_1_type"),
           tuesday_support: Session.get('day_1_type') && Session.get('day_1_type')!="nth" ? t.find('#day_1_support').value : "",
           tuesday_desc:  Session.get('day_1_type') && Session.get('day_1_type')!="nth" ? t.find('#day_1_desc').value : "",
-          tuesday_duration: Session.get('day_1_duration'),
-          tuesday_comments:  Session.get('day_1_type') && Session.get('day_1_type')!="nth" ? t.find('#day_1_comments').value : "",
+          tuesday_duration: Session.get('day_0_type')=="wk" ? Session.get('day_1_duration') : "",
+          tuesday_comments:  Session.get('day_1_type') && Session.get('day_1_type')=="wk"  ? t.find('#day_1_comments').value : "",
           wednesday_type: Session.get("day_2_type"),
           wednesday_support:  Session.get('day_2_type') && Session.get('day_2_type')!="nth" ? t.find('#day_2_support').value : "",
           wednesday_desc: Session.get('day_2_type') && Session.get('day_2_type')!="nth" ? t.find('#day_2_desc').value : "",
-          wednesday_duration: Session.get('day_2_duration'),
-          wednesday_comments: Session.get('day_2_type') && Session.get('day_2_type')!="nth" ? t.find('#day_2_comments').value : "",
+          wednesday_duration: Session.get('day_2_type')=="wk" ? Session.get('day_2_duration') : "",
+          wednesday_comments: Session.get('day_2_type') && Session.get('day_2_type')=="wk"  ? t.find('#day_2_comments').value : "",
           thursday_type: Session.get("day_3_type"),
           thursday_support: Session.get('day_3_type') && Session.get('day_3_type')!="nth" ? t.find('#day_3_support').value : "",
           thursday_desc: Session.get('day_3_type') && Session.get('day_3_type')!="nth" ? t.find('#day_3_desc').value : "",
-          thursday_duration: Session.get('day_3_duration'),
-          thursday_comments: Session.get('day_3_type') && Session.get('day_3_type')!="nth" ? t.find('#day_3_comments').value : "",
+          thursday_duration: Session.get('day_3_type')=="wk" ? Session.get('day_3_duration') : "",
+          thursday_comments: Session.get('day_3_type') && Session.get('day_3_type')=="wk"   ? t.find('#day_3_comments').value : "",
           friday_type: Session.get("day_4_type"),
           friday_support: Session.get('day_4_type') && Session.get('day_4_type')!="nth" ? t.find('#day_4_support').value : "",
           friday_desc: Session.get('day_4_type') && Session.get('day_4_type')!="nth" ? t.find('#day_4_desc').value : "",
-          friday_duration: Session.get('day_4_duration'),
-          friday_comments: Session.get('day_4_type') && Session.get('day_4_type')!="nth" ? t.find('#day_4_comments').value : "",
+          friday_duration:  Session.get('day_4_type')=="wk" ?  Session.get('day_4_duration') : "",
+          friday_comments: Session.get('day_4_type') && Session.get('day_4_type')=="wk"  ? t.find('#day_4_comments').value : "",
           saturday_type: Session.get("day_5_type"),
           saturday_support: Session.get('day_5_type') && Session.get('day_5_type')!="nth" ? t.find('#day_5_support').value : "",
           saturday_desc: Session.get('day_5_type') && Session.get('day_5_type')!="nth" ? t.find('#day_5_desc').value : "",
-          saturday_duration: Session.get('day_5_duration'),
-          saturday_comments: Session.get('day_5_type') && Session.get('day_5_type')!="nth" ? t.find('#day_5_comments').value : "",
+          saturday_duration: Session.get('day_5_type')=="wk" ? Session.get('day_5_duration') : "",
+          saturday_comments: Session.get('day_5_type')  && Session.get('day_5_type')=="wk"  ? t.find('#day_5_comments').value : "",
           sunday_type: Session.get("day_6_type"),
           sunday_support: Session.get('day_6_type') && Session.get('day_6_type')!="nth" ? t.find('#day_6_support').value : "",
           sunday_desc: Session.get('day_6_type') && Session.get('day_6_type')!="nth" ? t.find('#day_6_desc').value : "",
-          sunday_duration: Session.get('day_6_duration'),
-          sunday_comments: Session.get('day_6_type') && Session.get('day_6_type')!="nth" ? t.find('#day_6_comments').value :"" });
+          sunday_duration: Session.get('day_6_type')=="wk" ? Session.get('day_6_duration') : "",
+          sunday_comments: Session.get('day_6_type')  && Session.get('day_6_type')=="wk" ? t.find('#day_6_comments').value :"" });
     },
     'change #day_0_type' : function(e,t) {
         Session.set("day_0_type",t.find('#day_0_type').value);
@@ -234,5 +234,6 @@ Template.Plans.events({
 });
 
 Template.Plans.onRendered(function() {
-    Session.set("day_0_duration",90);
+    for(var i=0;i<7;i++)
+        Session.set("day_"+i+"_duration",0);
 })

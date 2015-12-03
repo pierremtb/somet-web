@@ -16,64 +16,18 @@
                 <div class="dash_container">
                     <p><a class="btn-flat waves-effect primary_txt" href="/plans"><i class="material-icons left">arrow_back</i> GO BACK TO LIST</a></p>
                       <div class="card" style="padding:5px 20px">
-                            <p class="hide-on-small-only" id="date">Soumis le {{date}}</p>
-                            <p class="hide-on-med-and-up">Soumis le {{date}}</p>
+                            <p class="hide-on-small-only" id="date">Soumis le {{monday_date}}</p>
+                            <p class="hide-on-med-and-up">Soumis le {{monday_date}}</p>
                             <h4>{{title}}</h4>
                             <h5 class="grey-text">{{comments}}</h5>
                             <div class="row">
-                                <div class="col l4 m6 s12">
-                                    <div class="" >
-                                        <h5>Lundi</h5>
-                                        <p>{{monday_type}}</p>
-                                        <p>{{monday_support}}</p>
-                                        <p>{{monday_desc}}</p>
-                                        <p>{{monday_duration}}</p>
-                                        <p>{{monday_comments}}</p>
-                                    </div>
-                                    <div class="divider"></div>
-                                </div>
-                                <div class="col l4 m6 s12">
-                                    <div class="">
-                                        <h5>Mardi</h5>
-                                        <p>{{tuesday}}</p>
-                                    </div>
-                                    <div class="divider"></div>
-                                </div>
-                                <div class="col l4 m6 s12">
-                                    <div class="">
-                                        <h5>Mercredi</h5>
-                                        <p>{{wednesday}}</p>
-                                    </div>
-                                    <div class="divider"></div>
-                                </div>
-                                <div class="col l4 m6 s12">
-                                    <div class="">
-                                        <h5>Jeudi</h5>
-                                        <p>{{thursday}}</p>
-                                    </div>
-                                    <div class="divider"></div>
-                                </div>
-                                <div class="col l4 m6 s12">
-                                    <div class="">
-                                        <h5>Vendredi</h5>
-                                        <p>{{friday}}</p>
-                                    </div>
-                                    <div class="divider"></div>
-                                </div>
-                                <div class="col l4 m6 s12">
-                                    <div class="">
-                                        <h5>Samedi</h5>
-                                        <p>{{saturday}}</p>
-                                    </div>
-                                    <div class="divider"></div>
-                                </div>
-                                <div class="col l4 m6 s12">
-                                    <div class="">
-                                        <h5>Dimanche</h5>
-                                        <p>{{sunday}}</p>
-                                    </div>
-                                    <div class="divider"></div>
-                                </div>
+                                {{> PlanDay day="Lundi" type=mondayType support=mondaySupport duration=mondayDuration desc=monday_desc comments=monday_comments}}
+                                {{> PlanDay day="Mardi" type=tuesdayType support=tuesdaySupport duration=tuesdayDuration desc=tuesday_desc comments=tuesday_comments}}
+                                {{> PlanDay day="Mercredi" type=wednesdayType support=wednesdaySupport duration=wednesdayDuration desc=wednesday_desc comments=wednesday_comments}}
+                                {{> PlanDay day="Jeudi" type=thursdayType support=thursdaySupport duration=thursdayDuration desc=thursday_desc comments=thursday_comments}}
+                                {{> PlanDay day="Vendredi" type=fridayType support=fridaySupport duration=fridayDuration desc=friday_desc comments=friday_comments}}
+                                {{> PlanDay day="Samedi" type=saturdayType support=saturdaySupport duration=saturdayDuration desc=saturday_desc comments=saturday_comments}}
+                                {{> PlanDay day="Dimanche" type=sundayType support=sundaySupport duration=sundayDuration desc=sunday_desc comments=sunday_comments}}
                         </div>
                       </div>
                 </div>
