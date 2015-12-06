@@ -6,6 +6,7 @@ function dispMins(min) {
 
 Template.Plan.helpers({
     title: function () { return this.title},
+    isTrainer: function(){ return Meteor.user().profile === "trainer";},
     monday_support: function () { return this.monday_support},
     mondayType: function() {
         if(this.monday_type == "wk")
@@ -15,28 +16,6 @@ Template.Plan.helpers({
         else if(this.monday_type == "nth")
             return "Repos";
     },
-    /*
-    isDay0Wk: function () { return this.monday_type == "wk" },
-    isDay1Wk: function () { return this.tuesday_type == "wk" },
-    isDay2Wk: function () { return this.wednesday_type == "wk" },
-    isDay3Wk: function () { return this.thursday_type == "wk" },
-    isDay4Wk: function () { return this.friday_type == "wk" },
-    isDay5Wk: function () { return this.saturday_type == "wk" },
-    isDay6Wk: function () { return this.sunday_type == "wk" },
-    isDay0Rc: function () { return this.monday_type == "rc" },
-    isDay1Rc: function () { return this.tuesday_type == "rc" },
-    isDay2Rc: function () { return this.wednesday_type == "rc" },
-    isDay3Rc: function () { return this.thursday_type == "rc" },
-    isDay4Rc: function () { return this.friday_type == "rc" },
-    isDay5Rc: function () { return this.saturday_type == "rc" },
-    isDay6Rc: function () { return this.sunday_type == "rc" },
-    isDay0Nth: function () { return this.monday_type == "nth" },
-    isDay1Nth: function () { return this.tuesday_type == "nth" },
-    isDay2Nth: function () { return this.wednesday_type == "nth" },
-    isDay3Nth: function () { return this.thursday_type == "nth" },
-    isDay4Nth: function () { return this.friday_type == "nth" },
-    isDay5Nth: function () { return this.saturday_type == "nth" },
-    isDay6Nth: function () { return this.sunday_type == "nth" },*/
     isDay0Wk: function (t) {
         return Session.get("day_0_type") == "wk";
     },
@@ -487,6 +466,10 @@ Template.Plan.events({
         var d = new Date(t.find('#n_pl_start_date').value);
         Session.set("n_pl_start_date",t.find('#n_pl_start_date').value);
         Session.set("n_pl_start_day",d.getDate());
+    },
+    "click #delete_btn" : function (e,t) {
+        PlansDB.remove(t.find(".plid").innerHTML);
+        document.location = "/plans";
     }
 });
 

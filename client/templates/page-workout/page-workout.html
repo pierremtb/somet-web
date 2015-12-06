@@ -1,0 +1,133 @@
+<template name="Workout">
+    {{> Nav page="Entrainements" color="blue-grey"}}
+    <div id="side_nav" class="hide-on-small-only">
+        <ul class="hide-on-med-and-down">
+            {{> SideNav dashboard=false workouts=true plans=false calendar=false
+            analysis=false}}
+        </ul>
+    </div>
+    <div class="row" style="padding-top:90px">
+            <div class="col l2 hide-on-med-and-down ">
+                <h5> </h5>
+
+            </div>
+
+            <div class="col l10 s12 m12 scroll ">
+                <div class="dash_container">
+                    <p>
+                        <a class="btn-flat waves-effect primary_txt" href="/workouts"><i class="material-icons left">arrow_back</i> GO BACK TO LIST</a>
+                        {{#if isTrainer}}
+                        {{else}}
+                        <a class="btn-flat waves-effect primary_txt"><i class="material-icons left">edit</i> MODIFIER</a>
+                        <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_wk"><i class="material-icons left">delete</i> SUPPRIMER</a>
+                        {{/if}}
+                    </p>
+                      <div class="card" style="padding:5px 20px">
+                          <h4>{{title}}</h4>
+                          <div class="row">
+                              <div class="col s12 m6">
+                                  <p class="grey-text">{{date}}</p>
+                                  <p class="grey-text">{{dispMins length}}</p>
+                                  <p class="grey-text">{{distance}}km</p>
+                                  <p>{{description}}</p>
+                              </div>
+                              <div class="col s12 m6">
+                                  <div class="row">
+                                      <div class="col s3">
+                                          <div class="c100 p{{getPercentAndColor crten_eff}} small">
+                                            <span style="font-size:">{{crten_eff}}</span>
+                                            <div class="slice">
+                                                <div class="bar"></div>
+                                                <div class="fill"></div>
+                                            </div>
+                                        </div>
+                                        <p class="center-align">CR10 Effort</p>
+                                      </div>
+                                      <div class="col s3">
+                                          <div class="c100 p{{getPercentAndColor crten_ple}} small">
+                                            <span>{{crten_ple}}</span>
+                                            <div class="slice">
+                                                <div class="bar"></div>
+                                                <div class="fill"></div>
+                                            </div>
+                                        </div>
+                                        <p class="center-align">CR10 Plaisir</p>
+                                      </div>
+                                      <div class="col s3">
+                                          <div class="vam c100 p{{getPercentAndColorReverse sensa}} small">
+                                            <span>{{sensa}}</span>
+                                            <div class="slice">
+                                                <div class="bar"></div>
+                                                <div class="fill"></div>
+                                            </div>
+                                        </div>
+                                        <p class="center-align">Sensations</p>
+                                      </div>
+                                      <div class="col s3">
+                                          <div class="center-align c100 p{{getPercentAndColorReverse hum}} small">
+                                            <span>{{hum}}</span>
+                                            <div class="slice">
+                                                <div class="bar"></div>
+                                                <div class="fill"></div>
+                                            </div>
+                                        </div>
+                                        <p class="center-align">Humeur</p>
+                                      </div>
+                                  </div>
+
+
+                              </div>
+                          </div>
+                      </div>
+                </div>
+          </div>
+      </div>
+      <div id="delete_wk" class="modal">
+          <div class="modal-content">
+            <h4>Voulez-vous vraiment supprimer cet entrainement ?</h4>
+            <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span class="wkid">{{_id}}</span></p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+            <a href="#!" id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
+          </div>
+      </div>
+<!--
+    <li>
+      <div class="collapsible-header"><i class="{{#if mtb}}mdi-maps-directions-bike{{else}}{{#if road}}mdi-maps-directions-bike{{else}}mdi-maps-directions-walk{{/if}}{{/if}}"></i>{{title}} - {{date}}</div>
+      <div class="collapsible-body">
+          <ul class="collection transparent">
+              <li class="collection-item transparent">Durée : {{duration}}</li>
+              <li class="collection-item transparent">Distance : {{distance}}km</li>
+              <li class="collection-item transparent">CR10 : {{crten}}</li>
+              <li class="collection-item transparent">{{description}}</li>
+            </ul>
+
+           <div id="workout_chart">
+             {{#if elevvalues}}
+              <h5>Profil</h5>
+              <canvas class="elev_chart" height="120px"></canvas>
+              {{/if}}
+              {{#if hrvalues}}
+              <h5>Activité cardiaque</h5>
+              <canvas class="hr_chart" height="120px"></canvas>
+              {{/if}}
+           </div>
+      </div>
+    </li>
+    <script type="text/javascript">
+          $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+    </script>-->
+
+
+
+    <script>
+    $(document).ready(function(){
+      $('.modal-trigger').leanModal();
+    });
+    </script>
+</template>
