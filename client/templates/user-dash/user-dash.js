@@ -4,7 +4,6 @@ function getDaysInMonth(month, year) {
      month--;
      var date = new Date(year, month, 1);
      var days = [];
-     console.log('month', month, 'date.getMonth()', date.getMonth())
      while (date.getMonth() === month) {
         days.push(new Date(date).getDate());
         date.setDate(date.getDate() + 1);
@@ -12,10 +11,19 @@ function getDaysInMonth(month, year) {
      return days;
 }
 
+
 var date = new Date();
 var graphs_are_not_here = true;
 var month = date.getMonth() + 1, year = date.getFullYear();
 var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"];
+var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+function getPreviousMonday() {
+      var prev_m = new Date();
+      prev_m.setDate(prev_m.getDate() - date.getDay() + 1);
+      return prev_m.getDate() + " " + monthNames[prev_m.getMonth()] + ", " + prev_m.getFullYear();
+}
 
 function drawMonthGraph(me,t) {
     var works =  WorkoutsDB.find({user: me, month: month, year: year}).fetch();
@@ -37,7 +45,6 @@ function drawMonthGraph(me,t) {
     var mtbs = WorkoutsDB.find({user: me, month: month, year: year, mtb: true}).fetch().length;
     var roads = WorkoutsDB.find({user: me, month: month, year: year, road: true}).fetch().length;
     var others = WorkoutsDB.find({user: me, month: month, year: year, other: true}).fetch().length;
-    console.log(mtbs);
     var datac = [
     {
         value: mtbs,
@@ -105,8 +112,20 @@ Template.UserDash.helpers({
     workouts: function () {
           return WorkoutsDB.find({user: this.username + ""}, {sort: {date: -1}, limit:1});
     },
-    plans: function () {
-          return PlansDB.find({username: this.username + ""},{sort: {date: -1}, limit:1});
+    todayPlan: function () {
+          if(PlansDB.findOne({username: this.username, monday_date: getPreviousMonday()})) {
+              return true;
+          }
+          else
+            return false;
+    },
+    todayType: function () {
+        var td = PlansDB.findOne({username: this.username, monday_date: getPreviousMonday()})[days[date.getDay()].toLowerCase() + "_type"];
+        return  td == "nth" ? "Repos" : td == "wk" ? "Entrainement" : td == "rc" ? "Compétition" : "";
+    },
+    todaySupport: function () {
+        var td = PlansDB.findOne({username: this.username, monday_date: getPreviousMonday()})[days[date.getDay()].toLowerCase() + "_support"];
+        return  td == "mtb" ? "VTT" : td == "road" ? "Route" : td == "ht" ? "Home Trainer" : td == "run" ? "Course à pied" : td == "skix" ? "Ski de fond" : td == "swim" ? "Natation" : td == "othr" ? "Autre" :  "";
     },
     user: function() {
           return this.username + "";

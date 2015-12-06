@@ -18,27 +18,24 @@
           </div>
         {{/each}}
         </div>
-            <div class="col s12 m6 ">
-        <div class="card  last_pl">
-            {{#each plans}}
-            <div class="card-content">
-               <span class="card-title">{{title}}</span>
-                <p>Lundi : {{monday}}</p>
-                <p>Mardi : {{tuesday}}</p>
-                <p>Mercredi : {{wednesday}}</p>
-                <p>Jeudi : {{thursday}}</p>
-                <p>Vendredi : {{friday}}</p>
-                <p>Samedi : {{saturday}}</p>
-                <p>Dimanche : {{sunday}}</p>
-                <p>{{comments}}</p>
-            </div>
-            <div class="card-action right-align">
-              <a href='/plans' class="">Plus</a>
-              <a href="/plan/{{_id}}" class="">Details</a>
-            </div>
-            {{/each}}
+        {{#if todayPlan}}
+        <div class="col s12 m6 ">
+            <div class="card  last_pl">
+                <div class="card-content">
+                   <span class="card-title">Séance d'aujourd'hui</span>
+                    <p>{{todayType}}</p>
+                    <p>{{todaySupport}}</p>
+                    <p>{{todayDuration}}</p>
+                    <p>{{todayDesc}}</p>
+                    <p>{{todayComments}}</p>
+                </div>
+                <div class="card-action right-align">
+                  <a href='/plans' class="">Plus</a>
+                  <a href="/plan/{{_id}}" class="">Details</a>
+                </div>
           </div>
         </div>
+        {{/if}}
         <div class="col s12 primary_txt">
             <div class="row card accent_bg" style="padding: 20px 0;">
                 <i class="material-icons  right-align col s1 mt5p" id="previous" style="padding-top:10px;">arrow_back</i>
