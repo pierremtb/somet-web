@@ -1,4 +1,3 @@
-
 Router.route('/workouts', function () {
       this.render('Workouts');
 });
@@ -54,6 +53,17 @@ Router.route('/plan/:id', function() {
     } else {
        this.render('Login');
     }
+});
+
+Meteor.startup(function() {
+  Uploader.uploadUrl = Meteor.absoluteUrl("upload"); // Cordova needs absolute URL
+  Uploader.finished = function(index, fileInfo, templateContext) {
+    Meteor.call('parseThisFit',fileInfo.path, function(e,r){
+        Session.set("is_plan_based_wk",true);
+        Session.set("wk_distance",r.distance);
+        Session.set("wk_duration",r.duration);
+    });
+};
 });
 
 

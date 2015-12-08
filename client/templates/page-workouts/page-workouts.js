@@ -1,6 +1,6 @@
 function dispMins(min) {
     var h = parseInt(min/60) < 10 ? "0" + parseInt(min/60) : parseInt(min/60);
-    var m = min%60 < 10 ? "0" + (min%60) : (min%60)
+    var m = min%60 < 10 ? "0" + (min%60) : (min%60);
     return h + ":" + m;
 }
 
@@ -47,6 +47,9 @@ Template.Workouts.helpers({
             return "";
     },
     wkDistance: function () {
+        if(Session.get("is_plan_based_wk"))
+            return Session.get('wk_distance');
+        else
             return 25;
     },
     wkDate: function () {
@@ -69,7 +72,7 @@ Template.Workouts.helpers({
     me: function() {
         return Meteor.user().username;
     },
-    wkDuration: function () { return dispMins(Session.get('n_wk_duration'));}
+    wkDuration: function () { return dispMins(Session.get('wk_duration'));}
 });
 
 Template.Workouts.events({
@@ -178,7 +181,7 @@ Template.Workouts.events({
     }
 });
 
-Template.onRendered(function() {
+Template.Workouts.onRendered(function() {
     Session.set('n_wk_duration',90);
     Session.set("is_plan_based_wk", false);
 });

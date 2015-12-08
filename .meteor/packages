@@ -30,3 +30,11 @@ spacebars
 check
 poetic:materialize-scss
 cfs:ejson-file
+cfs:filesystem
+
+
+npm-container
+cfs:standard-packages
+meteorhacks:npm
+tomi:upload-server
+tomi:upload-jquery

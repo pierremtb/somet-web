@@ -1,0 +1,50 @@
+{
+  "dependencies": {
+    "python-shell": {
+      "version": "0.2.0"
+    },
+    "tcx-js": {
+      "version": "0.1.2",
+      "dependencies": {
+        "node-expat": {
+          "version": "2.3.11",
+          "dependencies": {
+            "bindings": {
+              "version": "1.2.1"
+            },
+            "debug": {
+              "version": "2.2.0",
+              "dependencies": {
+                "ms": {
+                  "version": "0.7.1"
+                }
+              }
+            },
+            "iconv": {
+              "version": "2.1.11",
+              "dependencies": {
+                "nan": {
+                  "version": "2.0.9"
+                }
+              }
+            },
+            "nan": {
+              "version": "2.1.0"
+            }
+          }
+        },
+        "m26-js": {
+          "version": "0.2.0"
+        },
+        "sb-js": {
+          "version": "0.1.1",
+          "dependencies": {
+            "path": {
+              "version": "0.11.14"
+            }
+          }
+        }
+      }
+    }
+  }
+}

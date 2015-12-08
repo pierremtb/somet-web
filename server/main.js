@@ -46,3 +46,43 @@ Router.map(function() {
   });
 
 });
+
+Meteor.startup(function () {
+  UploadServer.init({
+    tmpDir: process.env.PWD + '/.uploads/tmp',
+    uploadDir: process.env.PWD + '/.uploads/',
+    checkCreateDirectories: true //create the directories for you
+  });
+});
+
+Meteor.methods({
+    parseThisFit: function(path) {
+        var opts = {};
+        opts.elapsed = true;
+        var fs = Meteor.npmRequire('fs');
+        var exec = Npm.require('child_process').exec;
+        var python = Meteor.npmRequire('python-shell');
+        var tcx = Meteor.npmRequire('tcx-js');
+        exec("touch ../../../../../python/silentosilento");
+        var options = {
+          scriptPath: '../../../../../python/fittotcx.py',
+          args: ['../../../../../.uploads' + path]
+        };
+
+        python.run('my_script.py', options, function (err, results) {
+          console.log('results: %j', results);
+        });
+        //exec("/usr/bin/python ../../../../../python/fittotcx.py ../../../../../.uploads" + path + " > ../../../../../python" + path + ".tcx");
+        var parser = new tcx.Parser(opts);
+        parser.parse_file("../../../../../python" + path + ".tcx");
+        var activity = parser.activity;
+        var creator = activity.creator;
+        var author = activity.author;
+        var trackpoints = activity.trackpoints;
+        var data = {
+            distance : Math.round(parseInt(trackpoints[trackpoints.length-1].dist_meters)/1000),
+            duration: Math.round((trackpoints[trackpoints.length-1].elapsed_sec - trackpoints[0].elapsed_sec)/60)
+        }
+        return data;
+    }
+});
