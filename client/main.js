@@ -58,11 +58,17 @@ Router.route('/plan/:id', function() {
 Meteor.startup(function() {
   Uploader.uploadUrl = Meteor.absoluteUrl("upload"); // Cordova needs absolute URL
   Uploader.finished = function(index, fileInfo, templateContext) {
-    Meteor.call('parseThisFit',fileInfo.path, function(e,r){
-        Session.set("is_plan_based_wk",true);
-        Session.set("wk_distance",r.distance);
-        Session.set("wk_duration",r.duration);
+    Meteor.call('convertToTcx',fileInfo.path, function(e,r){
+        console.log(r);
     });
+    Meteor.setTimeout(function() {
+        Meteor.call('parseTcx',fileInfo.path, function(e,r){
+            console.log(r);
+            Session.set("is_plan_based_wk",true);
+            Session.set("wk_distance",r.distance);
+            Session.set("wk_duration",r.duration);
+        });
+    },500);
 };
 });
 
