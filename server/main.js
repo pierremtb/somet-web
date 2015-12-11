@@ -59,7 +59,6 @@ Meteor.methods({
     convertToTcx: function(path) {
         var fs = Meteor.npmRequire('fs');
         var exec = Npm.require('child_process').exec;
-        var python = Meteor.npmRequire('python-shell');
         exec("/usr/bin/python ../../../../../python/fittotcx.py \"../../../../../.uploads" + path + "\" > ../../../../../.uploads/sample.tcx");
         return "done";
     },
@@ -74,17 +73,25 @@ Meteor.methods({
         var creator = activity.creator;
         var author = activity.author;
         var trackpoints = activity.trackpoints;
-        console.log(trackpoints[10]);
         var length = trackpoints.length;
-        var time_values = "";
-        for(var i=0;i<length-1;i++) {
-            time_values += trackpoints[i].elapsed_sec + ",";
+        console.log(trackpoints[123]);
+        function getValues(s){
+            var r = "";
+            for(var i=0;i<length-1;i++) {
+                r +=  Math.round(parseInt(trackpoints[i][s])) + ",";
+            }
+            r += trackpoints[length-1][s];
+            return r;
         }
-        time_values += trackpoints[length-1].elapsed_sec;
         var data = {
             distance : Math.round(parseInt(trackpoints[trackpoints.length-1].dist_meters)/1000),
             duration: Math.round((trackpoints[trackpoints.length-1].elapsed_sec - trackpoints[0].elapsed_sec)/60),
-            time_values: time_values
+            time_values: getValues("elapsed_sec"),
+            distance_values: getValues("dist_meters"),
+            elevation_values: getValues("alt_meters"),
+            hr_values: getValues("hr"),
+            power_values: getValues("bike_power"),
+            cadence_values: getValues("bike_cadence")
         }
         return data;
     }

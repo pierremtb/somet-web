@@ -89,11 +89,15 @@ Template.Workouts.events({
           crten_ple: t.find('#n_wk_crten_ple').value,
           sensa: t.find('#n_wk_sensa').value,
           hum: t.find('#n_wk_hum').value,
+          time_values: Session.get("wk_time_values"),
+          distance_values: Session.get("wk_distance_values"),
+          elevation_values: Session.get("wk_elevation_values"),
           user: Meteor.user().username,
           day: new Date(t.find('#n_wk_date').value).getDate(),
           month: new Date(t.find('#n_wk_date').value).getMonth() + 1,
           year: new Date(t.find('#n_wk_date').value).getFullYear()
         });
+        console.log(Session.get("wk_time_values"));
     },
     selectedAthlete: function() { return Session.get("selectedAthlete"); },
     'change #n_wk_duration' : function(e,t) {

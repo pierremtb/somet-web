@@ -112,19 +112,20 @@ def add_trackpoint(element, trackpoint):
     speed      = trackpoint.get_data("speed")
     heart_rate = trackpoint.get_data("heart_rate")
     cadence    = trackpoint.get_data("cadence")
+    power      = trackpoint.get_data("power")
 
     create_sub_element(element, "Time", timestamp.isoformat() + "Z")
 
     if pos_lat != None and pos_long != None:
         pos = create_sub_element(element, "Position")
-        create_sub_element(pos, "LatitudeDegrees", 
+        create_sub_element(pos, "LatitudeDegrees",
             str(unitconvert.semicircle_to_degrees(pos_lat)))
         create_sub_element(pos, "LongitudeDegrees",
             str(unitconvert.semicircle_to_degrees(pos_long)))
 
     if altitude != None:
         create_sub_element(element, "AltitudeMeters", str(altitude))
-    if distance != None:    
+    if distance != None:
         create_sub_element(element, "DistanceMeters", str(distance))
 
     if heart_rate != None:
@@ -135,13 +136,16 @@ def add_trackpoint(element, trackpoint):
     if cadence != None:
         create_sub_element(element, "Cadence", str(cadence))
 
-    if speed != None:
+    if speed != None or power != None:
         exelem  = create_sub_element(element, "Extensions")
         tpx = create_sub_element(exelem, "TPX")
-        tpx.set("xmlns", 
-            "http://www.garmin.com/xmlschemas/ActivityExtension/v2")
-        tpx.set("CadenceSensor", "Footpod")
+
+    if speed != None:
         create_sub_element(tpx, "Speed", str(speed))
+    if power != None:
+        tpx.set("xmlns", "http://www.garmin.com/xmlschemas/ActivityExtension/v2")
+        tpx.set("CadenceSensor", "Bike")
+        create_sub_element(tpx, "Watts", str(power))
 
 def add_lap(element, activity, lap):
 
@@ -244,4 +248,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-

@@ -1,32 +1,13 @@
 {
   "dependencies": {
-    "python-shell": {
-      "version": "0.2.0"
-    },
     "tcx-js": {
-      "version": "0.1.2",
+      "version": "https://github.com/pierremtb/tcx-js/archive/01571a7840bb7eda05608e83437eed274686892b.tar.gz",
       "dependencies": {
         "node-expat": {
-          "version": "2.3.11",
+          "version": "2.3.12",
           "dependencies": {
             "bindings": {
               "version": "1.2.1"
-            },
-            "debug": {
-              "version": "2.2.0",
-              "dependencies": {
-                "ms": {
-                  "version": "0.7.1"
-                }
-              }
-            },
-            "iconv": {
-              "version": "2.1.11",
-              "dependencies": {
-                "nan": {
-                  "version": "2.0.9"
-                }
-              }
             },
             "nan": {
               "version": "2.1.0"
@@ -34,10 +15,10 @@
           }
         },
         "m26-js": {
-          "version": "0.2.0"
+          "version": "0.3.2"
         },
         "sb-js": {
-          "version": "0.1.1",
+          "version": "0.3.0",
           "dependencies": {
             "path": {
               "version": "0.11.14"

@@ -67,6 +67,10 @@ Meteor.startup(function() {
             Session.set("is_plan_based_wk",true);
             Session.set("wk_distance",r.distance);
             Session.set("wk_duration",r.duration);
+            Session.set("wk_time_values",r.time_values);
+            Session.set("wk_distance_values",r.distance_values);
+            Session.set("wk_elevation_values",r.elevation_values);
+            Session.set("wk_power_values",r.power_values);
         });
     },500);
 };
