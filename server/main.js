@@ -56,6 +56,46 @@ Meteor.startup(function () {
 });
 
 Meteor.methods({
+    getNotificationsNotRead: function(usr) {
+        return NotificationsDB.find({username: usr, read: false}).fetch();
+    },
+    getTrainerOfAthlete: function(usr) {
+        return AthletesDB.findOne({"trainer": usr}).username;
+    },
+    getAthletesOfTrainer: function(usr) {
+        return AthletesDB.find({trainer: usr});
+    },
+    makeAllNotificationsRead: function(usr) {
+        var tt = NotificationsDB.find({username: usr}).fetch();
+        var tt_l = tt.length;
+        var i;
+        for(i=0;i<tt_l;i++)
+            NotificationsDB.update(tt[i]._id, {$set: {read: true}});
+    },
+    getLastWk: function(usr) {
+        return WorkoutsDB.find({user: usr}, {sort: {date: -1}, limit:1});
+    },
+    getThisWeekPlan: function(usr, m) {
+        return PlansDB.findOne({username: usr, monday_date: m});
+    },
+    countThisSupportHoursInMonth: function(usr,month,year,sup) {
+        return WorkoutsDB.find({user: usr, month: month, year: year, support: sup}).fetch().length;
+    },
+    getMonthWk: function (usr,month,year) {
+        return WorkoutsDB.find({user: usr, month: month, year: year}).fetch();
+    },
+    getAllWk: function (usr) {
+        return WorkoutsDB.find({user: usr}, {sort: {date: -1}}).fetch();
+    },
+    getThisWk: function(id) {
+        return WorkoutsDB.findOne({"_id":id});
+    },
+    addThisWk: function(wk) {
+        WorkoutsDB.insert(wk);
+    },
+    rmThisWk: function(id) {
+        WorkoutsDB.remove(id);
+    },
     convertToTcx: function(path) {
         var fs = Meteor.npmRequire('fs');
         var exec = Npm.require('child_process').exec;
@@ -91,7 +131,8 @@ Meteor.methods({
             elevation_values: getValues("alt_meters"),
             hr_values: getValues("hr"),
             power_values: getValues("bike_power"),
-            cadence_values: getValues("bike_cadence")
+            cadence_values: getValues("bike_cadence"),
+            speed_values: getValues('speed')
         }
         return data;
     }

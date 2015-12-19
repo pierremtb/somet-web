@@ -17,6 +17,6 @@ Template.WorkoutTableLine.helpers({
 
 Template.WorkoutTableLine.events({
     "click #delete_bt" : function (e,t) {
-        WorkoutsDB.remove(t.find(".wkid").innerHTML);
+        Meteor.call("rmThisWk",t.find(".wkid").innerHTML);
     }
 });

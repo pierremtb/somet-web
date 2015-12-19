@@ -1,0 +1,29 @@
+<template name="MyTrainer">
+
+    <ul class="collection with-header">
+        <li class="collection-header"><h5>Mon entraineur</h5></li>
+        <li class="collection-item"><div>{{trainer}}<a href="#!" class="secondary-content rmv_trainer_button"><i class="material-icons">delete</i></a></div></li>
+      </ul>
+    <ul class="collection with-header">
+        <li class="collection-header"><h5>Changer d'entraineur</h5></li>
+        {{#each othertrainers}}
+        <li class="collection-item"><div>{{username}}<a class="secondary-content add_trainer_button"><i class="material-icons">add</i></a></div></li>
+        {{/each}}
+      </ul>
+
+  <script type="text/javascript">
+
+ $(".button-collapse").sideNav();
+  $(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+        $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+
+    </script>
+</template>

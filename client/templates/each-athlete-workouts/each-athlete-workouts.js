@@ -1,5 +1,12 @@
 Template.AthleteWorkouts.helpers({
     workouts: function () {
-          return WorkoutsDB.find({user: this.username + ""}, {sort: {date: -1}});
+      Meteor.call("getAllWk", this.username + "", function(e,r) {
+          wks.set(r);
+      });
+      return wks.get();
     }
 });
+
+Template.AthleteWorkouts.created = function() {
+    wks = new ReactiveVar();
+}

@@ -1,3 +1,9 @@
+#top_bar {
+    z-index: 999;
+    background: rgba(0, 0, 0, 0);
+    transition: all 0.5s;
+}
+
 @media screen and (max-width:600px) {
     #top_bar {
         height: 45px;

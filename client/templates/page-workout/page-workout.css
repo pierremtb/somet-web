@@ -2,6 +2,10 @@
   margin: 10px;
 }
 
+.circle {
+    display: inline-block;
+}
+
 .rect-auto,
 .c100.p51 .slice,
 .c100.p52 .slice,

@@ -14,8 +14,8 @@ Router.route('/athletes', function () {
       this.render('MyAthletes');
 });
 
-Router.route('/trainer', function () {
-      this.render('MyTrainer');
+Router.route('/settings', function () {
+      this.render('Settings');
 });
 
 Router.route('/calendar', function () {
@@ -36,9 +36,15 @@ Router.route('/', function () {
 });
 
 Router.route('/workout/:id', function() {
+    wk = new ReactiveVar();
     if(Meteor.user()) {
       this.render('Workout', {
-          data: function() { return WorkoutsDB.findOne({"_id":this.params.id})}
+          data: function() {
+              Meteor.call("getThisWk",this.params.id,function(e,r) {
+                 wk.set(r);
+              });
+              return wk.get();
+          }
       });
     } else {
        this.render('Login');
@@ -57,28 +63,29 @@ Router.route('/plan/:id', function() {
 
 Meteor.startup(function() {
   Uploader.uploadUrl = Meteor.absoluteUrl("upload"); // Cordova needs absolute URL
+  Session.set("wk_is_fit",false);
   Uploader.finished = function(index, fileInfo, templateContext) {
-    Meteor.call('convertToTcx',fileInfo.path, function(e,r){
-        console.log(r);
-    });
-    Meteor.setTimeout(function() {
-        Meteor.call('parseTcx',fileInfo.path, function(e,r){
+    console.log(fileInfo);
+    if(fileInfo) {
+        console.log("oua");
+        Meteor.call('convertToTcx',fileInfo.path, function(e,r){
             console.log(r);
-            Session.set("is_plan_based_wk",true);
-            Session.set("wk_distance",r.distance);
-            Session.set("wk_duration",r.duration);
-            Session.set("wk_time_values",r.time_values);
-            Session.set("wk_distance_values",r.distance_values);
-            Session.set("wk_elevation_values",r.elevation_values);
-            Session.set("wk_power_values",r.power_values);
         });
-    },500);
+        Meteor.setTimeout(function() {
+            Meteor.call('parseTcx',fileInfo.path, function(e,r){
+                console.log(r);
+                Session.set("wk_is_fit",true);
+                Session.set("is_plan_based_wk",true);
+                Session.set("wk_distance",r.distance);
+                Session.set("wk_duration",r.duration);
+                Session.set("wk_time_values",r.time_values);
+                Session.set("wk_distance_values",r.distance_values);
+                Session.set("wk_elevation_values",r.elevation_values);
+                Session.set("wk_power_values",r.power_values);
+                Session.set("wk_speed_values",r.speed_values);
+                Session.set("wk_cadence_values",r.cadence_values);
+            });
+        },500);
+    }
 };
 });
-
-
-WorkoutsDB = new Mongo.Collection("workouts");
-PlansDB = new Mongo.Collection("plans");
-AthletesDB = new Mongo.Collection("athletes");
-TrainersDB = new Mongo.Collection("trainers");
-NotificationsDB = new Mongo.Collection("notifications");

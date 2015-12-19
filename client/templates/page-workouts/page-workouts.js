@@ -7,11 +7,8 @@ function dispMins(min) {
 var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 Template.Workouts.helpers({
-    plans: function () {
-      return PlansDB.find({username: Meteor.user().username}, {sort: {date: -1}});
-    },
     workouts: function () {
-      return WorkoutsDB.find({user: Meteor.user().username}, {sort: {date: -1}});
+      return Meteor.call("getAllWk",Meteor.user().username);
     },
     isThisSupport: function (s) {
         if(Session.get("is_plan_based_wk"))
@@ -46,6 +43,7 @@ Template.Workouts.helpers({
         else
             return "";
     },
+    selectedAthlete: function() { return Session.get("selectedAthlete"); },
     wkDistance: function () {
         if(Session.get("is_plan_based_wk"))
             return Session.get('wk_distance');
@@ -61,7 +59,7 @@ Template.Workouts.helpers({
         }
     },
     athletes: function () {
-      return AthletesDB.find({trainer: Meteor.user().username});
+      return Meteor.call("getAthletesOfTrainer",Meteor.user().username);
     },
     trainerIs: function(){
         if(Meteor.user().profile === "trainer")
@@ -77,7 +75,7 @@ Template.Workouts.helpers({
 
 Template.Workouts.events({
     'click #n_wk_submit': function (e,t) {
-        WorkoutsDB.insert({
+        Meteor.call("addThisWk",{
           title: t.find('#n_wk_title').value,
           description: t.find('#n_wk_description').value,
           comments: t.find('#n_wk_comments').value,
@@ -89,17 +87,24 @@ Template.Workouts.events({
           crten_ple: t.find('#n_wk_crten_ple').value,
           sensa: t.find('#n_wk_sensa').value,
           hum: t.find('#n_wk_hum').value,
-          time_values: Session.get("wk_time_values"),
-          distance_values: Session.get("wk_distance_values"),
-          elevation_values: Session.get("wk_elevation_values"),
+          is_fit: Session.get("wk_is_fit"),
+          time_values: Session.get("wk_is_fit") ? Session.get("wk_time_values") : "",
+          distance_values: Session.get("wk_is_fit") ? Session.get("wk_distance_values") : "",
+          elevation_values: Session.get("wk_is_fit") ? Session.get("wk_elevation_values") : "",
+          power_values: Session.get("wk_is_fit") ? Session.get("wk_power_values") : "",
+          speed_values: Session.get("wk_is_fit") ? Session.get("wk_speed_values") : "",
+          cadence_values: Session.get("wk_is_fit") ? Session.get("wk_cadence_values") : "",
           user: Meteor.user().username,
           day: new Date(t.find('#n_wk_date').value).getDate(),
           month: new Date(t.find('#n_wk_date').value).getMonth() + 1,
           year: new Date(t.find('#n_wk_date').value).getFullYear()
         });
-        console.log(Session.get("wk_time_values"));
+        Session.set("wk_time_values","");
+        Session.set("wk_distance_values","");
+        Session.set("wk_elevation_values","");
+        Session.set("wk_power_values","");
+        Session.set("wk_cadence_values","");
     },
-    selectedAthlete: function() { return Session.get("selectedAthlete"); },
     'change #n_wk_duration' : function(e,t) {
         Session.set("n_wk_duration",t.find('#n_wk_duration').value);
     },

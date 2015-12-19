@@ -21,10 +21,10 @@ Template.Nav.helpers({
             return false;
     },
     notificationsNotRead: function (){
-        return NotificationsDB.find({username: Meteor.user().username, read: false});
+        return Meteor.call("getNotificationsNotRead",Meteor.user().username);
     },
     notificationsAreHere: function (){
-        var array = NotificationsDB.find({username: Meteor.user().username, read: false}).fetch();
+        var array = Meteor.call("getNotificationsNotRead",Meteor.user().username);
         if(typeof array != "undefined" && array != null && array.length > 0) {
             Materialize.toast("Vous avez des notifications non lues.", 3000);
             return true;
@@ -32,18 +32,20 @@ Template.Nav.helpers({
         else
             return false;
     },
-    selectedAthlete: function () { return Session.get("selectedAthlete") ? Session.get("selectedAthlete") : AthletesDB.findOne({"trainer":Meteor.user().username}).username},
+    selectedAthlete: function () { return Session.get("selectedAthlete") ? Session.get("selectedAthlete") : Meteor.call("getTrainerOfAthlete",Meteor.user().username)},
     athletes: function () {
-      return AthletesDB.find({trainer: Meteor.user().username});
+      return Meteor.call("getAthletesOfTrainer",Meteor.user().username);
     }
 });
 
 Template.Nav.events({
     "click .clear_notifs": function(){
-        var tt = NotificationsDB.find({username: Meteor.user().username}).fetch();
-        var tt_l = tt.length;
-        var i;
-        for(i=0;i<tt_l;i++)
-            NotificationsDB.update(tt[i]._id, {$set: {read: true}});
+        Meteor.call("makeAllNotificationsRead", Meteor.user().username);
     }
+});
+
+Template.Nav.onRendered(function() {
+    var array = Meteor.call("getNotificationsNotRead",Meteor.user().username);
+    if(typeof array != "undefined" && array != null && array.length > 0)
+        Materialize.toast("Vous avez des notifications non lues.", 3000);
 });

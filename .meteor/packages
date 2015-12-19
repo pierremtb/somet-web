@@ -5,12 +5,10 @@
 # but you can also edit it by hand.
 
 autopublish
-insecure
 jquery
 fourseven:scss
 iron:router
 accounts-password
-rafaelhdr:google-charts
 chart:chart
 mfpierre:chartist-js
 jparker:crypto-md5
@@ -38,3 +36,6 @@ cfs:standard-packages
 meteorhacks:npm
 tomi:upload-server
 tomi:upload-jquery
+valedaemon:circular-progress
+raix:ui-progress-circle
+reactive-var

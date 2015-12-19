@@ -3,7 +3,7 @@
   <div id="side_nav" class="hide-on-small-only">
       <ul class="hide-on-med-and-down">
           {{> SideNav dashboard=false workouts=true plans=false calendar=false
-          analysis=false}}
+          analysis=false settings=false}}
       </ul>
   </div>
   <div class="row" style="padding-top:90px">
@@ -23,7 +23,7 @@
 
               <div class="dash_container">
             <div class="row">
-                <div class="card" style="padding:10px">
+                <div class="card" style="padding:10px;z-index:99">
                  {{#if trainerIs}}
                     {{> AthleteWorkouts username=selectedAthlete}}
                  {{else}}
@@ -32,7 +32,9 @@
                 </div>
             </div>
         </div>
-        <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+        {{#if trainerIs}}
+        {{else}}
+        <div class="fixed-action-btn horizontal" style="bottom: 24px; right: 24px;">
             <a class="btn-floating btn-large pink">
             <i class="large material-icons">add</i>
             </a>
@@ -41,7 +43,7 @@
             <li><a class="btn-floating blue-grey tooltipped modal-trigger" href="#select_plan" data-position="top" data-delay="50" data-tooltip="Basé sur un plan"><i class="material-icons">list</i></a></li>
             </ul>
         </div>
-
+        {{/if}}
 
               <div id="add_workout" class="modal modal-fixed-footer"  style="width:90%;max-height:90%;height:90%;margin-top:-5%;">
                 <div class="modal-content">
