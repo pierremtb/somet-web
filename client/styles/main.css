@@ -5,6 +5,10 @@
   src: local('Material Icons'), local('MaterialIcons-Regular'), url(mdi.woff2) format('woff2');
 }
 
+.full_height {
+    height: 100vh;
+}
+
 .mdi {
   font-family: 'MI';
   font-weight: normal;
@@ -28,7 +32,7 @@ body {
     width: 100%;
     /*overflow: hidden;*/
     background:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(/mountain-road.jpg) no-repeat center fixed;
-  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  -webkit-background-size: cover;
   background-size: cover;
 }
 
@@ -49,7 +53,7 @@ body {
 #side_nav {
     position: fixed;
     z-index:25;
-    top: 75px;
+    top: 60px;
     height: 100%;
 
 }
@@ -67,11 +71,12 @@ body {
 }
 
 .selected {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.3);
 }
 
 .dash_container {
     padding: 0 60px;
+    padding-right: 10px;
     z-index: 25;
 }
 
@@ -84,7 +89,6 @@ body {
 
 #title {
     font-size: 35px;
-    margin-left: 35px;
 }
 
 .conversation_container {

@@ -468,7 +468,7 @@ Template.Plan.events({
         Session.set("n_pl_start_day",d.getDate());
     },
     "click #delete_btn" : function (e,t) {
-        PlansDB.remove(t.find(".plid").innerHTML);
+        Meteor.call("rmThisPl", t.find(".plid").innerHTML);
         document.location = "/plans";
     }
 });

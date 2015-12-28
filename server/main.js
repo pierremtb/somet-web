@@ -63,7 +63,7 @@ Meteor.methods({
         return AthletesDB.findOne({"trainer": usr}).username;
     },
     getAthletesOfTrainer: function(usr) {
-        return AthletesDB.find({trainer: usr});
+        return AthletesDB.find({trainer: usr}).fetch();
     },
     makeAllNotificationsRead: function(usr) {
         var tt = NotificationsDB.find({username: usr}).fetch();
@@ -73,7 +73,8 @@ Meteor.methods({
             NotificationsDB.update(tt[i]._id, {$set: {read: true}});
     },
     getLastWk: function(usr) {
-        return WorkoutsDB.find({user: usr}, {sort: {date: -1}, limit:1});
+        var r  = WorkoutsDB.find({user: usr}, {sort: {date: -1}, limit:1}).fetch();
+        return r.length == 0 ? null : r;
     },
     getThisWeekPlan: function(usr, m) {
         return PlansDB.findOne({username: usr, monday_date: m});
@@ -87,14 +88,85 @@ Meteor.methods({
     getAllWk: function (usr) {
         return WorkoutsDB.find({user: usr}, {sort: {date: -1}}).fetch();
     },
+    getAllPl: function (usr) {
+        return PlansDB.find({username: usr}, {sort: {date: -1}}).fetch();
+    },
     getThisWk: function(id) {
         return WorkoutsDB.findOne({"_id":id});
     },
+    getThisPl: function(id) {
+        return PlansDB.findOne({"_id":id});
+    },
     addThisWk: function(wk) {
         WorkoutsDB.insert(wk);
+        return 0;
+    },
+    addThisPl: function(pl) {
+        PlansDB.insert(pl);
+        return 0;
     },
     rmThisWk: function(id) {
         WorkoutsDB.remove(id);
+        return 0;
+    },
+    rmThisPl: function(id) {
+        PlansDB.remove(id);
+        return 0;
+    },
+    getHisTrainer: function(usr) {
+        return AthletesDB.findOne({username: usr}).trainer;
+    },
+    getOtherTrainers: function(usr) {
+        var tt = AthletesDB.findOne({username: usr}).trainer;
+        return TrainersDB.find({username: {$ne: tt }}).fetch();
+    },
+    getOtherAthletes: function(usr) {
+        return AthletesDB.find({trainer : {$ne : usr }}).fetch();
+    },
+    removeAthlete: function(usr,me) {
+        NotificationsDB.insert({username: usr, read: false, trainerremovedtype:true, value: me});
+        var tt = AthletesDB.findOne({username: usr})._id;
+        AthletesDB.update(tt, {$set: {trainer: ""}});
+        return usr;
+    },
+    sendAthleteInvite: function(usr,me) {
+        if(NotificationsDB.findOne({username: usr, read: false, trainerconfirmationtype:true, value: me}) === undefined) {
+            NotificationsDB.insert({username: usr, read: false, trainerconfirmationtype:true, value: me});
+            return "Une invitation a été envoyée à " + usr + ".";
+        }
+        else
+            return "Cette invitation a déjà été envoyée.";
+    },
+    sendTrainerInvite: function(usr,me) {
+        if(NotificationsDB.findOne({username: usr, read: false, athleteconfirmationtype:true, value: me}) === undefined) {
+            NotificationsDB.insert({username: usr, read: false, athleteconfirmationtype:true, value: me});
+            return "Une invitation a été envoyée à " + usr + ".";
+        }
+        else
+            return "Cette invitation a déjà été envoyée.";
+    },
+    acceptTrainer: function(tr,me,id) {
+        var tt = AthletesDB.findOne({username: me})._id;
+        AthletesDB.update(tt, {$set: {trainer: tr}});
+        NotificationsDB.insert({username: tr, read: false, athletetype: true, value: me});
+        NotificationsDB.update(id, {$set: {read: true}});
+        return "L'entraineur " + tr + " vous a été ajouté";
+    },
+    acceptAthlete: function(a,me,id) {
+        var tt = AthletesDB.findOne({username: a})._id;
+        AthletesDB.update(tt, {$set: {trainer:me}});
+        NotificationsDB.insert({username: a, read: false, trainertype: true, value: me});
+        NotificationsDB.update(id, {$set: {read: true}});
+        return "L'athlete " + a + " vous a ajouté.";
+    },
+    declineNotification: function(id) {
+        NotificationsDB.update(id, {$set: {read: true}});
+    },
+    removeTrainer: function(tr,me) {
+        NotificationsDB.insert({username: tr, read: false, athleteremovedtype:true, value: me});
+        var tt = AthletesDB.findOne({username: me})._id;
+        AthletesDB.update(tt, {$set: {trainer: ""}});
+        return tr + " n'est plus votre entraineur.";
     },
     convertToTcx: function(path) {
         var fs = Meteor.npmRequire('fs');

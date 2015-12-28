@@ -6,7 +6,7 @@
             analysis=false}}
         </ul>
     </div>
-    <div class="row" style="padding-top:90px">
+    <div class="row" style="padding-top:70px">
             <div class="col l2 hide-on-med-and-down ">
                 <h5> </h5>
 
@@ -15,13 +15,13 @@
             <div class="col l10 s12 m12 scroll ">
                 <div class="dash_container">
                     <p>
-                        <a class="btn-flat waves-effect primary_txt" href="/plans"><i class="material-icons left">arrow_back</i> GO BACK TO LIST</a>
+                        <a class="btn-flat waves-effect primary_txt" href="/plans"><i class="material-icons left">arrow_back</i> Retourner à la liste</a>
                         {{#if isTrainer}}
                         <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_plan1"><i class="material-icons left">edit</i> MODIFIER</a>
                         <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_plan"><i class="material-icons left">delete</i> SUPPRIMER</a>
                         {{/if}}
                     </p>
-                      <div class="card" style="padding:5px 20px">
+                      <div class="card" style="padding:5px 20px;z-index:999">
                             <p class="hide-on-small-only" id="date">Soumis le {{monday_date}}</p>
                             <p class="hide-on-med-and-up">Soumis le {{monday_date}}</p>
                             <h4>{{title}}</h4>

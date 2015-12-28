@@ -1,29 +1,50 @@
 Router.route('/workouts', function () {
+    if(Meteor.user()) {
       this.render('Workouts');
+    }
+    else {
+        Router.go('/');
+    }
 });
 
 Router.route('/plans', function () {
+    if(Meteor.user()) {
       this.render('Plans');
+    }
+    else {
+        Router.go('/');
+    }
 });
 
 Router.route('/signup', function () {
       this.render('Signup');
 });
 
-Router.route('/athletes', function () {
-      this.render('MyAthletes');
-});
-
 Router.route('/settings', function () {
+    if(Meteor.user()) {
       this.render('Settings');
+    }
+    else {
+        Router.go('/');
+    }
 });
 
 Router.route('/calendar', function () {
+    if(Meteor.user()) {
       this.render('Calendar');
+    }
+    else {
+        Router.go('/');
+    }
 });
 
 Router.route('/analysis', function () {
+    if(Meteor.user()) {
       this.render('Analysis');
+    }
+    else {
+        Router.go('/');
+    }
 });
 
 
@@ -36,15 +57,9 @@ Router.route('/', function () {
 });
 
 Router.route('/workout/:id', function() {
-    wk = new ReactiveVar();
     if(Meteor.user()) {
       this.render('Workout', {
-          data: function() {
-              Meteor.call("getThisWk",this.params.id,function(e,r) {
-                 wk.set(r);
-              });
-              return wk.get();
-          }
+          data: function() { return ReactiveMethod.call("getThisWk",this.params.id); }
       });
     } else {
        this.render('Login');
@@ -54,7 +69,12 @@ Router.route('/workout/:id', function() {
 Router.route('/plan/:id', function() {
     if(Meteor.user()) {
       this.render('Plan', {
-          data: function() { return PlansDB.findOne({"_id":this.params.id})}
+          data: function() {
+              Meteor.call("getThisPl",this.params.id,function(e,r) {
+                 pl.set(r);
+              });
+              return pl.get();
+          }
       });
     } else {
        this.render('Login');
@@ -62,6 +82,8 @@ Router.route('/plan/:id', function() {
 });
 
 Meteor.startup(function() {
+  wk = new ReactiveVar();
+  pl = new ReactiveVar();
   Uploader.uploadUrl = Meteor.absoluteUrl("upload"); // Cordova needs absolute URL
   Session.set("wk_is_fit",false);
   Uploader.finished = function(index, fileInfo, templateContext) {
@@ -85,7 +107,7 @@ Meteor.startup(function() {
                 Session.set("wk_speed_values",r.speed_values);
                 Session.set("wk_cadence_values",r.cadence_values);
             });
-        },500);
+        },1000);
     }
 };
 });

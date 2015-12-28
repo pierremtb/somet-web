@@ -1,19 +1,4 @@
 Template.Dashboard.helpers({
-    workouts: function () {
-      return WorkoutsDB.find({}, {sort: {date: -1}, limit:1});
-    },
-    athletes: function () {
-      return AthletesDB.find({trainer: Meteor.user().username});
-    },
-    trainers: function () {
-      return AthletesDB.find({username: Meteor.user().username});
-    },
-    allathletes: function () {
-      return AthletesDB.find({});
-    },
-    alltrainers: function () {
-      return TrainersDB.find({});
-    },
     trainerIs: function(){
         if(Meteor.user().profile === "trainer")
             return true;

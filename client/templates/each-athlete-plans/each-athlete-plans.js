@@ -1,5 +1,8 @@
 Template.AthletePlans.helpers({
     plans: function () {
-          return PlansDB.find({username: this.username + ""}, {sort: {date: -1}});
+        return ReactiveMethod.call("getAllPl",this.username);
+    },
+    isNoPls: function () {
+        return ReactiveMethod.call("getAllPl",this.username).length == 0;
     }
 });

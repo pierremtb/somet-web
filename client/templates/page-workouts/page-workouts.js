@@ -7,9 +7,6 @@ function dispMins(min) {
 var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 Template.Workouts.helpers({
-    workouts: function () {
-      return Meteor.call("getAllWk",Meteor.user().username);
-    },
     isThisSupport: function (s) {
         if(Session.get("is_plan_based_wk"))
             return Session.get('wk_support') == s;
@@ -58,18 +55,8 @@ Template.Workouts.helpers({
             return d.getDate() + " " + monthNames[d.getMonth()] + ", " + d.getFullYear();
         }
     },
-    athletes: function () {
-      return Meteor.call("getAthletesOfTrainer",Meteor.user().username);
-    },
-    trainerIs: function(){
-        if(Meteor.user().profile === "trainer")
-            return true;
-        else
-            return false;
-    },
-    me: function() {
-        return Meteor.user().username;
-    },
+    isTrainer: function(){ return Meteor.user().profile === "trainer"; },
+    me: function() { return Meteor.user().username; },
     wkDuration: function () { return dispMins(Session.get('wk_duration'));}
 });
 

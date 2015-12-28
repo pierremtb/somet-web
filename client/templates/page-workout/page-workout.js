@@ -1,6 +1,5 @@
 
-function drawWorkoutGraphs(id,elevation_e, power_e) {
-    var wk = WorkoutsDB.findOne({_id: id});
+function drawWorkoutGraphs(wk,elevation_e, power_e) {
     console.log(wk);
     var elevation_values = wk.elevation_values.split(",");
     var power_values = wk.power_values.split(",");
@@ -112,14 +111,19 @@ function drawWorkoutGraphs(id,elevation_e, power_e) {
       cadence_chart.draw(cadence_data, cadence_options);
     }
     google.load('visualization', '1.0', {'packages':['corechart'], callback: drawChart});
+    return 0;
 }
 
 Template.Workout.onRendered(function() {
     Session.set("x_axis", "time");
     Session.set("wk_is_fit", this.data.is_fit);
     console.log(Session.get("wk_is_fit"));
+    var ec = this.find('.elevation_chart'), pc = this.find('.power_chart'), sc = this.find('.speed_chart'), cc = this.find('.cadence_chart')
     if(Session.get("wk_is_fit"))
-        drawWorkoutGraphs(this.data._id, this.find('.elevation_chart'), this.find('.power_chart'), this.find('.speed_chart'), this.find('.cadence_chart'));
+        Meteor.call("getThisWk",this.data._id, function(e,r) {
+            drawWorkoutGraphs(r, ec, pc, sc, cc);
+        });
+    return 0;
 });
 
 Template.Workout.helpers({
@@ -153,7 +157,7 @@ Template.Workout.helpers({
         var percent = c > 0 && c < 11 ? c*10 : 10;
         return percent + " " + color+"-circle";
     },
-    isFit: function() { return Session.get("wk_is_fit"); }
+    isFit: function() {     console.log(this);return Session.get("wk_is_fit"); }
 });
 
 Template.Workout.events({

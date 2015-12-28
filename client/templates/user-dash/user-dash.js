@@ -11,6 +11,11 @@ function getDaysInMonth(month, year) {
      return days;
 }
 
+function dispMins(min) {
+    var h = parseInt(min/60) < 10 ? "0" + parseInt(min/60) : parseInt(min/60);
+    var m = min%60 < 10 ? "0" + (min%60) : (min%60);
+    return h + ":" + m;
+}
 
 var date = new Date();
 var graphs_are_not_here = true;
@@ -26,71 +31,74 @@ function getPreviousMonday() {
 }
 
 function drawMonthGraph(me,t) {
-    var works = Meteor.call("getMonthWk", me, month, year);
-    var i, temp, workouts = [], days = [], fin = [];
-    for(key in works) {
-      workouts[key]=works[key].length;
-      days[key]=works[key].day;
-    }
-    daysinmonth = getDaysInMonth(month, year);
-    for(i in daysinmonth) {
-        temp = days.indexOf(daysinmonth[i]);
-        if(temp == -1)
-            fin[i] = 0;
-        else
-            fin[i] = workouts[temp];
-    }
+    /*Meteor.call("getMonthWk", me, month, year, function(e,works) {
+        var i, temp, workouts = [], days = [], fin = [];
+        for(key in works) {
+          workouts[key]=works[key].length/60;
+          days[key]=works[key].day;
+        }
+        daysinmonth = getDaysInMonth(month, year);
+        for(i in daysinmonth) {
+            temp = days.indexOf(daysinmonth[i]);
+            if(temp == -1)
+                fin[i] = 0;
+            else
+                fin[i] = workouts[temp];
+        }
 
-    t.find("#monthly_graph_title").innerHTML = months[month - 1] + " " + year;
-    var mtbs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"mtb");
-    var roads = Meteor.call("countThisSupportHoursInMonth",me,month,year,"road");
-    var runs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"run");
-    var hts = Meteor.call("countThisSupportHoursInMonth",me,month,year,"ht");
-    var swims = Meteor.call("countThisSupportHoursInMonth",me,month,year,"swim");
-    var endrs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"endr");
-    var skixs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"skix");
-    var othrs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"othr");
-    var datac = [
-    {
-        value: mtbs,
-        color:"#ec407a",
-        highlight: "#f06292",
-        label: "VTT"
-    },
-    {
-        value: roads + hts,
-        color: "#03a9f4",
-        highlight: "#29b6f6",
-        label: "Route"
-    },
-    {
-        value: swims + endrs + skixs + othrs + runs,
-        color: "#455a64",
-        highlight: "#29b6f6",
-        label: "Autre"
-    }
-]
-    var datat = {
-        labels: daysinmonth,
-        datasets: [
-            {
-                data: fin,
-                strokeColor: "#ec407a",
-                fillColor: "#ec407a"
-            }
-        ]
-    };
-    options = {
-      responsive: true,
-      scaleFontColor: "#000",
-      legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+        t.find("#monthly_graph_title").innerHTML = months[month - 1] + " " + year;
+        /*var mtbs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"mtb");
+        var roads = Meteor.call("countThisSupportHoursInMonth",me,month,year,"road");
+        var runs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"run");
+        var hts = Meteor.call("countThisSupportHoursInMonth",me,month,year,"ht");
+        var swims = Meteor.call("countThisSupportHoursInMonth",me,month,year,"swim");
+        var endrs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"endr");
+        var skixs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"skix");
+        var othrs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"othr");
+        var datac = [
+        {
+            value: mtbs,
+            color:"#ec407a",
+            highlight: "#f06292",
+            label: "VTT"
+        },
+        {
+            value: roads + hts,
+            color: "#03a9f4",
+            highlight: "#29b6f6",
+            label: "Route"
+        },
+        {
+            value: swims + endrs + skixs + othrs + runs,
+            color: "#455a64",
+            highlight: "#29b6f6",
+            label: "Autre"
+        }
+    ]
+        var datat = {
+            labels: daysinmonth,
+            datasets: [
+                {
+                    data: fin,
+                    strokeColor: "#ec407a",
+                    fillColor: "#ec407a"
+                }
+            ]
+        };
+        options = {
+          responsive: true,
+          animation: false,
+          scaleFontColor: "#000",
+          legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
 
-    };
-    var ctx = t.find("#chart").getContext("2d");
-    var piectx = t.find("#pie-chart").getContext("2d");
-    monthChart = new Chart(ctx).Bar(datat, options);
-    sportsChart = new Chart(piectx).Doughnut(datac, options);
+        };
+        var ctx = t.find("#chart").getContext("2d");
+        var piectx = t.find("#pie-chart").getContext("2d");
+        monthChart = new Chart(ctx).Bar(datat, options);*/
+        //sportsChart = new Chart(piectx).Doughnut(datac, options);
+    //});
+    return 0;
 }
 
 function dispPreviousMonth(me,t) {
@@ -114,33 +122,37 @@ function dispNextMonth(me,t) {
 }
 
 Template.UserDash.helpers({
-    workouts: function () {
-          return Meteor.call("getLastWk",this.username + "");
-    },
-
-    isWk: function () {
-          if(Meteor.call("getLastWk", this.username + ""))
-              return true;
-          else
-            return false;
-    },
-    todayPlan: function () {
-          if(Meteor.call("getThisWeekPlan",this.username + "",getPreviousMonday()))
-              return true;
-          else
-            return false;
-    },
+    isWk: function () { wk.set(ReactiveMethod.call("getLastWk",this.username)); return wk.get() != null; },
+    workouts: function () { return wk.get(); },
+    todayPlan: function () { pls.set(ReactiveMethod.call("getThisWeekPlan", this.username, getPreviousMonday())); return pls.get() != undefined;},
     todayType: function () {
-        var td = Meteor.call("getThisWeekPlan",this.username + "",getPreviousMonday())[days[date.getDay()].toLowerCase() + "_type"];
-        return  td == "nth" ? "Repos" : td == "wk" ? "Entrainement" : td == "rc" ? "Compétition" : "";
+        try {
+            var td = pls.get()[days[date.getDay()].toLowerCase() + "_type"];
+            return  td == "nth" ? "Repos" : td == "wk" ? "Entrainement" : td == "rc" ? "Compétition" : "";
+        }
+        catch(e) {
+            return "Error";
+        }
     },
     todaySupport: function () {
-        var td = Meteor.call("getThisWeekPlan",this.username + "",getPreviousMonday())[days[date.getDay()].toLowerCase() + "_support"];
-        return  td == "mtb" ? "VTT" : td == "road" ? "Route" : td == "ht" ? "Home Trainer" : td == "run" ? "Course à pied" : td == "skix" ? "Ski de fond" : td == "swim" ? "Natation" : td == "othr" ? "Autre" :  "";
+        try {
+            var td = pls.get()[days[date.getDay()].toLowerCase() + "_support"];
+            return  td == "mtb" ? "VTT" : td == "road" ? "Route" : td == "ht" ? "Home Trainer" : td == "run" ? "Course à pied" : td == "skix" ? "Ski de fond" : td == "swim" ? "Natation" : td == "othr" ? "Autre" :  "";
+        }
+        catch(e) {
+            return "Error";
+        }
     },
-    user: function() {
-          return this.username + "";
-    }
+    todayDuration: function () {
+        try {
+            var d = pls.get()[days[date.getDay()].toLowerCase() + "_duration"];
+            return d == "" ? "" : dispMins(parseInt(pls.get()[days[date.getDay()].toLowerCase() + "_duration"]));
+        }
+        catch(e) {
+            return "Error";
+        }
+    },
+    user: function() { return this.username + "";}
 });
 
 Template.UserDash.events({
@@ -149,16 +161,15 @@ Template.UserDash.events({
     },
     "click #next" : function(e,t) {
         dispNextMonth(t.data.username,t);
-    },
-    "mouseenter" : function(e,t) {
-        if(t.find("#monthly_graph_title").innerHTML == "Juillet") {
-
-        }
     }
 });
 
-
 Template.UserDash.onRendered(function() {
     var t = this;
-    this.autorun(function() {drawMonthGraph(Session.get("selectedAthlete"),t);});
+    this.autorun(function() {drawMonthGraph(Meteor.user().profile == "trainer" ? Session.get("selectedAthlete") : Meteor.user().username,t);});
+});
+
+Template.UserDash.onCreated(function() {
+    pls = new ReactiveVar();
+    wk = new ReactiveVar();
 });

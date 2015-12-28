@@ -4,15 +4,11 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-autopublish
 jquery
 fourseven:scss
 iron:router
 accounts-password
-chart:chart
-mfpierre:chartist-js
 jparker:crypto-md5
-izzilab:material-ui
 standard-minifiers
 meteor-base
 mobile-experience
@@ -27,15 +23,12 @@ ejson
 spacebars
 check
 poetic:materialize-scss
-cfs:ejson-file
-cfs:filesystem
 
 
 npm-container
-cfs:standard-packages
 meteorhacks:npm
 tomi:upload-server
 tomi:upload-jquery
-valedaemon:circular-progress
-raix:ui-progress-circle
 reactive-var
+simple:reactive-method
+multiply:iron-router-progress

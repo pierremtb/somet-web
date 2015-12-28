@@ -10,8 +10,11 @@
         </thead>
          <tbody>
              {{#each plans}}
-                {{> PlanTableLine id=_id title=title comments=comments date=date }}
+                {{> PlanTableLine id=_id title=title comments=comments date=monday_date }}
               {{/each}}
+              {{#if isNoPls}}
+                <p>Pas de plans enregistrés.</p>
+              {{/if}}
          </tbody>
      </table>
 </template>

@@ -13,6 +13,9 @@
              {{#each workouts}}
                 {{> WorkoutTableLine id=_id date=date duration=length title=title length=length distance=distance hrvalues=hrvalues distancevalues=distancevalues crten=crten elevvalues=elevvalues}}
               {{/each}}
+              {{#if isWks}}
+                  <p>Pas d'entrainements enregistrés.</p>
+              {{/if}}
          </tbody>
      </table>
 </template>

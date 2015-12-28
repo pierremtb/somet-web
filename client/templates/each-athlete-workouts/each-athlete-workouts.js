@@ -1,12 +1,8 @@
 Template.AthleteWorkouts.helpers({
     workouts: function () {
-      Meteor.call("getAllWk", this.username + "", function(e,r) {
-          wks.set(r);
-      });
-      return wks.get();
+        return ReactiveMethod.call("getAllWk",this.username);
+    },
+    isWks: function () {
+        return ReactiveMethod.call("getAllWk",this.username).length == 0;
     }
 });
-
-Template.AthleteWorkouts.created = function() {
-    wks = new ReactiveVar();
-}

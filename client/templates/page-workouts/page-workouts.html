@@ -6,7 +6,7 @@
           analysis=false settings=false}}
       </ul>
   </div>
-  <div class="row" style="padding-top:90px">
+  <div class="row" style="padding-top:70px">
           {{#if currentUser}}
 
           <div class="col l2 hide-on-med-and-down ">
@@ -15,35 +15,22 @@
           </div>
 
           <div class="col l10 s12 m12 scroll ">
-
-
-
-
-
-
               <div class="dash_container">
-            <div class="row">
+                  <p>
+                      {{#if isTrainer}}
+                      {{else}}
+                      <a class="btn-flat waves-effect primary_txt modal-trigger" href="#select_plan"><i class="material-icons left">add</i> Ajouter (basé sur un plan)</a>
+                      <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_workout"><i class="material-icons left">add</i> Ajouter (libre)</a>
+                      {{/if}}
+                  </p>
                 <div class="card" style="padding:10px;z-index:99">
-                 {{#if trainerIs}}
+                 {{#if isTrainer}}
                     {{> AthleteWorkouts username=selectedAthlete}}
                  {{else}}
                     {{> AthleteWorkouts username=currentUser.username}}
                 {{/if}}
                 </div>
-            </div>
         </div>
-        {{#if trainerIs}}
-        {{else}}
-        <div class="fixed-action-btn horizontal" style="bottom: 24px; right: 24px;">
-            <a class="btn-floating btn-large pink">
-            <i class="large material-icons">add</i>
-            </a>
-            <ul>
-            <li><a class="btn-floating blue-grey tooltipped modal-trigger" href="#add_workout" data-position="top" data-delay="50" data-tooltip="Nouveau"><i class="material-icons">open_in_new</i></a></li>
-            <li><a class="btn-floating blue-grey tooltipped modal-trigger" href="#select_plan" data-position="top" data-delay="50" data-tooltip="Basé sur un plan"><i class="material-icons">list</i></a></li>
-            </ul>
-        </div>
-        {{/if}}
 
               <div id="add_workout" class="modal modal-fixed-footer"  style="width:90%;max-height:90%;height:90%;margin-top:-5%;">
                 <div class="modal-content">
