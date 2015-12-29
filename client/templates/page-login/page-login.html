@@ -1,5 +1,5 @@
 <template name="Login">
-    <nav style="position:fixed;z-index:99" class="accent_bg">
+    <nav style="position:fixed;z-index:99;background:rgba(30,30,30,0.5);box-shadow:none">
         <div class="nav-wrapper">
             <a href="/" class="ml10p" id="title">Sumrise<span class="f18p ml10p"> (beta)</span></a>
             <ul class="right">
@@ -12,11 +12,12 @@
            <div class="parallax"><img src="/mountain-road.jpg"></div>
            <div class="row valign">
                {{#if loginSelected}}
-                  <div class="col l6 white-text">
+                  <div class="col s12 m6 white-text">
                       <h1 class="thin">Bienvenue sur Sumrise,</h1>
                       <h3 class="light">la plateforme d'entrainement cycliste pour mettre en lien athlètes et entraineurs.</h3>
                   </div>
-                  <div class="primary_txt col m4 s12 offset-m1 card">
+                  <div class="col s12 m4">    </div>
+                  <div class="col s12 m4 offset-s0 card">
                        {{> LoginForm}}
                    </div>
              {{else}}
@@ -27,7 +28,7 @@
 
            </div>
          </div>
-         <div class="section white">
+         <!--<div class="section white">
            <div class="row container">
              <h2 class="header">Parallax</h2>
              <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
@@ -35,7 +36,7 @@
          </div>
          <div class="parallax-container">
            <div class="parallax"><img src="/mountain-road.jpg"></div>
-         </div>
+       </div>-->
 
          <script type="text/javascript">
          $(document).ready(function(){
