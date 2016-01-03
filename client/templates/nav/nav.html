@@ -1,46 +1,63 @@
 <template name="Nav">
-  <header>
-      <ul id="slide-out" class="side-nav" style="color:black">
-         <li class="side_item {{#if dashboard}}selected{{/if}} "><a href="/" ><i class="small material-icons vam  inline">dashboard</i><span class="vam l15p">Dashboard</span></a></li>
-          <li class="side_item {{#if workouts}}selected{{/if}}" ><a href="/workouts"><i class="small material-icons vam inline">directions_bike</i><span class="vam l15p">Entraîments</span></a></li>
-          <li class="side_item {{#if plans}}selected{{/if}}"><a href="/plans"><i class="small material-icons vam inline">list</i><span class="vam l15p">Plans</span></a></li>
-          <li class="side_item {{#if calendar}}selected{{/if}}"><a href="/calendar"><i class="small material-icons vam inline">today</i><span class="vam l15p">Calendrier</span></a></li>
-          <li class="side_item {{#if analysis}}selected{{/if}}"><a href="/analysis"><i class="small material-icons vam inline">trending_up</i><span class="vam l15p">Analyse</span></a></li>
-          <li class="side_item {{#if settings}}selected{{/if}}"><a href="/settings"><i class="small material-icons vam inline">settings</i><span class="vam l15p">Paramètres</span></a></li>
-    </ul>
-        <ul id="slide-out-notif" class="side-nav">
-             <h4 class="center">Notifications</h4>
-            {{#if notificationsAreHere}}
-                <a class="clear_notifs btn-flat waves-effect"><i class="material-icons left">done_all</i>marquer comme lues</a>
-            {{/if}}
-             {{#each notificationsNotRead}}
-                    {{> Notification}}
-            {{/each}}
-          </ul>
-    <div id="top_bar" class="primary_txt valign-wrapper" style="z-index:465">
-        <a href="#" data-activates="slide-out" class="l20p button-collapse left hide-on-large-only primary_txt"><i class="material-icons small">menu</i></a>
-        <span class="valign button-collapse primary_txt f20p mt5p l10p hide-on-large-only pointer" data-activates="slide-out" >{{page}}</span>
-        <a id="title" class="valign-wrapper hide-on-med-and-down primary_txt">Sumrise  <span class="f18p ml10p"> (beta)</span></a>
-        <ul class="valign primary_txt" id="nav-mobile">
-        {{#if trainerIs}}
-        <li id="user_bar" class="dropdown-button pointer left  r20p" data-activates='dropdown_athletes'>
-          <a  data-activates='dropdown_user' class="primary_txt f20p"><i class="small material-icons inline vam">directions_run</i><span class="inline f18p vam">{{selectedAthlete}}</span></a>
-        </li>
-        {{/if}}
-          <li id="user_bar" class="dropdown-button left t5p r20p" data-activates='dropdown_notifications'>
-            <a  data-activates='slide-out-notif' class="notif-trigger primary_txt f20p"><i class="small material-icons">{{#if notificationsAreHere}}notifications_active{{else}}notifications{{/if}}</i></a>
-          </li>
-          <li id="user_bar" class="dropdown-button left t5p r20p" data-activates='dropdown_user'>
-            <a  data-activates='dropdown_user' class="primary_txt f20p"><i class="small material-icons">account_circle</i></a>
-          </li>
+    <header>
+        <ul id="slide-out" class="side-nav" style="color:black">
+            <li class="side_item {{#if dashboard}}selected{{/if}} "><a href="/"><i
+                    class="small material-icons vam  inline">dashboard</i><span class="vam l15p">Dashboard</span></a>
+            </li>
+            <li class="side_item {{#if workouts}}selected{{/if}}"><a href="/workouts"><i
+                    class="small material-icons vam inline">directions_bike</i><span class="vam l15p">Entraîments</span></a>
+            </li>
+            <li class="side_item {{#if plans}}selected{{/if}}"><a href="/plans"><i
+                    class="small material-icons vam inline">list</i><span class="vam l15p">Plans</span></a></li>
+            <li class="side_item {{#if calendar}}selected{{/if}}"><a href="/calendar"><i
+                    class="small material-icons vam inline">today</i><span class="vam l15p">Calendrier</span></a></li>
+            <li class="side_item {{#if analysis}}selected{{/if}}"><a href="/analysis"><i
+                    class="small material-icons vam inline">trending_up</i><span class="vam l15p">Analyse</span></a>
+            </li>
+            <li class="side_item {{#if settings}}selected{{/if}}"><a href="/settings"><i
+                    class="small material-icons vam inline">settings</i><span class="vam l15p">Paramètres</span></a>
+            </li>
         </ul>
-    </div>
-</header>
+        <ul id="slide-out-notif" class="side-nav">
+            <h4 class="center">Notifications</h4>
+            {{#if notificationsAreHere}}
+                <a class="clear_notifs btn-flat waves-effect"><i class="material-icons left">done_all</i>marquer comme
+                    lues</a>
+            {{/if}}
+            {{#each notificationsNotRead}}
+                {{> Notification}}
+            {{/each}}
+        </ul>
+        <div id="top_bar" class="primary_txt valign-wrapper" style="z-index:465">
+            <a href="#" data-activates="slide-out" class="l20p button-collapse left hide-on-large-only primary_txt"><i
+                    class="material-icons small">menu</i></a>
+            <span class=" l20p valign button-collapse primary_txt f20p mt5p hide-on-large-only pointer "
+                  data-activates="slide-out">{{page}}</span>
+            <a id="title" class="valign-wrapper hide-on-med-and-down primary_txt">Sumrise <span class="f18p ml10p"> (beta)</span></a>
+            <ul class="valign primary_txt" id="nav-mobile">
+                {{#if trainerIs}}
+                    <li id="user_bar" class="dropdown-button pointer left  r20p" data-activates='dropdown_athletes'>
+                        <a data-activates='dropdown_user' class="primary_txt f20p"><i
+                                class="small material-icons inline vam">directions_run</i><span
+                                class="inline f18p vam">{{selectedAthlete}}</span></a>
+                    </li>
+                {{/if}}
+                <li id="user_bar" class="dropdown-button left t5p r20p" data-activates='dropdown_notifications'>
+                    <a data-activates='slide-out-notif' class="notif-trigger primary_txt f20p"><i
+                            class="small material-icons">{{#if notificationsAreHere}}notifications_active{{else}}
+                        notifications{{/if}}</i></a>
+                </li>
+                <li id="user_bar" class="dropdown-button left t5p r20p" data-activates='dropdown_user'>
+                    <a data-activates='dropdown_user' class="primary_txt f20p"><i class="small material-icons">account_circle</i></a>
+                </li>
+            </ul>
+        </div>
+    </header>
     <ul id='dropdown_user' class='dropdown-content'>
-    <li><a href="#!" class="bold grey-text flow-text">{{currentUser.username}}</a></li>
-    <li><a href="/settings">Paramètres</a></li>
-    <li><a id="logout_button">Déconnexion</a></li>
-  </ul>
+        <li><a href="#!" class="bold grey-text flow-text">{{currentUser.username}}</a></li>
+        <li><a href="/settings">Paramètres</a></li>
+        <li><a id="logout_button">Déconnexion</a></li>
+    </ul>
 
     <ul id='dropdown_athletes' class='dropdown-content'>
         {{#each athletes}}
@@ -48,33 +65,33 @@
         {{/each}}
     </ul>
 
-        <script type="text/javascript">
+    <script type="text/javascript">
 
-           $('.button-collapse').sideNav({
-              closeOnClick: true
-            }
-          );
+        $('.button-collapse').sideNav({
+                    closeOnClick: true
+                }
+        );
 
-          $('.dropdown-button').dropdown({
-              inDuration: 300,
-              outDuration: 225,
-              constrain_width: false, // Does not change width of dropdown to that of the activator
-              hover: false, // Activate on hover
-              gutter: 0, // Spacing from edge
-              belowOrigin: true // Displays dropdown below the button
-            }
-          );
-                 $('.notif-trigger').sideNav({
-              edge: 'right', // Choose the horizontal origin
-               menuWidth: 300
-            }
-          );
-          $(window).scroll(function() {
-              if($(window).scrollTop() > 30)
-                $('#top_bar').css('background','rgba(30,30,30,0.7)');
-              else
-                $('#top_bar').css('background','rgba(0,0,0,0)');
-          });
+        $('.dropdown-button').dropdown({
+                    inDuration: 300,
+                    outDuration: 225,
+                    constrain_width: false, // Does not change width of dropdown to that of the activator
+                    hover: false, // Activate on hover
+                    gutter: 0, // Spacing from edge
+                    belowOrigin: true // Displays dropdown below the button
+                }
+        );
+        $('.notif-trigger').sideNav({
+                    edge: 'right', // Choose the horizontal origin
+                    menuWidth: 300
+                }
+        );
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 30)
+                $('#top_bar').css('background', 'rgba(30,30,30,0.7)');
+            else
+                $('#top_bar').css('background', 'rgba(0,0,0,0)');
+        });
     </script>
 
 </template>

@@ -91,3 +91,7 @@ input[type=range] + .thumb {
 #iron-router-progress.spinner:before {
     display: none;
 }
+
+.side_item:hover span, .side_item:hover i{
+  color: $secondary-color;
+}
