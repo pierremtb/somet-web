@@ -82,6 +82,18 @@ Meteor.methods({
     countThisSupportHoursInMonth: function(usr,month,year,sup) {
         return WorkoutsDB.find({user: usr, month: month, year: year, support: sup}).fetch().length;
     },
+    countSupportsHoursInMonth: function(usr,month,year) {
+        return {
+            mtbs: WorkoutsDB.find({user: usr, month: month, year: year, support: "mtb"}).fetch().length,
+            roads: WorkoutsDB.find({user: usr, month: month, year: year, support: "road"}).fetch().length,
+            hts: WorkoutsDB.find({user: usr, month: month, year: year, support: "ht"}).fetch().length,
+            runs: WorkoutsDB.find({user: usr, month: month, year: year, support: "run"}).fetch().length,
+            swims: WorkoutsDB.find({user: usr, month: month, year: year, support: "swim"}).fetch().length,
+            endrs: WorkoutsDB.find({user: usr, month: month, year: year, support: "endr"}).fetch().length,
+            skixs: WorkoutsDB.find({user: usr, month: month, year: year, support: "skix"}).fetch().length,
+            othrs: WorkoutsDB.find({user: usr, month: month, year: year, support: "othr"}).fetch().length
+        }
+    },
     getMonthWk: function (usr,month,year) {
         return WorkoutsDB.find({user: usr, month: month, year: year}).fetch();
     },
@@ -167,6 +179,14 @@ Meteor.methods({
         var tt = AthletesDB.findOne({username: me})._id;
         AthletesDB.update(tt, {$set: {trainer: ""}});
         return tr + " n'est plus votre entraineur.";
+    },
+    addToTrainersDB: function(usr) {
+        TrainersDB.insert({username:usr});
+        return "done";
+    },
+    addToAthletesDB: function(usr) {
+        AthletesDB.insert({username:usr});
+        return "done";
     },
     convertToTcx: function(path) {
         var fs = Meteor.npmRequire('fs');

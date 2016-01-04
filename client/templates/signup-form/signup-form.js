@@ -13,7 +13,7 @@
             // Inform the user that account creation failed
               alert(err.reason);
           } else {
-            ColorsDB.insert({username: username, background: "#03A9F4"});
+            //ColorsDB.insert({username: username, background: "#03A9F4"});
           }
 
         });
@@ -36,12 +36,12 @@
               alert(err.reason);
           } else {
             // Success. Account has been created and the user
-            ColorsDB.insert({username: username, background: "#03A9F4"});
+            //ColorsDB.insert({username: username, background: "#03A9F4"});
             // has logged in successfully.
               if(pro === "athlete")
-                AthletesDB.insert({username: username});
+                Meteor.call("addToAthletesDB",username);
               else
-                TrainersDB.insert({username: username});
+                Meteor.call("addToTrainersDB",username);
               Router.go('/');
           }
 

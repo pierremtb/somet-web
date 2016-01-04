@@ -1,105 +1,88 @@
 <template name="UserDash">
     <div class="row">
         <div class="col s12 m6 ">
-          {{#if isWk}}
-          <div class="card white last_wk"  style="z-index:99">
-           {{#each workouts}}
-            <div class="card-content ">
-              <span class="card-title">Dernier entrainement</span>
-                <p>{{title}}</p>
-                <p>{{distance}}km</p>
-                <p>{{length}}h</p>
-                <p>{{description}}</p>
-                <p>CR10 : {{crten}}</p>
-            </div>
-            <div class="card-action right-align ">
-                <a href='/workouts' class="">Plus</a>
-                <a href="/workout/{{_id}}" class="">Details</a>
-            </div>
-            {{/each}}
-          </div>
-          {{else}}
-          <div class="card white last_wk"  style="z-index:99">
-            <div class="card-content ">
-                <p>Pas d'entrainement récent.</p>
-            </div>
-          </div>
-          {{/if}}
+            {{#if isWk}}
+                <div class="card white last_wk" style="z-index:99">
+                    {{#each workouts}}
+                        <div class="card-content ">
+                            <span class="card-title">Dernier entrainement</span>
+                            <p>{{title}}</p>
+                            <p>{{distance}}km</p>
+                            <p>{{length}}h</p>
+                            <p>{{description}}</p>
+                            <p>CR10 : {{crten}}</p>
+                        </div>
+                        <div class="card-action right-align ">
+                            <a href='/workouts' class="">Plus</a>
+                            <a href="/workout/{{_id}}" class="">Details</a>
+                        </div>
+                    {{/each}}
+                </div>
+            {{else}}
+                <div class="card white last_wk" style="z-index:99">
+                    <div class="card-content ">
+                        <p>Pas d'entrainement récent.</p>
+                    </div>
+                </div>
+            {{/if}}
 
         </div>
         <div class="col s12 m6 ">
             {{#if todayPlan}}
-            <div class="card  last_pl"  style="z-index:99">
-                <div class="card-content">
-                   <span class="card-title">Séance d'aujourd'hui</span>
-                    <p>{{todayType}}</p>
-                    <p>{{todaySupport}}</p>
-                    <p>{{todayDuration}}</p>
-                    <p>{{todayDesc}}</p>
-                    <p>{{todayComments}}</p>
+                <div class="card  last_pl" style="z-index:99">
+                    <div class="card-content">
+                        <span class="card-title">Séance d'aujourd'hui</span>
+                        <p>{{todayType}}</p>
+                        <p>{{todaySupport}}</p>
+                        <p>{{todayDuration}}</p>
+                        <p>{{todayDesc}}</p>
+                        <p>{{todayComments}}</p>
+                    </div>
+                    <div class="card-action right-align">
+                        <a href='/plans' class="">Plus</a>
+                        {{#if todayPlan}}<a href="/plan/{{_id}}" class="">Details</a>{{/if}}
+                    </div>
                 </div>
-                <div class="card-action right-align">
-                  <a href='/plans' class="">Plus</a>
-                  {{#if todayPlan}}<a href="/plan/{{_id}}" class="">Details</a>{{/if}}
+            {{else}}
+                <div class="card  last_pl" style="z-index:99">
+                    <div class="card-content">
+                        <p>Pas de plan cette semaine.</p>
+                    </div>
                 </div>
-          </div>
-          {{else}}
-          <div class="card  last_pl"  style="z-index:99">
-              <div class="card-content">
-                  <p>Pas de plan cette semaine.</p>
-              </div>
-          </div>
-          {{/if}}
+            {{/if}}
         </div>
 
         <div class="col s12 primary_txt">
             <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
-                <i class="material-icons  right-align col s1 mt5p" id="previous" style="padding-top:10px;">arrow_back</i>
+                <i class="material-icons  right-align col s1 mt5p" id="previous"
+                   style="padding-top:10px;">arrow_back</i>
                 <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
                 <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;" id="next">arrow_forward</i>
             </div>
         </div>
-        <div class="col s12">
-        <div id="columnchart" class="card  " style="z-index:99">
-            <div class="card-content">
-                <div class="row">
-                        <span class="col s12 center-align card-title">Heures d'entrainements</span>
-                     </div>
-                 <div class="ct-chart">
-                    <canvas id="chart" height="80px"></canvas>
-                </div>
-
+        <div class="col s12 m9">
+            <div id="columnchart" class="card  " style="z-index:99">
+                <div class="card-content">
+                    <p>Activité mensuelle</p>
+                    <div id="columnchart_material" style="width: 100%; height: 200px;margin-top: 20px;"></div>
                 </div>
             </div>
         </div>
-        <div class="col s12 m4">
-        <div id="piechart" class="card  ">
-            <div class="card-content">
-            <div class="row">
-                    <span class="col s12 center-align card-title">Répartition</span>
-                 </div>
-                 <div class="ct-chart">
-                    <canvas id="pie-chart" height="170px"></canvas>
-                </div>
-                <ul class="center-align legend">
-                    <li><div class="legend_indicator primary_bg"></div>VTT</li>
-                    <li><div class="legend_indicator accent_bg"></div>Route</li>
-                    <li><div class="legend_indicator grey_bg"></div>Autres</li>
-                </ul>
+        <div class="col s12 m3">
+            <div id="piechart" class="card">
+                <div class="card-content">
+                    <p>Répartition</p>
+                    <div id="donutchart" style="width: 100%; height: 200px;margin-top: 20px;"></div>
                 </div>
             </div>
-        </div>
-        <div class="col s12 m8">
-            <div id="t" class="card">
-                </div>
         </div>
     </div>
     <script type="text/javascript">
-            /*var l_wk = document.querySelectorAll(".last_wk"), l_pl = document.querySelectorAll(".last_pl");
-            var t1, t2;
-            for(i in l_wk) {
-                l_wk[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
-                 l_pl[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
-            }*/
+        /*var l_wk = document.querySelectorAll(".last_wk"), l_pl = document.querySelectorAll(".last_pl");
+        var t1, t2;
+        for(i in l_wk) {
+            l_wk[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
+             l_pl[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
+        }*/
     </script>
 </template>

@@ -31,73 +31,70 @@ function getPreviousMonday() {
 }
 
 function drawMonthGraph(me,t) {
-    /*Meteor.call("getMonthWk", me, month, year, function(e,works) {
+    Meteor.call("getMonthWk", me, month, year, function(e,works) {
         var i, temp, workouts = [], days = [], fin = [];
         for(key in works) {
           workouts[key]=works[key].length/60;
           days[key]=works[key].day;
         }
-        daysinmonth = getDaysInMonth(month, year);
+        var daysinmonth = getDaysInMonth(month, year);
+        var wks_month_data = [];
+        wks_month_data.push(['Jour','Durée']);
         for(i in daysinmonth) {
             temp = days.indexOf(daysinmonth[i]);
             if(temp == -1)
-                fin[i] = 0;
+                wks_month_data.push([daysinmonth[i],0]);
             else
-                fin[i] = workouts[temp];
+                wks_month_data.push([daysinmonth[i],workouts[temp]]);;
         }
 
         t.find("#monthly_graph_title").innerHTML = months[month - 1] + " " + year;
-        /*var mtbs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"mtb");
-        var roads = Meteor.call("countThisSupportHoursInMonth",me,month,year,"road");
-        var runs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"run");
-        var hts = Meteor.call("countThisSupportHoursInMonth",me,month,year,"ht");
-        var swims = Meteor.call("countThisSupportHoursInMonth",me,month,year,"swim");
-        var endrs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"endr");
-        var skixs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"skix");
-        var othrs = Meteor.call("countThisSupportHoursInMonth",me,month,year,"othr");
-        var datac = [
-        {
-            value: mtbs,
-            color:"#ec407a",
-            highlight: "#f06292",
-            label: "VTT"
-        },
-        {
-            value: roads + hts,
-            color: "#03a9f4",
-            highlight: "#29b6f6",
-            label: "Route"
-        },
-        {
-            value: swims + endrs + skixs + othrs + runs,
-            color: "#455a64",
-            highlight: "#29b6f6",
-            label: "Autre"
-        }
-    ]
-        var datat = {
-            labels: daysinmonth,
-            datasets: [
-                {
-                    data: fin,
-                    strokeColor: "#ec407a",
-                    fillColor: "#ec407a"
-                }
-            ]
-        };
-        options = {
-          responsive: true,
-          animation: false,
-          scaleFontColor: "#000",
-          legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
+        Meteor.call("countSupportsHoursInMonth",me,month,year, function(e,r) {
 
-        };
-        var ctx = t.find("#chart").getContext("2d");
-        var piectx = t.find("#pie-chart").getContext("2d");
-        monthChart = new Chart(ctx).Bar(datat, options);*/
-        //sportsChart = new Chart(piectx).Doughnut(datac, options);
-    //});
+            function drawChartWkMonth() {
+                var data_wks_month = google.visualization.arrayToDataTable(wks_month_data);
+
+                var options_wks_month = {
+                    colors: ["#ec407a"],
+                    legend: {position: 'none'}
+                };
+
+                var chart_wk_month = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+                chart_wk_month.draw(data_wks_month, options_wks_month);
+            }
+
+            function drawChartRepart() {
+                var data_repart = google.visualization.arrayToDataTable([
+                    ['Sport', 'Nombre par mois'],
+                    ['VTT', r.mtbs],
+                    ['Route', r.roads],
+                    ['Course à pied', r.runs],
+                    ['Home Trainer', r.hts],
+                    ['Natation', r.swims],
+                    ['Enduro', r.endrs],
+                    ['Ski de fond', r.skixs],
+                    ['Autre', r.othrs]
+                ]);
+
+                var options_repart = {
+                    pieHole: 0.2,
+                    colors: ["#ec407a","#26a69a","#29b6f6","#5c6bc0","#ef5350","#66bb6a","#ffee58","#78909c"],
+                    legend: {
+                        position: 'bottom'
+                    },
+                    chartArea:{top: 0, width: "90%", left: "5%"}
+                };
+
+                var chart_repart = new google.visualization.PieChart(document.getElementById('donutchart'));
+
+                chart_repart.draw(data_repart, options_repart);
+            }
+            google.load("visualization", "1.1", {packages:["bar"], callback: drawChartWkMonth});
+            google.load("visualization", "1", {packages:["corechart"], callback: drawChartRepart});
+        });
+    });
     return 0;
 }
 

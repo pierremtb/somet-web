@@ -1,6 +1,6 @@
 Template.MyAthletes.helpers({
     athletes: function () { return ReactiveMethod.call("getAthletesOfTrainer",Meteor.user().username); },
-    otherathletes: function () { return ReactiveMethod.call("getOtherAthletes",Meteor.user().username); },
+    otherAthletes: function () { return ReactiveMethod.call("getOtherAthletes",Meteor.user().username); },
     isTrainer: function(){ return Meteor.user().profile === "trainer";}
   });
 
