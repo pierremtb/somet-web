@@ -13,6 +13,8 @@
             <div class="col l10 s12 push-l2 m12 scroll">
 
                 <div class="dash_container">
+                    <div class="row">
+                        <div class="col s12">
                     {{#if isTrainer}}
                         <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_plan"><i
                                 class="material-icons left">add</i> Ajouter</a>
@@ -23,6 +25,8 @@
                         {{else}}
                             {{> AthletePlans username=currentUser.username}}
                         {{/if}}
+                    </div>
+                        </div>
                     </div>
                     <div id="add_plan" class="modal modal-fixed-footer"
                          style="width:90%;max-height:90%;height:90%;margin-top:-5%;">

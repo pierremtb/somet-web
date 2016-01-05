@@ -1,5 +1,22 @@
 <template name="UserDash">
     <div class="row">
+        {{#if isWk}}
+        {{else}}
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Bienvenue dans votre Dashboard</span>
+                    <p>C'est ici que s'afficherons votre dernier entrainement, celui à réaliser, et également des graphiques sur vos activités mensuelles.</p>
+                    <p>Ajoutez dès maintenant votre entraineur en vous rendant dans "Paramètres".</p>
+                    <p>Ou ajoutez votre premier compte-rendu d'entrainment en cliquants sur "Entrainements".</p>
+                </div>
+                <div class="card-action right-align">
+                    <a href='/workouts' class="">Entrainements</a>
+                    <a href="/settings" class="">Paramètres</a>
+                </div>
+            </div>
+        </div>
+        {{/if}}
         <div class="col s12 m6 ">
             {{#if isWk}}
                 <div class="card white last_wk" style="z-index:99">
@@ -40,7 +57,7 @@
                     </div>
                     <div class="card-action right-align">
                         <a href='/plans' class="">Plus</a>
-                        {{#if todayPlan}}<a href="/plan/{{_id}}" class="">Details</a>{{/if}}
+                        {{#if todayPlan}}<a href="/plan/{{planId}}" class="">Details</a>{{/if}}
                     </div>
                 </div>
             {{else}}
@@ -51,7 +68,7 @@
                 </div>
             {{/if}}
         </div>
-
+        {{#if isWk}}
         <div class="col s12 primary_txt">
             <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
                 <i class="material-icons  right-align col s1 mt5p" id="previous"
@@ -76,6 +93,7 @@
                 </div>
             </div>
         </div>
+        {{/if}}
     </div>
     <script type="text/javascript">
         /*var l_wk = document.querySelectorAll(".last_wk"), l_pl = document.querySelectorAll(".last_pl");

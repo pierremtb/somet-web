@@ -7,162 +7,178 @@
         </ul>
     </div>
     <div class="row" style="padding-top:70px">
-            <div class="col l2 hide-on-med-and-down ">
-                <h5> </h5>
+        <div class="col l2 hide-on-med-and-down ">
+            <h5></h5>
 
-            </div>
+        </div>
 
-            <div class="col l10 s12 m12 scroll ">
-                <div class="dash_container">
-                    <p>
-                        <a class="btn-flat waves-effect primary_txt" href="/workouts"><i class="material-icons left">arrow_back</i> Retourner à la liste</a>
-                        {{#if isTrainer}}
-                        {{else}}
-                        <a class="btn-flat hide waves-effect primary_txt"><i class="material-icons left">edit</i> MODIFIER</a>
-                        <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_wk"><i class="material-icons left">delete</i> SUPPRIMER</a>
-                        {{/if}}
-                    </p>
-                      <div class="card" style="padding:5px 20px; z-index:99">
-                          <h4>{{title}}</h4>
-                          <div class="row">
-                              <div class="col s12 m6">
-                                  <p class="grey-text">{{date}}</p>
-                                  <p class="grey-text">{{dispMins length}}</p>
-                                  <p class="grey-text">{{distance}}km</p>
-                                  <p>{{description}}</p>
-                              </div>
-                              <div class="col s12 m6">
-                                  <div class="row">
-                                      <div class="col s6 m3">
-                                        <div class="circle center-align" id="circle_crten_eff"></div>
-                                        <p class="center-align f10p">CR10 Effort</p>
-                                      </div>
-                                      <div class="col s6 m3">
-                                        <div class="circle" id="circle_crten_ple"></div>
-                                        <p class="center-align f10p">CR10 Plaisir</p>
-                                      </div>
-                                      <div class="col s6 m3">
-                                         <div class="circle" id="sensa"></div>
-                                        <p class="center-align f10p">Sensations</p>
-                                      </div>
-                                      <div class="col s6 m3">
-                                        <div class="circle" id="hum"></div>
-                                        <p class="center-align f10p">Humeur</p>
-                                      </div>
-                                  </div>
+        <div class="col l10 s12 m12 scroll ">
+            <div class="dash_container">
+                <div class="row">
+                    <div class="col s12">
 
-
-
-                                 <script type="text/javascript">
-                                 var circle_crten_eff = Circles.create({
-                                    id:                  'circle_crten_eff',
-                                    radius:              30,
-                                    value:               {{crten_eff}},
-                                    maxValue:            10,
-                                    width:               5,
-                                    text:                function(value){return value;},
-                                    colors:              ["{{getCRBackColor crten_eff}}","{{getCRFrontColor crten_eff}}"],
-                                    duration:            null,
-                                    wrpClass:            'circles-wrp',
-                                    textClass:           'circles-text',
-                                    valueStrokeClass:    'circles-valueStroke',
-                                    maxValueStrokeClass: 'circles-maxValueStroke',
-                                    styleWrapper:        true,
-                                    styleText:           true
-                                    });
-                                    var circle_crten_ple = Circles.create({
-                                       id:                  'circle_crten_ple',
-                                       radius:              30,
-                                       value:               {{crten_ple}},
-                                       maxValue:            10,
-                                       width:               5,
-                                       text:                function(value){return value;},
-                                       colors:              ["{{getCRBackColorRev crten_ple}}","{{getCRFrontColorRev crten_ple}}"],
-                                       duration:            null,
-                                       wrpClass:            'circles-wrp',
-                                       textClass:           'circles-text',
-                                       valueStrokeClass:    'circles-valueStroke',
-                                       maxValueStrokeClass: 'circles-maxValueStroke',
-                                       styleWrapper:        true,
-                                       styleText:           true
-                                       });
-                                   var sensa = Circles.create({
-                                      id:                  'sensa',
-                                      radius:              30,
-                                      value:               {{crten_eff}},
-                                      maxValue:            10,
-                                      width:               5,
-                                      text:                function(value){return value;},
-                                      colors:              ["{{getCRBackColorRev sensa}}","{{getCRFrontColorRev sensa}}"],
-                                      duration:            null,
-                                      wrpClass:            'circles-wrp',
-                                      textClass:           'circles-text',
-                                      valueStrokeClass:    'circles-valueStroke',
-                                      maxValueStrokeClass: 'circles-maxValueStroke',
-                                      styleWrapper:        true,
-                                      styleText:           true
-                                      });
-                                  var hum = Circles.create({
-                                     id:                  'hum',
-                                     radius:              30,
-                                     value:               {{hum}},
-                                     maxValue:            10,
-                                     width:               5,
-                                     text:                function(value){return value;},
-                                     colors:              ["{{getCRBackColorRev hum}}","{{getCRFrontColorRev hum}}"],
-                                     duration:            null,
-                                     wrpClass:            'circles-wrp',
-                                     textClass:           'circles-text',
-                                     valueStrokeClass:    'circles-valueStroke',
-                                     maxValueStrokeClass: 'circles-maxValueStroke',
-                                     styleWrapper:        true,
-                                     styleText:           true
-                                     });
-                                 </script>
+                        <p>
+                            <a class="btn-flat waves-effect primary_txt" href="/workouts"><i
+                                    class="material-icons left">arrow_back</i> Retourner à la liste</a>
+                            {{#if isTrainer}}
+                            {{else}}
+                                <a class="btn-flat hide waves-effect primary_txt"><i
+                                        class="material-icons left">edit</i> MODIFIER</a>
+                                <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_wk"><i
+                                        class="material-icons left">delete</i> SUPPRIMER</a>
+                            {{/if}}
+                        </p>
+                        <div class="card" style="padding:5px 20px; z-index:99">
+                            <h4>{{title}}</h4>
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <p class="grey-text">{{date}}</p>
+                                    <p class="grey-text">{{dispMins length}}</p>
+                                    <p class="grey-text">{{distance}}km</p>
+                                    <p>{{description}}</p>
+                                </div>
+                                <div class="col s12 m6">
+                                    <div class="row">
+                                        <div class="col s6 m3">
+                                            <div class="circle center-align" id="circle_crten_eff"></div>
+                                            <p class="center-align f10p">CR10 Effort</p>
+                                        </div>
+                                        <div class="col s6 m3">
+                                            <div class="circle" id="circle_crten_ple"></div>
+                                            <p class="center-align f10p">CR10 Plaisir</p>
+                                        </div>
+                                        <div class="col s6 m3">
+                                            <div class="circle" id="sensa"></div>
+                                            <p class="center-align f10p">Sensations</p>
+                                        </div>
+                                        <div class="col s6 m3">
+                                            <div class="circle" id="hum"></div>
+                                            <p class="center-align f10p">Humeur</p>
+                                        </div>
+                                    </div>
 
 
+                                    <script type="text/javascript">
+                                        var circle_crten_eff = Circles.create({
+                                            id: 'circle_crten_eff',
+                                            radius: 30,
+                                            value:               {{crten_eff}},
+                                            maxValue: 10,
+                                            width: 5,
+                                            text: function (value) {
+                                                return value;
+                                            },
+                                            colors: ["{{getCRBackColor crten_eff}}", "{{getCRFrontColor crten_eff}}"],
+                                            duration: null,
+                                            wrpClass: 'circles-wrp',
+                                            textClass: 'circles-text',
+                                            valueStrokeClass: 'circles-valueStroke',
+                                            maxValueStrokeClass: 'circles-maxValueStroke',
+                                            styleWrapper: true,
+                                            styleText: true
+                                        });
+                                        var circle_crten_ple = Circles.create({
+                                            id: 'circle_crten_ple',
+                                            radius: 30,
+                                            value:               {{crten_ple}},
+                                            maxValue: 10,
+                                            width: 5,
+                                            text: function (value) {
+                                                return value;
+                                            },
+                                            colors: ["{{getCRBackColorRev crten_ple}}", "{{getCRFrontColorRev crten_ple}}"],
+                                            duration: null,
+                                            wrpClass: 'circles-wrp',
+                                            textClass: 'circles-text',
+                                            valueStrokeClass: 'circles-valueStroke',
+                                            maxValueStrokeClass: 'circles-maxValueStroke',
+                                            styleWrapper: true,
+                                            styleText: true
+                                        });
+                                        var sensa = Circles.create({
+                                            id: 'sensa',
+                                            radius: 30,
+                                            value:               {{crten_eff}},
+                                            maxValue: 10,
+                                            width: 5,
+                                            text: function (value) {
+                                                return value;
+                                            },
+                                            colors: ["{{getCRBackColorRev sensa}}", "{{getCRFrontColorRev sensa}}"],
+                                            duration: null,
+                                            wrpClass: 'circles-wrp',
+                                            textClass: 'circles-text',
+                                            valueStrokeClass: 'circles-valueStroke',
+                                            maxValueStrokeClass: 'circles-maxValueStroke',
+                                            styleWrapper: true,
+                                            styleText: true
+                                        });
+                                        var hum = Circles.create({
+                                            id: 'hum',
+                                            radius: 30,
+                                            value:               {{hum}},
+                                            maxValue: 10,
+                                            width: 5,
+                                            text: function (value) {
+                                                return value;
+                                            },
+                                            colors: ["{{getCRBackColorRev hum}}", "{{getCRFrontColorRev hum}}"],
+                                            duration: null,
+                                            wrpClass: 'circles-wrp',
+                                            textClass: 'circles-text',
+                                            valueStrokeClass: 'circles-valueStroke',
+                                            maxValueStrokeClass: 'circles-maxValueStroke',
+                                            styleWrapper: true,
+                                            styleText: true
+                                        });
+                                    </script>
 
 
-                              </div>
-                              {{#if isFit}}
-                              <div id="workout_chart" class="col s12">
-                                 <h5>Analyse</h5>
-                                 <form action="#">
-                                   <p style="display:inline-block">
-                                     <input name="x_axis_selection" class="with-gap" type="radio" id="x_axis_time" checked=""/>
-                                     <label for="x_axis_time">Temps</label>
-                                   </p>
-                                   <p style="display:inline-block; margin-left:20px">
-                                     <input name="x_axis_selection"  class="with-gap" type="radio" id="x_axis_distance"/>
-                                     <label for="x_axis_distance">Distance</label>
-                                   </p>
-                                 </form>
-                                 <p class="grey-text">Altitude</p>
-                                 <div id="elevation_chart" style="width: 100%; height: 300px;"></div>
-                                 <p class="grey-text">Puissance</p>
-                                 <div id="power_chart" style="width: 100%; height: 300px;"></div>
-                                 <p class="grey-text">Vitesse</p>
-                                 <div id="speed_chart" style="width: 100%; height: 300px;"></div>
-                                 <p class="grey-text">Cadence</p>
-                                 <div id="cadence_chart" style="width: 100%; height: 300px;"></div>
-                              </div>
-                              {{/if}}
-                          </div>
-                      </div>
+                                </div>
+                                {{#if isFit}}
+                                    <div id="workout_chart" class="col s12">
+                                        <h5>Analyse</h5>
+                                        <form action="#">
+                                            <p style="display:inline-block">
+                                                <input name="x_axis_selection" class="with-gap" type="radio"
+                                                       id="x_axis_time" checked=""/>
+                                                <label for="x_axis_time">Temps</label>
+                                            </p>
+                                            <p style="display:inline-block; margin-left:20px">
+                                                <input name="x_axis_selection" class="with-gap" type="radio"
+                                                       id="x_axis_distance"/>
+                                                <label for="x_axis_distance">Distance</label>
+                                            </p>
+                                        </form>
+                                        <p class="grey-text">Altitude</p>
+                                        <div id="elevation_chart" style="width: 100%; height: 300px;"></div>
+                                        <p class="grey-text">Puissance</p>
+                                        <div id="power_chart" style="width: 100%; height: 300px;"></div>
+                                        <p class="grey-text">Vitesse</p>
+                                        <div id="speed_chart" style="width: 100%; height: 300px;"></div>
+                                        <p class="grey-text">Cadence</p>
+                                        <div id="cadence_chart" style="width: 100%; height: 300px;"></div>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-          </div>
-      </div>
-      <div id="delete_wk" class="modal">
-          <div class="modal-content">
+            </div>
+        </div>
+    </div>
+    <div id="delete_wk" class="modal">
+        <div class="modal-content">
             <h4>Voulez-vous vraiment supprimer cet entrainement ?</h4>
             <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span class="wkid">{{_id}}</span></p>
-          </div>
-          <div class="modal-footer">
+        </div>
+        <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
             <a href="#!" id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
-          </div>
-      </div>
-<!--
+        </div>
+    </div>
+    <!--
     <li>
       <div class="collapsible-header"><i class="{{#if mtb}}mdi-maps-directions-bike{{else}}{{#if road}}mdi-maps-directions-bike{{else}}mdi-maps-directions-walk{{/if}}{{/if}}"></i>{{title}} - {{date}}</div>
       <div class="collapsible-body">
@@ -178,7 +194,7 @@
               <h5>Profil</h5>
               <canvas class="elev_chart" height="120px"></canvas>
               {{/if}}
-              {{#if hrvalues}}
+        {{#if hrvalues}}
               <h5>Activité cardiaque</h5>
               <canvas class="hr_chart" height="120px"></canvas>
               {{/if}}
@@ -195,8 +211,8 @@
 
 
     <script>
-    $(document).ready(function(){
-      $('.modal-trigger').leanModal();
-    });
+        $(document).ready(function () {
+            $('.modal-trigger').leanModal();
+        });
     </script>
 </template>

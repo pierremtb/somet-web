@@ -3,45 +3,36 @@
         <div class="nav-wrapper">
             <a href="/" class="ml10p" id="title">Sumrise<span class="f18p ml10p"> (beta)</span></a>
             <ul class="right">
-                <li><a id="goSignup" class="pointer">{{#if loginSelected}}Créer un compte{{else}}Connexion{{/if}}</a></li>
+                <li><a id="goSignup" class="pointer">{{#if loginSelected}}Créer un compte{{else}}Connexion{{/if}}</a>
+                </li>
 
             </ul>
         </div>
     </nav>
-        <div class="parallax-container valign-wrapper" style="height:100vh">
-           <div class="parallax"><img src="/mountain-road.jpg"></div>
-           <div class="row valign">
-               {{#if loginSelected}}
-                  <div class="col s12 m6 white-text hide-on-small-only">
-                      <h1 class="thin">Bienvenue sur Sumrise,</h1>
-                      <h3 class="light">la plateforme d'entrainement cycliste pour mettre en lien athlètes et entraineurs.</h3>
-                  </div>
-                  <div class="col s12 m4">    </div>
-                  <div class="col s12 m4 offset-s0 card">
-                       {{> LoginForm}}
-                   </div>
-             {{else}}
-                 <div class="col card s12 grey-text" style="padding:10px 30px;">
-                     {{> SignupForm}}
-                 </div>
-            {{/if}}
-
-           </div>
-         </div>
-         <!--<div class="section white">
-           <div class="row container">
-             <h2 class="header">Parallax</h2>
-             <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
-           </div>
-         </div>
-         <div class="parallax-container">
-           <div class="parallax"><img src="/mountain-road.jpg"></div>
-       </div>-->
-
-         <script type="text/javascript">
-         $(document).ready(function(){
-          $('.parallax').parallax();
-        });
-         </script>
+    <div class=" valign-wrapper" style="height:100vh;padding: 0px 20px;">
+        <div class="row valign">
+            <div class="col m1">
+                <h5></h5>
+            </div>
+            <div class="col s12 m6 white-text hide-on-small-only" style="padding: 0px 0px;">
+                <h1 class="thin">Découvrez Sumrise,</h1>
+                <h4 class="light">la plateforme d'entrainement cycliste pour mettre en lien athlètes et
+                    entraineurs.</h4>
+            </div>
+            <div class="col m1">
+                <h5></h5>
+            </div>
+            <div class="col s12 m3 card">
+                {{#if loginSelected}}
+                    {{> LoginForm}}
+                {{else}}
+                    {{> SignupForm}}
+                {{/if}}
+            </div>
+            <div class="col m1">
+                <h5></h5>
+            </div>
+        </div>
+    </div>
 
 </template>

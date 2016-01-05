@@ -163,17 +163,22 @@ body {
   font-size: 18px;
 }
 
+.side_item i {
+  font-size:21px;
+}
+
 .side_item span, .side_item i {
   color: rgba(255, 255, 255, 0.6);
   transition:  all 0.5s;
 }
 
 .side_item {
-  padding: 20px;
+  padding: 15px;
+  padding-left: 20px;
   padding-right: 0px;
 }
 
-#side_nav.selected span, #side_nav.selected i {
+#side_nav .selected span, #side_nav .selected i {
   color: white;
 }
 

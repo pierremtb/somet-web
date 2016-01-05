@@ -10,21 +10,24 @@
         {{#if currentUser}}
             <div class="col l10 s12 push-l2 m12 scroll ">
                 <div class="dash_container">
+                    <div class="row">
+                        <div class="col s12">
+                            {{#if isTrainer}}
+                            {{else}}
+                                <a class="btn-flat waves-effect primary_txt modal-trigger" href="#select_plan"><i
+                                        class="material-icons left">add</i> Ajouter (basé sur un plan)</a>
+                                <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_workout"><i
+                                        class="material-icons left">add</i> Ajouter (libre)</a>
+                            {{/if}}
 
-                    {{#if isTrainer}}
-                    {{else}}
-                        <a class="btn-flat waves-effect primary_txt modal-trigger" href="#select_plan"><i
-                                class="material-icons left">add</i> Ajouter (basé sur un plan)</a>
-                        <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_workout"><i
-                                class="material-icons left">add</i> Ajouter (libre)</a>
-                    {{/if}}
-
-                    <div class="card" style="padding:10px;z-index:99">
-                        {{#if isTrainer}}
-                            {{> AthleteWorkouts username=selectedAthlete}}
-                        {{else}}
-                            {{> AthleteWorkouts username=currentUser.username}}
-                        {{/if}}
+                            <div class="card" style="padding:10px;z-index:99">
+                                {{#if isTrainer}}
+                                    {{> AthleteWorkouts username=selectedAthlete}}
+                                {{else}}
+                                    {{> AthleteWorkouts username=currentUser.username}}
+                                {{/if}}
+                            </div>
+                        </div>
                     </div>
                 </div>
 

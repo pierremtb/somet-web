@@ -149,6 +149,7 @@ Template.UserDash.helpers({
             return "Error";
         }
     },
+    planId: function () { return pls.get()._id},
     user: function() { return this.username + "";}
 });
 
