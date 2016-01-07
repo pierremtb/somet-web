@@ -2,38 +2,36 @@
     <div class="row">
         {{#if isWk}}
         {{else}}
-        <div class="col s12">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Bienvenue dans votre Dashboard</span>
-                    <p>C'est ici que s'afficherons votre dernier entrainement, celui à réaliser, et également des graphiques sur vos activités mensuelles.</p>
-                    <p>Ajoutez dès maintenant votre entraineur en vous rendant dans "Paramètres".</p>
-                    <p>Ou ajoutez votre premier compte-rendu d'entrainment en cliquants sur "Entrainements".</p>
-                </div>
-                <div class="card-action right-align">
-                    <a href='/workouts' class="">Entrainements</a>
-                    <a href="/settings" class="">Paramètres</a>
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Bienvenue dans votre Dashboard</span>
+                        <p>C'est ici que s'afficherons votre dernier entrainement, celui à réaliser, et également des
+                            graphiques sur vos activités mensuelles.</p>
+                        <p>Ajoutez dès maintenant votre entraineur en vous rendant dans "Paramètres".</p>
+                        <p>Ou ajoutez votre premier compte-rendu d'entrainment en cliquants sur "Entrainements".</p>
+                    </div>
+                    <div class="card-action right-align">
+                        <a href='/workouts' class="">Entrainements</a>
+                        <a href="/settings" class="">Paramètres</a>
+                    </div>
                 </div>
             </div>
-        </div>
         {{/if}}
         <div class="col s12 m6 ">
             {{#if isWk}}
                 <div class="card white last_wk" style="z-index:99">
-                    {{#each workouts}}
-                        <div class="card-content ">
-                            <span class="card-title">Dernier entrainement</span>
-                            <p>{{title}}</p>
-                            <p>{{distance}}km</p>
-                            <p>{{length}}h</p>
-                            <p>{{description}}</p>
-                            <p>CR10 : {{crten}}</p>
-                        </div>
-                        <div class="card-action right-align ">
-                            <a href='/workouts' class="">Plus</a>
-                            <a href="/workout/{{_id}}" class="">Details</a>
-                        </div>
-                    {{/each}}
+                    <div class="card-content ">
+                        <span class="card-title">Dernier entrainement</span>
+                        <p>{{lastWkTitle}} - {{lastWkSupport}}</p>
+                        <p>{{lastWkDistance}}km - {{dispMins lastWkLength}}</p>
+                        <p>{{lastWkDescription}}</p>
+                        <p>CR10 : {{lastWkCrten}}</p>
+                    </div>
+                    <div class="card-action right-align ">
+                        <a href='/workouts' class="">Plus</a>
+                        <a href="/workout/{{_id}}" class="">Details</a>
+                    </div>
                 </div>
             {{else}}
                 <div class="card white last_wk" style="z-index:99">
@@ -69,30 +67,31 @@
             {{/if}}
         </div>
         {{#if isWk}}
-        <div class="col s12 primary_txt">
-            <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
-                <i class="material-icons  right-align col s1 mt5p" id="previous"
-                   style="padding-top:10px;">arrow_back</i>
-                <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
-                <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;" id="next">arrow_forward</i>
-            </div>
-        </div>
-        <div class="col s12 m9">
-            <div id="columnchart" class="card  " style="z-index:99">
-                <div class="card-content">
-                    <p>Activité mensuelle</p>
-                    <div id="columnchart_material" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+            <div class="col s12 primary_txt">
+                <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
+                    <i class="material-icons  right-align col s1 mt5p" id="previous"
+                       style="padding-top:10px;">arrow_back</i>
+                    <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
+                    <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;"
+                       id="next">arrow_forward</i>
                 </div>
             </div>
-        </div>
-        <div class="col s12 m3">
-            <div id="piechart" class="card">
-                <div class="card-content">
-                    <p>Répartition</p>
-                    <div id="donutchart" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+            <div class="col s12 m9">
+                <div id="columnchart" class="card  " style="z-index:99">
+                    <div class="card-content">
+                        <p>Activité mensuelle</p>
+                        <div id="columnchart_material" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="col s12 m3">
+                <div id="piechart" class="card">
+                    <div class="card-content">
+                        <p>Répartition</p>
+                        <div id="donutchart" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+                    </div>
+                </div>
+            </div>
         {{/if}}
     </div>
     <script type="text/javascript">

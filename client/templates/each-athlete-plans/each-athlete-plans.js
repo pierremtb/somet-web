@@ -1,8 +1,8 @@
 Template.AthletePlans.helpers({
     plans: function () {
-        return ReactiveMethod.call("getAllPl",this.username);
+        return Meteor.user().profile === "trainer" ? PlansDB.find({username: Session.get('selectedAthlete')}) : PlansDB.find();
     },
     isNoPls: function () {
-        return ReactiveMethod.call("getAllPl",this.username).length == 0;
+        return PlansDB.find().fetch().length == 0;
     }
 });

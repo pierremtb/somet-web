@@ -14,7 +14,9 @@
                 alert(err.reason);
             }
             else {
+                Router.go('/dashboard');
             }
+
           });
          return false; 
       },
@@ -32,6 +34,7 @@
                 alert(err.reason);
             }
             else {
+                Router.go('/dashboard');
             }
           });
          return false; 

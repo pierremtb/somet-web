@@ -1,6 +1,6 @@
 Template.MyTrainer.helpers({
-    trainer: function () { return ReactiveMethod.call("getHisTrainer", Meteor.user().username); },
-    othertrainers: function () { return ReactiveMethod.call("getOtherTrainers", Meteor.user().username); }
+    trainer: function () { return TrainersDB.findOne({username: AthletesDB.findOne({username: Meteor.user().username}).trainer}).username; },
+    otherTrainers: function () { return TrainersDB.find({username: {$ne: AthletesDB.findOne({username: Meteor.user().username}).trainer}}); },
   });
 
 Template.MyTrainer.events({

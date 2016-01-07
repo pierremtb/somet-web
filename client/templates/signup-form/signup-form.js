@@ -38,6 +38,7 @@
             // Success. Account has been created and the user
             //ColorsDB.insert({username: username, background: "#03A9F4"});
             // has logged in successfully.
+              Session.set("loginSelected",true);
               if(pro === "athlete")
                 Meteor.call("addToAthletesDB",username);
               else

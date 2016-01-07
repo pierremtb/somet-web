@@ -22,13 +22,8 @@ Template.Nav.helpers({
     trainerIs: function () {
         return Meteor.user().profile === "trainer";
     },
-    isPage: function(p) {
-        console.log(p);
-        return this.page == p;
-    },
-    notificationsNotRead: function () {
-        return ReactiveMethod.call("getNotificationsNotRead", Meteor.user().username);
-    },
+    isPage: function(p) { return this.page == p; },
+    notificationsNotRead: function () { return NotificationsDB.find({read: false}); },
     notificationsAreHere: function () {
         var nn = nnr.get();
         if (typeof nn != "undefined" && nn != null && nn.length > 0) {
@@ -41,20 +36,15 @@ Template.Nav.helpers({
     selectedAthlete: function () {
         return Session.get("selectedAthlete");
     },
-    athletes: function () {
-        console.log(Meteor.user().username);
-        return ReactiveMethod.call("getAthletesOfTrainer", Meteor.user().username);
-    }
+    athletes: function () { return AthletesDB.find(); }
 });
 
 Template.Nav.onRendered(function () {
     if (Meteor.user().profile === "trainer") {
-        Meteor.call("getAthletesOfTrainer", Meteor.user().username, function (e, r) {
-            if (r.length > 0)
-                Session.set("selectedAthlete", r[0].username);
+            if (AthletesDB.find().fetch().length > 0)
+                Session.set("selectedAthlete", AthletesDB.findOne({},{limit: 1}).username);
             else
                 Session.set("selectedAthlete", "noAthlete");
-        });
     }
     var array = Meteor.call("getNotificationsNotRead", Meteor.user().username);
     if (typeof array != "undefined" && array != null && array.length > 0)

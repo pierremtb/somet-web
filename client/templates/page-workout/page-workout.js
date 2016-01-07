@@ -115,14 +115,17 @@ function drawWorkoutGraphs(wk,elevation_e, power_e) {
 }
 
 Template.Workout.onRendered(function() {
+    var wk = WorkoutsDB.findOne();
+    Session.set("wk",wk);
     Session.set("x_axis", "time");
-    Session.set("wk_is_fit", this.data.is_fit);
-    console.log(Session.get("wk_is_fit"));
-    var ec = this.find('.elevation_chart'), pc = this.find('.power_chart'), sc = this.find('.speed_chart'), cc = this.find('.cadence_chart')
+    Session.set("wk_is_fit", wk.is_fit);
+    console.log(wk);
+    var ec = this.find('.elevation_chart'),
+        pc = this.find('.power_chart'),
+        sc = this.find('.speed_chart'),
+        cc = this.find('.cadence_chart');
     if(Session.get("wk_is_fit"))
-        Meteor.call("getThisWk",this.data._id, function(e,r) {
-            drawWorkoutGraphs(r, ec, pc, sc, cc);
-        });
+        drawWorkoutGraphs(wk, ec, pc, sc, cc);
     return 0;
 });
 
@@ -157,7 +160,17 @@ Template.Workout.helpers({
         var percent = c > 0 && c < 11 ? c*10 : 10;
         return percent + " " + color+"-circle";
     },
-    isFit: function() {     console.log(this);return Session.get("wk_is_fit"); }
+    isFit: function() {     console.log(this);return Session.get("wk_is_fit"); },
+    title: function () { return Session.get("wk").title; },
+    distance: function () { return Session.get("wk").distance; },
+    description: function () { return Session.get("wk").description; },
+    crten: function () { return Session.get("wk").crten; },
+    date: function () { return Session.get("wk").date; },
+    comments: function () { return Session.get("wk").comments; },
+    crten_eff: function () { return Session.get("wk").crten_eff; },
+    crten_ple: function () { return Session.get("wk").crten_ple; },
+    hum: function () { return Session.get("wk").hum; },
+    length: function () { return Session.get("wk").length; }
 });
 
 Template.Workout.events({
