@@ -19,6 +19,7 @@ Router.route('/workouts', {
         else {
             return [
                 Meteor.subscribe('workoutsOfCurrentUser'),
+                Meteor.subscribe('plansOfCurrentUser'),
                 Meteor.subscribe('athletesOfCurrentUser'),
                 Meteor.subscribe('notificationsOfCurrentUser')
             ];

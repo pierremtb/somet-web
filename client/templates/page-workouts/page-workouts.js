@@ -57,7 +57,13 @@ Template.Workouts.helpers({
     },
     isTrainer: function(){ return Meteor.user().profile === "trainer"; },
     me: function() { return Meteor.user().username; },
-    wkDuration: function () { return dispMins(Session.get('wk_duration'));}
+    dispMins: function(min) {
+        var h = parseInt(min/60) < 10 ? "0" + parseInt(min/60) : parseInt(min/60);
+        var m = min%60 < 10 ? "0" + (min%60) : (min%60);
+        return h + ":" + m;
+    },
+    wkDuration: function () { return Session.get('wk_duration');},
+    plans: function() { return PlansDB.find()}
 });
 
 Template.Workouts.events({
@@ -92,11 +98,11 @@ Template.Workouts.events({
         Session.set("wk_power_values","");
         Session.set("wk_cadence_values","");
     },
-    'change #n_wk_duration' : function(e,t) {
-        Session.set("n_wk_duration",t.find('#n_wk_duration').value);
+    'change #n_wk_length' : function(e,t) {
+        Session.set("wk_duration", t.find("#n_wk_length").value);
     },
-    'mousemove #n_wk_duration' : function(e,t) {
-        Session.set("n_wk_duration",t.find('#n_wk_duration').value);
+    'mousemove #n_wk_length' : function(e,t) {
+        Session.set("wk_duration", t.find("#n_wk_length").value);
     },
     'click #open_this_0': function (e,t) {
         $('#select_plan').closeModal();
@@ -178,6 +184,6 @@ Template.Workouts.events({
 });
 
 Template.Workouts.onRendered(function() {
-    Session.set('n_wk_duration',90);
+    Session.set('wk_duration',90);
     Session.set("is_plan_based_wk", false);
 });
