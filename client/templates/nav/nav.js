@@ -36,19 +36,14 @@ Template.Nav.helpers({
     selectedAthlete: function () {
         return Session.get("selectedAthlete");
     },
-    athletes: function () { return AthletesDB.find(); }
+    athletes: function () { return AthletesDB.find({trainer: Meteor.user().username}); }
 });
 
 Template.Nav.onRendered(function () {
-    if (Meteor.user().profile === "trainer") {
-            if (AthletesDB.find().fetch().length > 0)
-                Session.set("selectedAthlete", AthletesDB.findOne({},{limit: 1}).username);
-            else
-                Session.set("selectedAthlete", "noAthlete");
-    }
     var array = Meteor.call("getNotificationsNotRead", Meteor.user().username);
     if (typeof array != "undefined" && array != null && array.length > 0)
         Materialize.toast("Vous avez des notifications non lues.", 3000);
+    Session.set("selectedAthlete", AthletesDB.findOne({},{limit: 1}).username);
 });
 
 Template.Nav.created = function () {

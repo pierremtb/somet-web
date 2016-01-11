@@ -1,20 +1,4 @@
 <template name="Calendar">
-    {{> Nav page="Calendrier" color="blue-grey"}}
-    <div id="side_nav" class="hide-on-small-only">
-        <ul class="hide-on-med-and-down">
-            {{> SideNav dashboard=false workouts=false plans=false calendar=true analysis=false settings=false}}
-        </ul>
-    </div>
-
-    <div class="row" style="padding-top:90px">
-        {{#if currentUser}}
-            <div class="col l10 s12 push-l2 m12 white-text">
-                <p class="center-align"><i class="material-icons large">today</i></p>
-                <h5 class="center-align">Cette fonctionnalité n'est pas encore disponible.</h5>
-            </div>
-        {{/if}}
-    </div>
-    <script type="text/javascript">
-
-    </script>
+    <p class="center-align white-text"><i class="material-icons large">today</i></p>
+    <h5 class="center-align white-text">Cette fonctionnalité n'est pas encore disponible.</h5>
 </template>

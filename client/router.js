@@ -7,6 +7,11 @@ function getPreviousMonday() {
     return prev_m.getDate() + " " + monthNames[prev_m.getMonth()] + ", " + prev_m.getFullYear();
 }
 
+Router.configure({
+    layoutTemplate: 'UserLayout',
+    loadingTemplate: 'Preloader'
+});
+
 Router.route('/workouts', {
     waitOn: function () {
         if (Meteor.user().profile === "trainer") {

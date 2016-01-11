@@ -1,53 +1,31 @@
 <template name="Plan">
-    {{> Nav page="Plans" color="blue-grey"}}
-    <div id="side_nav" class="hide-on-small-only">
-        <ul class="hide-on-med-and-down">
-            {{> SideNav dashboard=false workouts=false plans=true calendar=false
-            analysis=false}}
-        </ul>
-    </div>
-    <div class="row" style="padding-top:70px">
-        <div class="col l2 hide-on-med-and-down ">
-            <h5></h5>
-
-        </div>
-
-        <div class="col l10 s12 m12 scroll ">
-            <div class="dash_container">
-                <div class="row">
-                    <div class="col s12">
-                        <p>
-                            <a class="btn-flat waves-effect primary_txt" href="/plans"><i class="material-icons left">arrow_back</i>
-                                Retourner à la liste</a>
-                            {{#if isTrainer}}
-                                <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_plan1"><i
-                                        class="material-icons left">edit</i> MODIFIER</a>
-                                <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_plan"><i
-                                        class="material-icons left">delete</i> SUPPRIMER</a>
-                            {{/if}}
-                        </p>
-                        <div class="card" style="padding:5px 20px;z-index:999">
-                            <p class="hide-on-small-only" id="date">Soumis le {{monday_date}}</p>
-                            <p class="hide-on-med-and-up">Soumis le {{monday_date}}</p>
-                            <h4>{{title}}</h4>
-                            <h5 class="grey-text">{{comments}}</h5>
-                            <div class="row">
-                                {{> PlanDay day="Lundi" type=mondayType support=mondaySupport duration=mondayDuration desc=monday_desc comments=monday_comments}}
-                                {{> PlanDay day="Mardi" type=tuesdayType support=tuesdaySupport duration=tuesdayDuration desc=tuesday_desc comments=tuesday_comments}}
-                                {{> PlanDay day="Mercredi" type=wednesdayType support=wednesdaySupport duration=wednesdayDuration desc=wednesday_desc comments=wednesday_comments}}
-                                {{> PlanDay day="Jeudi" type=thursdayType support=thursdaySupport duration=thursdayDuration desc=thursday_desc comments=thursday_comments}}
-                                {{> PlanDay day="Vendredi" type=fridayType support=fridaySupport duration=fridayDuration desc=friday_desc comments=friday_comments}}
-                                {{> PlanDay day="Samedi" type=saturdayType support=saturdaySupport duration=saturdayDuration desc=saturday_desc comments=saturday_comments}}
-                                {{> PlanDay day="Dimanche" type=sundayType support=sundaySupport duration=sundayDuration desc=sunday_desc comments=sunday_comments}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="col s12">
+        <p>
+            <a class="btn-flat waves-effect primary_txt" href="/plans"><i class="material-icons left">arrow_back</i>
+                Retourner à la liste</a>
+            {{#if isTrainer}}
+                <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_plan1"><i
+                        class="material-icons left">edit</i> MODIFIER</a>
+                <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_plan"><i
+                        class="material-icons left">delete</i> SUPPRIMER</a>
+            {{/if}}
+        </p>
+        <div class="card" style="padding:5px 20px;z-index:999">
+            <p class="hide-on-small-only" id="date">Soumis le {{monday_date}}</p>
+            <p class="hide-on-med-and-up">Soumis le {{monday_date}}</p>
+            <h4>{{title}}</h4>
+            <h5 class="grey-text">{{comments}}</h5>
+            <div class="row">
+                {{> PlanDay day="Lundi" type=mondayType support=mondaySupport duration=mondayDuration desc=monday_desc comments=monday_comments}}
+                {{> PlanDay day="Mardi" type=tuesdayType support=tuesdaySupport duration=tuesdayDuration desc=tuesday_desc comments=tuesday_comments}}
+                {{> PlanDay day="Mercredi" type=wednesdayType support=wednesdaySupport duration=wednesdayDuration desc=wednesday_desc comments=wednesday_comments}}
+                {{> PlanDay day="Jeudi" type=thursdayType support=thursdaySupport duration=thursdayDuration desc=thursday_desc comments=thursday_comments}}
+                {{> PlanDay day="Vendredi" type=fridayType support=fridaySupport duration=fridayDuration desc=friday_desc comments=friday_comments}}
+                {{> PlanDay day="Samedi" type=saturdayType support=saturdaySupport duration=saturdayDuration desc=saturday_desc comments=saturday_comments}}
+                {{> PlanDay day="Dimanche" type=sundayType support=sundaySupport duration=sundayDuration desc=sunday_desc comments=sunday_comments}}
             </div>
         </div>
     </div>
-
-
     <div id="add_plan1" class="modal modal-fixed-footer" style="width:90%;max-height:90%;height:90%;margin-top:-5%;">
         <div class="modal-content">
             <div class="row">

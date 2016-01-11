@@ -1,44 +1,28 @@
 <template name="Settings">
-    {{> Nav page="Paramètres" color="blue-grey"}}
-    <div id="side_nav" class="hide-on-small-only">
-        <ul class="hide-on-med-and-down">
-            {{> SideNav dashboard=false workouts=false plans=false calendar=false
-            analysis=false settings=true}}
-        </ul>
-    </div>
-    <div class="row" style="padding-top:70px">
-        <div class="col l10 s12 push-l2 m12 scroll">
-            <div class="dash_container">
-                <div class="row">
-                    <div class="col s12">
-                        <div class="card" style="padding:10px;z-index:99">
-                            <div class="row">
-                                <div class="col s12">
-                                    <h4>Paramètres</h4>
-                                    {{#if isTrainer}}
-                                        {{> MyAthletes}}
-                                    {{else}}
-                                        {{> MyTrainer}}
-                                    {{/if}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card" style="padding:10px;z-index:99">
-                            <div class="row">
-                                <div class="col s12">
-                                    <h5>A propos</h5>
-                                    <p>Actuellement en version de test, il se peut que vous rencontriez des bugs.
-                                        Merci de les signaler à l'adresse suivante : pierrejacquier39@gmail.com
-                                        <br>
-                                        Pierre Jacquier - 2015. Tous droits réservés.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="col s12">
+        <div class="card" style="padding:10px;z-index:99">
+            <div class="row">
+                <div class="col s12">
+                    <h4>Paramètres</h4>
+                    {{#if isTrainer}}
+                        {{> MyAthletes}}
+                    {{else}}
+                        {{> MyTrainer}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="card" style="padding:10px;z-index:99">
+            <div class="row">
+                <div class="col s12">
+                    <h5>A propos</h5>
+                    <p>Actuellement en version de test, il se peut que vous rencontriez des bugs.
+                        Merci de les signaler à l'adresse suivante : pierrejacquier39@gmail.com
+                        <br>
+                        Pierre Jacquier - 2015. Tous droits réservés.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-
 </template>

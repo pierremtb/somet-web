@@ -1,41 +1,19 @@
 <template name="Dashboard">
-  {{> Nav page="Dashboard" color="blue-grey"}}
-
-    <div id="side_nav" class="hide-on-med-and-down" style="width: 16.6666666667%">
-        <ul class="hide-on-med-and-down">
-            {{> SideNav dashboard=true workouts=false plans=false calendar=false
-            analysis=false settings=false}}
-        </ul>
-    </div>
-
-    <div class="row" style="padding-top:70px">
-    {{#if currentUser}}
-
-    <div class="col l10 s12 push-l2 m12 scroll">
-        <div class="dash_container">
-        {{#if trainerIs}}
-            {{> UserDash username=selectedAthlete graphs_are_not_here=true}}
-        {{else}}
-            {{> UserDash username=currentUser.username graphs_are_not_here=true}}
-        {{/if}}
-
-
-        </div>
-    </div>
+    {{#if trainerIs}}
+        {{> UserDash username=selectedAthlete graphs_are_not_here=true}}
+    {{else}}
+        {{> UserDash username=currentUser.username graphs_are_not_here=true}}
     {{/if}}
-    </div>
 
-  <script type="text/javascript">
-Chart.defaults.global.responsive = true;
-$(".button-collapse").sideNav();
-$('.datepicker').pickadate({
-    selectMonths: true,
-    selectYears: 15
-});
-$(document).ready(function(){
-   $('ul.tabs').tabs();
-  });
-
-
+    <script type="text/javascript">
+        Chart.defaults.global.responsive = true;
+        $(".button-collapse").sideNav();
+        $('.datepicker').pickadate({
+            selectMonths: true,
+            selectYears: 15
+        });
+        $(document).ready(function () {
+            $('ul.tabs').tabs();
+        });
     </script>
 </template>
