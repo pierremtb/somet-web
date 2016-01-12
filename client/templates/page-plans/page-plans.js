@@ -67,7 +67,7 @@ Template.Plans.events({
           tuesday_type: Session.get("day_1_type"),
           tuesday_support: Session.get('day_1_type') && Session.get('day_1_type')!="nth" ? t.find('#day_1_support').value : "",
           tuesday_desc:  Session.get('day_1_type') && Session.get('day_1_type')!="nth" ? t.find('#day_1_desc').value : "",
-          tuesday_duration: Session.get('day_0_type')=="wk" ? Session.get('day_1_duration') : "",
+          tuesday_duration: Session.get('day_1_type')=="wk" ? Session.get('day_1_duration') : "",
           tuesday_comments:  Session.get('day_1_type') && Session.get('day_1_type')=="wk"  ? t.find('#day_1_comments').value : "",
           wednesday_type: Session.get("day_2_type"),
           wednesday_support:  Session.get('day_2_type') && Session.get('day_2_type')!="nth" ? t.find('#day_2_support').value : "",
@@ -110,6 +110,7 @@ Template.Plans.events({
     },
     'change #day_1_type' : function(e,t) {
         Session.set("day_1_type",t.find('#day_1_type').value);
+        console.log(Session.get("day_1_type"));
         return 0;
     },
     'change #day_1_duration' : function(e,t) {

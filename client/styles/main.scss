@@ -161,10 +161,12 @@ body {
 
 .side_item span {
   font-size: 18px;
+  margin-left: -5px;
 }
 
 .side_item i {
   font-size:21px;
+  margin-top:3px;
 }
 
 .side_item span, .side_item i {
@@ -385,6 +387,7 @@ i {
         color: #000;
         padding: 0px;
         padding-left: 15px;
+        margin-left: 0px;
         font-weight:500;
         font-size: 15px;
       }

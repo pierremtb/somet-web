@@ -29,7 +29,7 @@
                     </div>
                     <div class="card-action right-align ">
                         <a href='/workouts' class="">Plus</a>
-                        <a href="/workout/{{_id}}" class="">Details</a>
+                        <a href="/workout/{{wkId}}" class="">Details</a>
                     </div>
                 </div>
             {{else}}
@@ -93,11 +93,11 @@
             </div>
         {{/if}}
     <script type="text/javascript">
-        /*var l_wk = document.querySelectorAll(".last_wk"), l_pl = document.querySelectorAll(".last_pl");
+        var l_wk = document.querySelectorAll(".last_wk"), l_pl = document.querySelectorAll(".last_pl");
         var t1, t2;
         for(i in l_wk) {
             l_wk[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
              l_pl[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
-        }*/
+        }
     </script>
 </template>

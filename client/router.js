@@ -9,7 +9,7 @@ function getPreviousMonday() {
 
 Router.configure({
     layoutTemplate: 'UserLayout',
-    loadingTemplate: 'Preloader'
+    loadingTemplate: 'Preloader'
 });
 
 Router.route('/workouts', {
@@ -32,12 +32,8 @@ Router.route('/workouts', {
     },
 
     action: function () {
-        if (Meteor.user()) {
-            if (this.ready())
-                this.render('Workouts');
-            else
-                Router.go('/');
-        }
+        if (this.ready())
+            this.render('Workouts');
     }
 });
 
@@ -59,12 +55,8 @@ Router.route('/plans', {
     },
 
     action: function () {
-        if (Meteor.user()) {
-            if (this.ready())
-                this.render('Plans');
-            else
-                Router.go('/');
-        }
+        if (this.ready())
+            this.render('Plans');
     }
 });
 
@@ -90,12 +82,8 @@ Router.route('/settings', {
     },
 
     action: function () {
-        if (Meteor.user()) {
-            if (this.ready())
-                this.render('Settings');
-            else
-                Router.go('/');
-        }
+        if (this.ready())
+            this.render('Settings');
     }
 });
 
@@ -115,22 +103,13 @@ Router.route('/calendar', {
     },
 
     action: function () {
-        if (Meteor.user()) {
-            if (this.ready())
-                this.render('Calendar');
-            else
-                Router.go('/');
-        }
+        if (this.ready())
+            this.render('Calendar');
     }
 });
 
 Router.route('/analysis', function () {
-    if (Meteor.user()) {
-        this.render('Analysis');
-    }
-    else {
-        Router.go('/');
-    }
+    this.render('Analysis');
 });
 
 Router.route('/dashboard', {
@@ -147,7 +126,8 @@ Router.route('/dashboard', {
             return [
                 Meteor.subscribe('workoutsOfCurrentUser'),
                 Meteor.subscribe('athletesOfCurrentUser'),
-                Meteor.subscribe('notificationsOfCurrentUser')
+                Meteor.subscribe('notificationsOfCurrentUser'),
+                Meteor.subscribe('planOfThisUserForThisWeek', getPreviousMonday())
             ];
         }
     },
@@ -161,7 +141,10 @@ Router.route('/dashboard', {
 });
 
 Router.route('/', function () {
-    this.render('Login');
+    if (Meteor.user())
+        Router.go('/dashboard');
+    else
+        this.render('Login');
 });
 
 Router.route('/workout/:id', {
@@ -170,26 +153,20 @@ Router.route('/workout/:id', {
     },
 
     action: function () {
-        if (Meteor.user()) {
-            if (this.ready())
-                this.render('Workout');
-            else
-                Router.go('/');
-        }
+        if (this.ready())
+            this.render('Workout');
+        else
+            Router.go('/');
     }
 });
 
 Router.route('/plan/:id', function () {
-    if (Meteor.user()) {
-        this.render('Plan', {
-            data: function () {
-                Meteor.call("getThisPl", this.params.id, function (e, r) {
-                    pl.set(r);
-                });
-                return pl.get();
-            }
-        });
-    } else {
-        this.render('Login');
-    }
+    this.render('Plan', {
+        data: function () {
+            Meteor.call("getThisPl", this.params.id, function (e, r) {
+                pl.set(r);
+            });
+            return pl.get();
+        }
+    });
 });

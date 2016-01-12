@@ -231,6 +231,9 @@ Template.UserDash.helpers({
     planId: function () {
         return Meteor.user().profile === "trainer" ? PlansDB.findOne({username: Session.get('selectedAthlete')})._id : PlansDB.findOne()._id;
     },
+    wkId: function () {
+        return Meteor.user().profile === "trainer" ? WorkoutsDB.findOne({user: Session.get('selectedAthlete')})._id : WorkoutsDB.findOne()._id;
+    },
     user: function () {
         return this.username + "";
     }
