@@ -60,6 +60,28 @@ Meteor.methods({
         PlansDB.insert(pl);
         return 0;
     },
+    sendPush: function(f,t,tit, txt) {
+        console.log(f);
+        console.log(t);
+        Push.send({
+            from: f,
+            title: tit,
+            text: txt,
+            badge: 1,
+            query: {
+                userId: Meteor.users.findOne({username: t})._id
+            }
+        });
+    },
+    sendTestPush: function() {
+        Push.send({
+            from: 'Test',
+            title: 'Hello',
+            text: 'World',
+            badge: 12,
+            query: {}
+        });
+    },
     rmThisWk: function (id) {
         WorkoutsDB.remove(id);
         return 0;
@@ -144,42 +166,46 @@ Meteor.methods({
     convertToTcx: function (path) {
         var fs = Meteor.npmRequire('fs');
         var exec = Npm.require('child_process').exec;
-        exec("/usr/bin/python ../../../../../python/fittotcx.py \"../../../../../.uploads" + path + "\" > ../../../../../.uploads/sample.tcx");
+        exec("/usr/bin/cat \"../../../../../.uploads" + path + "\" |  /usr/bin/java -jar  \"../../../../../external/FitToJson.jar\" > ../../../../../.uploads/output.json");
         return "done";
     },
     parseTcx: function (path) {
-        var opts = {};
-        opts.elapsed = true;
         var fs = Meteor.npmRequire('fs');
-        var tcx = Meteor.npmRequire('tcx-js');
-        var parser = new tcx.Parser(opts);
-        parser.parse_file("../../../../../.uploads/sample.tcx");
-        var activity = parser.activity;
-        var creator = activity.creator;
-        var author = activity.author;
-        var trackpoints = activity.trackpoints;
-        var length = trackpoints.length;
-        console.log(trackpoints[123]);
-        function getValues(s) {
-            var r = "";
-            for (var i = 0; i < length - 1; i++) {
-                r += Math.round(parseInt(trackpoints[i][s])) + ",";
-            }
-            r += trackpoints[length - 1][s];
-            return r;
+        var txt = fs.readFileSync('../../../../../.uploads/output.json', 'utf8');
+        var data = JSON.parse(txt);
+        var info = data.sessions[0];
+        var rec = data.records;
+        var start_date = new Date(rec[0].timestamp.replace(' CET', ''));
+        console.log(start_date);
+        var time_values = [], distance_values = [], elevation_values = [], speed_values = [], cadence_values = [], hr_values = [], power_values = [];
+        for(i in rec) {
+            time_values.push((Date.parse(rec[i].timestamp.replace(' CET', '')) - start_date)/1000);
+            distance_values.push(parseInt(rec[i].distance));
+            elevation_values.push(rec[i].altitude);
+            speed_values.push(rec[i].speed*3.6);
+            cadence_values.push(rec[i].cadence);
+            hr_values.push(rec[i].hr);
+            power_values.push(rec[i].power);
         }
-
-        var data = {
-            distance: Math.round(parseInt(trackpoints[trackpoints.length - 1].dist_meters) / 1000),
-            duration: Math.round((trackpoints[trackpoints.length - 1].elapsed_sec - trackpoints[0].elapsed_sec) / 60),
-            time_values: getValues("elapsed_sec"),
-            distance_values: getValues("dist_meters"),
-            elevation_values: getValues("alt_meters"),
-            hr_values: getValues("hr"),
-            power_values: getValues("bike_power"),
-            cadence_values: getValues("bike_cadence"),
-            speed_values: getValues('speed')
-        }
-        return data;
+        return {
+            date: start_date,
+            distance: info.totalDistance,
+            duration: parseInt(info.totalElapsedTime),
+            calories: info.totalCalories,
+            ascent: info.totalAscent,
+            sport: info.sport,
+            avg_cadence: info.avgCadence,
+            avg_speed: info.avgSpeed * 3.6,
+            max_speed: info.maxSpeed * 3.6,
+            max_cadence: info.maxCadence,
+            descent: info.totalDescent,
+            time_values: time_values,
+            distance_values: distance_values,
+            elevation_values: elevation_values,
+            hr_values: hr_values,
+            power_values: power_values,
+            cadence_values: cadence_values,
+            speed_values: speed_values
+        };
     }
 });

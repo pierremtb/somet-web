@@ -95,6 +95,7 @@ Template.Plans.events({
           sunday_duration: Session.get('day_6_type')=="wk" ? Session.get('day_6_duration') : "",
           sunday_comments: Session.get('day_6_type')  && Session.get('day_6_type')=="wk" ? t.find('#day_6_comments').value :""
       });
+        Meteor.call("sendPush", Meteor.user().username, Session.get("selectedAthlete"), "Nouveau plan", "Un nouveau plan vous a été ajouté!");
     },
     'change #day_0_type' : function(e,t) {
         Session.set("day_0_type",t.find('#day_0_type').value);

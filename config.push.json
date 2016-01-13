@@ -1,0 +1,11 @@
+{
+  "gcm": {
+    "apiKey": "AIzaSyBNaWZTczMMxjjNkF1yRgQ5LU9HystRT3Q",
+    "projectNumber": 102087919666
+  },
+  "production": true,
+  "badge": true,
+  "sound": true,
+  "alert": true,
+  "vibrate": true
+}

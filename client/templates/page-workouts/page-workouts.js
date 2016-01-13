@@ -43,7 +43,7 @@ Template.Workouts.helpers({
     selectedAthlete: function() { return Session.get("selectedAthlete"); },
     wkDistance: function () {
         if(Session.get("is_plan_based_wk"))
-            return Session.get('wk_distance');
+            return Math.round(Session.get('wk_distance')/1000 * Math.pow(10,2)) / Math.pow(10,2);
         else
             return 25;
     },
@@ -62,7 +62,7 @@ Template.Workouts.helpers({
         var m = min%60 < 10 ? "0" + (min%60) : (min%60);
         return h + ":" + m;
     },
-    wkDuration: function () { return Session.get('wk_duration');},
+    wkDuration: function () { return parseInt(Session.get('wk_duration')/60);},
     plans: function() { return PlansDB.find()}
 });
 
@@ -90,7 +90,14 @@ Template.Workouts.events({
           user: Meteor.user().username,
           day: new Date(t.find('#n_wk_date').value).getDate(),
           month: new Date(t.find('#n_wk_date').value).getMonth() + 1,
-          year: new Date(t.find('#n_wk_date').value).getFullYear()
+          year: new Date(t.find('#n_wk_date').value).getFullYear(),
+          avg_speed: Session.get("wk_avg_speed"),
+          max_speed: Session.get("wk_max_speed"),
+          avg_cadence: Session.get("wk_avg_cadence"),
+          max_cadence: Session.get("wk_max_cadence"),
+          ascent: Session.get("wk_ascent"),
+          descent: Session.get("wk_descent"),
+          calories: Session.get("wk_calories")
         });
         Session.set("wk_time_values","");
         Session.set("wk_distance_values","");
