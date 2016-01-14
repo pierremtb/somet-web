@@ -60,7 +60,7 @@ Meteor.methods({
         PlansDB.insert(pl);
         return 0;
     },
-    sendPush: function(f,t,tit, txt) {
+    sendPush: function (f, t, tit, txt) {
         console.log(f);
         console.log(t);
         Push.send({
@@ -73,7 +73,7 @@ Meteor.methods({
             }
         });
     },
-    sendTestPush: function() {
+    sendTestPush: function () {
         Push.send({
             from: 'Test',
             title: 'Hello',
@@ -164,25 +164,24 @@ Meteor.methods({
         return "done";
     },
     convertToTcx: function (path) {
-        var fs = Meteor.npmRequire('fs');
         var exec = Npm.require('child_process').exec;
-        exec("/usr/bin/cat \"../../../../../.uploads" + path + "\" |  /usr/bin/java -jar  \"../../../../../external/FitToJson.jar\" > ../../../../../.uploads/output.json");
-        return "done";
+        exec('cat \"../../.uploads' + path + '\" | assets/app/jre/bin/java -jar \"./assets/app/FitToJson.jar\" > output.json');
+        return 'Converted, waiting for parser...';
     },
     parseTcx: function (path) {
         var fs = Meteor.npmRequire('fs');
-        var txt = fs.readFileSync('../../../../../.uploads/output.json', 'utf8');
+        var txt = fs.readFileSync('output.json', 'utf8');
         var data = JSON.parse(txt);
         var info = data.sessions[0];
         var rec = data.records;
         var start_date = new Date(rec[0].timestamp.replace(' CET', ''));
         console.log(start_date);
         var time_values = [], distance_values = [], elevation_values = [], speed_values = [], cadence_values = [], hr_values = [], power_values = [];
-        for(i in rec) {
-            time_values.push((Date.parse(rec[i].timestamp.replace(' CET', '')) - start_date)/1000);
+        for (i in rec) {
+            time_values.push((Date.parse(rec[i].timestamp.replace(' CET', '')) - start_date) / 1000);
             distance_values.push(parseInt(rec[i].distance));
             elevation_values.push(rec[i].altitude);
-            speed_values.push(rec[i].speed*3.6);
+            speed_values.push(rec[i].speed * 3.6);
             cadence_values.push(rec[i].cadence);
             hr_values.push(rec[i].hr);
             power_values.push(rec[i].power);
@@ -198,6 +197,8 @@ Meteor.methods({
             avg_speed: info.avgSpeed * 3.6,
             max_speed: info.maxSpeed * 3.6,
             max_cadence: info.maxCadence,
+            avg_power: info.avgPower,
+            max_power: info.maxPower,
             descent: info.totalDescent,
             time_values: time_values,
             distance_values: distance_values,

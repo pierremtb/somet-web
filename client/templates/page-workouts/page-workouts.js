@@ -62,7 +62,7 @@ Template.Workouts.helpers({
         var m = min%60 < 10 ? "0" + (min%60) : (min%60);
         return h + ":" + m;
     },
-    wkDuration: function () { return parseInt(Session.get('wk_duration')/60);},
+    wkDuration: function () { return parseInt(Session.get('wk_duration'));},
     plans: function() { return PlansDB.find()}
 });
 
@@ -73,7 +73,7 @@ Template.Workouts.events({
           description: t.find('#n_wk_description').value,
           comments: t.find('#n_wk_comments').value,
           date: t.find('#n_wk_date').value,
-          length: t.find('#n_wk_length').value,
+          length: Session.get("wk_duration"),
           distance: t.find('#n_wk_distance').value,
           support: t.find('#n_wk_support').value,
           crten_eff: t.find('#n_wk_crten_eff').value,
@@ -95,6 +95,8 @@ Template.Workouts.events({
           max_speed: Session.get("wk_max_speed"),
           avg_cadence: Session.get("wk_avg_cadence"),
           max_cadence: Session.get("wk_max_cadence"),
+          avg_power: Session.get("wk_avg_power"),
+          max_power: Session.get("wk_max_power"),
           ascent: Session.get("wk_ascent"),
           descent: Session.get("wk_descent"),
           calories: Session.get("wk_calories")

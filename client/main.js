@@ -23,6 +23,8 @@ Meteor.startup(function() {
                 Session.set("wk_cadence_values",r.cadence_values);
                 Session.set("wk_avg_speed",r.avg_speed);
                 Session.set("wk_max_speed",r.max_speed);
+                Session.set("wk_avg_power",r.avg_power);
+                Session.set("wk_max_power",r.max_power);
                 Session.set("wk_avg_cadence",r.avg_cadence);
                 Session.set("wk_max_cadence",r.max_cadence);
                 Session.set("wk_ascent",r.ascent);
@@ -30,7 +32,7 @@ Meteor.startup(function() {
                 Session.set("wk_sport",r.sport);
                 Session.set("wk_calories",r.calories);
             });
-        },1000);
+        },5000);
     }
 };
 });
