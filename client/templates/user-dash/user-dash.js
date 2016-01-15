@@ -1,5 +1,3 @@
-var monthChart, sportsChart;
-
 function getDaysInMonth(month, year) {
     month--;
     var date = new Date(year, month, 1);

@@ -1,0 +1,40 @@
+<template name="Event">
+    <div class="col s12">
+        <p>
+            <a class="btn-flat waves-effect primary_txt" href="/events"><i
+                    class="material-icons left">arrow_back</i> Retourner à la liste</a>
+            <a class="btn-flat hide waves-effect primary_txt"><i
+                    class="material-icons left">edit</i> MODIFIER</a>
+            <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_ev"><i
+                    class="material-icons left">delete</i> SUPPRIMER</a>
+        </p>
+        <div class="card" style="padding:5px 20px; z-index:99">
+            <h4>{{title}}</h4>
+            <div class="row">
+                <div class="col s12 m6">
+                    <p class="grey-text">{{date}}</p>
+                    <p>{{description}}</p>
+                    <p>{{comments}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="delete_ev" class="modal">
+        <div class="modal-content">
+            <h4>Voulez-vous vraiment supprimer cet entrainement ?</h4>
+            <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span id="evid">{{id}}</span></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+            <a href="#!" id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+
+</template>

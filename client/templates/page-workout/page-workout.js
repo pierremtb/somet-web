@@ -276,12 +276,15 @@ Template.Workout.helpers({
     },
     length: function () {
         return Session.get("wk").length;
+    },
+    id: function() {
+        return Session.get("wk")._id;
     }
 });
 
 Template.Workout.events({
     "click #delete_bt": function (e, t) {
-        WorkoutsDB.remove(t.find(".wkid").innerHTML);
+        Meteor.call("rmThisWk",t.find(".wkid").innerHTML);
         document.location = "/workouts";
     },
     "click #x_axis_time": function (e, t) {

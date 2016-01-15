@@ -23,6 +23,9 @@ Template.UserLayout.helpers({
            case "/settings":
                Session.set("currentPage","Paramètres");
                break;
+           case "/events":
+               Session.set("currentPage","Evénements");
+               break;
            default:Session.set("currentPage","");
        }
        return Session.get("currentPage");
@@ -32,9 +35,9 @@ Template.UserLayout.helpers({
     isItPls: function(){ return isThisPage("Plans"); },
     isItCal: function(){ return isThisPage("Calendrier"); },
     isItAnl: function(){ return isThisPage("Analyse"); },
-    isItSet: function(){ return isThisPage("Paramètres"); }
+    isItSet: function(){ return isThisPage("Paramètres"); },
+    isItEvt: function(){ return isThisPage("Evénements"); }
 });
 
 Template.UserLayout.onRendered(function(){
-    console.log();
 });

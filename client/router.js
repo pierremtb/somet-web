@@ -37,6 +37,30 @@ Router.route('/workouts', {
     }
 });
 
+Router.route('/events', {
+    waitOn: function () {
+        if (Meteor.user().profile === "trainer") {
+            return [
+                Meteor.subscribe('eventsOfMyAthletes'),
+                Meteor.subscribe('athletesOfCurrentUser'),
+                Meteor.subscribe('notificationsOfCurrentUser')
+            ];
+        }
+        else {
+            return [
+                Meteor.subscribe('eventsOfCurrentUser'),
+                Meteor.subscribe('athletesOfCurrentUser'),
+                Meteor.subscribe('notificationsOfCurrentUser')
+            ];
+        }
+    },
+
+    action: function () {
+        if (this.ready())
+            this.render('Events');
+    }
+});
+
 Router.route('/plans', {
     waitOn: function () {
         if (Meteor.user().profile === "trainer") {
@@ -91,12 +115,18 @@ Router.route('/calendar', {
     waitOn: function () {
         if (Meteor.user().profile === "trainer") {
             return [
-                Meteor.subscribe('notificationsOfCurrentUser'),
-                Meteor.subscribe('athletesOfCurrentUser')
+                Meteor.subscribe('eventsOfMyAthletes'),
+                Meteor.subscribe('workoutsOfMyAthletes'),
+                Meteor.subscribe('athletesOfCurrentUser'),
+                Meteor.subscribe('notificationsOfCurrentUser')
             ];
         }
         else {
             return [
+                Meteor.subscribe('eventsOfCurrentUser'),
+                Meteor.subscribe('workoutsOfCurrentUser'),
+                Meteor.subscribe('plansOfCurrentUser'),
+                Meteor.subscribe('athletesOfCurrentUser'),
                 Meteor.subscribe('notificationsOfCurrentUser')
             ];
         }
@@ -155,6 +185,19 @@ Router.route('/workout/:id', {
     action: function () {
         if (this.ready())
             this.render('Workout');
+        else
+            Router.go('/');
+    }
+});
+
+Router.route('/event/:id', {
+    waitOn: function () {
+        return Meteor.subscribe('eventOfThisId', this.params.id);
+    },
+
+    action: function () {
+        if (this.ready())
+            this.render('Event');
         else
             Router.go('/');
     }

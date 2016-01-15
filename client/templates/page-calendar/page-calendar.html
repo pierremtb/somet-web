@@ -1,4 +1,23 @@
 <template name="Calendar">
-    <p class="center-align white-text"><i class="material-icons large">today</i></p>
-    <h5 class="center-align white-text">Cette fonctionnalité n'est pas encore disponible.</h5>
+    <!--<p class="center-align white-text"><i class="material-icons large">today</i></p>
+    <h5 class="center-align white-text">Cette fonctionnalité n'est pas encore disponible.</h5>-->
+    <div class="col s12" style="z-index: 999">
+        <a class="btn-flat waves-effect primary_txt" id="previous_month" href="#">
+            <i class="material-icons left">arrow_back</i>
+            {{previousMonth}} {{previousYear}}
+        </a>
+        <a class="btn-flat waves-effect primary_txt right"  id="next_month" href="#">
+            <i class="material-icons right">arrow_forward</i>
+            {{nextMonth}} {{nextYear}}
+        </a>
+    </div>
+    <div class="col s4">
+        {{>CalendarMonthCard month=monthOne year=yearOne}}
+    </div>
+    <div class="col s4">
+        {{>CalendarMonthCard month=monthTwo year=yearTwo}}
+    </div>
+    <div class="col s4">
+        {{>CalendarMonthCard month=monthThree year=yearThree}}
+    </div>
 </template>

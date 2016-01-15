@@ -3,6 +3,11 @@ Meteor.publish('workoutOfThisId', function(id) {
     return wk ? wk : this.ready();
 });
 
+Meteor.publish('eventOfThisId', function(id) {
+    var ev = EventsDB.find({_id: id});
+    return ev ? ev : this.ready();
+});
+
 Meteor.publish('workoutsOfCurrentUser', function() {
     var wks = WorkoutsDB.find({user: Meteor.users.findOne(this.userId).username});
     return wks ? wks : this.ready();
@@ -14,6 +19,19 @@ Meteor.publish('workoutsOfMyAthletes', function() {
         names.push(aths[i].username);
     var wks = WorkoutsDB.find({user: {$in: names} });
     return wks ? wks : this.ready();
+});
+
+Meteor.publish('eventsOfMyAthletes', function() {
+    var aths = AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username}).fetch(), names = [];
+    for(var i in aths)
+        names.push(aths[i].username);
+    var evts = EventsDB.find({username: {$in: names} });
+    return evts ? evts : this.ready();
+});
+
+Meteor.publish('eventsOfCurrentUser', function() {
+    var evts = EventsDB.find({username: Meteor.users.findOne(this.userId).username});
+    return evts ? evts : this.ready();
 });
 
 Meteor.publish('plansOfCurrentUser', function() {

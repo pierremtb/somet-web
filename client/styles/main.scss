@@ -280,6 +280,14 @@ i {
   color: #fff;
 }
 
+.month_line  .month_line_add {
+  opacity: 0;
+}
+
+.month_line:hover  .month_line_add {
+  opacity: 1;
+}
+
 .l20p {
   margin-left: 20px;
 }

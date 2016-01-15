@@ -1,10 +1,10 @@
 <template name="UserLayout">
     {{#if currentUser}}
     {{> Nav page=pageName color="blue-grey"}}
-    <div id="side_nav" class="hide-on-small-only" style="width: 16.6666666667%">
+    <div id="side_nav" class="hide-on-small-only" style="width: 16.6666666667%;z-index: 1">
         <ul class="hide-on-med-and-down">
-            {{> SideNav dashboard=isItDash workouts=isItWks plans=isItPls calendar=isItCal
-            analysis=isItAnl settings=isItSet}}
+            {{> SideNav dashboard=isItDash evts=isItEvt workouts=isItWks plans=isItPls calendar=isItCal
+            analysis=isItAnl settings=isItSet }}
         </ul>
     </div>
     <div class="row" style="padding-top:70px">

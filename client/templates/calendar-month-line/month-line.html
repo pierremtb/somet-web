@@ -1,0 +1,23 @@
+<template name="CalendarMonthLine">
+    <li style="line-height: 1.5rem; padding: 4px 10px;" class="month_line collection-item {{#if isWk}}grey lighten-2 black-text{{/if}} {{#if isEv}}pink white-text{{/if}} {{#if isFCEv}}{{/if}} {{#if isSCEv}}lighten-1{{/if}} {{#if isPEv}}lighten-2{{/if}}">
+        <div>
+            <span>{{dayInitial}}</span>
+            <span style="margin-left: 5px">{{day}}</span>
+            {{#each workouts}}
+                <a href="/workout/{{_id}}" class="black-text" style="margin-left: 10px">
+                    <i class="material-icons tiny">directions_bike</i>
+                    <span style="margin-left: 5px">{{getSupport support}}</span>
+                </a>
+            {{/each}}
+            {{#each evts}}
+                <a href="/event/{{_id}}" class="white-text" style="margin-left: 10px">
+                    <i class="material-icons tiny">flag</i>
+                    <span style="margin-left: 5px">{{title}}</span>
+                </a>
+            {{/each}}
+            <a href="/events" class="secondary-content modal-trigger">
+                <i class="month_line_add material-icons {{#if isWk}}white-text{{/if}} {{#if isEv}}white-text{{/if}} ">add</i>
+            </a>
+        </div>
+    </li>
+</template>

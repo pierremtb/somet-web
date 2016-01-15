@@ -60,6 +60,10 @@ Meteor.methods({
         PlansDB.insert(pl);
         return 0;
     },
+    addThisEv: function (et) {
+        EventsDB.insert(et);
+        return 0;
+    },
     sendPush: function (f, t, tit, txt) {
         console.log(f);
         console.log(t);
@@ -84,6 +88,11 @@ Meteor.methods({
     },
     rmThisWk: function (id) {
         WorkoutsDB.remove(id);
+        return 0;
+    },
+    rmThisEv: function (id) {
+        console.log(id);
+        EventsDB.remove(id);
         return 0;
     },
     rmThisPl: function (id) {
