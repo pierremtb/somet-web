@@ -22,6 +22,7 @@ Template.Nav.helpers({
     trainerIs: function () {
         return Meteor.user().profile === "trainer";
     },
+    myName: function () { return Meteor.user().profile === "trainer" ? TrainersDB.findOne({username: Meteor.user().username}).complete_name : AthletesDB.findOne({username: Meteor.user().username}).complete_name;},
     isPage: function(p) { return this.page == p; },
     notificationsNotRead: function () { return NotificationsDB.find({read: false}); },
     notificationsAreHere: function () {

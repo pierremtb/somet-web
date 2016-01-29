@@ -172,6 +172,12 @@ Meteor.methods({
         AthletesDB.insert({username: usr});
         return "done";
     },
+    changeCompleteName: function (usr, name, isTrainer) {
+        if(isTrainer)
+            TrainersDB.update(TrainersDB.findOne({username: usr})._id, {$set: {complete_name: name}});
+        else
+            AthletesDB.update(AthletesDB.findOne({username: usr})._id, {$set: {complete_name: name}});
+    },
     convertToTcx: function (path) {
         var exec = Npm.require('child_process').exec;
         exec('cat \"../../.uploads' + path + '\" | assets/app/jre/bin/java -jar \"./assets/app/FitToJson.jar\" > output.json');

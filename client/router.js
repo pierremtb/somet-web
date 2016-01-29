@@ -18,12 +18,14 @@ Router.route('/workouts', {
             return [
                 Meteor.subscribe('workoutsOfMyAthletes'),
                 Meteor.subscribe('athletesOfCurrentUser'),
+                Meteor.subscribe('meAsTrainer'),
                 Meteor.subscribe('notificationsOfCurrentUser')
             ];
         }
         else {
             return [
                 Meteor.subscribe('workoutsOfCurrentUser'),
+                Meteor.subscribe('meAsAthlete'),
                 Meteor.subscribe('plansOfCurrentUser'),
                 Meteor.subscribe('athletesOfCurrentUser'),
                 Meteor.subscribe('notificationsOfCurrentUser')
@@ -43,6 +45,7 @@ Router.route('/events', {
             return [
                 Meteor.subscribe('eventsOfMyAthletes'),
                 Meteor.subscribe('athletesOfCurrentUser'),
+                Meteor.subscribe('meAsTrainer'),
                 Meteor.subscribe('notificationsOfCurrentUser')
             ];
         }
@@ -50,6 +53,7 @@ Router.route('/events', {
             return [
                 Meteor.subscribe('eventsOfCurrentUser'),
                 Meteor.subscribe('athletesOfCurrentUser'),
+                Meteor.subscribe('meAsAthlete'),
                 Meteor.subscribe('notificationsOfCurrentUser')
             ];
         }
@@ -67,12 +71,14 @@ Router.route('/plans', {
             return [
                 Meteor.subscribe('plansOfMyAthletes'),
                 Meteor.subscribe('notificationsOfCurrentUser'),
+                Meteor.subscribe('meAsTrainer'),
                 Meteor.subscribe('athletesOfCurrentUser')
             ];
         }
         else {
             return [
                 Meteor.subscribe('plansOfCurrentUser'),
+                Meteor.subscribe('meAsAthlete'),
                 Meteor.subscribe('notificationsOfCurrentUser')
             ];
         }
@@ -93,13 +99,16 @@ Router.route('/settings', {
         if (Meteor.user().profile === "trainer") {
             return [
                 Meteor.subscribe('notificationsOfCurrentUser'),
-                Meteor.subscribe('allAthletes')
+                Meteor.subscribe('allAthletes'),
+                Meteor.subscribe('meAsTrainer'),
+                Meteor.subscribe('allTrainers')
             ];
         }
         else {
             return [
                 Meteor.subscribe('notificationsOfCurrentUser'),
                 Meteor.subscribe('allTrainers'),
+                Meteor.subscribe('meAsAthlete'),
                 Meteor.subscribe('allAthletes')
             ];
         }
@@ -118,6 +127,7 @@ Router.route('/calendar', {
                 Meteor.subscribe('eventsOfMyAthletes'),
                 Meteor.subscribe('workoutsOfMyAthletes'),
                 Meteor.subscribe('athletesOfCurrentUser'),
+                Meteor.subscribe('meAsTrainer'),
                 Meteor.subscribe('notificationsOfCurrentUser')
             ];
         }
@@ -126,6 +136,7 @@ Router.route('/calendar', {
                 Meteor.subscribe('eventsOfCurrentUser'),
                 Meteor.subscribe('workoutsOfCurrentUser'),
                 Meteor.subscribe('plansOfCurrentUser'),
+                Meteor.subscribe('meAsAthlete'),
                 Meteor.subscribe('athletesOfCurrentUser'),
                 Meteor.subscribe('notificationsOfCurrentUser')
             ];
@@ -147,6 +158,7 @@ Router.route('/dashboard', {
         if (Meteor.user().profile === "trainer") {
             return [
                 Meteor.subscribe('workoutsOfMyAthletes'),
+                Meteor.subscribe('meAsTrainer'),
                 Meteor.subscribe('athletesOfCurrentUser'),
                 Meteor.subscribe('notificationsOfCurrentUser'),
                 Meteor.subscribe('plansOfMyAthletesForThisWeek', getPreviousMonday())
@@ -155,6 +167,7 @@ Router.route('/dashboard', {
         else {
             return [
                 Meteor.subscribe('workoutsOfCurrentUser'),
+                Meteor.subscribe('meAsAthlete'),
                 Meteor.subscribe('athletesOfCurrentUser'),
                 Meteor.subscribe('notificationsOfCurrentUser'),
                 Meteor.subscribe('planOfThisUserForThisWeek', getPreviousMonday())
