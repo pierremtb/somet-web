@@ -11,6 +11,7 @@ Template.Nav.events({
     },
     'click .athleteD': function () {
         Session.set("selectedAthlete", this.username);
+        Session.set("selectedAthleteName", this.complete_name);
     },
     "click .clear_notifs": function () {
         Meteor.call("makeAllNotificationsRead", Meteor.user().username);
@@ -22,6 +23,7 @@ Template.Nav.helpers({
     trainerIs: function () {
         return Meteor.user().profile === "trainer";
     },
+    dispName: function(cn, usr) { return cn == undefined ? '@' + usr : cn },
     myName: function () { return Meteor.user().profile === "trainer" ? TrainersDB.findOne({username: Meteor.user().username}).complete_name : AthletesDB.findOne({username: Meteor.user().username}).complete_name;},
     isPage: function(p) { return this.page == p; },
     notificationsNotRead: function () { return NotificationsDB.find({read: false}); },
@@ -36,6 +38,9 @@ Template.Nav.helpers({
     },
     selectedAthlete: function () {
         return Session.get("selectedAthlete");
+    },
+    selectedAthleteName: function () {
+        return Session.get("selectedAthleteName");
     },
     athletes: function () { return AthletesDB.find({trainer: Meteor.user().username}); }
 });

@@ -3,7 +3,7 @@
         <ul id="slide-out" class="side-nav">
             <li id="side_nav_header">
                 <i class="large material-icons white-text">account_circle</i>
-                <p class="white-text center-align">{{myName}}</p>
+                <p class="white-text center-align">{{dispName myName currentUser.username}}</p>
             </li>
             <li class="side_item {{#if isPage "Dashboard"}}selected{{/if}} "><a href="/dashboard"><i
                     class="small material-icons vam  inline">dashboard</i><span class="vam l15p">Dashboard</span></a>
@@ -50,7 +50,7 @@
                     <li id="user_bar" class="dropdown-button pointer left  r20p" data-activates='dropdown_athletes'>
                         <a data-activates='dropdown_user' class="primary_txt f20p"><i
                                 class="small material-icons inline vam">directions_run</i><span
-                                class="inline f18p vam">{{selectedAthlete}}</span></a>
+                                class="inline f18p vam">{{dispName selectedAthleteName selectedAthlete}}</span></a>
                     </li>
                 {{/if}}
                 <li id="user_bar" class="dropdown-button left t5p r20p" data-activates='dropdown_notifications'>
@@ -72,7 +72,7 @@
 
     <ul id='dropdown_athletes' class='dropdown-content'>
         {{#each athletes}}
-            <li class="athleteD"><a>{{complete_name}}</a></li>
+            <li class="athleteD"><a>{{dispName complete_name username}}</a></li>
         {{/each}}
     </ul>
 

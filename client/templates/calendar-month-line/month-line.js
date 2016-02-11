@@ -49,13 +49,11 @@ function getSupport(support) {
 }
 
 Template.CalendarMonthLine.helpers({
-    workouts: function() { return WorkoutsDB.find({day: this.day, month: this.month, year: this.year});},
     evts: function() { return EventsDB.find({day: this.day, month: this.month, year: this.year});},
     dayInitial: function() {
         var d = new Date(this.month + "-" + this.day + "-" + this.year);
         return days[d.getDay()];
     },
-    isWk: function() { return WorkoutsDB.find({day: this.day, month: this.month, year: this.year}).fetch().length != 0; },
     isEv: function() { return EventsDB.find({day: this.day, month: this.month, year: this.year}).fetch().length != 0; },
     isFCEv: function() { return EventsDB.find({day: this.day, month: this.month, year: this.year, first_class_event: true}).fetch().length != 0; },
     isSCEv: function() { return EventsDB.find({day: this.day, month: this.month, year: this.year, second_class_event: true}).fetch().length != 0; },
