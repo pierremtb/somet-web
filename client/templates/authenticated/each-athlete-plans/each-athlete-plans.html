@@ -1,0 +1,19 @@
+<template name="AthletePlans">
+    <table class="highlight" style="padding: 15px">
+        <thead>
+          <tr>
+              <th data-field="title">Titre</th>
+              <th data-field="date">Commence le</th>
+              <th data-field="actions">Actions</th>
+          </tr>
+        </thead>
+         <tbody>
+             {{#each plans}}
+                {{> PlanTableLine id=_id title=title comments=comments date=monday_date }}
+              {{/each}}
+              {{#if isNoPls}}
+                <p>Pas de plans enregistrés.</p>
+              {{/if}}
+         </tbody>
+     </table>
+</template>

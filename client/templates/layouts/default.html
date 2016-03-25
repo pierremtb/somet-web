@@ -1,0 +1,33 @@
+<template name="default">
+	<div class="">
+		{{#if loggingIn}}
+			{{> loading}}
+		{{else}}
+			{{#if authenticated}}
+				{{#unless redirectAuthenticated}}
+          {{> Nav page=pageName color="blue-grey"}}
+            <div id="side_nav" class="hide-on-small-only" style="width: 16.6666666667%;z-index: 1">
+                <ul class="hide-on-med-and-down">
+                  {{> SideNav dashboard=isItDash evts=isItEvt workouts=isItWks plans=isItPls calendar=isItCal
+                  analysis=isItAnl settings=isItSet }}
+                </ul>
+            </div>
+            <div class="row" style="padding-top:70px">
+
+                <div class="col l10 s12 push-l2 m12 scroll ">
+                    <div class="dash_container">
+                        <div class="row">
+                          {{> Template.dynamic template=yield}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+				{{/unless}}
+			{{else}}
+				{{#unless redirectPublic}}
+					{{> Template.dynamic template=yield}}
+				{{/unless}}
+			{{/if}}
+		{{/if}}
+	</div>
+</template>

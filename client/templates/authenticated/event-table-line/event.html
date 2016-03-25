@@ -1,0 +1,21 @@
+<template name="EventTableLine">
+    <tr data-href="/workout/{{id}}">
+        <td>{{title}}</td>
+        <td>{{comments}}</td>
+        <td>{{moFormat date 'DD/MM/YYYY'}}</td>
+        <td>
+            <a href="/event/{{id}}"><i class="material-icons small accent_txt">pageview</i></a>
+            <a class="modal-trigger" href="#modal{{id}}"><i class=" accent_txt material-icons small l10p">delete</i></a>
+        </td>
+    </tr>
+    <div id="modal{{id}}" class="modal">
+        <div class="modal-content">
+          <h4>Voulez-vous vraiment supprimer cet évenement ?</h4>
+          <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span class="wkid">{{id}}</span> {{title}} {{date}}</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+          <a href="#!" id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
+        </div>
+    </div>
+</template>

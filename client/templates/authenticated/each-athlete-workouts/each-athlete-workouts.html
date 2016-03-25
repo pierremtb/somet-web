@@ -1,0 +1,22 @@
+<template name="AthleteWorkouts">
+    <table class="highlight" style="padding: 15px">
+        <thead>
+          <tr>
+              <th data-field="title">Title</th>
+              <th data-field="date">Date</th>
+              <th data-field="duration">Duration (h)</th>
+              <th data-field="distance">Distance (km)</th>
+              <th data-field="actions">Actions</th>
+          </tr>
+        </thead>
+         <tbody>
+             {{#each workouts}}
+                {{> WorkoutTableLine id=_id start_date=start_date dur=duration title=title distance=distance}}
+              {{/each}}
+              {{#if isWks}}
+              {{else}}
+                  <p>Pas d'entrainements enregistrés.</p>
+              {{/if}}
+         </tbody>
+     </table>
+</template>

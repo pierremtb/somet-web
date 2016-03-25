@@ -1,0 +1,23 @@
+<template name="SideNav">
+    <li class="side_item {{currentRoute 'dashboard'}}"><a href="/dashboard"><i
+            class="small material-icons left valign  primary_txt">dashboard</i><span class=" primary_txt valign">Dashboard</span></a>
+    </li>
+    <li class="side_item {{currentRoute 'workouts'}}"><a href="/workouts"><i
+            class="small material-icons left valign  primary_txt">directions_bike</i><span class=" primary_txt">Entraînements</span></a>
+    </li>
+    <li class="side_item {{currentRoute 'plans'}}"><a href="/plans"><i
+            class="small material-icons left valign  primary_txt">list</i><span class=" primary_txt">Plans</span></a>
+    </li>
+    <li class="side_item {{currentRoute 'events'}}"><a href="/events"><i
+            class="small material-icons left valign  primary_txt">flag</i><span class=" primary_txt">Evénements</span></a>
+    </li>
+    <li class="side_item {{currentRoute 'calendar'}}"><a href="/calendar"><i
+            class="small material-icons left valign  primary_txt">today</i><span class=" primary_txt">Calendrier</span></a>
+    </li>
+    <li class="side_item {{currentRoute 'analysis'}}"><a href="/analysis"><i
+            class="small material-icons left valign  primary_txt">trending_up</i><span
+            class=" primary_txt">Analyse</span></a></li>
+    <li class="side_item  {{currentRoute 'settings'}}"><a href="/settings"><i
+            class="small material-icons left valign  primary_txt">settings</i><span
+            class=" primary_txt">Paramètres</span></a></li>
+</template>

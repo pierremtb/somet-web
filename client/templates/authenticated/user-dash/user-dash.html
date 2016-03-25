@@ -1,0 +1,147 @@
+<template name="UserDash">
+  {{#if currentUser.services.strava}}
+    {{#if currentUser.profile.finished_set_up}}
+    {{else}}
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Terminons la configuration</span>
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input value="{{usernameMake currentUser.profile.fullName}}" id="new_username" name="new_username" type="text" class="validate">
+                    <label for="new_username" class="active">Pseudonyme</label>
+                  </div>
+                </div>
+                <p>Quel type de compte souhaitez vous ?</p>
+                <p>
+                  <input name="group1" type="radio" checked="true" class="with-gap" id="athlete_radio"/>
+                  <label for="athlete_radio">Sportif</label>
+                </p>
+                <p>
+                  <input name="group1" type="radio" class="with-gap" id="trainer_radio"/>
+                  <label for="trainer_radio">Entraineur</label>
+                </p>
+                <p><br></p>
+                <p>Synchronisation des activités depuis Strava</p>
+                <div class="switch">
+                  <label>
+                    Off
+                    <input type="checkbox" id="strava_sync" checked="checked">
+                    <span class="lever"></span>
+                    On
+                  </label>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card-action right-align">
+            <a id="finish_strava_conf">Enregistrer</a>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  {{/if}}
+  {{#if isWk}}
+  {{else}}
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Bienvenue dans votre Dashboard</span>
+          <p>C'est ici que s'afficherons votre dernier entrainement, celui à réaliser, et également des
+            graphiques sur vos activités mensuelles.</p>
+          <p>Ajoutez dès maintenant votre entraineur en vous rendant dans "Paramètres".</p>
+          <p>Ou ajoutez votre premier compte-rendu d'entrainment en cliquants sur "Entrainements".</p>
+        </div>
+        <div class="card-action right-align">
+          <a href='/workouts' class="">Entrainements</a>
+          <a href="/settings" class="">Paramètres</a>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+  <div class="col s12 m6 ">
+    {{#if isWk}}
+      <div class="card white last_wk" style="z-index:99">
+        <div class="card-content ">
+          <span class="card-title">Dernier entrainement</span>
+          <p>{{lastWkTitle}} - {{lastWkSupport}}</p>
+          <p>{{lastWkDistance}}km - {{dispMins lastWkLength}}</p>
+          <p>{{lastWkDescription}}</p>
+          <p>CR10 : {{lastWkCrten}}</p>
+        </div>
+        <div class="card-action right-align ">
+          <a href='/workouts' class="">Plus</a>
+          <a href="/workout/{{wkId}}" class="">Details</a>
+        </div>
+      </div>
+    {{else}}
+      <div class="card white last_wk" style="z-index:99">
+        <div class="card-content ">
+          <p>Pas d'entrainement récent.</p>
+        </div>
+      </div>
+    {{/if}}
+
+  </div>
+  <div class="col s12 m6 ">
+    {{#if todayPlan}}
+      <div class="card  last_pl" style="z-index:99">
+        <div class="card-content">
+          <span class="card-title">Séance d'aujourd'hui</span>
+          <p>{{todayType}}</p>
+          <p>{{todaySupport}}</p>
+          <p>{{todayDuration}}</p>
+          <p>{{todayDesc}}</p>
+          <p>{{todayComments}}</p>
+        </div>
+        <div class="card-action right-align">
+          <a href='/plans' class="">Plus</a>
+          {{#if todayPlan}}<a href="/plan/{{planId}}" class="">Details</a>{{/if}}
+        </div>
+      </div>
+    {{else}}
+      <div class="card  last_pl" style="z-index:99">
+        <div class="card-content">
+          <p>Pas de plan cette semaine.</p>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+  {{#if isWk}}
+    <div class="col s12 primary_txt">
+      <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
+        <i class="material-icons  right-align col s1 mt5p" id="previous"
+           style="padding-top:10px;">arrow_back</i>
+        <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
+        <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;"
+           id="next">arrow_forward</i>
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div id="columnchart" class="card  " style="z-index:99">
+        <div class="card-content">
+          <p>Activité mensuelle</p>
+          <div id="columnchart_material" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m3">
+      <div id="piechart" class="card">
+        <div class="card-content">
+          <p>Répartition</p>
+          <div id="donutchart" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+  <script type="text/javascript">
+    var l_wk = document.querySelectorAll(".last_wk"), l_pl = document.querySelectorAll(".last_pl");
+    var t1, t2;
+    for (i in l_wk) {
+      l_wk[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
+      l_pl[i].querySelector(".card-content").style.height = Math.max(l_wk[i].querySelector(".card-content").offsetHeight, l_pl[i].querySelector(".card-content").offsetHeight) + "px";
+    }
+  </script>
+</template>

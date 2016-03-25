@@ -1,0 +1,19 @@
+<template name="Dashboard">
+    {{#if currentUser.profile.trainer}}
+        {{> UserDash username=selectedAthlete graphs_are_not_here=true}}
+    {{else}}
+        {{> UserDash username=currentUser.username graphs_are_not_here=true}}
+    {{/if}}
+
+    <script type="text/javascript">
+        Chart.defaults.global.responsive = true;
+        $(".button-collapse").sideNav();
+        $('.datepicker').pickadate({
+            selectMonths: true,
+            selectYears: 15
+        });
+        $(document).ready(function () {
+            $('ul.tabs').tabs();
+        });
+    </script>
+</template>

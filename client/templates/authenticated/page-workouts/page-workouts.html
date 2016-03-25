@@ -1,0 +1,313 @@
+<template name="Workouts">
+    <div class="col s12">
+        {{#if currentUser.profile.trainer}}
+        {{else}}
+            <a class="btn-flat waves-effect primary_txt modal-trigger" href="#select_plan"><i
+                    class="material-icons left">add</i> Ajouter (basé sur un plan)</a>
+            <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_workout"><i
+                    class="material-icons left">add</i> Ajouter (libre)</a>
+        {{/if}}
+
+        <div class="card" style="padding:10px;z-index:99">
+            {{#if currentUser.profile.trainer}}
+                {{> AthleteWorkouts username=selectedAthlete}}
+            {{else}}
+                {{> AthleteWorkouts username=currentUser.username}}
+            {{/if}}
+        </div>
+
+        <ul class="pagination white-text center">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active" white-text><a href="#!">1</a></li>
+            <li class="waves-effect white-text"><a href="#!">2</a></li>
+            <li class="waves-effect white-text"><a href="#!">3</a></li>
+            <li class="waves-effect white-text"><a href="#!">4</a></li>
+            <li class="waves-effect white-text"><a href="#!">5</a></li>
+            <li class="waves-effect white-text"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+
+    <div id="add_workout" class="modal modal-fixed-footer"
+         style="width:90%;max-height:90%;height:90%;margin-top:-5%;">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h4>Ajouter un entrainement</h4>
+                </div>
+                <div class="col s12 m6">
+                    <form action="#">
+                        <p>Ajouter un .fit (Garmin)</p>
+                        {{> upload_bootstrap fileTypes='.fit'}}
+                    </form>
+                </div>
+                <form class="">
+                    <div class="row">
+                        <div class="col s12">
+                            <h5>Description</h5>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="n_wk_title" type="text" value={{wkTitle}}>
+                            <label class="active" for="n_wk_title">Titre</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input type="date" id="n_wk_date" data-value="{{wkDate}}" class="datepicker">
+                        </div>
+                        <div class="input-field col s12 m6">
+                                        <textarea id="n_wk_description"
+                                                  class="materialize-textarea">{{wkDesc}}</textarea>
+                            <label class="active" for="n_wk_description">Description</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                                        <textarea id="n_wk_comments"
+                                                  class="materialize-textarea">{{wkComments}}</textarea>
+                            <label class="active" for="n_wk_comments">Commentaires éventuels</label>
+                        </div>
+
+                        <div class="col s12 m6">
+                            <h5>Chiffres</h5>
+                            <div class="input-field">
+                                <p>Support:</p>
+                                <select class="browser-default" id="n_wk_support">
+                                    <option value="" disabled selected="">Choisir...</option>
+                                    <option value="mtb"
+                                            selected="{{#if isThisSupport 'mtb'}}selected{{/if}}">VTT
+                                    </option>
+                                    <option value="road"
+                                            selected="{{#if isThisSupport 'road'}}selected{{/if}}">Route
+                                    </option>
+                                    <option value="ht" selected="{{#if isThisSupport 'ht'}}selected{{/if}}">
+                                        Home Trainer
+                                    </option>
+                                    <option value="run"
+                                            selected="{{#if isThisSupport 'run'}}selected{{/if}}">Course à
+                                        pied
+                                    </option>
+                                    <option value="skix"
+                                            selected="{{#if isThisSupport 'skix'}}selected{{/if}}">Ski de
+                                        fond
+                                    </option>
+                                    <option value="swim"
+                                            selected="{{#if isThisSupport 'swim'}}selected{{/if}}">Natation
+                                    </option>
+                                    <option value="endr"
+                                            selected="{{#if isThisSupport 'endr'}}selected{{/if}}">Enduro
+                                    </option>
+                                    <option value="othr"
+                                            selected="{{#if isThisSupport 'othr'}}selected{{/if}}">Autre
+                                    </option>
+                                </select>
+                            </div>
+                            <p class="range-field">
+                                Durée : {{dispMins wkDuration}}
+                                <input type="range" id="n_wk_length" min="1" max="600" value="90"/>
+                            </p>
+                            <p class="range-field">
+                                Distance (en km)
+                                <input id="n_wk_distance" type="number" value={{wkDistance}}>
+                            </p>
+                        </div>
+
+                        <div class="col s12 m6">
+                            <h5>Sensations et ressenti</h5>
+                            <p class="range-field">
+                                Echelle d'effort CR10 : 
+                            <div class="input-field">
+                                <select class="browser-default" id="n_wk_crten_eff">
+                                    <option value="" disabled>Choisir...</option>
+                                    <option value="0">0</option>
+                                    <option value="0.3">0.3</option>
+                                    <option value="0.5">0.5</option>
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected="">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                </select>
+                            </div>
+                            </p>
+                            <p class="range-field">
+                                Echelle de plaisir CR10 :
+                            <div class="input-field">
+                                <select class="browser-default" id="n_wk_crten_ple">
+                                    <option value="" disabled>Choisir...</option>
+                                    <option value="0">0</option>
+                                    <option value="0.3">0.3</option>
+                                    <option value="0.5">0.5</option>
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected="">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            </p>
+                            <p class="range-field">
+                                Echelle de sensations :
+                            <div class="input-field">
+                                <select class="browser-default" id="n_wk_sensa">
+                                    <option value="" disabled>Choisir...</option>
+                                    <option value="0">0</option>
+                                    <option value="0.3">0.3</option>
+                                    <option value="0.5">0.5</option>
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected="">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            </p>
+                            <p class="range-field">
+                                Echelle d'humeur :
+                            <div class="input-field">
+                                <select class="browser-default" id="n_wk_hum">
+                                    <option value="" disabled>Choisir...</option>
+                                    <option value="0">0</option>
+                                    <option value="0.3">0.3</option>
+                                    <option value="0.5">0.5</option>
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected="">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="n_wk_submit"
+               class=" modal-action modal-close waves-effect waves-cyan accent_txt btn-flat">Ajouter</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
+
+        </div>
+    </div>
+
+
+    <div id="select_plan" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Sélectionner l'entrainement du plan à valider</h4>
+            <ul class="collapsible" data-collapsible="accordion">
+                {{#each plans}}
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">list</i>{{monday_date}}
+                        </div>
+                        <div class="collapsible-body">
+                            <ul class="collection">
+                                {{#if isItNotNth monday_type}}
+                                    <li class="collection-item">
+                                        <div>{{getType monday_type}} du Lundi<a href="#!"
+                                                                                class="secondary-content"
+                                                                                id="open_this_0"><i
+                                                class="material-icons">open_in_new</i></a></div>
+                                    </li>
+                                {{/if}}
+                                {{#if isItNotNth tuesday_type}}
+                                    <li class="collection-item">
+                                        <div>{{getType tuesday_type}} du Mardi<a href="#!"
+                                                                                 class="secondary-content"
+                                                                                 id="open_this_1"><i
+                                                class="material-icons">open_in_new</i></a></div>
+                                    </li>
+                                {{/if}}
+                                {{#if isItNotNth wednesday_type}}
+                                    <li class="collection-item">
+                                        <div>{{getType wednesday_type}} du Mercredi<a href="#!"
+                                                                                      class="secondary-content"
+                                                                                      id="open_this_2"><i
+                                                class="material-icons">open_in_new</i></a></div>
+                                    </li>
+                                {{/if}}
+                                {{#if isItNotNth thursday_type}}
+                                    <li class="collection-item">
+                                        <div>{{getType thursday_type}} du Jeudi<a href="#!"
+                                                                                  class="secondary-content"
+                                                                                  id="open_this_3"><i
+                                                class="material-icons">open_in_new</i></a></div>
+                                    </li>
+                                {{/if}}
+                                {{#if isItNotNth friday_type}}
+                                    <li class="collection-item">
+                                        <div>{{getType friday_type}} du Vendredi<a href="#!"
+                                                                                   class="secondary-content"
+                                                                                   id="open_this_4"><i
+                                                class="material-icons">open_in_new</i></a></div>
+                                    </li>
+                                {{/if}}
+                                {{#if isItNotNth saturday_type}}
+                                    <li class="collection-item">
+                                        <div>{{getType saturday_type}} du Samedi<a href="#!"
+                                                                                   class="secondary-content"
+                                                                                   id="open_this_5"><i
+                                                class="material-icons">open_in_new</i></a></div>
+                                    </li>
+                                {{/if}}
+                                {{#if isItNotNth sunday_type}}
+                                    <li class="collection-item">
+                                        <div>{{getType sunday_type}} du Dimanche<a href="#!"
+                                                                                   class="secondary-content"
+                                                                                   id="open_this_6"><i
+                                                class="material-icons">open_in_new</i></a></div>
+                                    </li>
+                                {{/if}}
+                            </ul>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fermer</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('ul.tabs').tabs();
+            $('.modal-trigger').leanModal();
+            $('.tooltipped').tooltip({delay: 50});
+            $('.collapsible').collapsible({
+                accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+            });
+        });
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+</template>

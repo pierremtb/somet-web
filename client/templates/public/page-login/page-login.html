@@ -1,0 +1,119 @@
+<template name="Login">
+  <nav style="position:fixed;z-index:99;background:rgba(30,30,30,0.5);box-shadow:none">
+    <div class="nav-wrapper">
+      <a href="/" class="ml10p" id="title">Sumrise<span class="f18p ml10p"> (beta)</span></a>
+      <ul class="right">
+        <li><a id="about" class="pointer">A propos</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container" style="padding-top:0px;">
+    <div class=" valign-wrapper" style="height:100vh;padding: 0px 0px;">
+    <div class="row valign">
+      <div class="col s12 m7 white-text hide-on-small-only" style="padding: 0px 0px;">
+        <h1 class="thin">Découvrez Sumrise,</h1>
+        <h4 class="light">la plateforme d'entrainement cycliste pour mettre en lien athlètes et
+          entraineurs.</h4>
+      </div>
+      <div class="col m1 hide-on-small-only">
+        <h5></h5>
+      </div>
+      <div class="col s12 m4">
+        <div class="row">
+          <p class="white-text">Rapidité et fonctionnalités : </p>
+          <a data-social-login="loginWithStrava" class="col s12  waves-effect orange darken-3 waves-light  btn-large">Connexion avec Strava</a>
+        </div>
+
+        <div class="row">
+          <p class="white-text">Pas de compte Strava ? </p>
+          <a class="col s12 modal-trigger waves-effect blue-grey darken-3 waves-light  btn-large" href="#modal_email_login">Connexion par email</a>
+        </div>
+        <div class="row">
+          <a class="col s12 modal-trigger waves-effect blue-grey darken-4 waves-light  btn-large" href="#modal_email_signup">Inscription par email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div id="modal_email_signup" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Inscription</h4>
+      <p><br></p>
+      <div class="row">
+        <form class="col s12" id="login-with-email">
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <input placeholder="Nino Schurter" id="completeNameCreate" name="completeNameCreate" type="text" class="validate">
+              <label for="completeNameCreate" class="active">Nom complet</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input placeholder="nino_schurter" id="usernameCreate" name="usernameCreate" type="text" class="validate">
+              <label for="usernameCreate" class="active">Pseudonyme (s'affichera @nino_schurter)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <input id="emailCreate" name="emailCreate" type="email" class="validate" placeholder="nino.schurter@scott-sports.com">
+              <label for="emailCreate" class="active">Email</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input id="passwordCreate" name="passwordCreate" type="password" placeholder="jEr0uL3enScAle900rC" class="validate">
+              <label for="passwordCreate" class="active">Mot de passe</label>
+            </div>
+          </div>
+          <div class="row">
+            <p>Type de compte :</p>
+            <p class="col s6">
+              <input name="group1" type="radio" checked="true" class="with-gap" id="athlete_radio"/>
+              <label for="athlete_radio">Sportif</label>
+            </p>
+            <p class="col s6">
+              <input name="group1" type="radio" class="with-gap" id="trainer_radio"/>
+              <label for="trainer_radio">Entraineur</label>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button data-auth-type="create" class="modal-action btn-flat pink-text modal-close" type="submit">Créer mon compte</button>
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Fermer</a>
+    </div>
+  </div>
+
+  <div id="modal_email_login" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Connexion</h4>
+      <p><br></p>
+      <div class="row">
+        <form class="col s12" id="signup-with-email">
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="nino_schurter" name="emailLogin" id="emailLogin" type="text" class="validate">
+              <label for="emailLogin" class="active">Pseudonyme ou adresse email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="passwordLogin" name="passwordLogin" type="password" placeholder="jEr0uL3enScAle900rC" class="validate">
+              <label for="passwordLogin" class="active">Mot de passe</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button data-auth-type="sign-in" class="modal-close modal-action btn-flat pink-text" type="submit">Connexion à mon compte</button>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat ">Fermer</a>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      $('.modal-trigger').leanModal();
+    });
+  </script>
+
+</template>

@@ -1,39 +1,43 @@
 # Meteor packages used by this project, one per line.
-# Check this file (and the other files in this directory) into your repository.
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-jquery
-fourseven:scss
-iron:router
 accounts-password
-jparker:crypto-md5
-standard-minifiers
-meteor-base
-mobile-experience
-mongo
-blaze-html-templates
-session
-tracker
-logging
-reload
-random
-ejson
-spacebars
+accounts-base
+jquery
 check
-poetic:materialize-scss
+audit-argument-checks
+themeteorchef:jquery-validation
+browser-policy
+meteorhacks:npm
+
+
+themeteorchef:bert
+meteorhacks:ssr
+standard-minifiers
 
 
 npm-container
-meteorhacks:npm
-tomi:upload-server
-tomi:upload-jquery
+ecmascript
+digilord:faker
+kadira:flow-router
+kadira:blaze-layout
+meteorhacks:fast-render
+meteor-base
+session
+templating
+fourseven:scss
+stevezhu:lodash
 reactive-var
+reactive-dict
+aldeed:collection2
+tracker
+poetic:materialize-scss
 simple:reactive-method
-multiply:iron-router-progress
-raix:push
-meteorhacks:kadira
-http
-ostrio:meteor-root
+tomi:upload-jquery
+tomi:upload-server
+lbee:moment-helpers
 easy:search
+service-configuration
+selaias:accounts-strava
