@@ -46,17 +46,17 @@
   {{#if isWk}}
   {{else}}
     <div class="col s12">
-      <div class="card">
+      <div class="card blue white-text">
         <div class="card-content">
           <span class="card-title">Bienvenue dans votre Dashboard</span>
           <p>C'est ici que s'afficherons votre dernier entrainement, celui à réaliser, et également des
             graphiques sur vos activités mensuelles.</p>
           <p>Ajoutez dès maintenant votre entraineur en vous rendant dans "Paramètres".</p>
-          <p>Ou ajoutez votre premier compte-rendu d'entrainment en cliquants sur "Entrainements".</p>
+          <p>Ou ajoutez votre premier compte-rendu d'entrainment en cliquant sur "Entrainements".</p>
         </div>
         <div class="card-action right-align">
-          <a href='/workouts' class="">Entrainements</a>
-          <a href="/settings" class="">Paramètres</a>
+          <a href='/workouts' class="yellow-text">Entrainements</a>
+          <a href="/settings" class="yellow-text">Paramètres</a>
         </div>
       </div>
     </div>
@@ -66,10 +66,12 @@
       <div class="card white last_wk" style="z-index:99">
         <div class="card-content ">
           <span class="card-title">Dernier entrainement</span>
-          <p>{{lastWkTitle}} - {{lastWkSupport}}</p>
-          <p>{{lastWkDistance}}km - {{dispMins lastWkLength}}</p>
-          <p>{{lastWkDescription}}</p>
-          <p>CR10 : {{lastWkCrten}}</p>
+          {{#with lastWk}}
+          <p>{{title}} - {{dispSupport support}}</p>
+          <p>{{dispDistance distance}}km - {{dispDuration duration}}</p>
+          <p>{{description}}</p>
+          <p>CR10 : {{cr.effort}}</p>
+          {{/with}}
         </div>
         <div class="card-action right-align ">
           <a href='/workouts' class="">Plus</a>

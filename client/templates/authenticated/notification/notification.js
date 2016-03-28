@@ -1,30 +1,16 @@
 Template.Notification.events({
-    "click .accept_trainer": function () {
-        Meteor.call("acceptTrainer",this.value, Meteor.user().username, this._id, function(e,r) {
-            Materialize.toast(r, 1000);
-        });
-    },
-    "click .accept_athlete": function () {
-        Meteor.call("acceptAthlete", this.value, Meteor.user().username, this._id, function(e,r) {
-            Materialize.toast(r,1000);
-        });
-    },
-    "click .decline_invite": function () {
-        Meteor.call("declineNotification", this._id);
-    }
+  "click #mark_read": function () {
+    Meteor.call("declineNotification", this._id);
+  },
+  "click #accept": function(e,t) {
+    Meteor.call(this.type == "invite_for_athlete" ? "acceptTrainer" : "acceptAthlete", this.value, Meteor.user().username, this._id, function(e,r) {
+      Materialize.toast(r,1000);
+    });
+  }
 });
 
 Template.Notification.helpers({
-  trainerConfirmation() {
-    return this.type == "trainer_confirmation";
-  },
-  athleteConfirmation() {
-    return this.type == "athlete_confirmation";
-  },
-  inviteForAthlete() {
-    return this.type == "invite_for_athlete";
-  },
-  inviteForTrainer() {
-    return this.type == "invite_for_trainer";
+  actionNotif() {
+    return this.type == "invite_for_athlete" || this.type == "invite_for_trainer";
   }
 });

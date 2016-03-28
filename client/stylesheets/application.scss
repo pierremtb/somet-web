@@ -70,6 +70,15 @@ input[type=range] + .thumb {
   color: $primary-txt;
 }
 
+.card-action a {
+  display: inline-block;
+  font-size: 1rem;
+  height: auto;
+  line-height: 1rem;
+  padding: 0px;
+  cursor: pointer;
+}
+
 .accent_bg {
   background: $secondary-color;
 }

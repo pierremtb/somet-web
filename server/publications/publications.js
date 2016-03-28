@@ -33,6 +33,18 @@ Meteor.publish('plansOfUsr', function (usr) {
   return pls ? pls : this.ready();
 });
 
+Meteor.publish('lastWorkoutOfUsr', function (usr) {
+  check(usr, String);
+  var wks = WorkoutsDB.find({owner: usr, limit: 1});
+  return wks ? wks : this.ready();
+});
+
+Meteor.publish('lastPlanOfUsr', function (usr) {
+  check(usr, String);
+  var pls = PlansDB.find({owner: usr, limit: 1});
+  return pls ? pls : this.ready();
+});
+
 Meteor.publish('eventsOfUsr', function (usr) {
   check(usr, String);
   var evts = EventsDB.find({owner: usr});

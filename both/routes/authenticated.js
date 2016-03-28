@@ -23,6 +23,16 @@ authenticatedRoutes.route( '/workouts', {
   }
 });
 
+authenticatedRoutes.route( '/workouts/:p', {
+  name: 'workoutsByPage',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'Workouts' } );
+  },
+  subscriptions(params, queryParams) {
+    this.register('workoutsByPage', Meteor.subscribe('workoutsOfUsr', params.p));
+  }
+});
+
 authenticatedRoutes.route( '/plans', {
   name: 'plans',
   action() {
@@ -74,7 +84,7 @@ authenticatedRoutes.route( '/plan/:id', {
     BlazeLayout.render( 'default', { yield: 'Plan' } );
   },
   subscriptions(params, queryParams) {
-    this.register('plan', Meteor.subscribe('planOfThisId', params.id));
+    this.register('plan', Meteor.subscribe('Workout', params.id));
   }
 });
 

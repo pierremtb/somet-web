@@ -1,41 +1,15 @@
 <template name="Notification">
-    {{#if trainerConfirmation}}
-        <li class="notifs valign-wrapper"><i class="material-icons left valign">account_circle</i>L'entraineur {{value}} vous a été ajouté.</li>
-    {{/if}}
-    {{#if inviteForAthlete}}
-        <li class="notifs">
-            <div class=" valign-wrapper">
-                    <i class="material-icons left valign">account_circle</i>
-                    <span>L'entraineur {{value}} souhaite vous ajouter.</span>
-            </div>
-            <div class="row">
-                <a class="accept_trainer btn-flat center-align waves-effect col s6 pink-text ">Accepter</a>
-                <a class="decline_invite btn-flat center-align waves-effect col s6">Refuser</a>
-            </div>
-        </li>
-    {{/if}}
-    {{#if inviteForTrainer}}
-        <li class="notifs">
-            <div class=" valign-wrapper">
-                    <i class="material-icons left valign">account_circle</i>
-                    <span>L'athlete {{value}} souhaite vous ajouter comme entraineur.</span>
-            </div>
-            <div class="row">
-                <a class="accept_athlete btn-flat center-align waves-effect col s6 pink-text ">Accepter</a>
-                <a class="decline_invite btn-flat center-align waves-effect col s6">Refuser</a>
-            </div>
-        </li>
-    {{/if}}
-    {{#if athleteConfirmation}}
-        <li class="notifs"><i class="material-icons left">account_circle</i>L'athlète {{value}} vous a été ajouté.</li>
-    {{/if}}
-    {{#if messagetype}}
-        <li class="notifs"><i class="material-icons left">chat</i>Nouveau message de {{value}}.</li>
-    {{/if}}
-    <style>
-        .notifs {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-    </style>
+  <div class="col s12">
+    <div class="card black-text">
+      <div class="card-content">
+        <p>{{dispNotificationText type value}}</p>
+      </div>
+      <div class="card-action right-align">
+        {{#if actionNotif}}
+        <a id="accept" class="accent_txt">Accepter</a>
+        {{/if}}
+        <a id="mark_read" class="black-text">Lu</a>
+      </div>
+    </div>
+  </div>
 </template>

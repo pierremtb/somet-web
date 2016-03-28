@@ -38,3 +38,16 @@ Template.registerHelper("dispDayName", function (i) {
     case 6: return "Dimanche";
   }
 });
+
+Template.registerHelper("dispNotificationText", function(type, value) {
+  switch(type) {
+    case "trainer_confirmation":
+      return "@" + value + " est désormais votre entraineur !";
+    case "athlete_confirmation":
+      return "Vous entrainez désormais l'athlete @" + value;
+    case "invite_for_trainer":
+      return "L'athlete @" + value + " veut que vous deveniez son entraineur";
+    case "invite_for_athlete":
+      return "@" + value + " veut devenir votre entraineur";
+  }
+});

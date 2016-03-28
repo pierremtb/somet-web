@@ -176,16 +176,10 @@ Template.UserDash.helpers({
     return h + ":" + m;
   },
   isWk: function () {
-    return Meteor.user().profile === "trainer" ? WorkoutsDB.findOne({user: Session.get('selectedAthlete')}, {
-      sort: {date: -1},
-      limit: 1
-    }) : WorkoutsDB.findOne({}, {sort: {date: -1}, limit: 1});
+    return WorkoutsDB.findOne();
   },
-  lastWkTitle: function () {
-    return Meteor.user().profile === "trainer" ? WorkoutsDB.findOne({user: Session.get('selectedAthlete')}, {
-      sort: {date: -1},
-      limit: 1
-    }).title : WorkoutsDB.findOne({}, {sort: {date: -1}, limit: 1}).title;
+  lastWk: function () {
+    return WorkoutsDB.findOne({}, {sort: {start_date: -1}});
   },
   lastWkDistance: function () {
     return Meteor.user().profile === "trainer" ? WorkoutsDB.findOne({user: Session.get('selectedAthlete')}, {
@@ -268,6 +262,8 @@ Template.UserDash.events({
 
 Template.UserDash.onCreated(function () {
   this.subscribe("getUserData");
+  this.subscribe("workoutsOfUsr", this.data.username);
+  this.subscribe("lastPlanOfUsr", this.data.username);
 });
 
 Template.UserDash.onRendered(function () {

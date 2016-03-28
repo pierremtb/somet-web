@@ -1,13 +1,10 @@
 const fetchStrava = () => {
   Meteor.setInterval(function () {
     let users = _getUsers();
-    console.log("us");
     for (let i in users) {
       if (users[i].services.strava && users[i].profile.strava_sync) {
         _fetchLastActivities(users[i].services.strava.accessToken, users[i].username)
       }
-      else
-        console.log("nostravauser");
     }
   }, 60000);
 };
@@ -18,7 +15,6 @@ let _getUsers = () => {
 
 let _fetchLastActivities = (token, username) => {
   let Strava = new StravaClient(token);
-  console.log("fetching");
   let activities = Strava.getActivities();
   for (let i in activities) {
     var date = new Date(activities[i].start_date_local);
@@ -41,7 +37,7 @@ let _fetchLastActivities = (token, username) => {
 
 let _upsertStravaActivity = (id, wk) => {
   WorkoutsDB.upsert({ strava_id: id }, {$set: wk}, function(err, num, upserted) {
-    console.log(upserted,err,num);
+
   });
 };
 
