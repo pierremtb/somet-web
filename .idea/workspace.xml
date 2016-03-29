@@ -2,145 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5210724f-9f17-47f4-854d-6359d6b2e0a0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bg-compressed.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/mountain-road.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/strava_connect.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/wall.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sumrise-rebase.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/insert/athletes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/insert/events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/insert/notifications.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/insert/plans.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/insert/trainers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/insert/workouts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/read/athletes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/read/events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/read/notifications.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/read/plans.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/read/trainers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/read/workouts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/remove/athletes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/remove/events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/remove/notifications.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/remove/plans.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/remove/trainers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/remove/workouts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/update/athletes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/update/events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/update/notifications.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/update/plans.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/update/trainers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/update/users.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/both/methods/update/workouts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/helpers/time.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/modules/handle-authentication.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/modules/notifications-toaster.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/athlete-line/workout.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/athlete-line/workout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/athlete-line/workout.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/athletes-search-result/trainer-search-result.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/athletes-search-result/trainer-search-result.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/calendar-month-card/calendar-month-card.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/calendar-month-card/calendar-month-card.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/calendar-month-line/month-line.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/calendar-month-line/month-line.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/event-table-line/event.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/event-table-line/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/event-table-line/workout.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/my-athletes/my-athletes.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/my-athletes/my-athletes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/my-trainer/my-trainer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/my-trainer/my-trainer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/notification/notification.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/notification/notification.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-analysis/page-analyse.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-analysis/page-analysis.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-calendar/page-calendar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-calendar/page-calendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-dashboard/graphdrawer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-dashboard/page-dashboard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-dashboard/page-dashboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-signup/page-signup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/plan-day/plan-day.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/plan-day/plan-day.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/plan-table-line/plan-table-line.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/plan-table-line/plan-table-line.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/plan-table-line/plan-table-line.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/side-nav/side-nav.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/trainers-search-result/trainer-search-result.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/trainers-search-result/trainer-search-result.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/layouts/user-layout/user-layout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/layouts/user-layout/user-layout.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/public/login-form/login-form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/public/login-form/login-form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/public/page-login/page-login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/public/page-login/page-login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/public/signup-form/signup-form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/public/signup-form/signup-form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collections/athletes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collections/events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collections/notifications.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collections/plans.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collections/trainers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collections/workouts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/modules/configure-services.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/modules/fetch-strava.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/modules/strava.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/publications/publications.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/templates/authenticated/dashboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/publications/template.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application.html" afterPath="$PROJECT_DIR$/application.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/routes/authenticated.js" afterPath="$PROJECT_DIR$/both/routes/authenticated.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/routes/public.js" afterPath="$PROJECT_DIR$/both/routes/public.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/startup.js" afterPath="$PROJECT_DIR$/client/modules/startup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/startup.js" afterPath="$PROJECT_DIR$/both/startup.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/application.scss" afterPath="$PROJECT_DIR$/client/stylesheets/application.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/layouts/default.html" afterPath="$PROJECT_DIR$/client/templates/layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/modules/startup.js" afterPath="$PROJECT_DIR$/server/modules/startup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings-development.json" afterPath="$PROJECT_DIR$/settings-development.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collections/workouts.js" afterPath="$PROJECT_DIR$/collections/workouts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publications/publications.js" afterPath="$PROJECT_DIR$/server/publications/publications.js" />
     </list>
     <ignored path="sumrise-rebase.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -161,101 +34,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/modules/startup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notifications-toaster.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="notifications-toaster.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/notifications-toaster.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.92324096">
-              <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notifications.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/both/methods/read/notifications.js">
+      <file leaf-file-name="each-athlete-workouts.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+            <state vertical-scroll-proportion="-3.3333333">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="handle-authentication.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/modules/handle-authentication.js">
+      <file leaf-file-name="page-workouts.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="34" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="34" />
+            <state vertical-scroll-proportion="-9.333333">
+              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/startup.js">
+      <file leaf-file-name="workout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/modules/startup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.6666667">
+              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/startup.js">
+        <entry file="file://$PROJECT_DIR$/both/startup.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="configure-services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/modules/configure-services.js">
+      <file leaf-file-name="workouts.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/collections/workouts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.70212764">
+              <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_modules.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/both/modules/_modules.js">
+      <file leaf-file-name="application.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.086207">
+              <caret line="142" column="5" selection-start-line="142" selection-start-column="2" selection-end-line="142" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/both/modules/startup.js">
+      <file leaf-file-name="publications.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/publications/publications.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="time.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/helpers/time.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="each-athlete-workouts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.4262295">
+              <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -276,16 +149,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/event-table-line/event.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/notification/notification.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/notification/notification.html" />
         <option value="$PROJECT_DIR$/collections/athletes.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" />
         <option value="$PROJECT_DIR$/both/methods/insert/notifications.js" />
         <option value="$PROJECT_DIR$/settings-development.json" />
         <option value="$PROJECT_DIR$/server/modules/configure-services.js" />
@@ -303,12 +172,9 @@
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html" />
         <option value="$PROJECT_DIR$/both/methods/insert/workouts.js" />
-        <option value="$PROJECT_DIR$/client/stylesheets/application.scss" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/nav/nav.html" />
         <option value="$PROJECT_DIR$/both/routes/authenticated.js" />
-        <option value="$PROJECT_DIR$/server/publications/publications.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/nav/nav.js" />
         <option value="$PROJECT_DIR$/both/methods/insert/plans.js" />
         <option value="$PROJECT_DIR$/collections/plans.js" />
@@ -321,12 +187,19 @@
         <option value="$PROJECT_DIR$/client/templates/authenticated/plan-table-line/plan-table-line.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.html" />
         <option value="$PROJECT_DIR$/server/modules/startup.js" />
-        <option value="$PROJECT_DIR$/collections/workouts.js" />
         <option value="$PROJECT_DIR$/server/modules/fetch-strava.js" />
         <option value="$PROJECT_DIR$/client/modules/notificationsToaster.js" />
         <option value="$PROJECT_DIR$/client/modules/startup.js" />
         <option value="$PROJECT_DIR$/both/methods/read/notifications.js" />
         <option value="$PROJECT_DIR$/client/modules/notifications-toaster.js" />
+        <option value="$PROJECT_DIR$/both/startup.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html" />
+        <option value="$PROJECT_DIR$/client/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/server/publications/publications.js" />
+        <option value="$PROJECT_DIR$/collections/workouts.js" />
       </list>
     </option>
   </component>
@@ -338,10 +211,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="-4" />
-    <option name="width" value="1368" />
-    <option name="height" value="773" />
+    <option name="x" value="1280" />
+    <option name="y" value="406" />
+    <option name="width" value="1366" />
+    <option name="height" value="695" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -368,8 +241,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -384,7 +255,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemId" value="sumrise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -394,29 +265,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemId" value="sumrise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="collections" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -426,7 +279,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemId" value="sumrise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -440,7 +293,125 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authenticated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authenticated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workout-table-line" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authenticated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page-workouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authenticated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="each-athlete-workouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -458,11 +429,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemId" value="sumrise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
+              <option name="myItemId" value="both" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="both" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="both" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -476,21 +479,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="both" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemId" value="sumrise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -499,55 +488,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="methods" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="both" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="methods" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="remove" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="both" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="methods" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="read" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -644,45 +591,45 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
-    <editor active="false" />
+    <frame x="1280" y="406" width="1366" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22874807" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21370067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24247491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38176197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25390917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38176197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25390917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -701,21 +648,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-signup/page-signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/public/page-login/page-login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/both/methods/insert/athletes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -776,14 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="230" column="13" selection-start-line="230" selection-start-column="13" selection-end-line="230" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -800,19 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/publications/publications.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="3" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,7 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,30 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/helpers/time.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.645162">
-          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.3225806">
@@ -916,9 +805,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5689654">
           <caret line="13" column="78" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="78" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#template#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -958,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -966,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -974,7 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="1" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,22 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both/startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/collections/workouts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1100,8 +968,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/notifications-toaster.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.92324096">
-          <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/startup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/helpers/time.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4262295">
+          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3333333">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.086207">
+          <caret line="142" column="5" selection-start-line="142" selection-start-column="2" selection-end-line="142" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/publications/publications.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6666667">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.333333">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collections/workouts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70212764">
+          <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
           <folding />
         </state>
       </provider>

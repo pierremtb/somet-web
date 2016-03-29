@@ -41,3 +41,5 @@ lbee:moment-helpers
 easy:search
 service-configuration
 selaias:accounts-strava
+aldeed:tabular
+dburles:collection-helpers

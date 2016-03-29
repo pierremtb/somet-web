@@ -243,6 +243,16 @@ body {
   right: 0;
 }
 
+tbody tr {
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+
 .r5p {
   margin-right: 5px;
 }
@@ -497,6 +507,13 @@ i {
   width: 85%;
 }
 
+.dataTables_filter {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+/*
 .pagination {
 
   li {
@@ -535,3 +552,4 @@ i {
     float: none;
   }
 }
+*/

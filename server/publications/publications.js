@@ -23,7 +23,7 @@ Meteor.publish('workoutsOfCurrentUser', function () {
 
 Meteor.publish('workoutsOfUsr', function (usr) {
   check(usr, String);
-  var wks = WorkoutsDB.find({owner: usr});
+  var wks = WorkoutsDB.find({owner: usr}, {sort: {start_date: -1}});
   return wks ? wks : this.ready();
 });
 

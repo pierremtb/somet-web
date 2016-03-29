@@ -1,4 +1,4 @@
-WorkoutsDB = new Meteor.Collection( 'workouts' );
+WorkoutsDB = new Meteor.Collection('workouts');
 
 WorkoutsDB.allow({
   insert: () => false,
@@ -101,4 +101,44 @@ let WorkoutsDBSchema = new SimpleSchema({
   }
 });
 
-WorkoutsDB.attachSchema( WorkoutsDBSchema );
+WorkoutsDB.attachSchema(WorkoutsDBSchema);
+
+WorkoutsDB.helpers({
+  dispDate() {
+    return this.start_date ? new Date(this.start_date).toLocaleDateString() : "Date inconnue";
+  },
+  dispDuration() {
+    return (new Date(this.duration * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0];
+  },
+  dispDistance() {
+    return (this.distance / 1000).toFixed(2);
+  }
+});
+
+TabularTables = {};
+
+TabularTables.Workouts = new Tabular.Table({
+  name: "Workouts",
+  collection: WorkoutsDB,
+  columns: [
+    {data: "title", title: "Title"},
+    {data: "start_date", title: "Date"},
+    {data: "distance", title: "Distance (km)"},
+    {data: "duration", title: "Durée (sec)"},
+  ],
+  selector: function (userId) {
+    let user = Meteor.users.findOne({_id: userId});
+    if(user.profile.trainer) {
+      let athletes = AthletesDB.find({trainer: user.username}).fetch();
+      let result = [];
+      for(let i in athletes) {
+        result.push({owner: athletes[i].username});
+      }
+      return  {$or: result};
+    } else {
+      return {owner: user.username};
+    }
+  },
+  responsive: true,
+  autoWidth: false,
+});
