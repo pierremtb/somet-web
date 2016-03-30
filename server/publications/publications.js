@@ -76,9 +76,9 @@ Meteor.publish('lastWorkoutOfUsr', function (usr) {
   return wks ? wks : this.ready();
 });
 
-Meteor.publish('thisWeekPlanOfUsr', function (usr) {
+Meteor.publish('thisWeekPlansOfUsr', function (usr) {
   check(usr, String);
-  var pl = PlansDB.find({owner: usr, limit: 1});
+  var pl = PlansDB.find({owner: usr}, {sort: {monday_date:-1}, limit: 1});
   return pl ? pl : this.ready();
 });
 

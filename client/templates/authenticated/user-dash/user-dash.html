@@ -66,19 +66,19 @@
     <div class="col s12 m6 ">
       {{#if isWk}}
         <div class="card white last_wk" style="z-index:99">
+          {{#with lastWk}}
           <div class="card-content ">
             <span class="card-title">Dernier entrainement</span>
-            {{#with lastWk}}
               <p>{{title}} - {{dispSupport support}}</p>
               <p>{{dispDistance distance}}km - {{dispDuration duration}}</p>
               <p>{{description}}</p>
               <p>CR10 : {{cr.effort}}</p>
-            {{/with}}
           </div>
           <div class="card-action right-align ">
             <a href='/workouts' class="">Plus</a>
-            <a href="/workout/{{wkId}}" class="">Details</a>
+            <a href="/workout/{{_id}}" class="">Details</a>
           </div>
+          {{/with}}
         </div>
       {{else}}
         <div class="card white last_wk" style="z-index:99">
@@ -90,22 +90,22 @@
 
     </div>
     <div class="col s12 m6 ">
-      {{#if isPl}}
+      {{#if todayPl}}
         <div class="card  last_pl" style="z-index:99">
+          {{#with todayPl}}
           <div class="card-content">
             <span class="card-title">Séance d'aujourd'hui</span>
-            {{#with todayPl}}
-            <p>{{todayType}}</p>
-            <p>{{todaySupport}}</p>
-            <p>{{todayDuration}}</p>
-            <p>{{todayDesc}}</p>
-            <p>{{todayComments}}</p>
-            {{/with}}
+            <p>{{type}}</p>
+            <p>{{support}}</p>
+            <p>{{duration}}</p>
+            <p>{{description}}</p>
+            <p>{{comments}}</p>
           </div>
           <div class="card-action right-align">
             <a href='/plans' class="">Plus</a>
-            {{#if todayPlan}}<a href="/plan/{{planId}}" class="">Details</a>{{/if}}
+            <a href="/plan/{{_id}}" class="">Details</a>
           </div>
+          {{/with}}
         </div>
       {{else}}
         <div class="card  last_pl" style="z-index:99">
