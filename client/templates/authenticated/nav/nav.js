@@ -12,7 +12,6 @@ Template.Nav.events({
   'click .athleteD': function () {
     Session.set("selectedAthlete", this.username);
     Session.set("selectedAthleteName", this.complete_name);
-    FlowRouter.go('/dashboard');
   },
   "click .clear_notifs": function () {
     Meteor.call("makeAllNotificationsRead", Meteor.user().username);

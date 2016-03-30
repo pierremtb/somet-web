@@ -6,10 +6,12 @@ Template.Plan.onRendered(function () {
   var done = false;
   Tracker.autorun(function () {
     if (FlowRouter.subsReady() && !done) {
-      pl.set(PlansDB.findOne());
-      alert("nrstnrs");
-      console.log(pl.get());
-      done = true;
+      if(PlansDB.findOne()) {
+        pl.set(PlansDB.findOne());
+        done = true;
+      } else {
+        FlowRouter.redirect('/dashboard');
+      }
     }
   });
 });

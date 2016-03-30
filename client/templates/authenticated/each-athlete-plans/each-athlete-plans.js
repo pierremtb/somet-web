@@ -1,12 +1,14 @@
 Template.AthletePlans.helpers({
-  plans: function () {
-    return Meteor.user().profile === "trainer" ? PlansDB.find({username: Session.get('selectedAthlete')}) : PlansDB.find();
-  },
-  isNoPls: function () {
-    return PlansDB.find().fetch().length == 0;
+  selector() {
+    return {owner: Meteor.user().profile.trainer ? Session.get("selectedAthlete") : Meteor.user().username}
   }
 });
 
-Template.AthletePlans.onCreated(function () {
-  this.subscribe('plansOfUsr', this.data.username);
+Template.AthletePlans.events({
+  'click tbody > tr': function (event) {
+    var dataTable = $(event.target).closest('table').DataTable();
+    var rowData = dataTable.row(event.currentTarget).data();
+    if (!rowData) return;
+    FlowRouter.go('/plan/' + rowData._id);
+  }
 });

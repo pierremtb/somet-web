@@ -1,5 +1,9 @@
 <template name="AthleteWorkouts">
-
-  {{> tabular table=TabularTables.Workouts class="table table-striped table-bordered table-condensed"}}
-
+  {{#if Template.subscriptionsReady}}
+  <div class="tabularContainer">
+  {{> tabular table=TabularTables.Workouts selector=selector class="table table-striped table-bordered table-condensed"}}
+  </div>
+  {{else}}
+    {{> Preloader}}
+  {{/if}}
 </template>

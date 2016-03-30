@@ -1,4 +1,5 @@
 <template name="Workout">
+  {{#if Template.subscriptionsReady}}
     <div class="col s12">
 
         <p>
@@ -104,5 +105,7 @@
             <a href="#!" id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
         </div>
     </div>
-
+  {{else}}
+    {{> Preloader}}
+  {{/if}}
 </template>

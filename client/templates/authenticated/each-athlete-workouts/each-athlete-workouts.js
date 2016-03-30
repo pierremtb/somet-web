@@ -1,14 +1,7 @@
 Template.AthleteWorkouts.helpers({
-  workouts: function () {
-    return []//WorkoutsDB.find();
-  },
-  isWks: function () {
-    return WorkoutsDB.find().count() > 0;
+  selector() {
+    return {owner: Meteor.user().profile.trainer ? Session.get("selectedAthlete") : Meteor.user().username}
   }
-});
-
-Template.AthleteWorkouts.onCreated(function () {
-  this.subscribe('workoutsOfUsr', this.data.username);
 });
 
 Template.AthleteWorkouts.events({
@@ -16,6 +9,6 @@ Template.AthleteWorkouts.events({
     var dataTable = $(event.target).closest('table').DataTable();
     var rowData = dataTable.row(event.currentTarget).data();
     if (!rowData) return;
-    window.location = 'workout/' + rowData._id;
+    FlowRouter.go('/workout/' + rowData._id);
   }
 });

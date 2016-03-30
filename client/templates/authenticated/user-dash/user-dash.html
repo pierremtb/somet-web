@@ -1,142 +1,149 @@
 <template name="UserDash">
-  {{#if currentUser.services.strava}}
-    {{#if currentUser.profile.finished_set_up}}
-    {{else}}
-      <div class="col s12">
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">Terminons la configuration</span>
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12 m6">
-                    <input value="{{usernameMake currentUser.profile.fullName}}" id="new_username" name="new_username" type="text" class="validate">
-                    <label for="new_username" class="active">Pseudonyme</label>
+  {{#if Template.subscriptionsReady}}
+    {{#if currentUser.services.strava}}
+      {{#if currentUser.profile.finished_set_up}}
+      {{else}}
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Terminons la configuration</span>
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12 m6">
+                      <input value="{{usernameMake currentUser.profile.fullName}}" id="new_username" name="new_username"
+                             type="text" class="validate">
+                      <label for="new_username" class="active">Pseudonyme</label>
+                    </div>
                   </div>
-                </div>
-                <p>Quel type de compte souhaitez vous ?</p>
-                <p>
-                  <input name="group1" type="radio" checked="true" class="with-gap" id="athlete_radio"/>
-                  <label for="athlete_radio">Sportif</label>
-                </p>
-                <p>
-                  <input name="group1" type="radio" class="with-gap" id="trainer_radio"/>
-                  <label for="trainer_radio">Entraineur</label>
-                </p>
-                <p><br></p>
-                <p>Synchronisation des activités depuis Strava</p>
-                <div class="switch">
-                  <label>
-                    Off
-                    <input type="checkbox" id="strava_sync" checked="checked">
-                    <span class="lever"></span>
-                    On
-                  </label>
-                </div>
-              </form>
+                  <p>Quel type de compte souhaitez vous ?</p>
+                  <p>
+                    <input name="group1" type="radio" checked="true" class="with-gap" id="athlete_radio"/>
+                    <label for="athlete_radio">Sportif</label>
+                  </p>
+                  <p>
+                    <input name="group1" type="radio" class="with-gap" id="trainer_radio"/>
+                    <label for="trainer_radio">Entraineur</label>
+                  </p>
+                  <p><br></p>
+                  <p>Synchronisation des activités depuis Strava</p>
+                  <div class="switch">
+                    <label>
+                      Off
+                      <input type="checkbox" id="strava_sync" checked="checked">
+                      <span class="lever"></span>
+                      On
+                    </label>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-action right-align">
+              <a id="finish_strava_conf">Enregistrer</a>
             </div>
           </div>
+        </div>
+      {{/if}}
+    {{/if}}
+    {{#if isWk}}
+    {{else}}
+      <div class="col s12">
+        <div class="card blue white-text">
+          <div class="card-content">
+            <span class="card-title">Bienvenue dans votre Dashboard</span>
+            <p>C'est ici que s'afficherons votre dernier entrainement, celui à réaliser, et également des
+              graphiques sur vos activités mensuelles.</p>
+            <p>Ajoutez dès maintenant votre entraineur en vous rendant dans "Paramètres".</p>
+            <p>Ou ajoutez votre premier compte-rendu d'entrainment en cliquant sur "Entrainements".</p>
+          </div>
           <div class="card-action right-align">
-            <a id="finish_strava_conf">Enregistrer</a>
+            <a href='/workouts' class="yellow-text">Entrainements</a>
+            <a href="/settings" class="yellow-text">Paramètres</a>
           </div>
         </div>
       </div>
     {{/if}}
-  {{/if}}
-  {{#if isWk}}
-  {{else}}
-    <div class="col s12">
-      <div class="card blue white-text">
-        <div class="card-content">
-          <span class="card-title">Bienvenue dans votre Dashboard</span>
-          <p>C'est ici que s'afficherons votre dernier entrainement, celui à réaliser, et également des
-            graphiques sur vos activités mensuelles.</p>
-          <p>Ajoutez dès maintenant votre entraineur en vous rendant dans "Paramètres".</p>
-          <p>Ou ajoutez votre premier compte-rendu d'entrainment en cliquant sur "Entrainements".</p>
+    <div class="col s12 m6 ">
+      {{#if isWk}}
+        <div class="card white last_wk" style="z-index:99">
+          <div class="card-content ">
+            <span class="card-title">Dernier entrainement</span>
+            {{#with lastWk}}
+              <p>{{title}} - {{dispSupport support}}</p>
+              <p>{{dispDistance distance}}km - {{dispDuration duration}}</p>
+              <p>{{description}}</p>
+              <p>CR10 : {{cr.effort}}</p>
+            {{/with}}
+          </div>
+          <div class="card-action right-align ">
+            <a href='/workouts' class="">Plus</a>
+            <a href="/workout/{{wkId}}" class="">Details</a>
+          </div>
         </div>
-        <div class="card-action right-align">
-          <a href='/workouts' class="yellow-text">Entrainements</a>
-          <a href="/settings" class="yellow-text">Paramètres</a>
+      {{else}}
+        <div class="card white last_wk" style="z-index:99">
+          <div class="card-content ">
+            <p>Pas d'entrainement récent.</p>
+          </div>
         </div>
-      </div>
-    </div>
-  {{/if}}
-  <div class="col s12 m6 ">
-    {{#if isWk}}
-      <div class="card white last_wk" style="z-index:99">
-        <div class="card-content ">
-          <span class="card-title">Dernier entrainement</span>
-          {{#with lastWk}}
-          <p>{{title}} - {{dispSupport support}}</p>
-          <p>{{dispDistance distance}}km - {{dispDuration duration}}</p>
-          <p>{{description}}</p>
-          <p>CR10 : {{cr.effort}}</p>
-          {{/with}}
-        </div>
-        <div class="card-action right-align ">
-          <a href='/workouts' class="">Plus</a>
-          <a href="/workout/{{wkId}}" class="">Details</a>
-        </div>
-      </div>
-    {{else}}
-      <div class="card white last_wk" style="z-index:99">
-        <div class="card-content ">
-          <p>Pas d'entrainement récent.</p>
-        </div>
-      </div>
-    {{/if}}
+      {{/if}}
 
-  </div>
-  <div class="col s12 m6 ">
-    {{#if todayPlan}}
-      <div class="card  last_pl" style="z-index:99">
-        <div class="card-content">
-          <span class="card-title">Séance d'aujourd'hui</span>
-          <p>{{todayType}}</p>
-          <p>{{todaySupport}}</p>
-          <p>{{todayDuration}}</p>
-          <p>{{todayDesc}}</p>
-          <p>{{todayComments}}</p>
+    </div>
+    <div class="col s12 m6 ">
+      {{#if isPl}}
+        <div class="card  last_pl" style="z-index:99">
+          <div class="card-content">
+            <span class="card-title">Séance d'aujourd'hui</span>
+            {{#with todayPl}}
+            <p>{{todayType}}</p>
+            <p>{{todaySupport}}</p>
+            <p>{{todayDuration}}</p>
+            <p>{{todayDesc}}</p>
+            <p>{{todayComments}}</p>
+            {{/with}}
+          </div>
+          <div class="card-action right-align">
+            <a href='/plans' class="">Plus</a>
+            {{#if todayPlan}}<a href="/plan/{{planId}}" class="">Details</a>{{/if}}
+          </div>
         </div>
-        <div class="card-action right-align">
-          <a href='/plans' class="">Plus</a>
-          {{#if todayPlan}}<a href="/plan/{{planId}}" class="">Details</a>{{/if}}
+      {{else}}
+        <div class="card  last_pl" style="z-index:99">
+          <div class="card-content">
+            <p>Pas de plan cette semaine.</p>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+    {{#if isWk}}
+      <div class="col s12 primary_txt">
+        <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
+          <i class="material-icons  right-align col s1 mt5p" id="previous"
+             style="padding-top:10px;">arrow_back</i>
+          <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
+          <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;"
+             id="next">arrow_forward</i>
         </div>
       </div>
-    {{else}}
-      <div class="card  last_pl" style="z-index:99">
-        <div class="card-content">
-          <p>Pas de plan cette semaine.</p>
+      <div class="col s12 m9">
+        <div id="columnchart" class="card  " style="z-index:99">
+          <div class="card-content">
+            <p>Activité mensuelle</p>
+            <div id="columnchart_material" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3">
+        <div id="piechart" class="card">
+          <div class="card-content">
+            <p>Répartition</p>
+            <div id="donutchart" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+          </div>
         </div>
       </div>
     {{/if}}
-  </div>
-  {{#if isWk}}
-    <div class="col s12 primary_txt">
-      <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
-        <i class="material-icons  right-align col s1 mt5p" id="previous"
-           style="padding-top:10px;">arrow_back</i>
-        <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
-        <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;"
-           id="next">arrow_forward</i>
-      </div>
-    </div>
-    <div class="col s12 m9">
-      <div id="columnchart" class="card  " style="z-index:99">
-        <div class="card-content">
-          <p>Activité mensuelle</p>
-          <div id="columnchart_material" style="width: 100%; height: 200px;margin-top: 20px;"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m3">
-      <div id="piechart" class="card">
-        <div class="card-content">
-          <p>Répartition</p>
-          <div id="donutchart" style="width: 100%; height: 200px;margin-top: 20px;"></div>
-        </div>
-      </div>
-    </div>
+  {{else}}
+    {{> Preloader}}
   {{/if}}
   <script type="text/javascript">
     var l_wk = document.querySelectorAll(".last_wk"), l_pl = document.querySelectorAll(".last_pl");

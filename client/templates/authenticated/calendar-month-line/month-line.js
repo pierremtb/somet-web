@@ -113,7 +113,8 @@ Template.CalendarMonthLine.helpers({
 });
 
 Template.CalendarMonthLine.onCreated(function () {
-  this.subscribe('dayEventsOfUsr', Meteor.user().profile === "trainer" ? Session.get('selectedAthlete') : Meteor.user().username, this.data.date, function () {
-
+  let self = this;
+  Tracker.autorun(function() {
+    self.subscribe('dayEventsOfUsr', Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username, self.data.date);
   });
 });

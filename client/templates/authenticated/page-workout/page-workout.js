@@ -133,93 +133,95 @@ Template.Workout.onRendered(function () {
   var done = false;
   Tracker.autorun(function () {
     if (FlowRouter.subsReady() && !done) {
-      wk.set(WorkoutsDB.findOne());
-      done = true;
-      console.log(wk.get());
-      var ec = self.find('.elevation_chart'),
-        pc = self.find('.power_chart'),
-        sc = self.find('.speed_chart'),
-        cc = self.find('.cadence_chart');
-      if (wk.get().fit_linked)
-        drawWorkoutGraphs(self.workout.get(), ec, pc, sc, cc);
-      $(document).ready(function () {
-        var circle_crten_eff = Circles.create({
-          id: 'circle_crten_eff',
-          radius: 30,
-          value: wk.get().cr.effort,
-          maxValue: 10,
-          width: 5,
-          text: function (value) {
-            return value;
-          },
-          colors: [getCRBackColor(wk.get().cr.effort), getCRFrontColor(wk.get().cr.effort)],
-          duration: null,
-          wrpClass: 'circles-wrp',
-          textClass: 'circles-text',
-          valueStrokeClass: 'circles-valueStroke',
-          maxValueStrokeClass: 'circles-maxValueStroke',
-          styleWrapper: true,
-          styleText: true
+      if(WorkoutsDB.findOne()) {
+        wk.set(WorkoutsDB.findOne());
+        done = true;
+        var ec = self.find('.elevation_chart'),
+          pc = self.find('.power_chart'),
+          sc = self.find('.speed_chart'),
+          cc = self.find('.cadence_chart');
+        if (wk.get().fit_linked)
+          drawWorkoutGraphs(self.workout.get(), ec, pc, sc, cc);
+        $(document).ready(function () {
+          var circle_crten_eff = Circles.create({
+            id: 'circle_crten_eff',
+            radius: 30,
+            value: wk.get().cr.effort,
+            maxValue: 10,
+            width: 5,
+            text: function (value) {
+              return value;
+            },
+            colors: [getCRBackColor(wk.get().cr.effort), getCRFrontColor(wk.get().cr.effort)],
+            duration: null,
+            wrpClass: 'circles-wrp',
+            textClass: 'circles-text',
+            valueStrokeClass: 'circles-valueStroke',
+            maxValueStrokeClass: 'circles-maxValueStroke',
+            styleWrapper: true,
+            styleText: true
+          });
+          var circle_crten_ple = Circles.create({
+            id: 'circle_crten_ple',
+            radius: 30,
+            value: wk.get().cr.pleasure,
+            maxValue: 10,
+            width: 5,
+            text: function (value) {
+              return value;
+            },
+            colors: [getCRBackColorRev(wk.get().cr.pleasure), getCRFrontColorRev(wk.get().cr.pleasure)],
+            duration: null,
+            wrpClass: 'circles-wrp',
+            textClass: 'circles-text',
+            valueStrokeClass: 'circles-valueStroke',
+            maxValueStrokeClass: 'circles-maxValueStroke',
+            styleWrapper: true,
+            styleText: true
+          });
+          var sensa = Circles.create({
+            id: 'sensa',
+            radius: 30,
+            value: wk.get().cr.sensations,
+            maxValue: 10,
+            width: 5,
+            text: function (value) {
+              return value;
+            },
+            colors: [getCRBackColorRev(wk.get().cr.sensations), getCRFrontColorRev(wk.get().cr.sensations)],
+            duration: null,
+            wrpClass: 'circles-wrp',
+            textClass: 'circles-text',
+            valueStrokeClass: 'circles-valueStroke',
+            maxValueStrokeClass: 'circles-maxValueStroke',
+            styleWrapper: true,
+            styleText: true
+          });
+          var hum = Circles.create({
+            id: 'hum',
+            radius: 30,
+            value: wk.get().cr.mood,
+            maxValue: 10,
+            width: 5,
+            text: function (value) {
+              return value;
+            },
+            colors: [getCRBackColorRev(wk.get().cr.mood), getCRFrontColorRev(wk.get().cr.mood)],
+            duration: null,
+            wrpClass: 'circles-wrp',
+            textClass: 'circles-text',
+            valueStrokeClass: 'circles-valueStroke',
+            maxValueStrokeClass: 'circles-maxValueStroke',
+            styleWrapper: true,
+            styleText: true
+          });
+          $('.modal-trigger').leanModal();
         });
-        var circle_crten_ple = Circles.create({
-          id: 'circle_crten_ple',
-          radius: 30,
-          value: wk.get().cr.pleasure,
-          maxValue: 10,
-          width: 5,
-          text: function (value) {
-            return value;
-          },
-          colors: [getCRBackColorRev(wk.get().cr.pleasure), getCRFrontColorRev(wk.get().cr.pleasure)],
-          duration: null,
-          wrpClass: 'circles-wrp',
-          textClass: 'circles-text',
-          valueStrokeClass: 'circles-valueStroke',
-          maxValueStrokeClass: 'circles-maxValueStroke',
-          styleWrapper: true,
-          styleText: true
-        });
-        var sensa = Circles.create({
-          id: 'sensa',
-          radius: 30,
-          value: wk.get().cr.sensations,
-          maxValue: 10,
-          width: 5,
-          text: function (value) {
-            return value;
-          },
-          colors: [getCRBackColorRev(wk.get().cr.sensations), getCRFrontColorRev(wk.get().cr.sensations)],
-          duration: null,
-          wrpClass: 'circles-wrp',
-          textClass: 'circles-text',
-          valueStrokeClass: 'circles-valueStroke',
-          maxValueStrokeClass: 'circles-maxValueStroke',
-          styleWrapper: true,
-          styleText: true
-        });
-        var hum = Circles.create({
-          id: 'hum',
-          radius: 30,
-          value: wk.get().cr.mood,
-          maxValue: 10,
-          width: 5,
-          text: function (value) {
-            return value;
-          },
-          colors: [getCRBackColorRev(wk.get().cr.mood), getCRFrontColorRev(wk.get().cr.mood)],
-          duration: null,
-          wrpClass: 'circles-wrp',
-          textClass: 'circles-text',
-          valueStrokeClass: 'circles-valueStroke',
-          maxValueStrokeClass: 'circles-maxValueStroke',
-          styleWrapper: true,
-          styleText: true
-        });
-        $('.modal-trigger').leanModal();
-      });
+      }
+      else {
+        FlowRouter.redirect('/dashboard');
+      }
     }
-    else
-      console.log("nrst");
   });
 });
 

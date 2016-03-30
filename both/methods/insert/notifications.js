@@ -43,7 +43,6 @@ Meteor.methods({
     check(t, String);
     check(a, String);
     check(id, String);
-    console.log('yeah');
     var tt = AthletesDB.findOne({username: a})._id;
     AthletesDB.update(tt, {$set: {trainer: t}});
     NotificationsDB.insert({owner: t, read: false, type: "athlete_confirmation", value: a});
@@ -54,7 +53,6 @@ Meteor.methods({
     check(a, String);
     check(t, String);
     check(id, String);
-    console.log(a,t,id);
     var tt = AthletesDB.findOne({username: a})._id;
     AthletesDB.update(tt, {$set: {trainer: t}});
     NotificationsDB.insert({owner: a, read: false, type: "trainer_confirmation", value: t});

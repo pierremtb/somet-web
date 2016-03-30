@@ -56,3 +56,15 @@ let PlansDBSchema = new SimpleSchema({
 });
 
 PlansDB.attachSchema( PlansDBSchema );
+
+TabularTables.Plans = new Tabular.Table({
+  name: "Plans",
+  collection: PlansDB,
+  columns: [
+    {data: "title", title: "Title"},
+    {data: "monday_date", title: "Date de début"},
+    {data: "total_duration", title: "Durée totale (s)"},
+  ],
+  responsive: true,
+  autoWidth: false
+});

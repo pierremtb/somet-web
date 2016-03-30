@@ -181,6 +181,12 @@ Template.UserDash.helpers({
   lastWk: function () {
     return WorkoutsDB.findOne({}, {sort: {start_date: -1}});
   },
+  isPl() {
+    return PlansDB.findOne();
+  },
+  todayPl() {
+    return PlansDB.findOne().days[new Date().getDay()];
+  },
   lastWkDistance: function () {
     return Meteor.user().profile === "trainer" ? WorkoutsDB.findOne({user: Session.get('selectedAthlete')}, {
       sort: {date: -1},
@@ -261,9 +267,12 @@ Template.UserDash.events({
 });
 
 Template.UserDash.onCreated(function () {
-  this.subscribe("getUserData");
-  this.subscribe("workoutsOfUsr", this.data.username);
-  this.subscribe("lastPlanOfUsr", this.data.username);
+  let self = this;
+  self.subscribe("getUserData");
+  Tracker.autorun(function() {
+    self.subscribe("workoutsOfUsr", Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username);
+    self.subscribe("thisWeekPlanOfUsr", Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username);
+  });
 });
 
 Template.UserDash.onRendered(function () {

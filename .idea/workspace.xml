@@ -2,16 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5210724f-9f17-47f4-854d-6359d6b2e0a0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/templates/preloader/preloader.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collections/_tabular.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/startup.js" afterPath="$PROJECT_DIR$/both/startup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/methods/insert/notifications.js" afterPath="$PROJECT_DIR$/both/methods/insert/notifications.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/methods/insert/plans.js" afterPath="$PROJECT_DIR$/both/methods/insert/plans.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/methods/update/workouts.js" afterPath="$PROJECT_DIR$/both/methods/update/workouts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/routes/authenticated.js" afterPath="$PROJECT_DIR$/both/routes/authenticated.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/handle-authentication.js" afterPath="$PROJECT_DIR$/client/modules/handle-authentication.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/application.scss" afterPath="$PROJECT_DIR$/client/stylesheets/application.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/calendar-month-line/month-line.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/calendar-month-line/month-line.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collections/events.js" afterPath="$PROJECT_DIR$/collections/events.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collections/plans.js" afterPath="$PROJECT_DIR$/collections/plans.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collections/workouts.js" afterPath="$PROJECT_DIR$/collections/workouts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publications/publications.js" afterPath="$PROJECT_DIR$/server/publications/publications.js" />
     </list>
@@ -34,72 +54,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="notifications-toaster.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/modules/notifications-toaster.js">
+      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/both/startup.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="each-athlete-workouts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3333333">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-workouts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.333333">
-              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workout.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6666667">
-              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/both/startup.js">
+        <entry file="file://$PROJECT_DIR$/both/modules/startup.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workouts.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/collections/workouts.js">
+      <file leaf-file-name="_modules.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/modules/_modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70212764">
-              <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/stylesheets/application.scss">
+      <file leaf-file-name="authenticated.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/both/routes/authenticated.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.086207">
-              <caret line="142" column="5" selection-start-line="142" selection-start-column="2" selection-end-line="142" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="96" column="58" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="58" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="public.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/both/routes/public.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="handle-authentication.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/modules/handle-authentication.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+              <folding>
+                <marker date="1459353323563" expanded="true" signature="61:112" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="139:926" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="211:732" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="738:924" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="996:1518" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1020:1112" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1125:1514" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1142:1188" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1194:1510" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1256:1364" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1376:1484" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1568:1783" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1625:1779" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1642:1708" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1714:1775" placeholder="{...}" />
+                <marker date="1459353323563" expanded="true" signature="1809:1813" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,28 +135,66 @@
         <entry file="file://$PROJECT_DIR$/server/publications/publications.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+              <folding>
+                <marker date="1459354943356" expanded="true" signature="48:73" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="time.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/helpers/time.js">
+      <file leaf-file-name="workouts.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/collections/workouts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.63727957">
+              <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-dash.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="each-athlete-workouts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4262295">
-              <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
-              <folding />
+              <caret line="282" column="3" selection-start-line="282" selection-start-column="3" selection-end-line="282" selection-end-column="3" />
+              <folding>
+                <marker date="1459354868300" expanded="true" signature="142:226" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="268:500" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="286:498" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="531:1095" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="554:1093" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="1120:1285" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="1800:1981" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="2014:4161" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="2390:2580" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="2736:4145" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="2771:3129" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="2886:2959" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="3162:3957" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="3226:3515" placeholder="[...]" />
+                <marker date="1459354868300" expanded="true" signature="3546:3795" placeholder="{&quot;pieHole&quot;: 0.2...}" />
+                <marker date="1459354868300" expanded="true" signature="3692:3732" placeholder="{&quot;position&quot;: 'bottom'...}" />
+                <marker date="1459354868300" expanded="true" signature="4197:4296" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="4236:4269" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="4328:4427" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="4368:4400" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="4455:4883" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="4476:4528" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="4557:4729" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="4751:4789" placeholder="{...}" />
+                <marker date="1459354868300" expanded="true" signature="4813:4879" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,43 +214,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/event-table-line/event.html" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/notification/notification.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/notification/notification.html" />
-        <option value="$PROJECT_DIR$/collections/athletes.js" />
-        <option value="$PROJECT_DIR$/both/methods/insert/notifications.js" />
-        <option value="$PROJECT_DIR$/settings-development.json" />
-        <option value="$PROJECT_DIR$/server/modules/configure-services.js" />
-        <option value="$PROJECT_DIR$/client/modules/handle-authentication..js" />
-        <option value="$PROJECT_DIR$/client/templates/public/page-login/page-login.js" />
-        <option value="$PROJECT_DIR$/client/templates/public/page-login/page-login.html" />
-        <option value="$PROJECT_DIR$/client/modules/handle-authentication.js" />
         <option value="$PROJECT_DIR$/collections/trainers.js" />
         <option value="$PROJECT_DIR$/both/methods/insert/trainers.js" />
         <option value="$PROJECT_DIR$/both/methods/update/athletes.js" />
         <option value="$PROJECT_DIR$/server/modules/strava.js" />
         <option value="$PROJECT_DIR$/both/methods/insert/athletes.js" />
         <option value="$PROJECT_DIR$/both/methods/update/users.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.js" />
         <option value="$PROJECT_DIR$/both/methods/insert/workouts.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/nav/nav.html" />
-        <option value="$PROJECT_DIR$/both/routes/authenticated.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/nav/nav.js" />
-        <option value="$PROJECT_DIR$/both/methods/insert/plans.js" />
-        <option value="$PROJECT_DIR$/collections/plans.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/plan-day/plan-day.html" />
         <option value="$PROJECT_DIR$/client/helpers/time.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.html" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/plan-table-line/plan-table-line.html" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.html" />
         <option value="$PROJECT_DIR$/server/modules/startup.js" />
         <option value="$PROJECT_DIR$/server/modules/fetch-strava.js" />
         <option value="$PROJECT_DIR$/client/modules/notificationsToaster.js" />
@@ -193,11 +236,33 @@
         <option value="$PROJECT_DIR$/both/methods/read/notifications.js" />
         <option value="$PROJECT_DIR$/client/modules/notifications-toaster.js" />
         <option value="$PROJECT_DIR$/both/startup.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/nav/nav.js" />
+        <option value="$PROJECT_DIR$/client/templates/preloader/preloader.html" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html" />
         <option value="$PROJECT_DIR$/client/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/collections/_tabular.js" />
+        <option value="$PROJECT_DIR$/collections/plans.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.html" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.html" />
+        <option value="$PROJECT_DIR$/both/routes/authenticated.js" />
+        <option value="$PROJECT_DIR$/client/modules/handle-authentication.js" />
+        <option value="$PROJECT_DIR$/both/methods/update/workouts.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.js" />
+        <option value="$PROJECT_DIR$/both/methods/insert/notifications.js" />
+        <option value="$PROJECT_DIR$/both/methods/insert/plans.js" />
+        <option value="$PROJECT_DIR$/collections/events.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.html" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/calendar-month-line/month-line.js" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.html" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js" />
         <option value="$PROJECT_DIR$/server/publications/publications.js" />
         <option value="$PROJECT_DIR$/collections/workouts.js" />
       </list>
@@ -211,10 +276,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1280" />
-    <option name="y" value="406" />
-    <option name="width" value="1366" />
-    <option name="height" value="695" />
+    <option name="x" value="1279" />
+    <option name="y" value="378" />
+    <option name="width" value="1368" />
+    <option name="height" value="724" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -255,7 +320,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
+              <option name="myItemId" value="sumrise-rebase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -265,7 +330,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -273,228 +352,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="authenticated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="authenticated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workout-table-line" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="authenticated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page-workouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="authenticated" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="each-athlete-workouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="both" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="both" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="both" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise-rebase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sumrise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="both" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="methods" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -591,26 +452,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="406" width="1366" height="695" extended-state="6" />
-    <editor active="true" />
+    <frame x="1279" y="378" width="1368" height="724" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21370067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21370067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24247491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28595316" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -648,261 +509,367 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/both/methods/insert/athletes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both/methods/update/athletes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both/methods/update/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/public/page-login/page-login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9259257">
-          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/modules/signup.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="208" column="26" selection-start-line="208" selection-start-column="26" selection-end-line="208" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both/routes/authenticated.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="3" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/nav/nav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.518518">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/nav/nav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="3" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/collections/trainers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/collections/athletes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both/methods/insert/plans.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.38709676">
-          <caret line="135" column="130" selection-start-line="135" selection-start-column="126" selection-end-line="135" selection-end-column="130" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/plan-day/plan-day.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.333333">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/collections/plans.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+          <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3225806">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="57" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5689654">
-          <caret line="13" column="78" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.709677">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/plan-table-line/plan-table-line.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6666665">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="273" column="3" selection-start-line="273" selection-start-column="3" selection-end-line="273" selection-end-column="3" />
+          <folding>
+            <marker date="1459354868300" expanded="true" signature="142:226" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="268:500" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="286:498" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="531:1095" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="554:1093" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="1120:1285" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="1800:1981" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2014:4161" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2390:2580" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2736:4145" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2771:3129" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2886:2959" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="3162:3957" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="3226:3515" placeholder="[...]" />
+            <marker date="1459354868300" expanded="true" signature="3546:3795" placeholder="{&quot;pieHole&quot;: 0.2...}" />
+            <marker date="1459354868300" expanded="true" signature="3692:3732" placeholder="{&quot;position&quot;: 'bottom'...}" />
+            <marker date="1459354868300" expanded="true" signature="4197:4296" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4236:4269" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4328:4427" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4368:4400" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4455:4883" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4476:4528" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4557:4729" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4751:4789" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4813:4879" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6666667">
-          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/modules/set-environment-variables.js">
+    <entry file="file://$PROJECT_DIR$/both/modules/_modules.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/modules/generate-accounts.js">
+    <entry file="file://$PROJECT_DIR$/client/startup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/modules/strava.js">
+    <entry file="file://$PROJECT_DIR$/server/startup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="1" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/both/methods/insert/workouts.js">
+    <entry file="file://$PROJECT_DIR$/server/modules/startup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.645162">
-          <caret line="34" column="5" selection-start-line="14" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/modules/fetch-strava.js">
+    <entry file="file://$PROJECT_DIR$/client/modules/startup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/methods/read/notifications.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/modules/notifications-toaster.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/helpers/time.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="227" column="12" selection-start-line="227" selection-start-column="12" selection-end-line="227" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/nav/nav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/nav/nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.666667">
+          <caret line="123" column="33" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6666667">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.666667">
+          <caret line="106" column="10" selection-start-line="106" selection-start-column="10" selection-end-line="106" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.810345">
+          <caret line="262" column="3" selection-start-line="262" selection-start-column="3" selection-end-line="262" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6666667">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/Meteor/lib/Meteor.jar!/tsMeteorStubs/meteor-v1.2.0.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1523" column="15" selection-start-line="1523" selection-start-column="15" selection-end-line="1523" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/routes/configure.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/methods/update/workouts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="223" column="5" selection-start-line="223" selection-start-column="5" selection-end-line="223" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/both/methods/insert/notifications.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/methods/insert/plans.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/public/signup-form/signup-form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6666667">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="209" column="34" selection-start-line="209" selection-start-column="34" selection-end-line="209" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collections/plans.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="11" selection-start-line="57" selection-start-column="38" selection-end-line="69" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collections/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.666667">
+          <caret line="13" column="78" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6666667">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.7777777">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-plans/each-athlete-plans.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-calendar/page-calendar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.185185">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/both/methods/insert/trainers.js">
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-calendar/page-calendar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/modules/configure-services.js">
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/calendar-month-line/month-line.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="133" column="14" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/both/modules/_modules.js">
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="282" column="3" selection-start-line="282" selection-start-column="3" selection-end-line="282" selection-end-column="3" />
+          <folding>
+            <marker date="1459354868300" expanded="true" signature="142:226" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="268:500" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="286:498" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="531:1095" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="554:1093" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="1120:1285" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="1800:1981" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2014:4161" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2390:2580" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2736:4145" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2771:3129" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="2886:2959" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="3162:3957" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="3226:3515" placeholder="[...]" />
+            <marker date="1459354868300" expanded="true" signature="3546:3795" placeholder="{&quot;pieHole&quot;: 0.2...}" />
+            <marker date="1459354868300" expanded="true" signature="3692:3732" placeholder="{&quot;position&quot;: 'bottom'...}" />
+            <marker date="1459354868300" expanded="true" signature="4197:4296" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4236:4269" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4328:4427" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4368:4400" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4455:4883" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4476:4528" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4557:4729" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4751:4789" placeholder="{...}" />
+            <marker date="1459354868300" expanded="true" signature="4813:4879" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/publications/publications.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding>
+            <marker date="1459354943356" expanded="true" signature="48:73" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/startup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -918,130 +885,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/modules/startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/handle-authentication.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="34" />
-          <folding />
+          <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+          <folding>
+            <marker date="1459353323563" expanded="true" signature="61:112" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="139:926" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="211:732" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="738:924" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="996:1518" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1020:1112" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1125:1514" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1142:1188" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1194:1510" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1256:1364" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1376:1484" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1568:1783" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1625:1779" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1642:1708" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1714:1775" placeholder="{...}" />
+            <marker date="1459353323563" expanded="true" signature="1809:1813" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/modules/startup.js">
+    <entry file="file://$PROJECT_DIR$/client/modules/_modules.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/both/methods/read/notifications.js">
+    <entry file="file://$PROJECT_DIR$/both/routes/authenticated.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+          <caret line="96" column="58" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/modules/notifications-toaster.js">
+    <entry file="file://$PROJECT_DIR$/both/routes/public.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/both/startup.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/helpers/time.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4262295">
-          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/each-athlete-workouts/each-athlete-workouts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.086207">
-          <caret line="142" column="5" selection-start-line="142" selection-start-column="2" selection-end-line="142" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/publications/publications.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/workout-table-line/workout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6666667">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-workouts/page-workouts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.333333">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/collections/workouts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70212764">
-          <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.63727957">
+          <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
           <folding />
         </state>
       </provider>

@@ -1,6 +1,5 @@
 Meteor.methods({
   updateWorkout( argument ) {
-    console.log(argument);
     check( argument, Object );
 
     try {

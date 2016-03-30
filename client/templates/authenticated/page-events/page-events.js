@@ -7,6 +7,9 @@ function dispMins(min) {
 var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 Template.Events.helpers({
+  selector() {
+    return {owner: Meteor.user().profile.trainer ? Session.get("selectedAthlete") : Meteor.user().username}
+  },
   events: function () {
     let current_date = new Date();
     return EventsDB.find({date : { $gt: current_date }});
@@ -17,9 +20,15 @@ Template.Events.helpers({
 });
 
 Template.Events.events({
+  'click tbody > tr': function (event) {
+    var dataTable = $(event.target).closest('table').DataTable();
+    var rowData = dataTable.row(event.currentTarget).data();
+    if (!rowData) return;
+    FlowRouter.go('/event/' + rowData._id);
+  },
   "click #e_submit": function (e, t) {
     Meteor.call("insertEvent", {
-      owner: Meteor.user().profile === "trainer" ? Session.get("selectedAthlete") : Meteor.user().username,
+      owner: Meteor.user().profile.trainer ? Session.get("selectedAthlete") : Meteor.user().username,
       title: t.find("#e_title").value,
       date: new Date(t.find("#e_date").value),
       description: t.find("#e_description").value,

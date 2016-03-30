@@ -3,25 +3,14 @@
         <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_event"><i
                 class="material-icons left">add</i> Ajouter</a>
 
-        <div class="card" style="padding:10px;z-index:99">
-            <table class="highlight" style="padding: 15px">
-                <thead>
-                <tr>
-                    <th data-field="title">Titre</th>
-                    <th data-field="comments">Commentaires</th>
-                    <th data-field="date">Date</th>
-                    <th data-field="actions">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {{#each events}}
-                    {{> EventTableLine id=_id title=title comments=comments date=date }}
-                {{/each}}
-                {{#if isNoEvt}}
-                    <p>Pas d'événements enregistrés.</p>
-                {{/if}}
-                </tbody>
-            </table>
+        <div class="" style="padding:0px;z-index:99">
+          {{#if Template.subscriptionsReady}}
+            <div class="tabularContainer">
+              {{> tabular table=TabularTables.Events selector=selector class="table table-striped table-bordered table-condensed"}}
+            </div>
+          {{else}}
+            {{> Preloader}}
+          {{/if}}
         </div>
     </div>
 

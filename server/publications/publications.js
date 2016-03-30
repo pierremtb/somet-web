@@ -1,19 +1,55 @@
 Meteor.publish('workoutOfThisId', function (id) {
   check(id, String);
-  var wk = WorkoutsDB.find({_id: id});
-  return wk ? wk : this.ready();
+  let owner = WorkoutsDB.findOne({_id: id}) ? WorkoutsDB.findOne({_id: id}).owner : false,
+    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
+  if(usr == false || owner == false) return this.ready();
+  let is_my_athlete = false,
+    my_athletes = AthletesDB.find({trainer: usr}).fetch();
+  for(let i in my_athletes)
+    if(my_athletes[i].username == owner)
+      is_my_athlete = true;
+  if(owner == usr  || is_my_athlete) {
+    var wk = WorkoutsDB.find({_id: id});
+    return wk ? wk : this.ready();
+  } else {
+    return {};
+  }
 });
 
 Meteor.publish('eventOfThisId', function (id) {
   check(id, String);
-  var ev = EventsDB.find({_id: id});
-  return ev ? ev : this.ready();
+  let owner = EventsDB.findOne({_id: id}) ? EventsDB.findOne({_id: id}).owner : false,
+    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
+  if(usr == false || owner == false) return this.ready();
+  let is_my_athlete = false,
+    my_athletes = AthletesDB.find({trainer: usr}).fetch();
+  for(let i in my_athletes)
+    if(my_athletes[i].username == owner)
+      is_my_athlete = true;
+  if(owner == usr  || is_my_athlete) {
+    var ev = EventsDB.find({_id: id});
+    return ev ? ev : this.ready();
+  } else {
+    return {};
+  }
 });
 
 Meteor.publish('planOfThisId', function (id) {
   check(id, String);
-  var pl = PlansDB.find({_id: id});
-  return pl ? pl : this.ready();
+  let owner = PlansDB.findOne({_id: id}) ? PlansDB.findOne({_id: id}).owner : false,
+      usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
+  if(usr == false || owner == false) return this.ready();
+  let is_my_athlete = false,
+      my_athletes = AthletesDB.find({trainer: usr}).fetch();
+  for(let i in my_athletes)
+    if(my_athletes[i].username == owner)
+      is_my_athlete = true;
+  if(owner == usr  || is_my_athlete) {
+    var pl = PlansDB.find({_id: id});
+    return pl ? pl : this.ready();
+  } else {
+    return {};
+  }
 });
 
 Meteor.publish('workoutsOfCurrentUser', function () {
@@ -35,14 +71,15 @@ Meteor.publish('plansOfUsr', function (usr) {
 
 Meteor.publish('lastWorkoutOfUsr', function (usr) {
   check(usr, String);
+  let date = new Date();
   var wks = WorkoutsDB.find({owner: usr, limit: 1});
   return wks ? wks : this.ready();
 });
 
-Meteor.publish('lastPlanOfUsr', function (usr) {
+Meteor.publish('thisWeekPlanOfUsr', function (usr) {
   check(usr, String);
-  var pls = PlansDB.find({owner: usr, limit: 1});
-  return pls ? pls : this.ready();
+  var pl = PlansDB.find({owner: usr, limit: 1});
+  return pl ? pl : this.ready();
 });
 
 Meteor.publish('eventsOfUsr', function (usr) {

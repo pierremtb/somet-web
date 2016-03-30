@@ -84,7 +84,7 @@ authenticatedRoutes.route( '/plan/:id', {
     BlazeLayout.render( 'default', { yield: 'Plan' } );
   },
   subscriptions(params, queryParams) {
-    this.register('plan', Meteor.subscribe('Workout', params.id));
+    this.register('plan', Meteor.subscribe('planOfThisId', params.id));
   }
 });
 

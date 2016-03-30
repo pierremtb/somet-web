@@ -50,3 +50,15 @@ let EventsDBSchema = new SimpleSchema({
 });
 
 EventsDB.attachSchema( EventsDBSchema );
+
+TabularTables.Events = new Tabular.Table({
+  name: "Events",
+  collection: EventsDB,
+  columns: [
+    {data: "title", title: "Title"},
+    {data: "comments", title: "Commentaires"},
+    {data: "date", title: "Date"}
+  ],
+  responsive: true,
+  autoWidth: false
+});

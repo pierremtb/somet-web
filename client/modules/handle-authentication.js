@@ -1,7 +1,6 @@
 let template, form;
 
 let handleAuthentication = (options) => {
-  console.log("auieauie");
   template = options.template;
   _handleAuth();
 };

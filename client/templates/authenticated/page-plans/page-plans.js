@@ -128,7 +128,6 @@ Template.Plans.helpers({
 
 Template.Plans.events({
   'click #n_pl_submit': function (event, t) {
-    console.log(Session.get("selectedAthlete"));
     let days = [];
     for(let i = 0; i < 7; i++) {
       days.push({
@@ -139,7 +138,6 @@ Template.Plans.events({
         support: Session.get('day_' + i + '_type') && Session.get('day_' + i + '_type') != "nth" ? t.find('#day_' + i + '_support').value : ''
       });
     }
-    console.log(days);
     Meteor.call("insertPlan", {
       owner: Session.get("selectedAthlete"),
       title: t.find('#n_pl_title').value,
