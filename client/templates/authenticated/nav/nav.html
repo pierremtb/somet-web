@@ -42,9 +42,9 @@
           lues</a>
       {{/if}}
       <div class="row">
-      {{#each notificationsNotRead}}
-        {{> Notification}}
-      {{/each}}
+        {{#each notificationsNotRead}}
+          {{> Notification}}
+        {{/each}}
       </div>
     </ul>
     <div id="top_bar" class="primary_txt valign-wrapper" style="z-index:465">
@@ -68,7 +68,7 @@
         {{/if}}
         <li id="user_bar" class="dropdown-button left t5p r20p" data-activates='dropdown_notifications'>
           <a data-activates='slide-out-notif' class="notif-trigger primary_txt f20p"><i
-                  class="small material-icons">{{#if notificationsAreHere}}notifications_active{{else}}
+                  class="small material-icons">{{#if notificationsNotRead}}notifications_active{{else}}
             notifications{{/if}}</i></a>
         </li>
 

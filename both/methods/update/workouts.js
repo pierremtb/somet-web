@@ -1,14 +1,18 @@
 Meteor.methods({
-  updateWorkout( argument ) {
-    check( argument, Object );
+  updateWorkout(argument) {
+    check(argument, Object);
 
     try {
-      var documentId = WorkoutsDB.update( argument._id, {
-        $set: { 'key': argument.key }
+      return WorkoutsDB.update(argument._id, {
+        $set: {'key': argument.key}
       });
-      return documentId;
-    } catch( exception ) {
+    } catch (exception) {
       return exception;
     }
+  },
+  setCR(id, cr) {
+    check(id, String);
+    check(cr, Object);
+    return WorkoutsDB.update(id, {$set: { cr: cr}});
   }
 });

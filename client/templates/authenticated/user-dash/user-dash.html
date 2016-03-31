@@ -75,7 +75,7 @@
               <p>CR10 : {{cr.effort}}</p>
           </div>
           <div class="card-action right-align ">
-            <a href='/workouts' class="">Plus</a>
+            <a href='/workouts' class="grey-text">Plus</a>
             <a href="/workout/{{_id}}" class="">Details</a>
           </div>
           {{/with}}
@@ -95,14 +95,14 @@
           {{#with todayPl}}
           <div class="card-content">
             <span class="card-title">Séance d'aujourd'hui</span>
-            <p>{{type}}</p>
-            <p>{{support}}</p>
-            <p>{{duration}}</p>
+            <p>{{dispType type}}</p>
+            <p>{{dispSupport support}}</p>
+            <p>{{dispDuration duration}}</p>
             <p>{{description}}</p>
             <p>{{comments}}</p>
           </div>
           <div class="card-action right-align">
-            <a href='/plans' class="">Plus</a>
+            <a href='/plans' class="grey-text">Plus</a>
             <a href="/plan/{{_id}}" class="">Details</a>
           </div>
           {{/with}}
@@ -116,31 +116,7 @@
       {{/if}}
     </div>
     {{#if isWk}}
-      <div class="col s12 primary_txt">
-        <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
-          <i class="material-icons  right-align col s1 mt5p" id="previous"
-             style="padding-top:10px;">arrow_back</i>
-          <span class="col s10 center-align card-title" id="monthly_graph_title">Juillet</span>
-          <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;"
-             id="next">arrow_forward</i>
-        </div>
-      </div>
-      <div class="col s12 m9">
-        <div id="columnchart" class="card  " style="z-index:99">
-          <div class="card-content">
-            <p>Activité mensuelle</p>
-            <div id="columnchart_material" style="width: 100%; height: 200px;margin-top: 20px;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m3">
-        <div id="piechart" class="card">
-          <div class="card-content">
-            <p>Répartition</p>
-            <div id="donutchart" style="width: 100%; height: 200px;margin-top: 20px;"></div>
-          </div>
-        </div>
-      </div>
+      {{> UserDashGraphs username=username}}
     {{/if}}
   {{else}}
     {{> Preloader}}

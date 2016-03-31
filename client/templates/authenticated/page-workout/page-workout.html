@@ -1,110 +1,279 @@
 <template name="Workout">
   {{#if Template.subscriptionsReady}}
-    <div class="col s12">
 
-        <p>
-            <a class="btn-flat waves-effect primary_txt" href="/workouts"><i
-                    class="material-icons left">arrow_back</i> Retourner à la liste</a>
-          {{#if currentUser.profile.trainer}}
-          {{else}}
-              <a class="btn-flat hide waves-effect primary_txt"><i
-                      class="material-icons left">edit</i> MODIFIER</a>
-              <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_wk"><i
-                      class="material-icons left">delete</i> SUPPRIMER</a>
-          {{/if}}
-        </p>
-        <div class="card" style="padding:5px 20px; z-index:99">
+    <p>
+      <a class="btn-flat waves-effect primary_txt" href="/workouts"><i
+              class="material-icons left">arrow_back</i> Retourner à la liste</a>
+      {{#if currentUser.profile.trainer}}
+      {{else}}
+        {{#if workout.fit_values}}
+          <a class="btn-flat waves-effect primary_txt modal-trigger" href="#link_fit"><i
+                  class="material-icons left">remove</i> Supprimer le lien .fit</a>
+        {{else}}
+          <a class="btn-flat waves-effect primary_txt modal-trigger" href="#link_fit"><i
+                  class="material-icons left">link</i> Lier avec un .fit</a>
+        {{/if}}
+        <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_wk"><i
+                class="material-icons left">delete</i> SUPPRIMER</a>
+      {{/if}}
+    </p>
+
+    <div class="col s12 m6">
+      <div class="card" style="z-index:99">
+        <div class="card-content">
+          {{#with workout}}
             <h4>{{title}}</h4>
             <div class="row">
-                <div class="col s12 m6">
-                    <p class="grey-text">{{moFormat start_date 'dddd, Do [of] MMMM YYYY'}}</p>
-                    <p>{{description}}</p>
-                    <p>{{comments}}</p>
-                </div>
-                <div class="col s12 m6">
-                    <div class="row">
-                        <div class="col s6 m3">
-                            <div class="circle center-align" id="circle_crten_eff"></div>
-                            <p class="center-align f10p">CR10 Effort</p>
-                        </div>
-                        <div class="col s6 m3">
-                            <div class="circle" id="circle_crten_ple"></div>
-                            <p class="center-align f10p">CR10 Plaisir</p>
-                        </div>
-                        <div class="col s6 m3">
-                            <div class="circle" id="sensa"></div>
-                            <p class="center-align f10p">Sensations</p>
-                        </div>
-                        <div class="col s6 m3">
-                            <div class="circle" id="hum"></div>
-                            <p class="center-align f10p">Humeur</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <h5>Détails</h5>
-                <div class="col s12 m6">
-                    <p class="grey-text">Durée : {{dispDuration duration}}</p>
-                    <p class="grey-text">Distance : {{distance}} km</p>
-                    {{#if fitLinked}}
-                      <p class="grey-text">Ascencion totale : {{ascent}} m</p>
-                      <p class="grey-text">Descente totale : {{descent}} m</p>
-                      <p class="grey-text">Calories : {{calories}} kcal</p>
-                    {{/if}}
-                </div>
-                <div class="col s12 m6">
-                {{#if fitLinked}}
-                      <p class="grey-text">Vitesse moyenne :  km/h</p>
-                      <p class="grey-text">Vitesse max :  km</p>
-                      <p class="grey-text">Cadence moyenne : rpm</p>
-                      <p class="grey-text">Cadence max : rpm</p>
+              <div class="col s12 m6">
+                <p class="grey-text">{{moFormat start_date 'dddd, Do [of] MMMM YYYY'}}</p>
+                {{#if description}}
+                  <p>{{description}}</p>
+                {{else}}
+                  <p class="italic">Pas de description</p>
                 {{/if}}
-                </div>
+                {{#if comments}}
+                  <p class="italic">{{comments}}</p>
+                {{else}}
+                  <p>Pas de commentaires</p>
+                {{/if}}
+              </div>
             </div>
+          {{/with}}
         </div>
-
-        {{#if fitLinked}}
-        <div class="card" style="padding:20px; z-index:99">
-            <div class="row">
-                <h5 style="display: inline">Analyse</h5>
-                <form style="display: inline-block;float: right" action="#">
-                    <p style="display:inline-block">
-                        <input name="x_axis_selection" class="with-gap" type="radio"
-                               id="x_axis_time" checked=""/>
-                        <label for="x_axis_time">Temps</label>
-                    </p>
-                    <p style="display:inline-block; margin-left:20px">
-                        <input name="x_axis_selection" class="with-gap" type="radio"
-                               id="x_axis_distance"/>
-                        <label for="x_axis_distance">Distance</label>
-                    </p>
-                </form>
-                <div id="workout_chart" class="col s12">
-                    <p class="grey-text">Altitude</p>
-                    <div id="elevation_chart" style="width: 100%; height: 300px;"></div>
-                    <p class="grey-text">Puissance</p>
-                    <div id="power_chart" style="width: 100%; height: 300px;"></div>
-                    <p class="grey-text">Vitesse</p>
-                    <div id="speed_chart" style="width: 100%; height: 300px;"></div>
-                    <p class="grey-text">Cadence</p>
-                    <div id="cadence_chart" style="width: 100%; height: 300px;"></div>
-                </div>
-
-            </div>
-        </div>
+        {{#if currentUser.profile.trainer}}
+        {{else}}
+          <div class="card-action right-align">
+            <a href="#set_cr" class="modal-trigger grey-text">Modifier</a>
+          </div>
         {{/if}}
+      </div>
     </div>
+    <div class="col s12 m6">
+      <div class="card" style="z-index:99">
+        <div class="card-content">
+          <h5>CR</h5>
+          {{#if workout.cr}}
+            {{> WorkoutCRs cr=workout.cr}}
+          {{else}}
+            <p>Vous n'avez pas encore rempli votre CR de sensations et ressentis.</p>
+          {{/if}}
+        </div>
+        {{#if currentUser.profile.trainer}}
+        {{else}}
+          <div class="card-action right-align">
+            <a href="#set_cr" class="modal-trigger grey-text">Modifier</a>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+    <div class="col s12">
+      <div class="card" style="padding: 20px">
+        {{#with workout}}
+          <div class="row">
+            <h5>Détails</h5>
+            <div class="col s12 m6">
+              <p class="grey-text">Durée : {{dispDuration duration}}</p>
+              <p class="grey-text">Distance : {{dispDistance distance}} km</p>
+              {{#if strava_id}}
+                {{#if fit_values.elevation.ascent}}
+                  <p class="grey-text">Ascension totale : {{fit_values.elevation.ascent}} m</p>
+                {{else}}
+                  {{#if ascent}}
+                    <p class="grey-text">Ascension totale : {{ascent}} m</p>
+                  {{/if}}
+                {{/if}}
+                {{#if fit_values.elevation.descent}}
+                  <p class="grey-text">Descente totale : {{fit_values.elevation.descent}} m</p>
+                {{else}}
+                  {{#if descent}}
+                    <p class="grey-text">Descente totale : {{descent}} m</p>
+                  {{/if}}
+                {{/if}}
+                {{#if fit_values.calories}}
+                  <p class="grey-text">Estimation des calories consomées : {{fit_values.calories}} cal</p>
+                {{else}}
+                  {{#if calories}}
+                    <p class="grey-text">Estimation des calories consomées : {{calories}} m</p>
+                  {{/if}}
+                {{/if}}
+              {{/if}}
+            </div>
+            <div class="col s12 m6">
+              {{#if fit_values.speed.avg}}
+                <p class="grey-text">Vitesse moyenne : {{fit_values.speed.avg}} km/h</p>
+              {{/if}}
+              {{#if fit_values.speed.max}}
+                <p class="grey-text">Vitesse max : {{fit_values.speed.max}} km</p>
+              {{/if}}
+              {{#if fit_values.cadence.avg}}
+                <p class="grey-text">Cadence moyenne : {{fit_values.cadence.avg}} rpm</p>
+              {{/if}}
+              {{#if fit_values.cadence.max}}
+                <p class="grey-text">Cadence max : {{fit_values.cadence.max}} rpm</p>
+              {{/if}}
+              {{#if fit_values.power.avg}}
+                <p class="grey-text">Puissance moyenne : {{fit_values.power.avg}} W</p>
+              {{/if}}
+              {{#if fit_values.power.max}}
+                <p class="grey-text">Puissance max : {{fit_values.power.max}} W</p>
+              {{/if}}
+              {{#if fit_values.heart_rate.avg}}
+                <p class="grey-text">Fréquence cardiaque moyenne : {{fit_values.heart_rate.avg}} bpm</p>
+              {{/if}}
+              {{#if fit_values.heart_rate.max}}
+                <p class="grey-text">Fréquence cardiaque max : {{fit_values.heart_rate.max}} bpm</p>
+              {{/if}}
+            </div>
+          </div>
+        {{/with}}
+      </div>
+    </div>
+
+    {{#if fitProcessing}}
+      {{> Preloader}}
+    {{/if}}
+
+    {{#if workout.fit_values}}
+      {{> WorkoutGraphs workout=workout.fit_values}}
+    {{/if}}
+
     <div id="delete_wk" class="modal">
-        <div class="modal-content">
-            <h4>Voulez-vous vraiment supprimer cet entrainement ?</h4>
-            <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span class="wkid"></span></p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
-            <a href="#!" id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
-        </div>
+      <div class="modal-content">
+        <h4>Voulez-vous vraiment supprimer cet entrainement ?</h4>
+        <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span class="wkid"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+        <a href="#!" id="delete_bt"
+           class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
+      </div>
     </div>
+
+    <div id="set_cr" class="modal">
+      <div class="modal-content">
+        <h4>Editer le CR</h4>
+        <div class="">
+          <h5>Sensations et ressenti</h5>
+          <p class="range-field">
+            Echelle d'effort CR10 : 
+          <div class="input-field">
+            <select class="browser-default" id="cr_effort">
+              <option value="" disabled>Choisir...</option>
+              <option value="0">0</option>
+              <option value="0.3">0.3</option>
+              <option value="0.5">0.5</option>
+              <option value="1">1</option>
+              <option value="1.5">1.5</option>
+              <option value="2">2</option>
+              <option value="2.5">2.5</option>
+              <option value="3">3</option>
+              <option value="4" selected="">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select>
+          </div>
+          </p>
+          <p class="range-field">
+            Echelle de plaisir CR10 :
+          <div class="input-field">
+            <select class="browser-default" id="cr_pleasure">
+              <option value="" disabled>Choisir...</option>
+              <option value="0">0</option>
+              <option value="0.3">0.3</option>
+              <option value="0.5">0.5</option>
+              <option value="1">1</option>
+              <option value="1.5">1.5</option>
+              <option value="2">2</option>
+              <option value="2.5">2.5</option>
+              <option value="3">3</option>
+              <option value="4" selected="">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          </p>
+          <p class="range-field">
+            Echelle de sensations :
+          <div class="input-field">
+            <select class="browser-default" id="cr_sensations">
+              <option value="" disabled>Choisir...</option>
+              <option value="0">0</option>
+              <option value="0.3">0.3</option>
+              <option value="0.5">0.5</option>
+              <option value="1">1</option>
+              <option value="1.5">1.5</option>
+              <option value="2">2</option>
+              <option value="2.5">2.5</option>
+              <option value="3">3</option>
+              <option value="4" selected="">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          </p>
+          <p class="range-field">
+            Echelle d'humeur :
+          <div class="input-field">
+            <select class="browser-default" id="cr_mood">
+              <option value="" disabled>Choisir...</option>
+              <option value="0">0</option>
+              <option value="0.3">0.3</option>
+              <option value="0.5">0.5</option>
+              <option value="1">1</option>
+              <option value="1.5">1.5</option>
+              <option value="2">2</option>
+              <option value="2.5">2.5</option>
+              <option value="3">3</option>
+              <option value="4" selected="">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" id="accept_cr"
+           class=" modal-action modal-close waves-effect waves-pink btn-flat accent_txt">Valider</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-grey btn-flat">Annuler</a>
+      </div>
+    </div>
+
+    <div id="link_fit" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h4>Lier un fichier .FIT</h4>
+        <p>Afin de bénéficier de l'analyse complète offerte par Sumrise, vous pouvez télécharger un fichier provenant de
+          votre appareil ANT+, qui sera lié à cet entrainement.</p>
+        {{> upload_bootstrap fileTypes='.fit'}}
+      </div>
+      <div class="modal-footer">
+        <a class=" modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $('.modal-trigger').leanModal();
+      });
+    </script>
+
   {{else}}
     {{> Preloader}}
   {{/if}}

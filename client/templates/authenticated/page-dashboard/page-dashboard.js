@@ -1,5 +1,5 @@
 Template.Dashboard.helpers({
-  trainerIs: function () {
+  trainerIs() {
     if (Meteor.user().profile === "trainer")
       return true;
     else
@@ -8,13 +8,13 @@ Template.Dashboard.helpers({
   username() {
     return Meteor.user().profile.trainer ? Session.get("selectedAthlete") : Meteor.user().username;
   },
-  trainerIsMe: function () {
+  trainerIsMe() {
     if (this.trainer == Meteor.user())
       return true;
     else
       return false;
   },
-  selectedAthlete: function () {
+  selectedAthlete() {
     return Session.get("selectedAthlete");
   }
 });

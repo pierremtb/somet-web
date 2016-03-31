@@ -1,0 +1,27 @@
+<template name="UserDashGraphs">
+  <div class="col s12 primary_txt">
+    <div class="row card accent_bg" style="padding: 20px 0;z-index:99">
+      <i class="material-icons  right-align col s1 mt5p" id="previous"
+         style="padding-top:10px;">arrow_back</i>
+      <span class="col s10 center-align card-title" id="monthly_graph_title">{{#with graphDate}}{{dispMonthName month}} {{year}}{{/with}}</span>
+      <i class="material-icons col s1 left-align mt5p" style="padding-top:10px;"
+         id="next">arrow_forward</i>
+    </div>
+  </div>
+  <div class="col s12 m9">
+    <div id="columnchart" class="card  " style="z-index:99">
+      <div class="card-content">
+        <p>Activité mensuelle</p>
+        <div id="columnchart_material" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m3">
+    <div id="piechart" class="card">
+      <div class="card-content">
+        <p>Répartition</p>
+        <div id="donutchart" style="width: 100%; height: 200px;margin-top: 20px;"></div>
+      </div>
+    </div>
+  </div>
+</template>

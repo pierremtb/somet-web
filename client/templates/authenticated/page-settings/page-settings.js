@@ -1,22 +1,22 @@
 var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 Template.Settings.helpers({
-  isTrainer: function () {
+  isTrainer() {
     return Meteor.user().profile === "trainer";
   },
-  athletes: function () {
+  athletes() {
     return AthletesDB.find({trainer: Meteor.user().username});
   },
-  myName: function () {
+  myName() {
     return Meteor.user().profile === "trainer" ? TrainersDB.findOne({username: Meteor.user().username}).complete_name : AthletesDB.findOne({username: Meteor.user().username}).complete_name;
   },
-  trainer: function () {
+  trainer() {
     return TrainersDB.findOne({username: AthletesDB.findOne({username: Meteor.user().username}).trainer}).username;
   },
-  trainersWhoMatch: function () {
+  trainersWhoMatch() {
     return TrainersDBIndex.search(Session.get("trainerQuery")).fetch();
   },
-  athletesWhoMatch: function () {
+  athletesWhoMatch() {
     return AthletesDBIndex.search(Session.get("athleteQuery")).fetch();
   }
 });

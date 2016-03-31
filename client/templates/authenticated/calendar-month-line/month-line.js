@@ -49,31 +49,31 @@ function getSupport(support) {
 }
 
 Template.CalendarMonthLine.helpers({
-  evts: function () {
+  evts() {
     let this_date = new Date(this.date);
     return EventsDB.find({date: this_date});
   },
-  dayInitial: function () {
+  dayInitial() {
     var d = new Date(this.month + "-" + this.day + "-" + this.year);
     return days[d.getDay()];
   },
-  isEv: function () {
+  isEv() {
     let this_date = new Date(this.date);
     return EventsDB.find({date: this_date}).count() > 0;
   },
-  isFCEv: function () {
+  isFCEv() {
     let this_date = new Date(this.date);
     return EventsDB.find({date: this_date, first_class_event: true}).count() > 0;
   },
-  isSCEv: function () {
+  isSCEv() {
     let this_date = new Date(this.date);
     return EventsDB.find({date: this_date, second_class_event: true}).count() > 0;
   },
-  isPEv: function () {
+  isPEv() {
     let this_date = new Date(this.date);
     return EventsDB.find({date: this_date, preparation_event: true}).count() > 0;
   },
-  isPast: function () {
+  isPast() {
     let now = new Date(),
         this_date = new Date(this.date),
         date = new Date(EventsDB.findOne({date: this_date}).date);

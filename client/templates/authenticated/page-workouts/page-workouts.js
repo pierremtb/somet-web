@@ -24,34 +24,34 @@ Template.Workouts.helpers({
     else if (type == "nth")
       return "Repos";
   },
-  wkTitle: function () {
+  wkTitle() {
     if (Session.get("is_plan_based_wk"))
       return Session.get('wk_title');
     else
       return "Séance";
   },
-  wkDesc: function () {
+  wkDesc() {
     if (Session.get("is_plan_based_wk"))
       return Session.get('wk_desc');
     else
       return "";
   },
-  wkComments: function () {
+  wkComments() {
     if (Session.get("is_plan_based_wk"))
       return Session.get('wk_comments');
     else
       return "";
   },
-  selectedAthlete: function () {
+  selectedAthlete() {
     return Session.get("selectedAthlete");
   },
-  wkDistance: function () {
+  wkDistance() {
     if (Session.get("is_plan_based_wk"))
       return Math.round(Session.get('wk_distance') / 1000 * Math.pow(10, 2)) / Math.pow(10, 2);
     else
       return 25;
   },
-  wkDate: function () {
+  wkDate() {
     if (Session.get("is_plan_based_wk"))
       return Session.get('wk_date');
     else {
@@ -59,10 +59,10 @@ Template.Workouts.helpers({
       return d.getDate() + " " + monthNames[d.getMonth()] + ", " + d.getFullYear();
     }
   },
-  isTrainer: function () {
+  isTrainer() {
     return Meteor.user().profile === "trainer";
   },
-  me: function () {
+  me() {
     return Meteor.user().username;
   },
   dispMins: function (min) {
@@ -70,10 +70,10 @@ Template.Workouts.helpers({
     var m = min % 60 < 10 ? "0" + (min % 60) : (min % 60);
     return h + ":" + m;
   },
-  wkDuration: function () {
+  wkDuration() {
     return parseInt(Session.get('wk_duration'));
   },
-  plans: function () {
+  plans() {
     return PlansDB.find()
   }
 });

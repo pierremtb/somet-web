@@ -13,19 +13,19 @@ Template.Event.onRendered(function () {
 });
 
 Template.Event.helpers({
-  title: function () {
+  title() {
     return ev.get().title;
   },
-  description: function () {
+  description() {
     return ev.get().description;
   },
-  date: function () {
+  date() {
     return ev.get().date;
   },
-  comments: function () {
+  comments() {
     return ev.get().comments;
   },
-  id: function () {
+  id() {
     return ev.get()._id;
   }
 });

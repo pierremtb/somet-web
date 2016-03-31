@@ -1,6 +1,6 @@
 Template.MyAthletes.helpers({
-    athletes: function () { return AthletesDB.find({trainer: Meteor.user().username}); },
-    otherAthletes: function () { return AthletesDB.find({trainer: {$ne: Meteor.user().username}}); },
+    athletes() { return AthletesDB.find({trainer: Meteor.user().username}); },
+    otherAthletes() { return AthletesDB.find({trainer: {$ne: Meteor.user().username}}); },
     isTrainer: function(){ return Meteor.user().profile === "trainer";}
   });
 

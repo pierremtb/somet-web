@@ -5,10 +5,10 @@ function dispMins(min) {
 }
 
 Template.Plans.helpers({
-  isTrainer: function () {
+  isTrainer() {
     return Meteor.user().profile === "trainer";
   },
-  selectedAthlete: function () {
+  selectedAthlete() {
     return Session.get("selectedAthlete");
   },
   isDay0Wk: function (t) {
@@ -20,7 +20,7 @@ Template.Plans.helpers({
   isDay0Nth: function (t) {
     return Session.get("day_0_type") == "nth";
   },
-  day0Duration: function () {
+  day0Duration() {
     return dispMins(parseInt(Session.get("day_0_duration")));
   },
   isDay1Wk: function (t) {
@@ -32,7 +32,7 @@ Template.Plans.helpers({
   isDay1Nth: function (t) {
     return Session.get("day_1_type") == "nth";
   },
-  day1Duration: function () {
+  day1Duration() {
     return dispMins(parseInt(Session.get("day_1_duration")));
   },
   isDay2Wk: function (t) {
@@ -44,7 +44,7 @@ Template.Plans.helpers({
   isDay2Nth: function (t) {
     return Session.get("day_2_type") == "nth";
   },
-  day2Duration: function () {
+  day2Duration() {
     return dispMins(parseInt(Session.get("day_2_duration")));
   },
   isDay3Wk: function (t) {
@@ -56,7 +56,7 @@ Template.Plans.helpers({
   isDay3Nth: function (t) {
     return Session.get("day_3_type") == "nth";
   },
-  day3Duration: function () {
+  day3Duration() {
     return dispMins(parseInt(Session.get("day_3_duration")));
   },
   isDay4Wk: function (t) {
@@ -68,7 +68,7 @@ Template.Plans.helpers({
   isDay4Nth: function (t) {
     return Session.get("day_4_type") == "nth";
   },
-  day4Duration: function () {
+  day4Duration() {
     return dispMins(parseInt(Session.get("day_4_duration")));
   },
   isDay5Wk: function (t) {
@@ -80,7 +80,7 @@ Template.Plans.helpers({
   isDay5Nth: function (t) {
     return Session.get("day_5_type") == "nth";
   },
-  day5Duration: function () {
+  day5Duration() {
     return dispMins(parseInt(Session.get("day_5_duration")));
   },
   isDay6Wk: function (t) {
@@ -92,10 +92,10 @@ Template.Plans.helpers({
   isDay6Nth: function (t) {
     return Session.get("day_6_type") == "nth";
   },
-  day6Duration: function () {
+  day6Duration() {
     return dispMins(parseInt(Session.get("day_6_duration")));
   },
-  weekTotalDuration: function () {
+  weekTotalDuration() {
     var tot = 0;
     for (var i = 0; i < 7; i++)
       if (Session.get("day_" + i + "_duration"))
@@ -103,25 +103,25 @@ Template.Plans.helpers({
     Session.set("total_duration", tot);
     return dispMins(tot);
   },
-  monday: function () {
+  monday() {
     return Session.get("n_pl_start_day");
   },
-  tuesday: function () {
+  tuesday() {
     return parseInt(Session.get("n_pl_start_day")) + 1;
   },
-  wednesday: function () {
+  wednesday() {
     return parseInt(Session.get("n_pl_start_day")) + 2;
   },
-  thursday: function () {
+  thursday() {
     return parseInt(Session.get("n_pl_start_day")) + 3;
   },
-  friday: function () {
+  friday() {
     return parseInt(Session.get("n_pl_start_day")) + 4;
   },
-  saturday: function () {
+  saturday() {
     return parseInt(Session.get("n_pl_start_day")) + 5;
   },
-  sunday: function () {
+  sunday() {
     return parseInt(Session.get("n_pl_start_day")) + 6;
   }
 });

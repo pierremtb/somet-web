@@ -10,11 +10,11 @@ Template.Events.helpers({
   selector() {
     return {owner: Meteor.user().profile.trainer ? Session.get("selectedAthlete") : Meteor.user().username}
   },
-  events: function () {
+  events() {
     let current_date = new Date();
     return EventsDB.find({date : { $gt: current_date }});
   },
-  isNoEvt: function () {
+  isNoEvt() {
     return EventsDB.find().fetch().length == 0;
   }
 });

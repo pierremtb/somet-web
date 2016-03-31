@@ -1,3 +1,7 @@
+const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"];
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 Template.registerHelper("dispDuration", function (seconds) {
   return (new Date(seconds * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0];
 });
@@ -50,4 +54,12 @@ Template.registerHelper("dispNotificationText", function(type, value) {
     case "invite_for_athlete":
       return "@" + value + " veut devenir votre entraineur";
   }
+});
+
+Template.registerHelper('dispName', (cn, usr) => {
+  return cn == undefined ? '@' + usr : cn
+});
+
+Template.registerHelper('dispMonthName', (month) => {
+  return months[month];
 });

@@ -51,6 +51,7 @@ let WorkoutsDBSchema = new SimpleSchema({
   "cr": {
     type: Object,
     label: "The CR scales of this workout.",
+    blackbox: true,
     optional: true
   },
   "fit_linked": {
@@ -59,6 +60,7 @@ let WorkoutsDBSchema = new SimpleSchema({
   },
   "fit_values": {
     type: Object,
+    blackbox: true,
     label: "The FIT-related object linked to this workout, with different values and time in seconds..",
     optional: true
   },

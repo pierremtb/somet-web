@@ -26,7 +26,7 @@ Template.Plan.helpers({
     title() { return pl.get().title },
     days() { return pl.get().days },
     monday_date() { return pl.get().monday_date },
-    monday_support: function () { return this.monday_support},
+    monday_support() { return this.monday_support},
     mondayType: function() {
         if(this.monday_type == "wk")
             return "Entrainement";
@@ -44,7 +44,7 @@ Template.Plan.helpers({
     isDay0Nth: function (t) {
         return pl.get()[0].type == "nth";
     },
-    day0Duration: function (){
+    day0Duration(){
         return dispMins(parseInt(pl.get()[0].duration));
     },
     isDay1Wk: function (t) {
@@ -56,7 +56,7 @@ Template.Plan.helpers({
     isDay1Nth: function (t) {
         return pl.get()[1].type == "nth";
     },
-    day1Duration: function (){
+    day1Duration(){
         return dispMins(parseInt(pl.get()[1].duration));
     },
     isDay2Wk: function (t) {
@@ -68,7 +68,7 @@ Template.Plan.helpers({
     isDay2Nth: function (t) {
         return pl.get()[2].type == "nth";
     },
-    day2Duration: function (){
+    day2Duration(){
         return dispMins(parseInt(pl.get()[2].duration));
     },
     isDay3Wk: function (t) {
@@ -80,7 +80,7 @@ Template.Plan.helpers({
     isDay3Nth: function (t) {
         return pl.get()[3].type == "nth";
     },
-    day3Duration: function (){
+    day3Duration(){
         return dispMins(parseInt(pl.get()[3].duration));
     },
     isDay4Wk: function (t) {
@@ -92,7 +92,7 @@ Template.Plan.helpers({
     isDay4Nth: function (t) {
         return pl.get()[4].type == "nth";
     },
-    day4Duration: function (){
+    day4Duration(){
         return dispMins(parseInt(pl.get()[4].duration));
     },
     isDay5Wk: function (t) {
@@ -104,7 +104,7 @@ Template.Plan.helpers({
     isDay5Nth: function (t) {
         return pl.get()[5].type == "nth";
     },
-    day5Duration: function (){
+    day5Duration(){
         return dispMins(parseInt(pl.get()[5].duration));
     },
     isDay6Wk: function (t) {
@@ -116,65 +116,65 @@ Template.Plan.helpers({
     isDay6Nth: function (t) {
         return pl.get()[6].type == "nth";
     },
-    day6Duration: function (){
+    day6Duration(){
         return dispMins(parseInt(pl.get()[6].duration));
     },
-    isDay0Mtb: function () { return this.monday_support == "mtb"; },
-    isDay0Road: function () { return this.monday_support == "road"; },
-    isDay0Ht: function () { return this.monday_support == "ht" ;},
-    isDay0Run: function () { return this.monday_support == "run"; },
-    isDay0Skix: function () { return this.monday_support == "skix"; },
-    isDay0Swim: function () { return this.monday_support == "swim" ;},
-    isDay0Endr: function () { return this.monday_support == "endr" ;},
-    isDay0Othr: function () { return this.monday_support == "othr" ;},
-    isDay1Mtb: function () { return this.tuesday_support == "mtb"; },
-    isDay1Road: function () { return this.tuesday_support == "road" ;},
-    isDay1Ht: function () { return this.tuesday_support == "ht" ;},
-    isDay1Run: function () { return this.tuesday_support == "run" ;},
-    isDay1Skix: function () { return this.tuesday_support == "skix" ;},
-    isDay1Swim: function () { return this.tuesday_support == "swim" ;},
-    isDay1Endr: function () { return this.tuesday_support == "endr" ;},
-    isDay1Othr: function () { return this.tuesday_support == "othr" ;},
-    isDay2Mtb: function () { return this.wednesday_support == "mtb" ;},
-    isDay2Road: function () { return this.wednesday_support == "road" ;},
-    isDay2Ht: function () { return this.wednesday_support == "ht" ;},
-    isDay2Run: function () { return this.wednesday_support == "run" ;},
-    isDay2Skix: function () { return this.wednesday_support == "skix" ;},
-    isDay2Swim: function () { return this.wednesday_support == "swim" ;},
-    isDay2Endr: function () { return this.wednesday_support == "endr" ;},
-    isDay2Othr: function () { return this.wednesday_support == "othr" ;},
-    isDay3Mtb: function () { return this.thursday_support == "mtb" ;},
-    isDay3Road: function () { return this.thursday_support == "road" ;},
-    isDay3Ht: function () { return this.thursday_support == "ht" ;},
-    isDay3Run: function () { return this.thursday_support == "run" ;},
-    isDay3Skix: function () { return this.thursday_support == "skix" ;},
-    isDay3Swim: function () { return this.thursday_support == "swim" ;},
-    isDay3Endr: function () { return this.thursday_support == "endr" ;},
-    isDay3Othr: function () { return this.thursday_support == "othr" ;},
-    isDay4Mtb: function () { return this.friday_support == "mtb" ;},
-    isDay4Road: function () { return this.friday_support == "road" ;},
-    isDay4Ht: function () { return this.friday_support == "ht" ;},
-    isDay4Run: function () { return this.friday_support == "run" ;},
-    isDay4Skix: function () { return this.friday_support == "skix" ;},
-    isDay4Swim: function () { return this.friday_support == "swim" ;},
-    isDay4Endr: function () { return this.friday_support == "endr" ;},
-    isDay4Othr: function () { return this.friday_support == "othr" ;},
-    isDay5Mtb: function () { return this.saturday_support == "mtb" ;},
-    isDay5Road: function () { return this.saturday_support == "road" ;},
-    isDay5Ht: function () { return this.saturday_support == "ht" ;},
-    isDay5Run: function () { return this.saturday_support == "run" ;},
-    isDay5Skix: function () { return this.saturday_support == "skix" ;},
-    isDay5Swim: function () { return this.saturday_support == "swim" ;},
-    isDay5Endr: function () { return this.saturday_support == "endr" ;},
-    isDay5Othr: function () { return this.saturday_support == "othr" ;},
-    isDay6Mtb: function () { return this.sunday_support == "mtb" ;},
-    isDay6Road: function () { return this.sunday_support == "road" ;},
-    isDay6Ht: function () { return this.sunday_support == "ht" ;},
-    isDay6Run: function () { return this.sunday_support == "run" ;},
-    isDay6Skix: function () { return this.sunday_support == "skix" ;},
-    isDay6Swim: function () { return this.sunday_support == "swim" ;},
-    isDay6Endr: function () { return this.sunday_support == "endr" ;},
-    isDay6Othr: function () { return this.sunday_support == "othr" ;},
+    isDay0Mtb() { return this.monday_support == "mtb"; },
+    isDay0Road() { return this.monday_support == "road"; },
+    isDay0Ht() { return this.monday_support == "ht" ;},
+    isDay0Run() { return this.monday_support == "run"; },
+    isDay0Skix() { return this.monday_support == "skix"; },
+    isDay0Swim() { return this.monday_support == "swim" ;},
+    isDay0Endr() { return this.monday_support == "endr" ;},
+    isDay0Othr() { return this.monday_support == "othr" ;},
+    isDay1Mtb() { return this.tuesday_support == "mtb"; },
+    isDay1Road() { return this.tuesday_support == "road" ;},
+    isDay1Ht() { return this.tuesday_support == "ht" ;},
+    isDay1Run() { return this.tuesday_support == "run" ;},
+    isDay1Skix() { return this.tuesday_support == "skix" ;},
+    isDay1Swim() { return this.tuesday_support == "swim" ;},
+    isDay1Endr() { return this.tuesday_support == "endr" ;},
+    isDay1Othr() { return this.tuesday_support == "othr" ;},
+    isDay2Mtb() { return this.wednesday_support == "mtb" ;},
+    isDay2Road() { return this.wednesday_support == "road" ;},
+    isDay2Ht() { return this.wednesday_support == "ht" ;},
+    isDay2Run() { return this.wednesday_support == "run" ;},
+    isDay2Skix() { return this.wednesday_support == "skix" ;},
+    isDay2Swim() { return this.wednesday_support == "swim" ;},
+    isDay2Endr() { return this.wednesday_support == "endr" ;},
+    isDay2Othr() { return this.wednesday_support == "othr" ;},
+    isDay3Mtb() { return this.thursday_support == "mtb" ;},
+    isDay3Road() { return this.thursday_support == "road" ;},
+    isDay3Ht() { return this.thursday_support == "ht" ;},
+    isDay3Run() { return this.thursday_support == "run" ;},
+    isDay3Skix() { return this.thursday_support == "skix" ;},
+    isDay3Swim() { return this.thursday_support == "swim" ;},
+    isDay3Endr() { return this.thursday_support == "endr" ;},
+    isDay3Othr() { return this.thursday_support == "othr" ;},
+    isDay4Mtb() { return this.friday_support == "mtb" ;},
+    isDay4Road() { return this.friday_support == "road" ;},
+    isDay4Ht() { return this.friday_support == "ht" ;},
+    isDay4Run() { return this.friday_support == "run" ;},
+    isDay4Skix() { return this.friday_support == "skix" ;},
+    isDay4Swim() { return this.friday_support == "swim" ;},
+    isDay4Endr() { return this.friday_support == "endr" ;},
+    isDay4Othr() { return this.friday_support == "othr" ;},
+    isDay5Mtb() { return this.saturday_support == "mtb" ;},
+    isDay5Road() { return this.saturday_support == "road" ;},
+    isDay5Ht() { return this.saturday_support == "ht" ;},
+    isDay5Run() { return this.saturday_support == "run" ;},
+    isDay5Skix() { return this.saturday_support == "skix" ;},
+    isDay5Swim() { return this.saturday_support == "swim" ;},
+    isDay5Endr() { return this.saturday_support == "endr" ;},
+    isDay5Othr() { return this.saturday_support == "othr" ;},
+    isDay6Mtb() { return this.sunday_support == "mtb" ;},
+    isDay6Road() { return this.sunday_support == "road" ;},
+    isDay6Ht() { return this.sunday_support == "ht" ;},
+    isDay6Run() { return this.sunday_support == "run" ;},
+    isDay6Skix() { return this.sunday_support == "skix" ;},
+    isDay6Swim() { return this.sunday_support == "swim" ;},
+    isDay6Endr() { return this.sunday_support == "endr" ;},
+    isDay6Othr() { return this.sunday_support == "othr" ;},
     monday_type: function () { return this.mondayType;},
     mondaySupport: function() {
         if(this.monday_support == "mtb")
@@ -194,7 +194,7 @@ Template.Plan.helpers({
         else if(this.monday_support == "othr")
             return "Autre";
     },
-    weekTotalDuration: function () {
+    weekTotalDuration() {
         var tot = 0;
         for(var i=0;i<7;i++)
             if(Session.get("day_" + i +"_duration"))
