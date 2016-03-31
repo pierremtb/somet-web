@@ -40,6 +40,12 @@ Template.Settings.events({
       Meteor.call("changeTrainerName", Meteor.user().username, t.find("#new_complete_name").value);
     else
       Meteor.call("changeAthleteName", Meteor.user().username, t.find("#new_complete_name").value);
+  },
+  "click #n_weight_submit": function (e, t) {
+    Meteor.call("updateThisUser", Meteor.userId(), {"profile.weight" : parseFloat(t.find("#new_weight").value)});
+  },
+  "click #n_height_submit": function (e, t) {
+    Meteor.call("updateThisUser", Meteor.userId(), {"profile.height" : parseFloat(t.find("#new_height").value)});
   }
 });
 

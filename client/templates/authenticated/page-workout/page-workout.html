@@ -18,26 +18,46 @@
       {{/if}}
     </p>
 
+    <div class="col s12">
+      <div class="card accent_bg white-text">
+        {{#with workout}}
+          <div class="card-content">
+            <span class="card-title">{{title}}</span>
+            {{#if fit_values}}
+              <span class="card-title right vam l20p mt5p">
+              <div class="chip white">
+                .FIT
+              </div>
+            </span>
+            {{/if}}
+            {{#if strava_id}}
+              <span class="card-title right vam l20p mt5p">
+              <div class="chip white">
+                Strava
+              </div>
+            </span>
+            {{/if}}
+          </div>
+        {{/with}}
+      </div>
+    </div>
+
     <div class="col s12 m6">
-      <div class="card" style="z-index:99">
+      <div class="card small" style="z-index:99">
         <div class="card-content">
           {{#with workout}}
-            <h4>{{title}}</h4>
-            <div class="row">
-              <div class="col s12 m6">
-                <p class="grey-text">{{moFormat start_date 'dddd, Do [of] MMMM YYYY'}}</p>
-                {{#if description}}
-                  <p>{{description}}</p>
-                {{else}}
-                  <p class="italic">Pas de description</p>
-                {{/if}}
-                {{#if comments}}
-                  <p class="italic">{{comments}}</p>
-                {{else}}
-                  <p>Pas de commentaires</p>
-                {{/if}}
-              </div>
-            </div>
+            <span class="card-title">Descriptif</span>
+            <p class="grey-text">{{moFormat start_date 'DD/MM/YYYY HH:MM:SS'}}</p>
+            {{#if description}}
+              <p>{{description}}</p>
+            {{else}}
+              <p class="italic">Pas de description</p>
+            {{/if}}
+            {{#if comments}}
+              <p class="italic">{{comments}}</p>
+            {{else}}
+              <p>Pas de commentaires</p>
+            {{/if}}
           {{/with}}
         </div>
         {{#if currentUser.profile.trainer}}
@@ -49,9 +69,9 @@
       </div>
     </div>
     <div class="col s12 m6">
-      <div class="card" style="z-index:99">
+      <div class="card small" style="z-index:99">
         <div class="card-content">
-          <h5>CR</h5>
+          <span class="card-title">Evaluation des sensations</span>
           {{#if workout.cr}}
             {{> WorkoutCRs cr=workout.cr}}
           {{else}}
@@ -66,63 +86,67 @@
         {{/if}}
       </div>
     </div>
+
+
     <div class="col s12">
-      <div class="card" style="padding: 20px">
+      <div class="card">
         {{#with workout}}
-          <div class="row">
-            <h5>Détails</h5>
-            <div class="col s12 m6">
-              <p class="grey-text">Durée : {{dispDuration duration}}</p>
-              <p class="grey-text">Distance : {{dispDistance distance}} km</p>
-              {{#if strava_id}}
-                {{#if fit_values.elevation.ascent}}
-                  <p class="grey-text">Ascension totale : {{fit_values.elevation.ascent}} m</p>
-                {{else}}
-                  {{#if ascent}}
-                    <p class="grey-text">Ascension totale : {{ascent}} m</p>
+          <div class="card-content">
+            <span class="card-title">Détails</span>
+            <div class="row">
+              <div class="col s12 m6" style="padding: 0">
+                <p>Durée : {{dispDuration duration}}</p>
+                <p>Distance : {{dispDistance distance}} km</p>
+                {{#if strava_id}}
+                  {{#if fit_values.elevation.ascent}}
+                    <p>Ascension totale : {{fit_values.elevation.ascent}} m</p>
+                  {{else}}
+                    {{#if ascent}}
+                      <p>Ascension totale : {{ascent}} m</p>
+                    {{/if}}
+                  {{/if}}
+                  {{#if fit_values.elevation.descent}}
+                    <p>Descente totale : {{fit_values.elevation.descent}} m</p>
+                  {{else}}
+                    {{#if descent}}
+                      <p>Descente totale : {{descent}} m</p>
+                    {{/if}}
+                  {{/if}}
+                  {{#if fit_values.calories}}
+                    <p>Estimation des calories consomées : {{fit_values.calories}} cal</p>
+                  {{else}}
+                    {{#if calories}}
+                      <p>Estimation des calories consomées : {{calories}} m</p>
+                    {{/if}}
                   {{/if}}
                 {{/if}}
-                {{#if fit_values.elevation.descent}}
-                  <p class="grey-text">Descente totale : {{fit_values.elevation.descent}} m</p>
-                {{else}}
-                  {{#if descent}}
-                    <p class="grey-text">Descente totale : {{descent}} m</p>
-                  {{/if}}
+              </div>
+              <div class="col s12 m6" style="padding: 0">
+                {{#if fit_values.speed.avg}}
+                  <p>Vitesse moyenne : {{fit_values.speed.avg}} km/h</p>
                 {{/if}}
-                {{#if fit_values.calories}}
-                  <p class="grey-text">Estimation des calories consomées : {{fit_values.calories}} cal</p>
-                {{else}}
-                  {{#if calories}}
-                    <p class="grey-text">Estimation des calories consomées : {{calories}} m</p>
-                  {{/if}}
+                {{#if fit_values.speed.max}}
+                  <p>Vitesse max : {{fit_values.speed.max}} km</p>
                 {{/if}}
-              {{/if}}
-            </div>
-            <div class="col s12 m6">
-              {{#if fit_values.speed.avg}}
-                <p class="grey-text">Vitesse moyenne : {{fit_values.speed.avg}} km/h</p>
-              {{/if}}
-              {{#if fit_values.speed.max}}
-                <p class="grey-text">Vitesse max : {{fit_values.speed.max}} km</p>
-              {{/if}}
-              {{#if fit_values.cadence.avg}}
-                <p class="grey-text">Cadence moyenne : {{fit_values.cadence.avg}} rpm</p>
-              {{/if}}
-              {{#if fit_values.cadence.max}}
-                <p class="grey-text">Cadence max : {{fit_values.cadence.max}} rpm</p>
-              {{/if}}
-              {{#if fit_values.power.avg}}
-                <p class="grey-text">Puissance moyenne : {{fit_values.power.avg}} W</p>
-              {{/if}}
-              {{#if fit_values.power.max}}
-                <p class="grey-text">Puissance max : {{fit_values.power.max}} W</p>
-              {{/if}}
-              {{#if fit_values.heart_rate.avg}}
-                <p class="grey-text">Fréquence cardiaque moyenne : {{fit_values.heart_rate.avg}} bpm</p>
-              {{/if}}
-              {{#if fit_values.heart_rate.max}}
-                <p class="grey-text">Fréquence cardiaque max : {{fit_values.heart_rate.max}} bpm</p>
-              {{/if}}
+                {{#if fit_values.cadence.avg}}
+                  <p>Cadence moyenne : {{fit_values.cadence.avg}} rpm</p>
+                {{/if}}
+                {{#if fit_values.cadence.max}}
+                  <p>Cadence max : {{fit_values.cadence.max}} rpm</p>
+                {{/if}}
+                {{#if fit_values.power.avg}}
+                  <p>Puissance moyenne : {{fit_values.power.avg}} W</p>
+                {{/if}}
+                {{#if fit_values.power.max}}
+                  <p>Puissance max : {{fit_values.power.max}} W</p>
+                {{/if}}
+                {{#if fit_values.heart_rate.avg}}
+                  <p>Fréquence cardiaque moyenne : {{fit_values.heart_rate.avg}} bpm</p>
+                {{/if}}
+                {{#if fit_values.heart_rate.max}}
+                  <p>Fréquence cardiaque max : {{fit_values.heart_rate.max}} bpm</p>
+                {{/if}}
+              </div>
             </div>
           </div>
         {{/with}}
@@ -143,8 +167,8 @@
         <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span class="wkid"></span></p>
       </div>
       <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
-        <a href="#!" id="delete_bt"
+        <a class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+        <a id="delete_bt"
            class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
       </div>
     </div>
@@ -250,9 +274,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#!" id="accept_cr"
+        <a id="accept_cr"
            class=" modal-action modal-close waves-effect waves-pink btn-flat accent_txt">Valider</a>
-        <a href="#!" class=" modal-action modal-close waves-effect waves-grey btn-flat">Annuler</a>
+        <a class=" modal-action modal-close waves-effect waves-grey btn-flat">Annuler</a>
       </div>
     </div>
 

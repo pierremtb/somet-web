@@ -3,73 +3,63 @@ const authenticatedRoutes = FlowRouter.group({
 });
 
 authenticatedRoutes.route( '/', {
-  name: 'dashboard',
+  name: 'Dashboard',
   action() {
     BlazeLayout.render( 'default', { yield: 'Dashboard' } );
   }
 });
 
 authenticatedRoutes.route( '/dashboard', {
-  name: 'dashboard',
+  name: 'Dashboard',
   action() {
     BlazeLayout.render( 'default', { yield: 'Dashboard' } );
   }
 });
 
 authenticatedRoutes.route( '/workouts', {
-  name: 'workouts',
+  name: 'Entrainements',
   action() {
     BlazeLayout.render( 'default', { yield: 'Workouts' } );
-  }
-});
-
-authenticatedRoutes.route( '/workouts/:p', {
-  name: 'workoutsByPage',
-  action() {
-    BlazeLayout.render( 'default', { yield: 'Workouts' } );
-  },
-  subscriptions(params, queryParams) {
-    this.register('workoutsByPage', Meteor.subscribe('workoutsOfUsr', params.p));
   }
 });
 
 authenticatedRoutes.route( '/plans', {
-  name: 'plans',
+  name: 'Plans',
   action() {
     BlazeLayout.render( 'default', { yield: 'Plans' } );
   }
 });
 
 authenticatedRoutes.route( '/events', {
-  name: 'events',
+  name: 'Evénements',
   action() {
     BlazeLayout.render( 'default', { yield: 'Events' } );
   }
 });
 
 authenticatedRoutes.route( '/calendar', {
-  name: 'calendar',
+  name: 'Calendrier',
   action() {
     BlazeLayout.render( 'default', { yield: 'Calendar' } );
   }
 });
 
 authenticatedRoutes.route( '/analysis', {
-  name: 'analyisis',
+  name: 'Analyse',
   action() {
     BlazeLayout.render( 'default', { yield: 'Analysis' } );
   }
 });
 
 authenticatedRoutes.route( '/settings', {
-  name: 'settings',
+  name: 'Paramètres',
   action() {
     BlazeLayout.render( 'default', { yield: 'Settings' } );
   }
 });
 
 authenticatedRoutes.route( '/workout/:id', {
-  name: 'workout',
+  name: 'Entrainement',
   action() {
     BlazeLayout.render( 'default', { yield: 'Workout' } );
   },
@@ -79,7 +69,7 @@ authenticatedRoutes.route( '/workout/:id', {
 });
 
 authenticatedRoutes.route( '/plan/:id', {
-  name: 'plan',
+  name: 'Plan',
   action() {
     BlazeLayout.render( 'default', { yield: 'Plan' } );
   },
@@ -89,7 +79,7 @@ authenticatedRoutes.route( '/plan/:id', {
 });
 
 authenticatedRoutes.route( '/event/:id', {
-  name: 'event',
+  name: 'Evenement',
   action() {
     BlazeLayout.render( 'default', { yield: 'Event' } );
   },

@@ -1,9 +1,3 @@
-function dispMins(min) {
-  var h = parseInt(min / 60) < 10 ? "0" + parseInt(min / 60) : parseInt(min / 60);
-  var m = min % 60 < 10 ? "0" + (min % 60) : (min % 60);
-  return h + ":" + m;
-}
-
 var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 Template.Workouts.helpers({

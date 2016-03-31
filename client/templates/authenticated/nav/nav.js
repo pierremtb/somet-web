@@ -30,6 +30,9 @@ Template.Nav.helpers({
   },
   athletes() {
     return AthletesDB.find({trainer: Meteor.user().username});
+  },
+  page() {
+    return FlowRouter.getRouteName();
   }
 });
 

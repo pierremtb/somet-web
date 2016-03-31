@@ -1,16 +1,15 @@
 <template name="PlanDay">
-    <div class="col l4 m6 s12">
-        <div class="" >
-            <h5>{{dispDayName day}} : {{dispType type}}</h5>
-            {{#if support}}
-            <p>Support : {{dispSupport support}}</p>
-            {{#if duration}}
-            <p>Durée : {{dispDuration duration}}</p>
-            {{/if}}
-            <p>{{description}}</p>
-            <p>{{comments}}</p>
-            {{/if}}
-        </div>
-        <div class="divider"></div>
+  <div class="card small {{#if duration}}yellow{{else}}{{#if support}}orange{{else}}{{/if}}{{/if}}">
+    <div class="card-content">
+      <span class="card-title">{{dispDayName day}} : {{dispType type}}</span>
+      {{#if support}}
+        <p>Support : {{dispSupport support}}</p>
+        {{#if duration}}
+          <p>Durée : {{dispDuration duration}}</p>
+        {{/if}}
+        <p>{{description}}</p>
+        <p>{{comments}}</p>
+      {{/if}}
     </div>
+  </div>
 </template>

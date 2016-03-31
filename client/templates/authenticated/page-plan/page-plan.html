@@ -10,17 +10,23 @@
                 class="material-icons left">delete</i> SUPPRIMER</a>
       {{/if}}
     </p>
-    <div class="card" style="padding:5px 20px;z-index:999">
-      <p class="hide-on-small-only" id="date">Soumis le {{moFormat monday_date 'DD/MM/YYYY' }}</p>
-      <p class="hide-on-med-and-up">Soumis le {{moFormat monday_date 'DD/MM/YYYY'}}</p>
-      <h4>{{title}}</h4>
-      <div class="row">
-        {{#each days}}
-          {{> PlanDay day=@index type=this.type support=this.support duration=this.duration description=this.description comments=this.comments}}
-        {{/each}}
+    <div class="card accent_bg white-text">
+      <div class="card-content">
+        <span class="hide-on-small-only card-title right vam">Soumis le {{moFormat monday_date 'DD/MM/YYYY' }}</span>
+        <p class="hide-on-med-and-up">Débute le lundi {{moFormat monday_date 'DD/MM/YYYY'}}</p>
+        <span class="card-title">{{title}}</span>
       </div>
     </div>
   </div>
+
+
+  {{#each days}}
+    <div class="col s12 m6 l4">
+      {{> PlanDay day=@index type=this.type support=this.support duration=this.duration description=this.description comments=this.comments}}
+    </div>
+  {{/each}}
+
+
   <div id="add_plan1" class="modal modal-fixed-footer" style="width:90%;max-height:90%;height:90%;margin-top:-5%;">
     <div class="modal-content">
       <div class="row">
@@ -42,20 +48,20 @@
       <div class="row">
         <div class="col s12">
           <ul class="pagination" id="menu_day">
-            <li id="menu_day_0" class="active" onclick="setThisDay(0)"><a href="#!">Lundi {{monday}}</a>
+            <li id="menu_day_0" class="active" onclick="setThisDay(0)"><a>Lundi {{monday}}</a>
             </li>
             <li id="menu_day_1" class="waves-effect" onclick="setThisDay(1)"><a
-                    href="#!">Mardi {{tuesday}}</a></li>
+            >Mardi {{tuesday}}</a></li>
             <li id="menu_day_2" class="waves-effect" onclick="setThisDay(2)"><a
-                    href="#!">Mercredi {{wednesday}}</a></li>
+            >Mercredi {{wednesday}}</a></li>
             <li id="menu_day_3" class="waves-effect" onclick="setThisDay(3)"><a
-                    href="#!">Jeudi {{thursday}}</a></li>
+            >Jeudi {{thursday}}</a></li>
             <li id="menu_day_4" class="waves-effect" onclick="setThisDay(4)"><a
-                    href="#!">Vendredi {{friday}}</a></li>
+            >Vendredi {{friday}}</a></li>
             <li id="menu_day_5" class="waves-effect" onclick="setThisDay(5)"><a
-                    href="#!">Samedi {{saturday}}</a></li>
+            >Samedi {{saturday}}</a></li>
             <li id="menu_day_6" class="waves-effect" onclick="setThisDay(6)"><a
-                    href="#!">Dimanche {{sunday}}</a></li>
+            >Dimanche {{sunday}}</a></li>
           </ul>
         </div>
       </div>
@@ -689,8 +695,8 @@
 
     </div>
     <div class="modal-footer">
-      <a href="#!" id="n_pl_submit" class=" modal-action modal-close waves-effect waves-cyan pink-text btn-flat">Modifier</a>
-      <a href="#!" class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
+      <a id="n_pl_submit" class=" modal-action modal-close waves-effect waves-cyan pink-text btn-flat">Modifier</a>
+      <a class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
 
     </div>
   </div>
@@ -702,8 +708,8 @@
       <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA LE PLAN <span class="plid">{{_id}}</span></p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
-      <a href="#!" id="delete_btn"
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+      <a id="delete_btn"
          class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
     </div>
   </div>
