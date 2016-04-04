@@ -2,17 +2,22 @@ const authenticatedRoutes = FlowRouter.group({
   name: 'authenticated'
 });
 
-authenticatedRoutes.route( '/', {
+authenticatedRoutes.route( '/dashboard', {
   name: 'Dashboard',
   action() {
     BlazeLayout.render( 'default', { yield: 'Dashboard' } );
   }
 });
 
-authenticatedRoutes.route( '/dashboard', {
-  name: 'Dashboard',
-  action() {
-    BlazeLayout.render( 'default', { yield: 'Dashboard' } );
+FlowRouter.route( '/', {
+  triggersEnter: [function(context, redirect) {
+    if(Meteor.user())
+      redirect('/dashboard');
+    else
+      redirect('/login')
+  }],
+  action: function(_params) {
+    throw new Error("this should not get called");
   }
 });
 

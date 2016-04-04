@@ -255,11 +255,11 @@ body {
   }
 
   tbody tr {
-    transition: background 0.2s;
+    transition:  background 0.2s;
   }
 
   tbody tr:hover {
-    background: rgba(0,0,0,0.05);
+    background: rgba(0, 0, 0, 0.05);
     cursor: pointer;
   }
 
@@ -288,7 +288,7 @@ body {
 }
 
 .r10p {
-  margin-right:10px;
+  margin-right: 10px;
 }
 
 .r20p {
@@ -414,6 +414,18 @@ i {
   margin-top: -5px;
 }
 
+.mt25p {
+  margin-top: 25px;
+}
+
+.mt15p {
+  margin-top: 15px;
+}
+
+.mt20p {
+  margin-top: 20px;
+}
+
 .ml10p {
   margin-left: 10px;
 }
@@ -537,8 +549,6 @@ i {
   width: 85%;
 }
 
-
-
 .pagination {
   display: none;
 
@@ -581,23 +591,23 @@ i {
 }
 
 .pagesCont {
-  position:relative;
+  position: relative;
 }
 
 .pagesLoadingDefaultCont {
-  position:absolute;
-  width:100%;
-  text-align:center;
+  position: absolute;
+  width: 100%;
+  text-align: center;
 }
 
 .pagesLoadingDefault {
-  width:80px;
+  width: 80px;
   border: 1px solid #999;
-  border-radius:5px;
-  padding:10px;
-  margin:15px;
-  display:inline-block;
-  background-color:white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 15px;
+  display: inline-block;
+  background-color: white;
 }
 
 .pagesItemDefault {
@@ -623,7 +633,7 @@ i {
   position: relative;
   float: left;
   padding: 6px 12px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   margin-left: -1px;
   line-height: 1.428571429;
   text-decoration: none;
