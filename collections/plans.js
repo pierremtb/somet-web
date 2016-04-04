@@ -65,6 +65,7 @@ TabularTables.Plans = new Tabular.Table({
     {data: "monday_date", title: "Date de début"},
     {data: "total_duration", title: "Durée totale (s)"},
   ],
+  order: [[1, 'desc']],
   responsive: true,
   autoWidth: false
 });

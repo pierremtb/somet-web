@@ -114,6 +114,7 @@ TabularTables.Workouts = new Tabular.Table({
     {data: "distance", title: "Distance (m)"},
     {data: "duration", title: "Durée (sec)"},
   ],
+  order: [[1, 'desc']],
   responsive: true,
   autoWidth: false
 });

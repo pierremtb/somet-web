@@ -1,8 +1,8 @@
 <template name="WorkoutGraphs">
   <div class="col s12">
-    <div class="card" style="padding: 20px">
-      <div class="row">
-        <h5 style="display: inline">Analyse .FIT</h5>
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Analyse .FIT</span>
         <form style="display: inline-block;float: right" action="#">
           <p style="display:inline-block">
             <input name="x_axis_selection" class="with-gap" type="radio"
@@ -15,7 +15,7 @@
             <label for="x_axis_distance">Distance</label>
           </p>
         </form>
-        <div id="workout_chart" class="col s12">
+        <div id="workout_chart">
           <p class="grey-text">Altitude</p>
           <div id="elevation_chart" style="width: 100%; height: 300px;"></div>
           <p class="grey-text">Puissance</p>
@@ -28,6 +28,14 @@
           <div id="heart_rate_chart" style="width: 100%; height: 300px;"></div>
         </div>
 
+      </div>
+    </div>
+  </div>
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Profil de Puissance Record</span>
+        <div id="ppr_chart" style="width: 100%; height: 300px;"></div>
       </div>
     </div>
   </div>

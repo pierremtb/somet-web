@@ -60,5 +60,6 @@ TabularTables.Events = new Tabular.Table({
     {data: "date", title: "Date"}
   ],
   responsive: true,
+  order: [[2, 'desc']],
   autoWidth: false
 });

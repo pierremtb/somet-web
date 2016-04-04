@@ -31,5 +31,6 @@ Template.WorkoutGraphs.onRendered(function () {
                                     this.find('#power_chart'),
                                     this.find('#speed_chart'),
                                     this.find('#cadence_chart'),
-                                    this.find('#heart_rate_chart'));
+                                    this.find('#heart_rate_chart'),
+                                    this.find('#ppr_chart'));
 });
