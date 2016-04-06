@@ -4,10 +4,10 @@ Meteor.methods({
     let exec = Npm.require('child_process').exec;
 
     // Deployed
-    //exec('cat \"../../.uploads' + path + '\" | assets/app/jre/bin/java -jar \"./assets/app/FitToJson.jar\" > output.json');
+    exec('cat \"../../.uploads' + path + '\" | assets/app/jre/bin/java -jar \"./assets/app/FitToJson.jar\" > output.json');
 
     // Local
-    exec('cat \"../../../../../.uploads' + path + '\" ' + '| java -jar \"./assets/app/FitToJson.jar\" > output.json');
+    //exec('cat \"../../../../../.uploads' + path + '\" ' + '| java -jar \"./assets/app/FitToJson.jar\" > output.json');
 
     return 'Converted, waiting for parser...';
   },

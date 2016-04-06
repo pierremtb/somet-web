@@ -10,8 +10,10 @@ let _setUploader = () => {
   Uploader.uploadUrl = Meteor.absoluteUrl("upload");
   Uploader.finished = function(index, fileInfo, templateContext) {
     if(fileInfo) {
+      console.log('uploaded');
       Session.set('fit_processing', true);
       Meteor.call('fit2JSON', "" + fileInfo.path + "");
+      console.log('converting...');
       Meteor.setTimeout(function() {
         Meteor.call('parseJSON', function(e,r){
           if(e)
