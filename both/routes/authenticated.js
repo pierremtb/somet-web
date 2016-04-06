@@ -20,7 +20,6 @@ FlowRouter.route( '/', {
     throw new Error("this should not get called");
   }
 });
-
 authenticatedRoutes.route( '/workouts', {
   name: 'Entrainements',
   action() {
