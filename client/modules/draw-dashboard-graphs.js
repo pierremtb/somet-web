@@ -7,10 +7,6 @@ let wks_month_data = [], supports_month_data = {};
 let lib_loaded = false;
 
 const drawDashBoardGraphs = (me, graph_date, e_d, e_s) => {
-  if(!lib_loaded) {
-    google.charts.load('current', {'packages': ['corechart', 'bar']});
-    lib_loaded = true;
-  }
   _getWorkoutsDurationsData(me, graph_date);
   _getWorkoutsSupportsData(me, graph_date);
   _drawMonthGraph(e_d,e_s);

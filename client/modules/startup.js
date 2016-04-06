@@ -1,7 +1,7 @@
 let startup = () => {
   _notificationsToaster();
   _setUploader();
-  Meteor.call('linkFIT', {});
+  google.charts.load('current', {'packages': ['corechart', 'bar']});
 };
 
 var _notificationsToaster = Modules.client.notificationsToaster;

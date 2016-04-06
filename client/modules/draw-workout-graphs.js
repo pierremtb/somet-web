@@ -9,10 +9,6 @@ const drawWorkoutGraphs = (wk, elevation_e, power_e, speed_e, cadence_e, heart_r
   heart_rate_data_array = [];
   ppr_data_array = [];
 
-  if(!lib_loaded) {
-    google.charts.load('current', {'packages': ['corechart', 'bar']});
-    lib_loaded = true;
-  }
   _getWorkoutData(wk);
   google.charts.setOnLoadCallback(function() {
     _drawChart(elevation_e, power_e, speed_e, cadence_e, heart_rate_e, ppr_e);

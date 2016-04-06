@@ -3,10 +3,6 @@ let ppr_data_array = [];
 
 const drawAnalysisGraphs = (ppr, ppr_e) => {
   ppr_data_array = [];
-  if(!lib_loaded) {
-    google.charts.load('current', {'packages':['corechart']});
-    lib_loaded = true;
-  }
   _getData(ppr);
   google.charts.setOnLoadCallback(function() {
     _drawChart(ppr_e);
