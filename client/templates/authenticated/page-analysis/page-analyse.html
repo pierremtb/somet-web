@@ -1,4 +1,51 @@
 <template name="Analysis">
-    <p class="center-align white-text"><i class="material-icons large">trending_up</i></p>
-    <h5 class="center-align white-text">Cette fonctionnalité n'est pas encore disponible.</h5>
+  <div class="col s12">
+    <div class="card white-text accent_bg" style="padding: 15px;padding-bottom: 0px">
+      <div class="row">
+        <div class="input-field col s6 m4 l3 white_select">
+          <select id="month_selected">
+            <option value="" disabled>Selectionner le mois</option>
+            <option value="0">Janvier</option>
+            <option value="1">Février</option>
+            <option value="2">Mars</option>
+            <option value="3" selected>Avril</option>
+            <option value="4">Mai</option>
+            <option value="5">Juin</option>
+            <option value="6">Juillet</option>
+            <option value="7">Août</option>
+            <option value="8">Septembre</option>
+            <option value="9">Octobre</option>
+            <option value="10">Novembre</option>
+            <option value="11">Décembre</option>
+            <option value="-1">Tous</option>
+          </select>
+          <label>Mois</label>
+        </div>
+        <div class="input-field col s6 m4 l3 white_select">
+          <select id="year_selected">
+            <option value="" disabled>Selectionner l'année</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016" selected>2016</option>
+            <option value="-1">Toutes</option>
+          </select>
+          <label>Année</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{> AnalysisContent target=target username=targetedUsername}}
+
+
+  <script>
+    $(document).ready(function () {
+      $('select').material_select();
+    });
+  </script>
 </template>

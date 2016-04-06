@@ -219,6 +219,16 @@ body {
   background: #263238;
 }
 
+@media screen and (max-width: 1024px) {
+   #top_bar {
+     height: 60px;
+   }
+
+  #user_bar {
+    margin-top: 0px;
+  }
+}
+
 #title {
   font-size: 35px;
   padding-left: 20px;
@@ -774,4 +784,9 @@ i {
 .pager .previous > a,
 .pager .previous > span {
   float: left;
+}
+
+.white_select label, .white_select .caret, .white_select .select-dropdown{
+  color: rgba(255,255,255,0.8) !important;
+  border-bottom-color: rgba(255,255,255,0.8) !important;
 }

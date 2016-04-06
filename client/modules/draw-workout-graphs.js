@@ -1,7 +1,14 @@
-let lib_loaded = false, isTime = true;
+let lib_loaded = false, isTime = true,
     elevation_data_array = [], power_data_array = [], speed_data_array = [], cadence_data_array = [], heart_rate_data_array = [], ppr_data_array = [];
 
 const drawWorkoutGraphs = (wk, elevation_e, power_e, speed_e, cadence_e, heart_rate_e, ppr_e) => {
+  elevation_data_array = [];
+  power_data_array = [];
+  speed_data_array = [];
+  cadence_data_array = [];
+  heart_rate_data_array = [];
+  ppr_data_array = [];
+
   if(!lib_loaded) {
     google.charts.load('current', {'packages': ['corechart', 'bar']});
     lib_loaded = true;

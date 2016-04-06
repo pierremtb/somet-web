@@ -1,14 +1,14 @@
 Meteor.publish('workoutOfThisId', function (id) {
   check(id, String);
-  let owner = WorkoutsDB.findOne({_id: id}) ? WorkoutsDB.findOne({_id: id}).owner : false,
-    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
-  if(usr == false || owner == false) return this.ready();
+  let owner = WorkoutsDB.findOne({_id: id}) ? WorkoutsDB.findOne({_id: id}).owner : false,
+    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
+  if (usr == false || owner == false) return this.ready();
   let is_my_athlete = false,
     my_athletes = AthletesDB.find({trainer: usr}).fetch();
-  for(let i in my_athletes)
-    if(my_athletes[i].username == owner)
+  for (let i in my_athletes)
+    if (my_athletes[i].username == owner)
       is_my_athlete = true;
-  if(owner == usr  || is_my_athlete) {
+  if (owner == usr || is_my_athlete) {
     var wk = WorkoutsDB.find({_id: id});
     return wk ? wk : this.ready();
   } else {
@@ -18,15 +18,15 @@ Meteor.publish('workoutOfThisId', function (id) {
 
 Meteor.publish('eventOfThisId', function (id) {
   check(id, String);
-  let owner = EventsDB.findOne({_id: id}) ? EventsDB.findOne({_id: id}).owner : false,
-    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
-  if(usr == false || owner == false) return this.ready();
+  let owner = EventsDB.findOne({_id: id}) ? EventsDB.findOne({_id: id}).owner : false,
+    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
+  if (usr == false || owner == false) return this.ready();
   let is_my_athlete = false,
     my_athletes = AthletesDB.find({trainer: usr}).fetch();
-  for(let i in my_athletes)
-    if(my_athletes[i].username == owner)
+  for (let i in my_athletes)
+    if (my_athletes[i].username == owner)
       is_my_athlete = true;
-  if(owner == usr  || is_my_athlete) {
+  if (owner == usr || is_my_athlete) {
     var ev = EventsDB.find({_id: id});
     return ev ? ev : this.ready();
   } else {
@@ -36,15 +36,15 @@ Meteor.publish('eventOfThisId', function (id) {
 
 Meteor.publish('planOfThisId', function (id) {
   check(id, String);
-  let owner = PlansDB.findOne({_id: id}) ? PlansDB.findOne({_id: id}).owner : false,
-      usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
-  if(usr == false || owner == false) return this.ready();
+  let owner = PlansDB.findOne({_id: id}) ? PlansDB.findOne({_id: id}).owner : false,
+    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
+  if (usr == false || owner == false) return this.ready();
   let is_my_athlete = false,
-      my_athletes = AthletesDB.find({trainer: usr}).fetch();
-  for(let i in my_athletes)
-    if(my_athletes[i].username == owner)
+    my_athletes = AthletesDB.find({trainer: usr}).fetch();
+  for (let i in my_athletes)
+    if (my_athletes[i].username == owner)
       is_my_athlete = true;
-  if(owner == usr  || is_my_athlete) {
+  if (owner == usr || is_my_athlete) {
     var pl = PlansDB.find({_id: id});
     return pl ? pl : this.ready();
   } else {
@@ -72,13 +72,13 @@ Meteor.publish('plansOfUsr', function (usr) {
 Meteor.publish('lastWorkoutOfUsr', function (usr) {
   check(usr, String);
   let date = new Date();
-  var wks = WorkoutsDB.find({owner: usr, limit: 1});
+  var wks = WorkoutsDB.find({owner: usr, limit: 1});
   return wks ? wks : this.ready();
 });
 
 Meteor.publish('thisWeekPlansOfUsr', function (usr) {
   check(usr, String);
-  var pl = PlansDB.find({owner: usr}, {sort: {monday_date:-1}, limit: 1});
+  var pl = PlansDB.find({owner: usr}, {sort: {monday_date: -1}, limit: 1});
   return pl ? pl : this.ready();
 });
 
@@ -174,4 +174,29 @@ Meteor.publish('meAsAthlete', function () {
 Meteor.publish('meAsTrainer', function () {
   var n = TrainersDB.find({username: Meteor.users.findOne(this.userId).username});
   return n ? n : this.ready();
+});
+
+Meteor.publish('thisTargetWorkoutsOfUsr', function (target, usr) {
+  check(target, Object);
+  check(usr, String);
+
+  let start, end;
+
+  if (target.year != -1 && target.month != -1) {
+    start = new Date(target.year, target.month, 1);
+    end = new Date(target.year, target.month + 1, 0);
+  } else if (target.year != -1 && target.month == -1) {
+    start = new Date(target.year, 0, 1);
+    end = new Date(target.year + 1, 0, 0);
+  } else {
+    start = new Date(0);
+    end = new Date(9999, 12, 31);
+  }
+
+  var wks = WorkoutsDB.find({
+    owner: usr,
+    start_date: {$gt: start, $lt: end}
+  }, {sort: {start_date: 1}});
+
+  return wks ? wks : this.ready();
 });

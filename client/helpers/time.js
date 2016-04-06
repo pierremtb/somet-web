@@ -3,7 +3,14 @@ const monthNames = ["January", "February", "March", "April", "May", "June", "Jul
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 Template.registerHelper("dispDuration", function (seconds) {
-  return (new Date(seconds * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0];
+  let minutes = Math.floor(seconds/60);
+  seconds = seconds % 60;
+  let hours = Math.floor(minutes/60);
+  minutes = minutes % 60;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  hours = hours < 10 ? '0' + hours : hours;
+  return hours + ':' + minutes + ':' + seconds;
 });
 
 Template.registerHelper("dispDistance", function (meters) {
@@ -62,4 +69,8 @@ Template.registerHelper('dispName', (cn, usr) => {
 
 Template.registerHelper('dispMonthName', (month) => {
   return months[month];
+});
+
+Template.registerHelper('targetedUsername', () => {
+  return Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username;
 });
