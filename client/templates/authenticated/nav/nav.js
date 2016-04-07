@@ -1,7 +1,7 @@
 Template.Nav.events({
   'click #logout_button': function () {
     Meteor.logout(function (e) {
-      FlowRouter.go('/');
+      FlowRouter.redirect('/');
     });
   },
   'click #mobile_logout': function () {

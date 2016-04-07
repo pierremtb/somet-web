@@ -1,40 +1,45 @@
 <template name="Login">
   <nav style="position:fixed;z-index:99;background:rgba(30,30,30,0.5);box-shadow:none">
     <div class="nav-wrapper">
-      <a href="/" class="ml10p" id="title">Somet<span class="f18p ml10p"> (beta)</span></a>
+      <a href="/" class="" id="title">
+        <img src="/somet-logo.png" width="100" alt="">
+      </a>
       <ul class="right">
-        <li><a id="about" class="pointer">A propos</a>
+        <li><a id="about" class="pointer modal-trigger" href="#about_modal">A propos</a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="container" style="padding-top:0px;">
     <div class=" valign-wrapper" style="height:100vh;padding: 0px 0px;">
-    <div class="row valign" style="    width: 100%;   margin: auto;">
-      <div class="col s12 m7 white-text hide-on-small-only" style="padding: 0px 0px;">
-        <h1 class="thin">Découvrez Somet,</h1>
-        <h4 class="light">la plateforme d'entrainement cycliste pour mettre en lien athlètes et
-          entraineurs.</h4>
-      </div>
-      <div class="col m1 hide-on-small-only">
-        <h5></h5>
-      </div>
-      <div class="col s12 m4">
-        <div class="row">
-          <p class="white-text">Rapidité et fonctionnalités : </p>
-          <a data-social-login="loginWithStrava" class="col s12  waves-effect orange darken-3 waves-light  btn-large">Connexion avec Strava</a>
+      <div class="row valign" style="    width: 100%;   margin: auto;">
+        <div class="col s12 m7 white-text hide-on-small-only" style="padding: 0px 0px;">
+          <h1 class="thin">Découvrez Somet,</h1>
+          <h4 class="light">la plateforme d'entrainement cycliste pour mettre en lien athlètes et
+            entraineurs.</h4>
         </div>
+        <div class="col m1 hide-on-small-only">
+          <h5></h5>
+        </div>
+        <div class="col s12 m4">
+          <div class="row">
+            <p class="white-text">Rapidité et fonctionnalités : </p>
+            <a data-social-login="loginWithStrava" class="col s12  waves-effect orange darken-3 waves-light  btn-large">Connexion
+              avec Strava</a>
+          </div>
 
-        <div class="row">
-          <p class="white-text">Pas de compte Strava ? </p>
-          <a class="col s12 modal-trigger waves-effect blue-grey darken-3 waves-light  btn-large" href="#modal_email_login">Connexion par email</a>
-        </div>
-        <div class="row">
-          <a class="col s12 modal-trigger waves-effect blue-grey darken-4 waves-light  btn-large" href="#modal_email_signup">Inscription par email</a>
+          <div class="row">
+            <p class="white-text">Pas de compte Strava ? </p>
+            <a class="col s12 modal-trigger waves-effect white blue-grey-text text-darken-3 waves-light  btn-large"
+               href="#modal_email_login">Connexion par email</a>
+          </div>
+          <div class="row">
+            <a class="col s12 modal-trigger waves-effect blue-grey darken-4 waves-light  btn-large"
+               href="#modal_email_signup">Inscription par email</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <div id="modal_email_signup" class="modal modal-fixed-footer">
@@ -45,7 +50,8 @@
         <form class="col s12" id="login-with-email">
           <div class="row">
             <div class="input-field col s12 m6">
-              <input placeholder="Nino Schurter" id="completeNameCreate" name="completeNameCreate" type="text" class="validate">
+              <input placeholder="Nino Schurter" id="completeNameCreate" name="completeNameCreate" type="text"
+                     class="validate">
               <label for="completeNameCreate" class="active">Nom complet</label>
             </div>
             <div class="input-field col s12 m6">
@@ -55,11 +61,13 @@
           </div>
           <div class="row">
             <div class="input-field col s12 m6">
-              <input id="emailCreate" name="emailCreate" type="email" class="validate" placeholder="nino.schurter@scott-sports.com">
+              <input id="emailCreate" name="emailCreate" type="email" class="validate"
+                     placeholder="nino.schurter@scott-sports.com">
               <label for="emailCreate" class="active">Email</label>
             </div>
             <div class="input-field col s12 m6">
-              <input id="passwordCreate" name="passwordCreate" type="password" placeholder="jEr0uL3enScAle900rC" class="validate">
+              <input id="passwordCreate" name="passwordCreate" type="password" placeholder="jEr0uL3enScAle900rC"
+                     class="validate">
               <label for="passwordCreate" class="active">Mot de passe</label>
             </div>
           </div>
@@ -78,8 +86,10 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button data-auth-type="create" class="modal-action btn-flat pink-text modal-close" type="submit">Créer mon compte</button>
-      <a  class="modal-action modal-close waves-effect waves-red btn-flat">Fermer</a>
+      <button data-auth-type="create" class="modal-action btn-flat pink-text modal-close" type="submit">Créer mon
+        compte
+      </button>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat">Fermer</a>
     </div>
   </div>
 
@@ -97,7 +107,8 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="passwordLogin" name="passwordLogin" type="password" placeholder="jEr0uL3enScAle900rC" class="validate">
+              <input id="passwordLogin" name="passwordLogin" type="password" placeholder="jEr0uL3enScAle900rC"
+                     class="validate">
               <label for="passwordLogin" class="active">Mot de passe</label>
             </div>
           </div>
@@ -105,13 +116,29 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button data-auth-type="sign-in" class="modal-close modal-action btn-flat pink-text" type="submit">Connexion à mon compte</button>
+      <button data-auth-type="sign-in" class="modal-close modal-action btn-flat pink-text" type="submit">Connexion à mon
+        compte
+      </button>
       <a class="modal-action modal-close waves-effect waves-red btn-flat ">Fermer</a>
     </div>
   </div>
 
+  <div id="about_modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>About</h4>
+      <p>Actuellement en version de test, il se peut que vous rencontriez des bugs.
+        Merci de les signaler à l'adresse suivante : pierrejacquier39@gmail.com
+        <br>
+        Pierre Jacquier - 2016. Tous droits réservés.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-pink pink-text btn-flat ">Fermer</a>
+    </div>
+  </div>
+
   <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('.modal-trigger').leanModal();
     });
   </script>
