@@ -15,7 +15,6 @@ meteorhacks:npm
 
 themeteorchef:bert
 meteorhacks:ssr
-standard-minifiers
 
 
 npm-container
@@ -43,3 +42,5 @@ service-configuration
 selaias:accounts-strava
 alethes:pages
 aldeed:tabular
+standard-minifier-css
+standard-minifier-js

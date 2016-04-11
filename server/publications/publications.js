@@ -76,10 +76,22 @@ Meteor.publish('lastWorkoutOfUsr', function (usr) {
   return wks ? wks : this.ready();
 });
 
+Meteor.publish('lastWorkoutOfUsrSync', function (usr) {
+  check(usr, String);
+  return WorkoutsDB.find({owner: usr}, {sort: {start_date: -1}, limit: 1});
+});
+
+
 Meteor.publish('thisWeekPlansOfUsr', function (usr) {
   check(usr, String);
   var pl = PlansDB.find({owner: usr}, {sort: {monday_date: -1}, limit: 1});
   return pl ? pl : this.ready();
+});
+
+
+Meteor.publish('thisWeekPlanOfUsrSync', function (usr) {
+  check(usr, String);
+  return PlansDB.find({owner: usr}, {sort: {monday_date: -1}, limit: 1});
 });
 
 Meteor.publish('eventsOfUsr', function (usr) {
