@@ -29,7 +29,7 @@ Meteor.publish('eventOfThisId', function (id) {
   if (owner == usr || is_my_athlete) {
     var ev = EventsDB.find({_id: id});
     return ev ? ev : this.ready();
-  } else {  
+  } else {
     return {};
   }
 });
@@ -157,6 +157,10 @@ Meteor.publish('plansOfMyAthletesForThisWeek', function (m) {
 Meteor.publish('athletesOfCurrentUser', function () {
   var a = AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username});
   return a ? a : this.ready();
+});
+
+Meteor.publish('athletesOfCurrentUserSync', function () {
+  return AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username});
 });
 
 Meteor.publish('allAthletes', function () {
