@@ -36,13 +36,16 @@ Template.UserDash.events({
     let strava_sync = t.find("#strava_sync").checked,
       token = Meteor.user().services.strava.accessToken,
       complete_name = Meteor.user().profile.fullName,
-      username = t.find("#new_username").value;
+      username = t.find("#new_username").value,
+      password = t.find("#new_password").value;
     Meteor.call("updateThisUser", Meteor.user()._id, {
       username: username,
       'profile.complete_name': complete_name,
       'profile.strava_sync': strava_sync,
       'profile.finished_set_up': true
     });
+    Meteor.call("setThisUserPassword", Meteor.userId(), password, {logout: false});
+    Meteor.call("setThisUserEmail", Meteor.userId(), Meteor.user().profile.email);
     if (t.find("#athlete_radio").checked) {
       Meteor.call("insertAthlete", {username: username, complete_name: complete_name});
     } else {

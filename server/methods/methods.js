@@ -7,7 +7,7 @@ Meteor.methods({
     exec('cat \"../../.uploads' + path + '\" | assets/app/jre/bin/java -jar \"./assets/app/FitToJson.jar\" > output.json');
 
     // Local
-    //exec('cat \"../../../../../.uploads' + path + '\" ' + '| java -jar \"./assets/app/FitToJson.jar\" > output.json');
+    exec('cat \"../../../../../.uploads' + path + '\" ' + '| java -jar \"./assets/app/FitToJson.jar\" > output.json');
 
     return 'Converted, waiting for parser...';
   },
@@ -113,6 +113,16 @@ Meteor.methods({
     check(fit_values, Object);
 
     WorkoutsDB.update(id, {$set: {fit_linked: true, fit_values: fit_values}});
+  },
+  setThisUserPassword(id, pwd) {
+    check(id, String);
+    check(pwd, String);
+    Accounts.setPassword(id, pwd, {logout: false});
+  },
+  setThisUserEmail(id, m) {
+    check(id, String);
+    check(m, String);
+    Accounts.addEmail(id, m, true);
   }
 });
 

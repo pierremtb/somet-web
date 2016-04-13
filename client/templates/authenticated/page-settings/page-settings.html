@@ -7,6 +7,9 @@
         <p> Nom complet : {{currentUser.profile.complete_name}}
           <a class="modal-trigger" href="#change_complete_name"><i class="material-icons tiny accent_txt">edit</i></a>
         </p>
+        <p> Changer de mot de passe
+            <a class="modal-trigger" href="#change_pwd"><i class="material-icons tiny accent_txt">edit</i></a>
+        </p>
         <p> Poids : {{currentUser.profile.weight}} kg
           <a class="modal-trigger" href="#change_weight"><i class="material-icons tiny accent_txt">edit</i></a>
         </p>
@@ -110,26 +113,48 @@
   </div>
 
 
-  <div id="change_height" class="modal">
-    <div class="modal-content">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">account_circle</i>
-              <input id="new_height" value="{{currentUser.profile.height}}" type="text" class="validate">
-              <label class="active" for="new_height">Changer votre taille en cm</label>
+    <div id="change_height" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="new_height" value="{{currentUser.profile.height}}" type="text" class="validate">
+                            <label class="active" for="new_height">Changer votre taille en cm</label>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="modal-footer">
+            <a id="n_height_submit"
+               class=" modal-action modal-close waves-effect waves-cyan accent_txt btn-flat">Modifier</a>
+            <a class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
+        </div>
     </div>
-    <div class="modal-footer">
-      <a id="n_height_submit"
-         class=" modal-action modal-close waves-effect waves-cyan accent_txt btn-flat">Modifier</a>
-      <a class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
+
+
+    <div id="change_pwd" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">security</i>
+                            <input id="new_pwd" value="" type="password" class="validate">
+                            <label class="active" for="new_pwd">Changer votre mot de passe</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a id="n_pwd_submit"
+               class=" modal-action modal-close waves-effect waves-cyan accent_txt btn-flat">Modifier</a>
+            <a class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
+        </div>
     </div>
-  </div>
 
 
   <div id="change_weight" class="modal">

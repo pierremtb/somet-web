@@ -29,7 +29,7 @@ Meteor.publish('eventOfThisId', function (id) {
   if (owner == usr || is_my_athlete) {
     var ev = EventsDB.find({_id: id});
     return ev ? ev : this.ready();
-  } else {
+  } else {  
     return {};
   }
 });

@@ -46,6 +46,10 @@ Template.Settings.events({
   },
   "click #n_height_submit": function (e, t) {
     Meteor.call("updateThisUser", Meteor.userId(), {"profile.height" : parseFloat(t.find("#new_height").value)});
+  },
+  "click #n_pwd_submit": function (e, t) {
+    console.log(t.find("#new_pwd").value);
+    Meteor.call("setThisUserPassword", Meteor.userId(), t.find("#new_pwd").value);
   }
 });
 
