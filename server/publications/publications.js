@@ -216,3 +216,30 @@ Meteor.publish('thisTargetWorkoutsOfUsr', function (target, usr) {
 
   return wks ? wks : this.ready();
 });
+
+Meteor.publish('mainUserDataSync', function () {
+  let usr = Meteor.users.findOne({_id: this.userId}).username;
+  if(Meteor.users.findOne({_id: this.userId}).profile.trainer) {
+    let athletesDocuments = AthletesDB.find({trainer: usr}).fetch(), athletes = [];
+    for(let i in athletesDocuments) {
+      athletes.push(athletesDocuments[i].username);
+    }
+    return [
+      Meteor.users.find({_id: this.userId}),
+      AthletesDB.find({trainer: usr}),
+      WorkoutsDB.find({owner: {$in: athletes}}, {fields: {fit_values: false}}),
+      PlansDB.find({owner: {$in: athletes}}),
+      EventsDB.find({owner: {$in: athletes}}),
+      NotificationsDB.find({owner: usr})
+    ];
+  } else {
+    return [
+      Meteor.users.find({_id: this.userId}),
+      WorkoutsDB.find({owner: usr}, {fields: {fit_values: false}}),
+      PlansDB.find({owner: usr}),
+      AthletesDB.find({username: usr}),
+      EventsDB.find({owner: usr}),
+      NotificationsDB.find({owner: usr})
+    ];
+  }
+});
