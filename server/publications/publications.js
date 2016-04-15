@@ -88,12 +88,6 @@ Meteor.publish('thisWeekPlansOfUsr', function (usr) {
   return pl ? pl : this.ready();
 });
 
-
-Meteor.publish('thisWeekPlanOfUsrSync', function (usr) {
-  check(usr, String);
-  return PlansDB.find({owner: usr}, {sort: {monday_date: -1}, limit: 1});
-});
-
 Meteor.publish('eventsOfUsr', function (usr) {
   check(usr, String);
   var evts = EventsDB.find({owner: usr});
@@ -242,4 +236,8 @@ Meteor.publish('mainUserDataSync', function () {
       NotificationsDB.find({owner: usr})
     ];
   }
+});
+
+Meteor.publish('workoutOfThisIdSync', function (id) {
+  return WorkoutsDB.findOne(id);
 });
