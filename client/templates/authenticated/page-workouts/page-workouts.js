@@ -30,12 +30,6 @@ Template.Workouts.helpers({
     else
       return "";
   },
-  wkComments() {
-    if (Session.get("is_plan_based_wk"))
-      return Session.get('wk_comments');
-    else
-      return "";
-  },
   selectedAthlete() {
     return Session.get("selectedAthlete");
   },
@@ -78,7 +72,6 @@ Template.Workouts.events({
       owner: Meteor.user().username,
       title: t.find('#n_wk_title').value ? t.find('#n_wk_title').value : "",
       description: t.find('#n_wk_description').value + "",
-      comments: t.find('#n_wk_comments').value ? t.find('#n_wk_comments').value : "",
       start_date: new Date(t.find('#n_wk_date').value),
       duration: parseInt(Session.get("wk_duration")),
       distance: parseInt(t.find('#n_wk_distance').value),
@@ -134,7 +127,6 @@ Template.Workouts.events({
     Session.set('wk_title', this.title);
     Session.set('wk_date', this.monday_date);
     Session.set('wk_desc', this.monday_desc);
-    Session.set('wk_comments', this.monday_comments);
     $('#add_workout').openModal();
   },
   'click #open_this_1': function (e, t) {
@@ -145,7 +137,6 @@ Template.Workouts.events({
     Session.set('wk_title', this.title);
     Session.set('wk_date', this.tuesday_date);
     Session.set('wk_desc', this.tuesday_desc);
-    Session.set('wk_comments', this.tuesday_comments);
     $('#add_workout').openModal();
   },
   'click #open_this_2': function (e, t) {
@@ -156,7 +147,6 @@ Template.Workouts.events({
     Session.set('wk_title', this.title);
     Session.set('wk_date', this.wednesday_date);
     Session.set('wk_desc', this.wednesday_desc);
-    Session.set('wk_comments', this.wednesday_comments);
     $('#add_workout').openModal();
   },
   'click #open_this_3': function (e, t) {
@@ -167,7 +157,6 @@ Template.Workouts.events({
     Session.set('wk_title', this.title);
     Session.set('wk_date', this.thursday_date);
     Session.set('wk_desc', this.thursday_desc);
-    Session.set('wk_comments', this.thursday_comments);
     $('#add_workout').openModal();
   },
   'click #open_this_4': function (e, t) {
@@ -178,7 +167,6 @@ Template.Workouts.events({
     Session.set('wk_title', this.title);
     Session.set('wk_date', this.friday_date);
     Session.set('wk_desc', this.friday_desc);
-    Session.set('wk_comments', this.friday_comments);
     $('#add_workout').openModal();
   },
   'click #open_this_5': function (e, t) {
@@ -189,7 +177,6 @@ Template.Workouts.events({
     Session.set('wk_title', this.title);
     Session.set('wk_date', this.saturday_date);
     Session.set('wk_desc', this.saturday_desc);
-    Session.set('wk_comments', this.saturday_comments);
     $('#add_workout').openModal();
   },
   'click #open_this_6': function (e, t) {
@@ -200,7 +187,6 @@ Template.Workouts.events({
     Session.set('wk_title', this.title);
     Session.set('wk_date', this.sunday_date);
     Session.set('wk_desc', this.sunday_desc);
-    Session.set('wk_comments', this.sunday_comments);
     $('#add_workout').openModal();
   }
 });

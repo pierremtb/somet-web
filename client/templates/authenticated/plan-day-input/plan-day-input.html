@@ -1,0 +1,97 @@
+<template name="PlanDayInput">
+  <div class="card grande {{#if isRace}}orange{{/if}}{{#if isWorkout}}yellow{{/if}} ">
+    <div class="card-content">
+      <span class="card-title">{{dispDayName this}}</span>
+      <div class="row">
+        <div class="input-field col s12">
+          <select id="type">
+            <option value="" disabled selected>Type</option>
+            <option value="nth">Repos</option>
+            <option value="wk">Entrainement</option>
+            <option value="rc">Compétition</option>
+          </select>
+          <label>Type</label>
+        </div>
+
+        <div class="input-field col s12">
+          <select id="support"  {{ifRestSetDisabled}}>
+            <option value="" disabled selected>Support</option>
+            <option value="mtb">VTT</option>
+            <option value="road">Route</option>
+            <option value="ht">Home Trainer</option>
+            <option value="run">Course à pied</option>
+            <option value="skix">Ski de fond</option>
+            <option value="swim">Natation</option>
+            <option value="endr">Enduro</option>
+            <option value="othr">Autre</option>
+          </select>
+          <label>Type</label>
+        </div>
+
+        <div class="input-field col s12">
+          <select id="duration" {{ifRestSetDisabled}} {{ifRaceSetDisabled}}>
+            <option value="" disabled selected>Durée</option>
+            <option value="900">0h15</option>
+            <option value="1800">0h30</option>
+            <option value="2700">0h45</option>
+            <option value="3600">1h00</option>
+            <option value="4500">1h15</option>
+            <option value="5400">1h30</option>
+            <option value="6300">1h45</option>
+            <option value="7200">2h00</option>
+            <option value="8100">2h15</option>
+            <option value="9000">2h30</option>
+            <option value="9900">2h45</option>
+            <option value="10800">3h00</option>
+            <option value="11700">3h15</option>
+            <option value="12600">3h30</option>
+            <option value="13500">3h45</option>
+            <option value="14400">4h00</option>
+            <option value="16200">4h30</option>
+            <option value="18000">5h00</option>
+            <option value="21600">6h00</option>
+          </select>
+          <label>Durée</label>
+        </div>
+        <div class="input-field col s12">
+          <textarea id="description"  {{ifRestSetDisabled}} class="materialize-textarea"></textarea>
+          <label for="description">Description</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    $(function () {
+      $('#seconds').spinner({
+        spin: function (event, ui) {
+          if (ui.value >= 60) {
+            $(this).spinner('value', ui.value - 60);
+            $('#minutes').spinner('stepUp');
+            return false;
+          } else if (ui.value < 0) {
+            $(this).spinner('value', ui.value + 60);
+            $('#minutes').spinner('stepDown');
+            return false;
+          }
+        }
+      });
+      $('#minutes').spinner({
+        spin: function (event, ui) {
+          if (ui.value >= 60) {
+            $(this).spinner('value', ui.value - 60);
+            $('#hours').spinner('stepUp');
+            return false;
+          } else if (ui.value < 0) {
+            $(this).spinner('value', ui.value + 60);
+            $('#hours').spinner('stepDown');
+            return false;
+          }
+        }
+      });
+    });
+  </script>
+</template>

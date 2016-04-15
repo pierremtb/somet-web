@@ -41,10 +41,6 @@ let PlansDBSchema = new SimpleSchema({
     type: String,
     optional: true
   },
-  "days.$.comments": {
-    type: String,
-    optional: true
-  },
   "days.$.support": {
     type: String,
     optional: true

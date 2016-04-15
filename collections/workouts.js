@@ -26,11 +26,6 @@ let WorkoutsDBSchema = new SimpleSchema({
     label: "The description of this workout.",
     optional: true
   },
-  "comments": {
-    type: String,
-    label: "The comments of this workout.",
-    optional: true
-  },
   "start_date": {
     type: Date,
     label: "The starting date of this workout."

@@ -1,650 +1,91 @@
 <template name="Plans">
-    <div class="col s12">
-        {{#if currentUser.profile.trainer}}
-            <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_plan"><i
-                    class="material-icons left">add</i> Ajouter</a>
-        {{/if}}
-        <div class="" style="padding:0px;z-index:99">
-            {{#if currentUser.profile.trainer}}
-                {{> AthletePlans username=selectedAthlete}}
-            {{else}}
-                {{> AthletePlans username=currentUser.username}}
-            {{/if}}
-        </div>
+  <div class="col s12">
+    {{#if currentUser.profile.trainer}}
+      <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_plan"><i
+              class="material-icons left">add</i> Ajouter</a>
+    {{/if}}
+    <div class="" style="padding:0px;z-index:99">
+      {{#if currentUser.profile.trainer}}
+        {{> AthletePlans username=selectedAthlete}}
+      {{else}}
+        {{> AthletePlans username=currentUser.username}}
+      {{/if}}
     </div>
-    <div id="add_plan" class="modal modal-fixed-footer"
-         style="width:90%;max-height:90%;height:90%;margin-top:-5%;">
-        <div class="modal-content">
-            <div class="row">
-                <div class="col s12">
-                    <h5>Ajouter un plan</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m6">
-                    <input id="n_pl_title" type="text" class="validate">
-                    <label for="n_pl_title">Description rapide</label>
-                    <input id="n_pl_start_date" type="date" class="datepicker"
-                           placeholder="Date du Lundi (début du plan)">
-                </div>
-                <div class="input-field col s12 m6">
-                    <h5>Durée totale : {{weekTotalDuration}}</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    <ul class="pagination" id="menu_day">
-                        <li id="menu_day_0" class="active" onclick="setThisDay(0)"><a
-                                >Lundi {{monday}}</a></li>
-                        <li id="menu_day_1" class="waves-effect" onclick="setThisDay(1)"><a
-                                >Mardi {{tuesday}}</a>
-                        </li>
-                        <li id="menu_day_2" class="waves-effect" onclick="setThisDay(2)"><a
-                                >Mercredi {{wednesday}}</a>
-                        </li>
-                        <li id="menu_day_3" class="waves-effect" onclick="setThisDay(3)"><a
-                                >Jeudi {{thursday}}</a>
-                        </li>
-                        <li id="menu_day_4" class="waves-effect" onclick="setThisDay(4)"><a
-                                >Vendredi {{friday}}</a>
-                        </li>
-                        <li id="menu_day_5" class="waves-effect" onclick="setThisDay(5)"><a
-                                >Samedi {{saturday}}</a>
-                        </li>
-                        <li id="menu_day_6" class="waves-effect" onclick="setThisDay(6)"><a
-                                >Dimanche {{sunday}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="day_0" class="day ">
-                <div class="row">
-                    <div class="col s12 m4">
-                        <form class="">
-                            <div class="input-field">
-                                <select class="browser-default" id="day_0_type">
-                                    <option value="" disabled selected="">Type...</option>
-                                    <option value="wk">Entrainement</option>
-                                    <option value="rc">Compétition</option>
-                                    <option value="nth">Repos</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                {{#if isDay0Wk}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_0_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="ht">Home Trainer</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_0_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_0_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col s12 m6">
-                            <form action="#">
-                                <p class="range-field">
-                                    Durée : {{day0Duration}}
-                                    <input type="range" id="day_0_duration" min="1" max="600"
-                                           value="0"/>
-                                </p>
-                            </form>
-                            <div class="input-field">
-                                <textarea id="day_0_comments" class="materialize-textarea"></textarea>
-                                <label for="day_0_comments">Commentaires éventuels</label>
-                            </div>
-                        </div>
-                    </div>
-                {{/if}}
-                {{#if isDay0Rc}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_0_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_0_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_0_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                {{/if}}
-            </div>
-
-            <div id="day_1" class="day hidden">
-                <div class="row">
-                    <div class="col s12 m4">
-                        <form class="">
-                            <div class="input-field">
-                                <select class="browser-default" id="day_1_type">
-                                    <option value="" disabled selected="">Type...</option>
-                                    <option value="wk">Entrainement</option>
-                                    <option value="rc">Compétition</option>
-                                    <option value="nth">Repos</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                {{#if isDay1Wk}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_1_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="ht">Home Trainer</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_1_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_1_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col s12 m6">
-                            <form action="#">
-                                <p class="range-field">
-                                    Durée : {{day1Duration}}
-                                    <input type="range" id="day_1_duration" min="1" max="600"
-                                           value="0"/>
-                                </p>
-                            </form>
-                            <div class="input-field">
-                                <textarea id="day_1_comments" class="materialize-textarea"></textarea>
-                                <label for="day_1_comments">Commentaires éventuels</label>
-                            </div>
-                        </div>
-                    </div>
-                {{/if}}
-                {{#if isDay1Rc}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_1_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_1_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_1_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                {{/if}}
-            </div>
-
-            <div id="day_2" class="day hidden">
-                <div class="row">
-                    <div class="col s12 m4">
-                        <form class="">
-                            <div class="input-field">
-                                <select class="browser-default" id="day_2_type">
-                                    <option value="" disabled selected="">Type...</option>
-                                    <option value="wk">Entrainement</option>
-                                    <option value="rc">Compétition</option>
-                                    <option value="nth">Repos</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                {{#if isDay2Wk}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_2_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="ht">Home Trainer</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_2_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_2_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col s12 m6">
-                            <form action="#">
-                                <p class="range-field">
-                                    Durée : {{day2Duration}}
-                                    <input type="range" id="day_2_duration" min="1" max="600"
-                                           value="0"/>
-                                </p>
-                            </form>
-                            <div class="input-field">
-                                <textarea id="day_2_comments" class="materialize-textarea"></textarea>
-                                <label for="day_2_comments">Commentaires éventuels</label>
-                            </div>
-                        </div>
-                    </div>
-                {{/if}}
-                {{#if isDay2Rc}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_2_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_2_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_2_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                {{/if}}
-            </div>
-
-            <div id="day_3" class="day hidden">
-                <div class="row">
-                    <div class="col s12 m4">
-                        <form class="">
-                            <div class="input-field">
-                                <select class="browser-default" id="day_3_type">
-                                    <option value="" disabled selected="">Type...</option>
-                                    <option value="wk">Entrainement</option>
-                                    <option value="rc">Compétition</option>
-                                    <option value="nth">Repos</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                {{#if isDay3Wk}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_3_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="ht">Home Trainer</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_3_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_3_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col s12 m6">
-                            <form action="#">
-                                <p class="range-field">
-                                    Durée : {{day3Duration}}
-                                    <input type="range" id="day_3_duration" min="1" max="600"
-                                           value="0"/>
-                                </p>
-                            </form>
-                            <div class="input-field">
-                                <textarea id="day_3_comments" class="materialize-textarea"></textarea>
-                                <label for="day_3_comments">Commentaires éventuels</label>
-                            </div>
-                        </div>
-                    </div>
-                {{/if}}
-                {{#if isDay3Rc}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_3_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_3_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_3_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                {{/if}}
-            </div>
-
-
-            <div id="day_4" class="day hidden">
-                <div class="row">
-                    <div class="col s12 m4">
-                        <form class="">
-                            <div class="input-field">
-                                <select class="browser-default" id="day_4_type">
-                                    <option value="" disabled selected="">Type...</option>
-                                    <option value="wk">Entrainement</option>
-                                    <option value="rc">Compétition</option>
-                                    <option value="nth">Repos</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                {{#if isDay4Wk}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_4_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="ht">Home Trainer</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_4_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_4_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col s12 m6">
-                            <form action="#">
-                                <p class="range-field">
-                                    Durée : {{day4Duration}}
-                                    <input type="range" id="day_4_duration" min="1" max="600"
-                                           value="0"/>
-                                </p>
-                            </form>
-                            <div class="input-field">
-                                <textarea id="day_4_comments" class="materialize-textarea"></textarea>
-                                <label for="day_4_comments">Commentaires éventuels</label>
-                            </div>
-                        </div>
-                    </div>
-                {{/if}}
-                {{#if isDay4Rc}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_4_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_4_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_4_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                {{/if}}
-            </div>
-
-
-            <div id="day_5" class="day hidden">
-                <div class="row">
-                    <div class="col s12 m4">
-                        <form class="">
-                            <div class="input-field">
-                                <select class="browser-default" id="day_5_type">
-                                    <option value="" disabled selected="">Type...</option>
-                                    <option value="wk">Entrainement</option>
-                                    <option value="rc">Compétition</option>
-                                    <option value="nth">Repos</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                {{#if isDay5Wk}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_5_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="ht">Home Trainer</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_5_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_5_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col s12 m6">
-                            <form action="#">
-                                <p class="range-field">
-                                    Durée : {{day5Duration}}
-                                    <input type="range" id="day_5_duration" min="1" max="600"
-                                           value="0"/>
-                                </p>
-                            </form>
-                            <div class="input-field">
-                                <textarea id="day_5_comments" class="materialize-textarea"></textarea>
-                                <label for="day_5_comments">Commentaires éventuels</label>
-                            </div>
-                        </div>
-                    </div>
-                {{/if}}
-                {{#if isDay5Rc}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_5_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_5_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_5_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                {{/if}}
-            </div>
-
-
-            <div id="day_6" class="day hidden">
-                <div class="row">
-                    <div class="col s12 m4">
-                        <form class="">
-                            <div class="input-field">
-                                <select class="browser-default" id="day_6_type">
-                                    <option value="" disabled selected="">Type...</option>
-                                    <option value="wk">Entrainement</option>
-                                    <option value="rc">Compétition</option>
-                                    <option value="nth">Repos</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                {{#if isDay6Wk}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_6_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="ht">Home Trainer</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_6_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_6_desc">Description</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col s12 m6">
-                            <form action="#">
-                                <p class="range-field">
-                                    Durée : {{day6Duration}}
-                                    <input type="range" id="day_6_duration" min="1" max="600"
-                                           value="0"/>
-                                </p>
-                            </form>
-                            <div class="input-field">
-                                <textarea id="day_6_comments" class="materialize-textarea"></textarea>
-                                <label for="day_6_comments">Commentaires éventuels</label>
-                            </div>
-                        </div>
-                    </div>
-                {{/if}}
-                {{#if isDay6Rc}}
-                    <div class="row">
-                        <div class="col s12 m6">
-                            <form class="">
-                                <div class="input-field">
-                                    <select class="browser-default" id="day_6_support">
-                                        <option value="" disabled selected="">Support...</option>
-                                        <option value="mtb">VTT</option>
-                                        <option value="road">Route</option>
-                                        <option value="run">Course à pied</option>
-                                        <option value="skix">Ski de fond</option>
-                                        <option value="swim">Natation</option>
-                                        <option value="endr">Enduro</option>
-                                        <option value="othr">Autre</option>
-                                    </select>
-                                </div>
-                                <div class="input-field">
-                                    <textarea id="day_6_desc" class="materialize-textarea"></textarea>
-                                    <label for="day_6_desc">Description</label>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                {{/if}}
-            </div>
-
-
+  </div>
+  <div id="add_plan" class="modal modal-fixed-footer"
+       style="width:90%;max-height:90%;height:90%;margin-top:-5%;color:black">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col s12">
+          <h5>Ajouter un plan</h5>
         </div>
-        <div class="modal-footer">
-            <a  id="n_pl_submit"
-               class=" modal-action modal-close waves-effect waves-cyan pink-text btn-flat">Ajouter</a>
-            <a  class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
-
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input id="n_pl_title" type="text" class="validate">
+          <label for="n_pl_title">Description rapide</label>
+          <input id="n_pl_start_date" type="date" class="datepicker"
+                 placeholder="Date du Lundi (début du plan)">
         </div>
+        <div class="input-field col s12 m6">
+          <h5>Durée totale : {{dispDuration weekTotalDuration}}</h5>
+        </div>
+      </div>
+      <div class="row">
+        {{#each daysOfWeek}}
+          <div class="col s12 m6 l4">
+            {{> PlanDayInput}}
+          </div>
+        {{/each}}
+      </div>
     </div>
+    <div class="modal-footer">
+      <a  id="n_pl_submit"
+          class=" modal-action modal-close waves-effect waves-cyan pink-text btn-flat">Ajouter</a>
+      <a  class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
 
-    <script type="text/javascript">
+    </div>
+  </div>
 
-        $(document).ready(function () {
-            $('ul.tabs').tabs();
-            $('.modal-trigger').leanModal();
-        });
-        $('.datepicker').pickadate({
-            selectMonths: true,
-            selectYears: 15
-        });
+  <script type="text/javascript">
 
-        function setThisDay(n) {
-            var days = $('.day');
-            days.removeClass("hidden");
-            days.addClass("hidden");
-            $('#day_' + n).removeClass("hidden");
-            var menu_days = $('#menu_day li');
-            menu_days.removeClass("active");
-            menu_days.addClass("waves-effect");
-            $('#menu_day_' + n).removeClass("waves-effect");
-            $('#menu_day_' + n).addClass("active");
+    $(document).ready(function () {
+      $('ul.tabs').tabs();
+      $('.modal-trigger').leanModal();
+    });
+
+    function populate_week_range_options(start_week_date, todays_date){
+      var week_commencing_dates = [];
+      var first_monday_date = new Date(2012, 7-1, 2);
+      week_commencing_dates.push(first_monday_date);
+
+      while(start_week_date < todays_date){
+        var next_date = start_week_date.setDate(start_week_date.getDate() + 1);
+        var next_days_date = new Date(next_date);
+        var day_index = next_days_date.getDay();
+        if(day_index == 1){
+          week_commencing_dates.push(next_days_date);
         }
-    </script>
+        start_week_date = new Date(next_date);
+      }
+
+      return week_commencing_dates;
+    }
+
+    var today = new Date();
+    mondays = populate_week_range_options(new Date(today.getFullYear(),today.getMonth(),1), new Date(today.getFullYear() + 1,12,31));
+    mondays.unshift(true);
+
+    $('.datepicker').pickadate({
+      selectMonths: true,
+      selectYears: 15,
+      monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+      weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+      today: 'now',
+      clear: 'effacer',
+      format: 'dd/mm/yyyy',
+      firstDay: 1,
+      disable: mondays
+    });
+  </script>
 </template>
