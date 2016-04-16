@@ -15,6 +15,9 @@ Template.Nav.events({
   },
   "click .clear_notifs": function () {
     Meteor.call("makeAllNotificationsRead", Meteor.user().username);
+  },
+  "keyup #search_bar": function (e, t) {
+    Session.set("searchQuery", e.target.value);
   }
 });
 
@@ -33,6 +36,9 @@ Template.Nav.helpers({
   },
   page() {
     return FlowRouter.getRouteName();
+  },
+  usersWhoMatch() {
+    return UsersIndex.search(Session.get("searchQuery")).fetch();
   }
 });
 
@@ -42,13 +48,7 @@ Template.Nav.onRendered(function () {
 });
 
 Template.Nav.onCreated(function () {
-  if(Meteor.user().profile.trainer) {
-    this.subscribe('meAsTrainer');
-    this.subscribe('athletesOfCurrentUser');
-  }
-  else {
-    this.subscribe('meAsAthlete');
-  }
+  this.subscribe('allUsers');
   this.subscribe('notificationsOfCurrentUser');
   this.subscribe('getUserData');
 });

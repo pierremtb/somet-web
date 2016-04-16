@@ -9,3 +9,9 @@ Meteor.users.deny({
   update: () => true,
   remove: () => true
 });
+
+UsersIndex = new EasySearch.Index({
+  collection: Meteor.users,
+  fields: ['username','profile.complete_name'],
+  engine: new EasySearch.Minimongo()
+});

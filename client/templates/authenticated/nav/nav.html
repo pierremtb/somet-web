@@ -63,6 +63,13 @@
                     class="inline f18p vam">{{dispName selectedAthleteName selectedAthlete}}</span></a>
           </li>
         {{/if}}
+
+
+        <li id="user_bar" class="left t5p r20p">
+          <a href="#search_modal" class="modal-trigger primary_txt f20p"><i
+                  class="small material-icons">search</i></a>
+        </li>
+
         <li id="user_bar" class="dropdown-button left t5p r20p" data-activates='dropdown_notifications'>
           <a data-activates='slide-out-notif' class="notif-trigger primary_txt f20p"><i
                   class="small material-icons">{{#if notificationsNotRead}}notifications_active{{else}}
@@ -96,6 +103,31 @@
       <li class="athleteD"><a>{{dispName complete_name username}}</a></li>
     {{/each}}
   </ul>
+
+  <div id="search_modal" class="modal search_modal">
+    <div class="modal-content">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">search</i>
+              <input id="search_bar" placeholder="..." type="text" class="validate">
+              <label class="active" for="search_bar">Rechercher un utilisateur</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        {{#each usersWhoMatch}}
+          {{#if this.profile.trainer}}
+            {{> TrainersSearchResult}}
+          {{else}}
+            {{> AthletesSearchResult}}
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
 
   <script type="text/javascript">
 

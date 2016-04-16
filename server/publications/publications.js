@@ -157,14 +157,13 @@ Meteor.publish('athletesOfCurrentUserSync', function () {
   return AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username});
 });
 
-Meteor.publish('allAthletes', function () {
-  var a = AthletesDB.find();
+Meteor.publish('allUsers', function () {
+  var a = Meteor.users.find();
   return a ? a : this.ready();
 });
 
-Meteor.publish('allTrainers', function () {
-  var a = TrainersDB.find();
-  return a ? a : this.ready();
+Meteor.publish('allUsersSync', function () {
+  return Meteor.users.find();
 });
 
 Meteor.publish("getUserData", function () {
@@ -213,14 +212,13 @@ Meteor.publish('thisTargetWorkoutsOfUsr', function (target, usr) {
 
 Meteor.publish('mainUserDataSync', function () {
   let usr = Meteor.users.findOne({_id: this.userId}).username;
-  if(Meteor.users.findOne({_id: this.userId}).profile.trainer) {
+  if(usr.profile.trainer) {
     let athletesDocuments = AthletesDB.find({trainer: usr}).fetch(), athletes = [];
     for(let i in athletesDocuments) {
       athletes.push(athletesDocuments[i].username);
     }
     return [
-      Meteor.users.find({_id: this.userId}),
-      AthletesDB.find({trainer: usr}),
+      Meteor.users.find({$or: [{_id: this.userId}, {username: {$in: usr.profile.my_athletes} } ] }),
       WorkoutsDB.find({owner: {$in: athletes}}, {fields: {fit_values: false}}),
       PlansDB.find({owner: {$in: athletes}}),
       EventsDB.find({owner: {$in: athletes}}),
@@ -231,7 +229,6 @@ Meteor.publish('mainUserDataSync', function () {
       Meteor.users.find({_id: this.userId}),
       WorkoutsDB.find({owner: usr}, {fields: {fit_values: false}}),
       PlansDB.find({owner: usr}),
-      AthletesDB.find({username: usr}),
       EventsDB.find({owner: usr}),
       NotificationsDB.find({owner: usr})
     ];

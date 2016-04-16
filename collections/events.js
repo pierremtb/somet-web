@@ -30,11 +30,6 @@ let EventsDBSchema = new SimpleSchema({
     label: "The description of the event.",
     optional: true
   },
-  "comments": {
-    type: String,
-    label: "The comments of the event.",
-    optional: true
-  },
   "first_class_event": {
     type: Boolean,
     label: "Wether it's a first class event."

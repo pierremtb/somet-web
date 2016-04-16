@@ -10,5 +10,18 @@ Meteor.methods({
     } catch( exception ) {
       return exception;
     }
+  },
+  setThisNotificationRead(id) {
+    check(id, String);
+
+    try {
+      var documentId = NotificationsDB.update( id, {
+        $set: { 'read': true }
+      });
+      return documentId;
+    } catch( exception ) {
+      return exception;
+    }
   }
+
 });
