@@ -1,4 +1,19 @@
 Template.PlanDayInput.helpers({
+  isDurationSelected(dur) {
+    $('select').material_select();
+    return Session.get('day_' + this + '_duration') == dur ? 'true' : 'false';
+  },
+  isTypeSelected(type) {
+    $('select').material_select();
+    return Session.get('day_' + this + '_type') == type ? 'true' : 'false';
+  },
+  isSupportSelected(support) {
+    $('select').material_select();
+    return Session.get('day_' + this + '_support') == support ? 'true' : 'false';
+  },
+  sessionDescription() {
+    return Session.get('day_' + this + '_title');
+  },
   isRace() {
     return Session.get('day_' + this + '_type') == 'rc';
   },
@@ -11,6 +26,10 @@ Template.PlanDayInput.helpers({
   ifRaceSetDisabled() {
     return Session.get('day_' + this + '_type') ? 'disabled' : '';
   }
+});
+
+Template.PlanDayInput.onRendered(function () {
+  $('select').material_select();
 });
 
 Template.PlanDayInput.events({

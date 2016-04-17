@@ -48,6 +48,10 @@ let PlansDBSchema = new SimpleSchema({
   "days.$.duration": {
     type: Number,
     optional: true
+  },
+  "days.$.event_id": {
+    type: String,
+    optional: true
   }
 });
 

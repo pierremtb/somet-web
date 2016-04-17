@@ -7,6 +7,9 @@ const handleRedirect = ( routes, redirect ) => {
 };
 
 Template.default.helpers({
+  newPlan() {
+    return FlowRouter.current().path.indexOf('plan/new') != -1;
+  },
 	loggingIn() {
 		return Meteor.loggingIn();
 	},

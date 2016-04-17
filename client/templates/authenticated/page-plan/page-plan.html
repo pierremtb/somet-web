@@ -1,28 +1,70 @@
 <template name="Plan">
   <div class="col s12">
     <p>
-      <a class="btn-flat waves-effect primary_txt" href="/plans"><i class="material-icons left">arrow_back</i>
-        Retourner à la liste</a>
-      {{#if currentUser.profile.trainer}}
-        <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_plan"><i
-                class="material-icons left">delete</i> SUPPRIMER</a>
+      {{#if isEditablePlan}}
+        <a class="btn-flat waves-effect primary_txt" href="/plans"><i class="material-icons left">arrow_back</i>
+          Annuler</a>
+        <a class="btn-flat waves-effect primary_txt" id="save_new_plan"><i class="material-icons left">save</i>
+          Enregistrer</a>
+      {{else}}
+        <a class="btn-flat waves-effect primary_txt" href="/plans"><i class="material-icons left">arrow_back</i>
+          Retourner à la liste</a>
+        <a class="btn-flat waves-effect primary_txt" id="edit_plan"><i class="material-icons left">edit</i>
+          Modifier</a>
+        {{#if currentUser.profile.trainer}}
+          <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_plan"><i
+                  class="material-icons left">delete</i> SUPPRIMER</a>
+        {{/if}}
       {{/if}}
     </p>
-    <div class="card accent_bg white-text">
-      <div class="card-content">
-        <span class="hide-on-small-only card-title right vam">Soumis le {{moFormat monday_date 'DD/MM/YYYY' }}</span>
+    <div class="white-text mt10pm">
+      {{#if isEditablePlan}}
+        <form class="w100per">
+          <div class="row">
+            <div class="col s12">
+              <p>
+                <span class="light" style="font-size:50px; opacity: 0.7">Semaine du </span>
+              <div class="input-field inline-block">
+                <input id="monday_date" type="date" value="{{sessionMondayDate}}" class="light datepicker" style="font-size: 50px; width: 300px">
+              </div>
+              </p>
+            </div>
+            <div class="col s6">
+              <p>
+              <div class="input-field">
+                <input id="description" type="text" value="{{sessionTitle}}">
+                <label for="last_name" class="{{#if isEdit}}active{{/if}}">Description rapide</label>
+              </div>
+              </p>
+            </div>
+          </div>
+
+        </form>
+      {{else}}
         <p class="hide-on-med-and-up">Débute le lundi {{moFormat monday_date 'DD/MM/YYYY'}}</p>
-        <span class="card-title">{{title}}</span>
-      </div>
+        <span class="light" style="font-size:50px">Semaine du {{moFormat monday_date 'DD/MM/YYYY' }}</span>
+        <p class="hide-on-small-only f18p mt5pm">
+          {{title}}
+        </p>
+      {{/if}}
     </div>
   </div>
 
 
+  {{#if isEditablePlan}}
+    {{#each daysOfWeek}}
+      <div class="col s12 m6 l4">
+        {{> PlanDayInput }}
+      </div>
+    {{/each}}
+  {{else}}
   {{#each days}}
     <div class="col s12 m6 l4">
       {{> PlanDay day=@index type=this.type support=this.support duration=this.duration description=this.description comments=this.comments}}
     </div>
   {{/each}}
+
+  {{/if}}
 
 
 

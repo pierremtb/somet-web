@@ -173,7 +173,7 @@ body {
 #side_nav {
   position: fixed;
   z-index: 25;
-  top: 60px;
+  top: 70px;
   height: 100%;
 }
 
@@ -440,6 +440,14 @@ i {
   margin-left: 10px;
 }
 
+.mt10pm {
+  margin-top: -10px;
+}
+
+.mt5pm {
+  margin-top: -5px;
+}
+
 .inline {
   display: inline;
 }
@@ -460,13 +468,17 @@ i {
   font-size: 10px;
 }
 
+.w100per{
+  width: 100%
+}
+
 @media screen and (max-width: 992px) {
   #nav-mobile {
     margin-top: 12px;
   }
 
   .dash_container {
-    padding: 0 0px;
+    padding: 0px 0px;
   }
 
   .side-nav a {
@@ -532,7 +544,7 @@ i {
   }
 
   .dash_container {
-    padding: 0 0px;
+    padding: 0 10px;
   }
 }
 

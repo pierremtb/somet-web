@@ -1,10 +1,11 @@
 Meteor.methods({
-  updatePlan( argument ) {
+  updatePlan( id, argument ) {
     check( argument, Object );
+    check( id, String );
 
     try {
-      var documentId = PlansDB.update( argument._id, {
-        $set: { 'key': argument.key }
+      var documentId = PlansDB.update( id, {
+        $set: argument
       });
       return documentId;
     } catch( exception ) {

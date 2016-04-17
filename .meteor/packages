@@ -45,3 +45,4 @@ aldeed:tabular
 standard-minifier-css
 standard-minifier-js
 linto:jquery-ui
+momentjs:moment
