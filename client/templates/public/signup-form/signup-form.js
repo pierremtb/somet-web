@@ -39,7 +39,7 @@ Template.SignupForm.events({
     ;
 
     // Trim and validate the input
-
+/*
     Accounts.createUser({username: username, email: email, password: password, profile: pro}, function (err) {
       if (err) {
         alert(err.reason);
@@ -52,7 +52,7 @@ Template.SignupForm.events({
         Router.go('/');
       }
 
-    });
+    });*/
 
     return false;
   }

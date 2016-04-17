@@ -1,14 +1,8 @@
 Meteor.publish('workoutOfThisId', function (id) {
   check(id, String);
-  let owner = WorkoutsDB.findOne({_id: id}) ? WorkoutsDB.findOne({_id: id}).owner : false,
-    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
-  if (usr == false || owner == false) return this.ready();
-  let is_my_athlete = false,
-    my_athletes = AthletesDB.find({trainer: usr}).fetch();
-  for (let i in my_athletes)
-    if (my_athletes[i].username == owner)
-      is_my_athlete = true;
-  if (owner == usr || is_my_athlete) {
+  let owner = WorkoutsDB.findOne({_id: id}) ? WorkoutsDB.findOne({_id: id}).owner : false;
+  let usr = Meteor.users.findOne(this.userId);
+  if (owner == usr.username|| usr.profile.my_athletes.indexOf(owner) != -1) {
     var wk = WorkoutsDB.find({_id: id});
     return wk ? wk : this.ready();
   } else {
@@ -19,14 +13,8 @@ Meteor.publish('workoutOfThisId', function (id) {
 Meteor.publish('eventOfThisId', function (id) {
   check(id, String);
   let owner = EventsDB.findOne({_id: id}) ? EventsDB.findOne({_id: id}).owner : false,
-    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
-  if (usr == false || owner == false) return this.ready();
-  let is_my_athlete = false,
-    my_athletes = AthletesDB.find({trainer: usr}).fetch();
-  for (let i in my_athletes)
-    if (my_athletes[i].username == owner)
-      is_my_athlete = true;
-  if (owner == usr || is_my_athlete) {
+      usr = Meteor.users.findOne(this.userId);
+  if (owner == usr.username|| usr.profile.my_athletes.indexOf(owner) != -1) {
     var ev = EventsDB.find({_id: id});
     return ev ? ev : this.ready();
   } else {
@@ -37,14 +25,8 @@ Meteor.publish('eventOfThisId', function (id) {
 Meteor.publish('planOfThisId', function (id) {
   check(id, String);
   let owner = PlansDB.findOne({_id: id}) ? PlansDB.findOne({_id: id}).owner : false,
-    usr = Meteor.users.findOne({_id: this.userId}) ? Meteor.users.findOne({_id: this.userId}).username : false;
-  if (usr == false || owner == false) return this.ready();
-  let is_my_athlete = false,
-    my_athletes = AthletesDB.find({trainer: usr}).fetch();
-  for (let i in my_athletes)
-    if (my_athletes[i].username == owner)
-      is_my_athlete = true;
-  if (owner == usr || is_my_athlete) {
+    usr = Meteor.users.findOne(this.userId);
+  if (owner == usr.username|| usr.profile.my_athletes.indexOf(owner) != -1) {
     var pl = PlansDB.find({_id: id});
     return pl ? pl : this.ready();
   } else {
@@ -101,22 +83,6 @@ Meteor.publish('dayEventsOfUsr', function (usr, date) {
   return evts ? evts : this.ready();
 });
 
-Meteor.publish('workoutsOfMyAthletes', function () {
-  var aths = AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username}).fetch(), names = [];
-  for (var i in aths)
-    names.push(aths[i].username);
-  var wks = WorkoutsDB.find({user: {$in: names}});
-  return wks ? wks : this.ready();
-});
-
-Meteor.publish('eventsOfMyAthletes', function () {
-  var aths = AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username}).fetch(), names = [];
-  for (var i in aths)
-    names.push(aths[i].username);
-  var evts = EventsDB.find({username: {$in: names}});
-  return evts ? evts : this.ready();
-});
-
 Meteor.publish('eventsOfCurrentUser', function () {
   var evts = EventsDB.find({username: Meteor.users.findOne(this.userId).username});
   return evts ? evts : this.ready();
@@ -127,34 +93,9 @@ Meteor.publish('plansOfCurrentUser', function () {
   return wks ? wks : this.ready();
 });
 
-Meteor.publish('plansOfMyAthletes', function () {
-  var aths = AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username}).fetch(), names = [];
-  for (var i in aths)
-    names.push(aths[i].username);
-  var pls = PlansDB.find({username: {$in: names}});
-  return pls ? pls : this.ready();
-});
-
 Meteor.publish('planOfThisUserForThisWeek', function (m) {
   var pl = PlansDB.find({username: Meteor.users.findOne(this.userId).username, monday_date: m});
   return pl ? pl : this.ready();
-});
-
-Meteor.publish('plansOfMyAthletesForThisWeek', function (m) {
-  var aths = AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username}).fetch(), names = [];
-  for (var i in aths)
-    names.push(aths[i].username);
-  var pl = PlansDB.find({username: {$in: names}, monday_date: m});
-  return pl ? pl : this.ready();
-});
-
-Meteor.publish('athletesOfCurrentUser', function () {
-  var a = AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username});
-  return a ? a : this.ready();
-});
-
-Meteor.publish('athletesOfCurrentUserSync', function () {
-  return AthletesDB.find({trainer: Meteor.users.findOne(this.userId).username});
 });
 
 Meteor.publish('allUsers', function () {
@@ -172,16 +113,6 @@ Meteor.publish("getUserData", function () {
 
 Meteor.publish('notificationsOfCurrentUser', function () {
   var n = NotificationsDB.find({owner: Meteor.users.findOne(this.userId).username});
-  return n ? n : this.ready();
-});
-
-Meteor.publish('meAsAthlete', function () {
-  var n = AthletesDB.find({username: Meteor.users.findOne(this.userId).username});
-  return n ? n : this.ready();
-});
-
-Meteor.publish('meAsTrainer', function () {
-  var n = TrainersDB.find({username: Meteor.users.findOne(this.userId).username});
   return n ? n : this.ready();
 });
 
@@ -213,15 +144,11 @@ Meteor.publish('thisTargetWorkoutsOfUsr', function (target, usr) {
 Meteor.publish('mainUserDataSync', function () {
   let usr = Meteor.users.findOne({_id: this.userId}).username;
   if(usr.profile.trainer) {
-    let athletesDocuments = AthletesDB.find({trainer: usr}).fetch(), athletes = [];
-    for(let i in athletesDocuments) {
-      athletes.push(athletesDocuments[i].username);
-    }
     return [
       Meteor.users.find({$or: [{_id: this.userId}, {username: {$in: usr.profile.my_athletes} } ] }),
-      WorkoutsDB.find({owner: {$in: athletes}}, {fields: {fit_values: false}}),
-      PlansDB.find({owner: {$in: athletes}}),
-      EventsDB.find({owner: {$in: athletes}}),
+      WorkoutsDB.find({owner: {$in: usr.profile.my_athletes}}, {fields: {fit_values: false}}),
+      PlansDB.find({owner: {$in: usr.profile.my_athletes}}),
+      EventsDB.find({owner: {$in: usr.profile.my_athletes}}),
       NotificationsDB.find({owner: usr})
     ];
   } else {

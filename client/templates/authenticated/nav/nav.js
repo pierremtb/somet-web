@@ -32,7 +32,7 @@ Template.Nav.helpers({
     return Session.get("selectedAthleteName");
   },
   athletes() {
-    return AthletesDB.find({trainer: Meteor.user().username});
+    return Meteor.users.find({"profile.my_trainer": Meteor.user().username});
   },
   page() {
     return FlowRouter.getRouteName();
@@ -44,7 +44,7 @@ Template.Nav.helpers({
 
 Template.Nav.onRendered(function () {
   if(Meteor.user().profile.trainer)
-    Session.set("selectedAthlete", AthletesDB.findOne({}, {limit: 1}).username);
+    Session.set("selectedAthlete", Meteor.user().profile.my_athletes[0]);
 });
 
 Template.Nav.onCreated(function () {

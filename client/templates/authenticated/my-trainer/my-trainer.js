@@ -1,6 +1,5 @@
 Template.MyTrainer.helpers({
-    trainer() { return TrainersDB.findOne({username: AthletesDB.findOne({username: Meteor.user().username}).trainer}).username; },
-    otherTrainers() { return TrainersDB.find({username: {$ne: AthletesDB.findOne({username: Meteor.user().username}).trainer}}); },
+    trainer() { return Meteor.user().profile.my_trainer }
   });
 
 Template.MyTrainer.events({
