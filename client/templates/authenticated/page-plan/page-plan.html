@@ -23,17 +23,20 @@
           <div class="row">
             <div class="col s12">
               <p>
+                {{#if isNew}}
                 <span class="light" style="font-size:50px; opacity: 0.7">Semaine du </span>
               <div class="input-field inline-block">
-                <input id="monday_date" type="date" value="{{sessionMondayDate}}" class="light datepicker" style="font-size: 50px; width: 300px">
+                <input id="monday_date" type="date" class="light datepicker" style="width: 300px; font-size: 50px; padding-bottom: 15px">
               </div>
+                {{else}}
+                <span class="light" style="font-size:50px">Semaine du {{moFormat sessionMondayDate 'DD/MM/YYYY' }}</span>
+                {{/if}}
               </p>
             </div>
-            <div class="col s6">
+            <div class="col s6 mt10pm">
               <p>
               <div class="input-field">
-                <input id="description" type="text" value="{{sessionTitle}}">
-                <label for="last_name" class="{{#if isEdit}}active{{/if}}">Description rapide</label>
+                <input id="description" type="text" value="{{sessionTitle}}" placeholder="Description rapide...">
               </div>
               </p>
             </div>
@@ -81,27 +84,40 @@
     </div>
   </div>
 
+  <script>
+    function populate_week_range_options(start_week_date, todays_date){
+      var week_commencing_dates = [];
+      var first_monday_date = new Date(2012, 7-1, 2);
+      week_commencing_dates.push(first_monday_date);
 
-  <script type="text/javascript">
+      while(start_week_date < todays_date){
+        var next_date = start_week_date.setDate(start_week_date.getDate() + 1);
+        var next_days_date = new Date(next_date);
+        var day_index = next_days_date.getDay();
+        if(day_index == 1){
+          week_commencing_dates.push(next_days_date);
+        }
+        start_week_date = new Date(next_date);
+      }
 
-    $(document).ready(function () {
-      $('.modal-trigger').leanModal();
-    });
-    $('.datepicker').pickadate({
-      selectMonths: true,
-      selectYears: 15
-    });
-
-    function setThisDay(n) {
-      var days = $('.day');
-      days.removeClass("hidden");
-      days.addClass("hidden");
-      $('#day_' + n).removeClass("hidden");
-      var menu_days = $('#menu_day li');
-      menu_days.removeClass("active");
-      menu_days.addClass("waves-effect");
-      $('#menu_day_' + n).removeClass("waves-effect");
-      $('#menu_day_' + n).addClass("active");
+      return week_commencing_dates;
     }
+
+    $(document).ready(function() {
+      $('.modal-trigger').leanModal();
+      var today = new Date();
+      let mon = populate_week_range_options(new Date(today.getFullYear(),today.getMonth(),1), new Date(today.getFullYear() + 1,12,31));
+      mon.unshift(true);
+
+      $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 15,
+        today: 'auj.',
+        clear: 'effacer',
+        firstDay: 1,
+        disable: mon
+      });
+    });
   </script>
+
 </template>

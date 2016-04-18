@@ -1,9 +1,19 @@
 Template.Plan.onCreated(function () {
-  isEdit = new ReactiveVar((FlowRouter.current().path.indexOf('/plan') != -1 && FlowRouter.current().path.indexOf('/edit') != -1));
-  isNew = new ReactiveVar(FlowRouter.current().path == '/plan/new');
-  isEditablePlan = new ReactiveVar(isNew.get() || isEdit.get());
+  this.subscribe("upcomingEventsOfUsr", Session.get('selectedAthlete'));
+
   pl = new ReactiveVar({});
+  isEdit = new ReactiveVar();
+  isNew = new ReactiveVar();
+  isEditablePlan = new ReactiveVar();
+
+  Tracker.autorun(function () {
+    FlowRouter.watchPathChange();
+    isEdit.set(FlowRouter.current().path.indexOf('/plan') != -1 && FlowRouter.current().path.indexOf('/edit') != -1);
+    isNew.set(FlowRouter.current().path == "/plan/new");
+    isEditablePlan.set(isNew.get() || isEdit.get());
+  });
 });
+
 
 function setIfEdit() {
   if (isEdit.get()) {
@@ -23,29 +33,26 @@ function setIfEdit() {
 }
 
 Template.Plan.onRendered(function () {
-  console.log(isEdit.get());
-  console.log(isEditablePlan.get());
+
+  let count = 0;
   if (!isNew.get()) {
-    var done = false;
     Tracker.autorun(function () {
-      if (FlowRouter.subsReady() && !done) {
+      if (FlowRouter.subsReady() && count < 20) {
         if (PlansDB.findOne()) {
           pl.set(PlansDB.findOne());
+          count++;
           setIfEdit();
-          console.log(pl.get());
-          done = true;
-        } else {
-          //FlowRouter.redirect('/dashboard');
+          $('.datepicker').val(pl.get().monday_date.toJSON()).pickadate();
         }
       }
     });
   }
 });
 
+
 Template.Plan.helpers({
   sessionMondayDate() {
-    console.log(Session.get('pl_monday_date'));
-    return moment(Session.get('pl_monday_date')).format('LL');
+    return pl.get().monday_date;
   },
   sessionTitle() {
     return Session.get('pl_title');
@@ -92,43 +99,57 @@ Template.Plan.helpers({
 
 Template.Plan.events({
   "click #delete_btn": function (e, t) {
-    Meteor.call("removePlan", t.find(".plid").innerHTML);
-    document.location = "/plans";
+    Meteor.call("removePlan", pl.get()._id);
+    FlowRouter.go("/plans");
   },
   'click #save_new_plan': function (event, t) {
     let days = [];
     for(let i = 0; i < 7; i++) {
-      days.push({
-        type: Session.get("day_" + i + "_type") ? Session.get("day_" + i + "_type") : "nth",
-        description: Session.get('day_' + i + '_type') && Session.get('day_' + i + '_type') != "nth" ? Session.get('day_' + i + '_description') : '',
-        duration: Session.get('day_' + i  + '_type') == "wk" ? Session.get('day_' + i  + '_duration') : '',
-        support: Session.get('day_' + i + '_type') && Session.get('day_' + i + '_type') != "nth" ? Session.get('day_' + i + '_support') : ''
-      });
+      if(Session.get("day_" + i + "_type") == 'wk') {
+        days.push({
+          type: "wk",
+          description: Session.get('day_' + i + '_description'),
+          duration: Session.get('day_' + i + '_duration'),
+          support: Session.get('day_' + i + '_support')
+        });
+      } else if (Session.get("day_" + i + "_type") == 'rc'){
+        days.push({
+          type: 'rc',
+          event_id: Session.get('day_' + i + '_event_id')
+        })
+      } else {
+        days.push({
+          type: 'nth'
+        })
+      }
     }
+    console.log(days);
     if(FlowRouter.current().path.indexOf(Session.get('pl_id')) != -1) {
       let obj = {
+        owner: Session.get("selectedAthlete"),
+        title: t.find('#description').value,
+        total_duration: parseInt(Session.get("pl_total_duration")),
+        days: days
+      };
+      Meteor.call("updatePlan", Session.get('pl_id'), obj);
+    }
+     else {
+      Meteor.call("insertPlan", {
         owner: Session.get("selectedAthlete"),
         title: t.find('#description').value,
         monday_date: new Date(t.find('#monday_date').value),
         total_duration: parseInt(Session.get("pl_total_duration")),
         days: days
-      };
-      Meteor.call("updatePlan", Session.get('pl_id'), obj);
-      console.log(obj);
-    }
-     /*else {
-      /*Meteor.call("insertPlan", {
-        owner: Session.get("selectedAthlete"),
-        title: t.find('#description').value,
-        monday_date: new Date(t.find('#monday_date').value),
-        total_duration: parseInt(Session.get("total_duration")),
-        days: days
       });
       Meteor.call("sendPush", Meteor.user().username, Session.get("selectedAthlete"), "Nouveau plan", "Un nouveau plan vous a été ajouté!");
     }
-    FlowRouter.go('/plans');*/
+    FlowRouter.go('/plans');
   },
   'click #edit_plan': function(e,t) {
+    isEdit.set(true);
     FlowRouter.go(FlowRouter.current().path +  '/edit');
+  },
+  'change #monday_date': function(e,t) {
+    Session.set('pl_monday_date', new Date(e.target.value));
   }
 });

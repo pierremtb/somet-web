@@ -1,70 +1,82 @@
 <template name="PlanDayInput">
-  <div class="card grande {{#if isRace}}orange lighten-3{{/if}}{{#if isWorkout}}yellow lighten-3{{/if}} ">
+  <div class="card grande {{#if thisDayEvent}}accent_bg white-text{{/if}}{{#if isWorkout}}yellow lighten-3{{/if}} ">
     <div class="card-content">
       <span class="card-title">{{dispDayName this}}</span>
       <div class="row">
-        <div class="input-field col s12">
-          <select id="type">
-            <option value="" disabled selected>Type</option>
-            <option value="nth" selected="{{isTypeSelected 'nth'}}">Repos</option>
-            <option value="wk" selected="{{isTypeSelected 'wk'}}">Entrainement</option>
-            <option value="rc" selected="{{isTypeSelected 'rc'}}">Compétition</option>
-          </select>
-          <label>Type</label>
-        </div>
+        {{#if thisDayEvent}}
+          {{#with thisDayEvent}}
+            <p>{{title}}</p>
+          {{/with}}
+        {{else}}
+          <div class="input-field col s12">
+            <select id="type">
+              <option value="" disabled selected>Type</option>
+              <option value="nth">Repos</option>
+              <option value="wk">Entrainement</option>
+            </select>
+            <label>Type</label>
+          </div>
 
-        <div class="input-field col s12">
-          <select id="support"  {{ifRestSetDisabled}}>
-            <option value="" disabled selected>Support</option>
-            <option value="mtb" selected="{{isSupportSelected 'mtb'}}">VTT</option>
-            <option value="road" selected="{{isSupportSelected 'road'}}">Route</option>
-            <option value="ht" selected="{{isSupportSelected 'ht'}}">Home Trainer</option>
-            <option value="run" selected="{{isSupportSelected 'run'}}">Course à pied</option>
-            <option value="skix" selected="{{isSupportSelected 'skix'}}">Ski de fond</option>
-            <option value="swim" selected="{{isSupportSelected 'swim'}}">Natation</option>
-            <option value="endr" selected="{{isSupportSelected 'endr'}}">Enduro</option>
-            <option value="othr" selected="{{isSupportSelected 'othr'}}">Autre</option>
-          </select>
-          <label>Type</label>
-        </div>
+          <div class="input-field col s12">
+            <select id="support"  {{ifRestSetDisabled}}>
+              <option value="" disabled selected>Support</option>
+              <option value="mtb">VTT</option>
+              <option value="road">Route</option>
+              <option value="ht">Home Trainer</option>
+              <option value="run">Course à pied</option>
+              <option value="skix">Ski de fond</option>
+              <option value="swim">Natation</option>
+              <option value="endr">Enduro</option>
+              <option value="othr">Autre</option>
+            </select>
+            <label>Type</label>
+          </div>
 
-        <div class="input-field col s12">
-          <select id="duration" {{ifRestSetDisabled}} {{ifRaceSetDisabled}}>
-            <option value="" disabled selected>Durée</option>
-            <option value="900" selected="{{isDurationSelected '900'}}">0h15</option>
-            <option value="1800" selected="{{isDurationSelected '1800'}}">0h30</option>
-            <option value="2700" selected="{{isDurationSelected '2700'}}">0h45</option>
-            <option value="3600" selected="{{isDurationSelected '3600'}}">1h00</option>
-            <option value="4500" selected="{{isDurationSelected '4500'}}">1h15</option>
-            <option value="5400" selected="{{isDurationSelected '5400'}}">1h30</option>
-            <option value="6300" selected="{{isDurationSelected '6300'}}">1h45</option>
-            <option value="7200" selected="{{isDurationSelected '7200'}}">2h00</option>
-            <option value="8100" selected="{{isDurationSelected '8100'}}">2h15</option>
-            <option value="9000" selected="{{isDurationSelected '9000'}}">2h30</option>
-            <option value="9900" selected="{{isDurationSelected '9900'}}">2h45</option>
-            <option value="10800" selected="{{isDurationSelected '10800'}}">3h00</option>
-            <option value="11700" selected="{{isDurationSelected '11700'}}">3h15</option>
-            <option value="12600" selected="{{isDurationSelected '12600'}}">3h30</option>
-            <option value="13500" selected="{{isDurationSelected '13500'}}">3h45</option>
-            <option value="14400" selected="{{isDurationSelected '14400'}}">4h00</option>
-            <option value="16200" selected="{{isDurationSelected '16200'}}">4h30</option>
-            <option value="18000" selected="{{isDurationSelected '18000'}}">5h00</option>
-            <option value="21600" selected="{{isDurationSelected '21600'}}">6h00</option>
-          </select>
-          <label>Durée</label>
-        </div>
-        <div class="input-field col s12">
-          <textarea id="description"  {{ifRestSetDisabled}} class="materialize-textarea">
-            {{sessionDescription}}
-          </textarea>
-          <label for="description">Description</label>
-        </div>
+          <div class="input-field col s12">
+            <select id="duration" {{ifRestSetDisabled}} {{ifRaceSetDisabled}}>
+              <option value="" disabled selected>Durée</option>
+              <option value="900">0h15</option>
+              <option value="1800">0h30</option>
+              <option value="2700">0h45</option>
+              <option value="3600">1h00</option>
+              <option value="4500">1h15</option>
+              <option value="5400">1h30</option>
+              <option value="6300">1h45</option>
+              <option value="7200">2h00</option>
+              <option value="8100">2h15</option>
+              <option value="9000">2h30</option>
+              <option value="9900">2h45</option>
+              <option value="10800">3h00</option>
+              <option value="11700">3h15</option>
+              <option value="12600">3h30</option>
+              <option value="13500">3h45</option>
+              <option value="14400">4h00</option>
+              <option value="16200">4h30</option>
+              <option value="18000">5h00</option>
+              <option value="21600">6h00</option>
+            </select>
+            <label>Durée</label>
+          </div>
+          <div class="input-field col s12">
+          <textarea id="description" placeholder="Description..." {{ifRestSetDisabled}} class="materialize-textarea">{{sessionDescription}}</textarea>
+          </div>
+
+        {{/if}}
       </div>
     </div>
+
+    {{#if thisDayEvent}}
+      {{#with thisDayEvent}}
+        <div class="card-action">
+          <a id="/event/{{_id}}" class=" white-text">Modifier</a>
+        </div>
+      {{/with}}
+    {{/if}}
+
   </div>
 
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('select').material_select();
     });
     $(function () {

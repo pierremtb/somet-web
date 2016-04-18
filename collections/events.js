@@ -17,30 +17,32 @@ let EventsDBSchema = new SimpleSchema({
     type: String,
     label: "The username of the athlete that owns this event."
   },
-  "title": {
+  "name": {
     type: String,
-    label: "The title of the event."
+    label: "The name of the event."
   },
   "date": {
     type: Date,
     label: "The date of the event."
+  },
+  "place": {
+    type: String,
+    label: "The place of the event."
+  },
+  "goal": {
+    type: String,
+    label: "The goal of the event.",
+    optional: true
   },
   "description": {
     type: String,
     label: "The description of the event.",
     optional: true
   },
-  "first_class_event": {
-    type: Boolean,
-    label: "Wether it's a first class event."
-  },
-  "second_class_event": {
-    type: Boolean,
-    label: "Wether it's a second class event."
-  },
-  "preparation_event": {
-    type: Boolean,
-    label: "Wether it's a preparation event."
+  "class": {
+    type: String,
+    allowedValues: ['first', 'second', 'preparation'],
+    label: "Wether it's a first class event, or a pr."
   }
 });
 
@@ -50,9 +52,9 @@ TabularTables.Events = new Tabular.Table({
   name: "Events",
   collection: EventsDB,
   columns: [
-    {data: "title", title: "Title"},
-    {data: "comments", title: "Commentaires"},
-    {data: "date", title: "Date"}
+    {data: "name", title: "Nom"},
+    {data: "date", title: "Date"},
+    {data: "class", title: "Classe"},
   ],
   responsive: true,
   order: [[2, 'desc']],

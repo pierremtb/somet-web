@@ -321,6 +321,23 @@ body {
   font-size: 18px
 }
 
+.mt30p {
+  margin-top: 30px;
+}
+
+.card_margin {
+  margin: 0.5rem 0px 1rem;
+}
+
+.sides1rem{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.view_title {
+  font-size: 50px;
+}
+
 i {
   cursor: pointer;
 }
@@ -450,6 +467,23 @@ i {
 
 .inline {
   display: inline;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.topright {
+  top: 0px;
+  right: 0px;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
 }
 
 .inline-block {
@@ -610,6 +644,20 @@ i {
     display: none;
     float: none;
   }
+}
+
+.pac-container {
+  background-color: #FFF;
+  z-index: 500;
+  position: fixed;
+  display: inline-block;
+  float: left;
+}
+.modal{
+  z-index: 0;
+}
+.modal-backdrop{
+  z-index: 10;
 }
 
 .pagesCont {

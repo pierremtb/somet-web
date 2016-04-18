@@ -12,77 +12,13 @@
       {{/if}}
     </div>
   </div>
-  <div id="add_plan" class="modal modal-fixed-footer"
-       style="width:90%;max-height:90%;height:90%;margin-top:-5%;color:black">
-    <div class="modal-content">
-      <div class="row">
-        <div class="col s12">
-          <h5>Ajouter un plan</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m6">
-          <input id="n_pl_title" type="text" class="validate">
-          <label for="n_pl_title">Description rapide</label>
-          <input id="n_pl_start_date" type="date" class="datepicker"
-                 placeholder="Date du Lundi (début du plan)">
-        </div>
-        <div class="input-field col s12 m6">
-          <h5>Durée totale : {{dispDuration weekTotalDuration}}</h5>
-        </div>
-      </div>
-      <div class="row">
-        {{#each daysOfWeek}}
-          <div class="col s12 m6 l4">
-            {{> PlanDayInput}}
-          </div>
-        {{/each}}
-      </div>
-    </div>
-    <div class="modal-footer">
-      <a  id="n_pl_submit"
-          class=" modal-action modal-close waves-effect waves-cyan pink-text btn-flat">Ajouter</a>
-      <a  class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
-
-    </div>
-  </div>
 
   <script type="text/javascript">
 
     $(document).ready(function () {
-      $('ul.tabs').tabs();
       $('.modal-trigger').leanModal();
     });
 
-    function populate_week_range_options(start_week_date, todays_date){
-      var week_commencing_dates = [];
-      var first_monday_date = new Date(2012, 7-1, 2);
-      week_commencing_dates.push(first_monday_date);
 
-      while(start_week_date < todays_date){
-        var next_date = start_week_date.setDate(start_week_date.getDate() + 1);
-        var next_days_date = new Date(next_date);
-        var day_index = next_days_date.getDay();
-        if(day_index == 1){
-          week_commencing_dates.push(next_days_date);
-        }
-        start_week_date = new Date(next_date);
-      }
-
-      return week_commencing_dates;
-    }
-
-    var today = new Date();
-    mondays = populate_week_range_options(new Date(today.getFullYear(),today.getMonth(),1), new Date(today.getFullYear() + 1,12,31));
-    mondays.unshift(true);
-
-    $('.datepicker').pickadate({
-      selectMonths: true,
-      selectYears: 15,
-      today: 'auj.',
-      clear: 'effacer',
-      firstDay: 1,
-      disable: mondays
-    });
   </script>
 </template>

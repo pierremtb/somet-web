@@ -1,4 +1,51 @@
+var days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+Template.PlanDayInput.onRendered(function (){
+  let self = this;
+  Tracker.autorun(function() {
+    if (isEdit.get()) {
+      let type = Session.get('day_' + self.data + '_type');
+      self.find('#type').value = type;
+      $('select').material_select();
+      if(type == 'wk') {
+        let sup = self.find('#support');
+        sup.value = Session.get('day_' + self.data + '_support');
+        sup.disabled = false;
+        $(sup).material_select();
+
+        let dur = self.find('#duration');
+        dur.value = Session.get('day_' + self.data + '_duration');
+        dur.disabled = false;
+        $(dur).material_select();
+        
+        let des = self.find('#description');
+        des.innerHTML = Session.get('day_' + self.data + '_description');
+        des.disabled = false;
+      }
+    } else {
+      $(self.find('#duration')).material_select();
+      $(self.find('#description')).material_select();
+      $(self.find('#type')).material_select();
+    }
+    if(Template.instance().data == 6) {
+      console.log('nausiteau');
+      $('select').material_select();
+    }
+  });
+});
+
 Template.PlanDayInput.helpers({
+  thisDayEvent() {
+    let offset = parseInt(this);
+    let ev =  EventsDB.findOne({
+      owner: Session.get('selectedAthlete'),
+      date: moment(Session.get('pl_monday_date')).add(offset,'days').toDate()
+    });
+    if(ev) {
+      Session.set('day_' + this + '_type', 'rc');
+      Session.set('day_' + this + '_event_id', ev._id);
+    }
+  },
   isDurationSelected(dur) {
     $('select').material_select();
     return Session.get('day_' + this + '_duration') == dur ? 'true' : 'false';
@@ -26,10 +73,6 @@ Template.PlanDayInput.helpers({
   ifRaceSetDisabled() {
     return Session.get('day_' + this + '_type') ? 'disabled' : '';
   }
-});
-
-Template.PlanDayInput.onRendered(function () {
-  $('select').material_select();
 });
 
 Template.PlanDayInput.events({

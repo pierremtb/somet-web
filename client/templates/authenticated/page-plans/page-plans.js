@@ -5,19 +5,8 @@ function dispMins(min) {
 }
 
 Template.Plans.helpers({
-  daysOfWeek() {
-    return [0,1,2,3,4,5,6];
-  },
   selectedAthlete() {
     return Session.get("selectedAthlete");
-  },
-  weekTotalDuration() {
-    var tot = 0;
-    for (var i = 0; i < 7; i++)
-      if (Session.get("day_" + i + "_duration"))
-        tot += parseInt(Session.get("day_" + i + "_duration"));
-    Session.set("total_duration", tot);
-    return tot;
   }
 });
 
@@ -25,13 +14,25 @@ Template.Plans.events({
   'click #n_pl_submit': function (event, t) {
     let days = [];
     for(let i = 0; i < 7; i++) {
-      days.push({
-        type: Session.get("day_" + i + "_type") ? Session.get("day_" + i + "_type") : "nth",
-        description: Session.get('day_' + i + '_type') && Session.get('day_' + i + '_type') != "nth" ? Session.get('day_' + i + '_description') : '',
-        duration: Session.get('day_' + i  + '_type') == "wk" ? Session.get('day_' + i  + '_duration') : '',
-        support: Session.get('day_' + i + '_type') && Session.get('day_' + i + '_type') != "nth" ? Session.get('day_' + i + '_support') : ''
-      });
+      if(Session.get("day_" + i + "_type") == 'wk') {
+        days.push({
+          type: "wk",
+          description: Session.get('day_' + i + '_description'),
+          duration: Session.get('day_' + i + '_duration'),
+          support: Session.get('day_' + i + '_support')
+        });
+      } else if (Session.get("day_" + i + "_type") == 'rc'){
+        days.push({
+          type: 'rc',
+          event_id: Session.get('day_' + i + '_event_id')
+        })
+      } else {
+        days.push({
+          type: 'nth'
+        })
+      }
     }
+    console.log(days);
     Meteor.call("insertPlan", {
       owner: Session.get("selectedAthlete"),
       title: t.find('#n_pl_title').value,

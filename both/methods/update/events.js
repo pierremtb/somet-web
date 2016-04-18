@@ -1,10 +1,11 @@
 Meteor.methods({
-  updateEvent( argument ) {
+  updateEvent( id, argument ) {
     check( argument, Object );
+    check( id, String );
 
     try {
-      var documentId = EventsDB.update( argument._id, {
-        $set: { 'key': argument.key }
+      var documentId = EventsDB.update( id, {
+        $set: argument
       });
       return documentId;
     } catch( exception ) {

@@ -25,6 +25,14 @@ Template.registerHelper("dispType", function (t) {
   }
 });
 
+Template.registerHelper("dispEventClass", function (t) {
+  switch(t) {
+    case 'first': return "Ojectif principal";
+    case 'second': return "Objectif secondaire";
+    case 'preparation': return "Préparation";
+  }
+});
+
 Template.registerHelper("dispSupport", function (s) {
   switch (s) {
     case "mtb": return "VTT";

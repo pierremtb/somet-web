@@ -63,15 +63,15 @@ Template.CalendarMonthLine.helpers({
   },
   isFCEv() {
     let this_date = new Date(this.date);
-    return EventsDB.find({date: this_date, first_class_event: true}).count() > 0;
+    return EventsDB.find({date: this_date, class: 'first'}).count() > 0;
   },
   isSCEv() {
     let this_date = new Date(this.date);
-    return EventsDB.find({date: this_date, second_class_event: true}).count() > 0;
+    return EventsDB.find({date: this_date, class: 'second'}).count() > 0;
   },
   isPEv() {
     let this_date = new Date(this.date);
-    return EventsDB.find({date: this_date, preparation_event: true}).count() > 0;
+    return EventsDB.find({date: this_date, class: 'preparation'}).count() > 0;
   },
   isPast() {
     let now = new Date(),

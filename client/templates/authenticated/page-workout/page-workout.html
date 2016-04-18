@@ -17,37 +17,35 @@
                 class="material-icons left">delete</i> SUPPRIMER</a>
       {{/if}}
     </p>
-
-    <div class="col s12">
-      <div class="card accent_bg white-text">
+      <div class=" white-text mt10pm sides1rem">
         {{#with workout}}
-          <div class="card-content">
-            <span class="card-title">{{title}}</span>
+            <span class="view_title  light">{{title}}</span>
             {{#if fit_values}}
-              <span class="card-title right vam l20p mt5p">
+              <span class="card-title right vam l20p mt25p">
               <div class="chip white">
                 .FIT
               </div>
             </span>
             {{/if}}
             {{#if strava_id}}
-              <span class="card-title right vam l20p mt5p">
+              <span class="card-title right vam l20p mt25p">
               <div class="chip white">
                 Strava
               </div>
             </span>
             {{/if}}
-          </div>
+          <p class="f18p mt5pm">
+            {{moFormat start_date 'DD/MM/YYYY'}} -
+            {{dispDuration duration}}
+          </p>
         {{/with}}
       </div>
-    </div>
 
     <div class="col s12 m6">
       <div class="card small" style="z-index:99">
         <div class="card-content">
           {{#with workout}}
-            <span class="card-title">Descriptif</span>
-            <p class="grey-text">{{moFormat start_date 'DD/MM/YYYY HH:MM:SS'}}</p>
+            <span class="card-title">Contenu</span>
             {{#if description}}
               <p>{{description}}</p>
             {{else}}

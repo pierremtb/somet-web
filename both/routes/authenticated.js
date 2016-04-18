@@ -75,7 +75,7 @@ authenticatedRoutes.route( '/workout/:id', {
 authenticatedRoutes.route( '/plan/new', {
   name: 'Nouvel Entrainement',
   action() {
-    BlazeLayout.render( 'default', { yield: 'Plan', test: "test" } );
+    BlazeLayout.render( 'default', { yield: 'Plan'} );
   }
 });
 
@@ -106,5 +106,22 @@ authenticatedRoutes.route( '/event/:id', {
   },
   subscriptions(params, queryParams) {
     this.register('event', Meteor.subscribe('eventOfThisId', params.id));
+  }
+});
+
+authenticatedRoutes.route( '/event/:id/edit', {
+  name: 'Evenement',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'Event' } );
+  },
+  subscriptions(params, queryParams) {
+    this.register('event', Meteor.subscribe('eventOfThisId', params.id));
+  }
+});
+
+authenticatedRoutes.route( '/event/new', {
+  name: 'Nouvel Evenement',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'Event' } );
   }
 });

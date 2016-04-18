@@ -76,6 +76,12 @@ Meteor.publish('eventsOfUsr', function (usr) {
   return evts ? evts : this.ready();
 });
 
+Meteor.publish('upcomingEventsOfUsr', function (usr) {
+  check(usr, String);
+  var evts = EventsDB.find({owner: usr, date: {$gte: moment().day("Monday").toDate()}});
+  return evts ? evts : this.ready();
+});
+
 Meteor.publish('dayEventsOfUsr', function (usr, date) {
   check(usr, String);
   check(date, Date);

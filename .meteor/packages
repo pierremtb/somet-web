@@ -46,3 +46,6 @@ standard-minifier-css
 standard-minifier-js
 linto:jquery-ui
 momentjs:moment
+jeremy:geocomplete
+webtempest:animate
+philippspo:momentum-flow-router

@@ -1,4 +1,10 @@
 let startup = () => {
+  Meteor.startup(function() {
+    GoogleMaps.load({
+      key: 'AIzaSyALStwuz3NarVtdaDextjZeuP2PInp0Dtg',
+      libraries: 'places'
+    });
+  });
   _notificationsToaster();
   _setUploader();
   google.charts.load('current', {'packages': ['corechart', 'bar']});

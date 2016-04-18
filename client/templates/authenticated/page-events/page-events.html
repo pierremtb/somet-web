@@ -1,6 +1,6 @@
 <template name="Events">
     <div class="col s12">
-        <a class="btn-flat waves-effect primary_txt modal-trigger" href="#add_event"><i
+        <a class="btn-flat waves-effect primary_txt modal-trigger" href="/event/new"><i
                 class="material-icons left">add</i> Ajouter</a>
 
         <div class="" style="padding:0px;z-index:99">
@@ -24,21 +24,19 @@
                     <div class="row">
                         <div class="input-field col s12 m6">
                             <input id="e_title" type="text">
-                            <label for="e_title">Titre</label>
+                            <label for="e_title">Nom</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <input type="date" id="e_date" class="datepicker" placeholder="Date">
                         </div>
-                        <div class="input-field col s12 m6">
-                                        <textarea id="e_description"
-                                                  class="materialize-textarea"></textarea>
-                            <label for="e_description">Description</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                                        <textarea id="e_comments"
-                                                  class="materialize-textarea"></textarea>
-                            <label for="e_comments">Commentaires éventuels</label>
-                        </div>
+                      <div class="input-field col s12 m6">
+                        <input id="e_place" type="text">
+                        <label for="e_title">Lieu</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <input id="e_description" type="text">
+                        <label for="e_description">Description rapide (optionel)</label>
+                      </div>
                     </div>
                 </form>
                 <p>
@@ -53,6 +51,7 @@
                     <input class="with-gap" name="group3" type="radio" id="e_preparation_event" />
                     <label for="e_preparation_event">Préparation</label>
                 </p>
+                <div id="map"></div>
             </div>
         </div>
         <div class="modal-footer">
