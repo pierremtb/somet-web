@@ -10,16 +10,15 @@ let _handleAuth = () => {
 
   if (type === 'create') {
     let profile = {};
-    let email = template.find(' [name="emailCreate"]').value,
-      password = template.find('[name="passwordCreate"]').value,
-      username = template.find('[name="usernameCreate"]').value;
-    profile.complete_name = template.find('[name="completeNameCreate"]').value;
-    profile.trainer = template.find('#trainer_radio').checked;
-    profile.athlete = template.find('#athlete_radio').checked;
+    let email = template.find('#email').value,
+      password = template.find('#password').value,
+      username = template.find('#username').value;
+    profile.complete_name = template.find('complete_name').value,
+    profile.trainer = template.find('#type').value == 'trainer';
     _createUser(email, password, username, profile, 'Vous avez été automatiquement connecté.');
   } else {
-    let email = template.find(' [name="emailLogin"]').value,
-      password = template.find('[name="passwordLogin"]').value;
+    let email = template.find('#username').value,
+      password = template.find('#password').value;
     _loginUser(email, password, 'Vous êtes connecté.');
   }
 };
@@ -47,6 +46,7 @@ let _createUser = (email, password, username, profile, message) => {
 };
 
 let _loginUser = (email, password, message) => {
+  console.log(email, password);
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
       Materialize.toast(error.reason);

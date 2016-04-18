@@ -1,5 +1,220 @@
 <template name="Login">
-  <nav style="position:fixed;z-index:99;background:rgba(30,30,30,0.5);box-shadow:none">
+  <style>
+    body {
+      background: #263238;
+    }
+
+    #somet_logo {
+      margin: 5rem;
+      width: 20rem;
+    }
+
+    .primary-text {
+      color: #263238;
+    }
+
+    .secondary {
+      background: #37474F;
+    }
+
+    .forms_container {
+      width: 30rem;
+      margin: auto;
+      position: relative;
+    }
+
+
+    .form_line {
+      display: flex;
+      margin-bottom: 1rem;
+      padding: 0px 1rem;
+      align-items: center;
+    }
+
+    .form_line > input  {
+      flex: 1;
+      margin-left: 25px;
+      vertical-align: middle;
+      margin-bottom:0px;
+      margin-right: 10px;
+      font-size: 1.2rem;
+      color: black;
+    }
+
+    .form_line > span {
+      flex: 1;
+      margin-left: 25px;
+      vertical-align: middle;
+      margin-bottom:0px;
+      font-size: 1.2rem;
+    }
+
+    .form_line > i {
+      size: 1rem;
+    }
+
+    .form_icon {
+      float: left;
+    }
+
+    .form_field {
+      display: flex;
+    }
+
+    .actions {
+      margin: 1rem auto;
+      width: 30rem;
+    }
+
+    #auth_actions, #button_login, #button_signup {
+      transition: all 400ms;
+    }
+
+    #signup_form {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      transition: all 400ms;
+      max-height: 100px;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    #signup_form.signup_mode {
+      max-height: 220px;
+      opacity: 1;
+      transform: translateY(4px);
+    }
+
+    #login_form {
+      z-index: 10;
+      transition: all 400ms;
+    }
+
+    #login_form.signup_mode {
+      transform: translateY(-167px)
+    }
+
+    #auth_actions.signup_mode {
+      transform: translateY(3px);
+    }
+
+    #button_login.signup_mode {
+      transform: translateY(140px);
+      background: #37474F;
+    }
+
+    #button_signup.signup_mode {
+      background: #ec407a;
+    }
+
+    #button_signup.signup_mode:hover {
+      background: #ec407a;
+    }
+
+    #button_signup:hover {
+      background: #37474F;
+    }
+
+
+    .actions > a {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .separate {
+        height: 2px;
+        background: white;
+        margin: 2rem  5rem;
+    }
+  </style>
+
+  <div class="center-align container">
+    <img src="/somet-logo.png" id="somet_logo">
+    <div class="actions">
+      <a data-social-login="loginWithStrava" class="waves-effect waves-light deep-orange lighten-1 btn-large button">Connexion avec Strava</a>
+    </div>
+    <div class="actions">
+      <div class="separate"></div>
+    </div>
+    <div class="forms_container">
+
+
+      <div class="card" id="signup_form">
+        <div class="card-content primary-text">
+          <div class="relative form_line">
+            <i class="material-icons">email</i>
+            <input id="email" placeholder="Adresse email" type="text"/>
+          </div>
+          <div class="relative form_line">
+            <i class="material-icons">face</i>
+            <input id="complete_name" placeholder="Nom complet" type="text"/>
+          </div>
+          <div class="relative form_line">
+            <i class="material-icons" style="margin-top:-15px">directions_bike</i>
+                <span>
+                  <select id="type">
+                    <option value="" disabled selected>Je souhaite un compte...</option>
+                    <option value="athlete">Athlete</option>
+                    <option value="trainer">Entraineur</option>
+                  </select>
+                  </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="login_form">
+        <div class="card-content primary-text">
+              <div class="relative form_line">
+                <i class="material-icons">perm_identity</i>
+                <input id="username" placeholder="Adresse mail ou nom d'utilisateur" type="text"/>
+              </div>
+              <div class="relative form_line">
+                <i class="material-icons">fingerprint</i>
+                <input id="password" placeholder="Mot de passe" type="password"/>
+              </div>
+        </div>
+        </div>
+
+    </div>
+    <div class="actions" id="auth_actions">
+      <a class="waves-effect waves-light btn-large button" id="button_login">Connexion par identifiants</a>
+      <a class="waves-effect waves-light btn-large secondary button" id="button_signup">Créer un compte</a>
+    </div>
+    </div>
+
+  <script>
+    var signup_mode = false;
+
+    $(document).ready(function() {
+      $('select').material_select();
+      $('.select-dropdown').css('font-size', '1.2rem').css('color', 'rgba(0,0,0,0.25)');
+      $('select').on('change', function() {
+        $('.select-dropdown').css('color', 'rgba(0,0,0,1)');
+      });
+    });
+
+    $('#button_signup').on('click', function () {
+      if(signup_mode) {
+        $('#login_form').removeClass('signup_mode');
+        $('#signup_form').removeClass('signup_mode');
+        $('#auth_actions').removeClass('signup_mode');
+        $('#button_login').removeClass('signup_mode');
+        $('#button_signup').removeClass('signup_mode');
+      } else {
+        $('#login_form').addClass('signup_mode');
+        $('#signup_form').addClass('signup_mode');
+        $('#auth_actions').addClass('signup_mode');
+        $('#button_login').addClass('signup_mode');
+        $('#button_signup').addClass('signup_mode');
+      }
+      signup_mode = !signup_mode;
+    });
+  </script>
+
+
+
+  <!--<nav style="position:fixed;z-index:99;background:#263238;box-shadow:none">
     <div class="nav-wrapper">
       <a href="/" class="" id="title">
         <img src="/somet-logo.png" width="100" alt="">
@@ -9,7 +224,7 @@
         </li>
       </ul>
     </div>
-  </nav>
+  </nav>*/--><!--
   <div class="container" style="padding-top:0px;">
     <div class=" valign-wrapper" style="height:100vh;padding: 0px 0px;">
       <div class="row valign" style="    width: 100%;   margin: auto;">
@@ -141,6 +356,6 @@
     $(document).ready(function () {
       $('.modal-trigger').leanModal();
     });
-  </script>
+  </script>-->
 
 </template>

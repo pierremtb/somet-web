@@ -3,6 +3,7 @@ Template.Login.onCreated( () => {
     let template = Template.instance();
     template.createOrSignIn = new ReactiveVar();
   });
+  Session.set('signup_mode', false);
 });
 
 Template.Login.onRendered( () => {
@@ -32,5 +33,34 @@ Template.Login.events({
   },
   'submit form' ( event ) {
     event.preventDefault();
+  },
+  'click #button_login': function(e,t) {
+    if(Session.get('signup_mode')) {
+      $('#login_form').removeClass('signup_mode');
+      $('#signup_form').removeClass('signup_mode');
+      $('#auth_actions').removeClass('signup_mode');
+      $('#button_login').removeClass('signup_mode');
+      $('#button_signup').removeClass('signup_mode');
+      Session.set('signup_mode', false);
+    } else {
+      Modules.client.handleAuthentication({
+        template: Template.instance()
+      });
+    }
+  },
+  'click #button_signup': function(e,t) {
+    if (!Session.get('signup_mode')) {
+      $('#login_form').addClass('signup_mode');
+      $('#signup_form').addClass('signup_mode');
+      $('#auth_actions').addClass('signup_mode');
+      $('#button_login').addClass('signup_mode');
+      $('#button_signup').addClass('signup_mode');
+      Session.set('signup_mode', true);
+    } else {
+      console.log("auiensau");
+      Modules.client.handleAuthentication({
+        template: Template.instance()
+      });
+    }
   }
 });
