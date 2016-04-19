@@ -1,0 +1,39 @@
+<template name="Search">
+    <div class="col s12">
+        <p>
+          <a class="btn-flat waves-effect primary_txt" onclick="window.history.back()"><i class="material-icons left">arrow_back</i>
+            Retour</a>
+        </p>
+        <div class="white-text mt10pm relative sides1rem">
+            <form class="w100per relative" style="padding-top: 1px">
+                  <div class="input-field mt15p">
+                    {{> EasySearch.Input indexes=searchIndexes attributes=attributes}}
+                  </div>
+            </form>
+        </div>
+
+      <div class="sides1rem">
+        <h4 class="white-text">Athletes</h4>
+
+        <div class="row">
+        {{#EasySearch.Each index=athletesIndex}}
+          {{> AthletesSearchResult}}
+        {{/EasySearch.Each}}
+        {{#EasySearch.IfNoResults index=athletesIndex}}
+          <p class="white-text">Pas de résultats.</p>
+        {{/EasySearch.IfNoResults}}
+        </div>
+
+        <h4 class="white-text">Entraineurs</h4>
+        <div class="row">
+        {{#EasySearch.Each index=trainersIndex}}
+          {{> TrainersSearchResult}}
+        {{/EasySearch.Each}}
+        {{#EasySearch.IfNoResults index=trainersIndex}}
+          <p class="white-text">Pas de résultats.</p>
+        {{/EasySearch.IfNoResults}}
+        </div>
+
+      </div>
+    </div>
+</template>

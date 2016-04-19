@@ -55,39 +55,53 @@
       <a id="title" class="valign-wrapper hide-on-med-and-down primary_txt">
         <img src="/somet-logo.png" width="100" alt="">
       </a>
+
       <ul class="valign primary_txt" id="nav-mobile">
+
         {{#if currentUser.profile.trainer}}
           <li id="user_bar" class="dropdown-button pointer left  r20p" data-activates='dropdown_athletes'>
-            <a data-activates='dropdown_user' class="primary_txt f20p"><i
-                    class="small material-icons inline vam">directions_run</i><span
-                    class="inline f18p vam">{{dispName selectedAthleteName selectedAthlete}}</span></a>
+            <a data-activates='dropdown_user' class="primary_txt f20p">
+              <i class="small material-icons inline vam">
+                directions_run
+              </i>
+              <span class="inline f18p vam">
+                {{dispName selectedAthleteName selectedAthlete}}
+              </span>
+            </a>
           </li>
         {{/if}}
 
-
-        <li id="user_bar" class="left t5p r20p">
-          <a href="#search_modal" class="modal-trigger primary_txt f20p"><i
-                  class="small material-icons">search</i></a>
+        <li id="action_search" class="left t5p r20p {{currentRoute 'Recherche'}}">
+          <a class=" primary_txt f20p">
+            <i class="small material-icons">
+              search
+            </i>
+          </a>
         </li>
 
-        <li id="user_bar" class="dropdown-button left t5p r20p" data-activates='dropdown_notifications'>
-          <a data-activates='slide-out-notif' class="notif-trigger primary_txt f20p"><i
-                  class="small material-icons">{{#if notificationsNotRead}}notifications_active{{else}}
-            notifications{{/if}}</i></a>
+        <li id="action_notifications" class="left t5p r20p {{currentRoute 'Notifications'}}">
+          <a href="/notifications" class="primary_txt f20p">
+            <i class="small material-icons">
+            {{#if notificationsNotRead}}
+              notifications_active
+            {{else}}
+            notifications
+            {{/if}}
+            </i>
+          </a>
         </li>
 
-
-        <li id="user_bar" class="pointer dropdown-button hide-on-med-and-down left t5p r20p"
-            data-activates='dropdown_user'>
-
-                <span
-                        class="inline r5p f18p vam">{{currentUser.profile.complete_name}}</span>
-          {{#if currentUser.services.strava.profile_medium}}
-            <img class="inline vam" src="{{currentUser.services.strava.profile_medium}}" alt=""
-                 data-activates='dropdown_user' id="account_avatar">
-          {{else}}
-            <i class="primary_txt vam inline f3rem material-icons">account_circle</i>
-          {{/if}}
+        <li id="action_profile" class="pointer hide-on-med-and-down left t5p r20p {{ifMyProfileSetActive}}">
+          <a href="/user/{{currentUser._id}}" class="white-text">
+            <span class="inline r5p f18p vam">
+              {{currentUser.profile.complete_name}}
+            </span>
+            {{#if currentUser.services.strava.profile_medium}}
+              <img class="inline vam" src="{{currentUser.services.strava.profile_medium}}" alt="" id="account_avatar">
+            {{else}}
+              <img class="inline vam" src="/default_avatar.png" id="account_avatar">
+            {{/if}}
+          </a>
         </li>
 
       </ul>
@@ -103,31 +117,6 @@
       <li class="athleteD"><a>{{dispName complete_name username}}</a></li>
     {{/each}}
   </ul>
-
-  <div id="search_modal" class="modal search_modal">
-    <div class="modal-content">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">search</i>
-              <input id="search_bar" placeholder="..." type="text" class="validate">
-              <label class="active" for="search_bar">Rechercher un utilisateur</label>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="row">
-        {{#each usersWhoMatch}}
-          {{#if this.profile.trainer}}
-            {{> TrainersSearchResult}}
-          {{else}}
-            {{> AthletesSearchResult}}
-          {{/if}}
-        {{/each}}
-      </div>
-    </div>
-  </div>
 
   <script type="text/javascript">
 

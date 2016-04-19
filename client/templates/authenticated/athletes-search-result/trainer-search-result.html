@@ -1,12 +1,12 @@
 <template name="AthletesSearchResult">
-    <div class="col s3">
+    <div class="col s6 m4 l3">
         <div class="card black-text">
             <div class="card-content">
-                <span class="card-title">{{complete_name}}</span>
+                <span class="card-title">{{profile.complete_name}}</span>
                 <span>@{{username}}</span>
             </div>
             <div class="card-action">
-                <a href="#" id="add_athlete_button">Ajouter</a>
+                <a href="/user/{{_id}}" id="add_athlete_button">Profil</a>
             </div>
         </div>
     </div>

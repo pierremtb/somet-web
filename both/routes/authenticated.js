@@ -9,6 +9,27 @@ authenticatedRoutes.route( '/dashboard', {
   }
 });
 
+authenticatedRoutes.route( '/search', {
+  name: 'Recherche',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'Search' } );
+  }
+});
+
+authenticatedRoutes.route( '/notifications', {
+  name: 'Notifications',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'Notifications' } );
+  }
+});
+
+authenticatedRoutes.route( '/user/:id', {
+  name: 'Profil',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'Profile' } );
+  }
+});
+
 FlowRouter.route( '/', {
   triggersEnter: [function(context, redirect) {
     if(Meteor.user())

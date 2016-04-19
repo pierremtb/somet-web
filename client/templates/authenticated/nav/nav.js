@@ -19,10 +19,14 @@ Template.Nav.events({
   },
   "keyup #search_bar": function (e, t) {
     Session.set("searchQuery", e.target.value);
+  },
+  'click #action_search a': (e,t) => {
+    FlowRouter.go('/search');
   }
 });
 
 Template.Nav.helpers({
+  ifMyProfileSetActive: () => Session.get('current_path').indexOf(Meteor.userId()) != -1 && FlowRouter.getRouteName() == "Profil" ? 'active' : '',
   notificationsNotRead() {
     return NotificationsDB.findOne({read: false}) ? NotificationsDB.find({read: false}) : false;
   },
@@ -37,9 +41,6 @@ Template.Nav.helpers({
   },
   page() {
     return FlowRouter.getRouteName();
-  },
-  usersWhoMatch() {
-    return UsersIndex.search(Session.get("searchQuery")).fetch();
   }
 });
 

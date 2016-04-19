@@ -15,11 +15,11 @@ let _handleAuth = () => {
       username = template.find('#username').value;
     profile.complete_name = template.find('complete_name').value,
     profile.trainer = template.find('#type').value == 'trainer';
-    _createUser(email, password, username, profile, 'Vous avez été automatiquement connecté.');
+    _createUser(email, password, username, profile, 'Vous avez été automatiquement connecté');
   } else {
     let email = template.find('#username').value,
       password = template.find('#password').value;
-    _loginUser(email, password, 'Vous êtes connecté.');
+    _loginUser(email, password, 'Vous êtes connecté');
   }
 };
 
@@ -31,35 +31,21 @@ let _createUser = (email, password, username, profile, message) => {
     profile: profile
   }, (error) => {
     if (error) {
-      Materialize.toast(error.reason);
+      Materialize.toast(error.reason, 1000);
     } else {
-      Materialize.toast(message);
-      if(profile.trainer) {
-        Meteor.call("insertTrainer", { username: username, complete_name: profile.complete_name});
-      }
-      else {
-        Meteor.call("insertAthlete", { username: username, complete_name: profile.complete_name});
-      }
-      _hideModal();
+      Materialize.toast(message, 1000);
     }
   });
 };
 
 let _loginUser = (email, password, message) => {
-  console.log(email, password);
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
-      Materialize.toast(error.reason);
-      _hideModal();
+      Materialize.toast(error.reason, 1000);
     } else {
-      Materialize.toast(message);
-      _hideModal();
+      Materialize.toast(message, 1000);
     }
   });
-};
-
-let _hideModal = () => {
-
 };
 
 Modules.client.handleAuthentication = handleAuthentication;

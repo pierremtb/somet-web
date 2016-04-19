@@ -6,6 +6,12 @@ Template.Login.onCreated( () => {
   Session.set('signup_mode', false);
 });
 
+Template.Login.helpers({
+  loggingIn() {
+    return Meteor.loggingIn();
+  }
+});
+
 Template.Login.onRendered( () => {
 
 });
@@ -19,7 +25,7 @@ Template.Login.events({
 
     Meteor[ service ]( options, ( error ) => {
       if ( error ) {
-        Materialize.toast( error.message );
+        Materialize.toast( error.message, 1000);
       }
     });
   },
@@ -37,7 +43,8 @@ Template.Login.events({
   'click #button_login': function(e,t) {
     if(Session.get('signup_mode')) {
       $('#login_form').removeClass('signup_mode');
-      $('#signup_form').removeClass('signup_mode');
+      let signup_form = $('#signup_form');
+      signup_form.removeClass('signup_mode');
       $('#auth_actions').removeClass('signup_mode');
       $('#button_login').removeClass('signup_mode');
       $('#button_signup').removeClass('signup_mode');

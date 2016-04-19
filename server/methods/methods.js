@@ -117,7 +117,11 @@ Meteor.methods({
   setThisUserPassword(id, pwd) {
     check(id, String);
     check(pwd, String);
-    Accounts.setPassword(id, pwd, {logout: false});
+    try {
+      Accounts.setPassword(id, pwd, {logout: false});
+    } catch(e) { return e;}
+    return "Votre mot de passe a bien été mis à jour";
+
   },
   setThisUserEmail(id, m) {
     check(id, String);

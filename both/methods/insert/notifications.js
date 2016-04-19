@@ -18,7 +18,7 @@ Meteor.methods({
         trainerconfirmationtype: true,
         value: me
       }) === undefined) {
-      NotificationsDB.insert({owner: usr, read: false, type: "invite_for_athlete", value: me});
+      NotificationsDB.insert({owner: usr, read: false, type: "invite_for_athlete", value: me, date: new Date()});
       return "Une invitation a été envoyée à " + usr + ".";
     }
     else
@@ -33,7 +33,7 @@ Meteor.methods({
         type: "invite_for_trainer",
         value: me
       }) === undefined) {
-      NotificationsDB.insert({owner: usr, read: false, type: "invite_for_trainer", value: me});
+      NotificationsDB.insert({owner: usr, read: false, type: "invite_for_trainer", value: me, date: new Date()});
       return "Une invitation a été envoyée à " + usr + ".";
     }
     else

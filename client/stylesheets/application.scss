@@ -177,6 +177,27 @@ body {
   height: 100%;
 }
 
+.clear {
+  clear: both;
+}
+
+.white3pborder {
+  border: solid white 3px;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+
+#action_search.active, #action_notifications.active, #action_profile.active{
+  border-bottom: solid 2px white;
+  padding-bottom: 8px;
+}
+
+#action_profile.active {
+  padding-bottom: 15px;
+}
+
 .side_item span {
   font-size: 18px;
   margin-left: -5px;
@@ -209,6 +230,10 @@ body {
 
 .card.small .card-content, .card.medium .card-content, .card.large .card-content {
   max-height: 100%;
+}
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(38, 50, 56, 0.16), 0 2px 10px 0 rgba(38, 50, 56, 0.12);
 }
 
 #top_bar {
@@ -325,8 +350,16 @@ body {
   margin-top: 30px;
 }
 
+.mr30p {
+  margin-right: 30px;
+}
+
 .card_margin {
   margin: 0.5rem 0px 1rem;
+}
+
+.collection .collection-item.avatar {
+  min-height: 0px;
 }
 
 .sides1rem{
@@ -346,7 +379,7 @@ i {
   box-shadow: none;
 }
 
-#user_bar #account_avatar {
+#action_profile #account_avatar {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -407,6 +440,10 @@ i {
 
 .l20p {
   margin-left: 20px;
+}
+
+.pl20p {
+  padding-left: 20px;
 }
 
 .l15p {
@@ -589,7 +626,7 @@ i {
 .modal_title {
   color: rgb(54, 54, 54);
   font-weight: 600;
-  font-size:  20px;
+  font-size: 20px;
 }
 
 /*

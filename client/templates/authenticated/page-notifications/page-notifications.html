@@ -1,0 +1,41 @@
+<template name="Notifications">
+    <div class="col s12">
+      <p>
+        <a class="btn-flat waves-effect primary_txt" onclick="window.history.back()">
+          <i class="material-icons left">
+            arrow_back
+          </i>
+          Retour
+        </a>
+        <a class="btn-flat waves-effect primary_txt">
+          <i class="material-icons left">
+            clear_all
+          </i>
+          Marquer tout comme lu
+        </a>
+        <a id="toogle_read_notifications" class="btn-flat waves-effect primary_txt">
+          <i class="material-icons left">
+            filter_list
+          </i>
+          Afficher les anciennes notifications
+        </a>
+      </p>
+        <div class="white-text mt10pm relative sides1rem">
+          <span class="view_title light">
+            Notifications
+          </span>
+          <p class="hide-on-small-only f18p mt5pm">
+            {{notificationsSpeaker}}
+          </p>
+        </div>
+        {{#if notificationsToDisplay}}
+        <div class="sides1rem">
+          <ul class="collection">
+            {{#each notificationsToDisplay}}
+              {{> Notification}}
+            {{/each}}
+          </ul>
+        </div>
+        {{/if}}
+    </div>
+</template>

@@ -1,15 +1,25 @@
 <template name="Notification">
-  <div class="col s12">
-    <div class="card black-text">
-      <div class="card-content">
-        <p>{{dispNotificationText type value}}</p>
-      </div>
-      <div class="card-action right-align">
-        {{#if actionNotif}}
-        <a id="accept" class="accent_txt">Accepter</a>
-        {{/if}}
-        <a id="mark_read" class="black-text">Lu</a>
-      </div>
-    </div>
-  </div>
+  <li class="collection-item avatar" style="{{#if read}}opacity:0.8{{/if}}">
+
+    <i class="material-icons circle">
+      trending_up
+    </i>
+
+    <span class="title">
+      {{dispNotificationType type}}
+    </span>
+
+    <p>
+      {{dispNotificationText type value}}
+    </p>
+
+    {{#if read}}
+    {{else}}
+    {{#if actionNotif}}
+    <a id="accept" class="secondary-content mr30p"><i class="material-icons">done</i></a>
+    {{/if}}
+
+    <a id="mark_read" class="secondary-content"><i class="material-icons">delete</i></a>
+    {{/if}}
+  </li>
 </template>

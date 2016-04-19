@@ -1,0 +1,114 @@
+<template name="Profile">
+  <div class="col s12">
+    <p>
+      <a class="btn-flat waves-effect primary_txt" onclick="window.history.back()">
+        <i class="material-icons left">
+          arrow_back
+        </i>
+        Retour
+      </a>
+      {{#if isMe}}
+        <a class="btn-flat waves-effect primary_txt" id="logout">
+          <i class="material-icons left">
+            exit_to_app
+          </i>
+          Déconnexion
+        </a>
+      {{else}}
+        <a class="btn-flat waves-effect primary_txt">
+          <i class="material-icons left">
+            add
+          </i>
+          {{#if user.profile.trainer}}
+            Demander comme entraineur
+          {{else}}
+            Ajouter à mes athlètes
+          {{/if}}
+        </a>
+      {{/if}}
+    </p>
+
+    <div class="white-text mt5p relative sides1rem">
+      {{#with user}}
+        {{#if services.strava}}
+          <img class="rounded white3pborder left" src="{{getLarge services.strava.profile_medium}}" alt="">
+        <span class="l20p view_title light">
+          {{profile.complete_name}}
+        </span>
+          <br>
+        <span class="l20p hide-on-small-only f18p mt5pm">
+          @{{username}}
+        </span>
+        {{else}}
+          <span class="view_title light">
+            {{profile.complete_name}}
+          </span>
+          <br>
+        <span class="hide-on-small-only f18p mt5pm">
+          @{{username}}
+        </span>
+        {{/if}}
+      {{/with}}
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="row mt20p">
+      <div class="col s12 m6">
+        <div class="card" style="z-index:99">
+          <div class="card-content">
+            <span class="card-title">Mon profil</span>
+            <p>Nom d'utilisateur : @{{user.username}}</p>
+            <p> Nom complet : {{user.profile.complete_name}}
+              <a class="modal-trigger" href="#change_complete_name"><i
+                      class="material-icons tiny accent_txt">edit</i></a>
+            </p>
+            <p> Changer de mot de passe
+              <a class="modal-trigger" href="#change_pwd"><i class="material-icons tiny accent_txt">edit</i></a>
+            </p>
+            <p> Poids : {{user.profile.weight}} kg
+              <a class="modal-trigger" href="#change_weight"><i class="material-icons tiny accent_txt">edit</i></a>
+            </p>
+            <p> Taille : {{user.profile.height}} cm
+              <a class="modal-trigger" href="#change_height"><i class="material-icons tiny accent_txt">edit</i></a>
+            </p>
+            {{#if user.services.strava}}
+              <p>Utilisateur Strava : <a target="_blank"
+                                         href="https://www.strava.com/athletes/{{user.services.strava.id}}">Profil</a>
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-content">
+            {{#if user.profile.trainer}}
+              <span class="card-title">Mes athletes</span>
+              <a class="modal-trigger btn-flat" href="#search_athlete_modal"><i
+                      class="material-icons tiny accent_txt left">add</i>Ajouter un athlete</a>
+              <ul class="collection">
+                {{#each athletes}}
+                  <li class="collection-item">
+                    <div>{{username}}<a class="secondary-content rmv_athlete_button"><i
+                            class="material-icons">delete</i></a>
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            {{else}}
+              <span class="card-title">Mon entraineur</span>
+              <p>
+                {{trainer}}
+                <a class="modal-trigger" href="#search_trainer_modal"><i
+                        class="material-icons tiny accent_txt">edit</i></a>
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

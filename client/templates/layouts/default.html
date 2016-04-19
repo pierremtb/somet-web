@@ -1,8 +1,5 @@
 <template name="default">
 	<div class="">
-		{{#if loggingIn}}
-			{{> loading}}
-		{{else}}
 			{{#if authenticated}}
 				{{#unless redirectAuthenticated}}
           {{> Nav page=pageName color="blue-grey"}}
@@ -28,6 +25,5 @@
 					{{> Template.dynamic template=yield}}
 				{{/unless}}
 			{{/if}}
-		{{/if}}
 	</div>
 </template>

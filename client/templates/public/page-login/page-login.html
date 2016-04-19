@@ -74,16 +74,23 @@
       position: absolute;
       width: 100%;
       height: auto;
-      transition: all 400ms;
+      transition: all 400ms, z-index 1ms 400ms;
       max-height: 100px;
       overflow: hidden;
       opacity: 0;
+      z-index: 0;
     }
 
     #signup_form.signup_mode {
       max-height: 220px;
       opacity: 1;
+      z-index: 10;
       transform: translateY(4px);
+      overflow: visible;
+    }
+
+    .dropdown-content {
+      z-index: 20;
     }
 
     #login_form {
@@ -127,10 +134,21 @@
         background: white;
         margin: 2rem  5rem;
     }
+
+    @media screen and (max-height: 800px) {
+      #somet_logo {
+        margin: 2.5rem;
+      }
+    }
   </style>
 
   <div class="center-align container">
     <img src="/somet-logo.png" id="somet_logo">
+
+
+{{#if loggingIn}}
+  {{> Preloader}}
+{{else}}
     <div class="actions">
       <a data-social-login="loginWithStrava" class="waves-effect waves-light deep-orange lighten-1 btn-large button">Connexion avec Strava</a>
     </div>
@@ -181,14 +199,16 @@
       <a class="waves-effect waves-light btn-large button" id="button_login">Connexion par identifiants</a>
       <a class="waves-effect waves-light btn-large secondary button" id="button_signup">Créer un compte</a>
     </div>
-    </div>
 
+  {{/if}}
+
+  </div>
   <script>
     var signup_mode = false;
 
     $(document).ready(function() {
       $('select').material_select();
-      $('.select-dropdown').css('font-size', '1.2rem').css('color', 'rgba(0,0,0,0.25)');
+      $('.select-dropdown').css('font-size', '1.2rem').css('color', 'rgba(0,0,0,0.25)').css('z-index',30);
       $('select').on('change', function() {
         $('.select-dropdown').css('color', 'rgba(0,0,0,1)');
       });

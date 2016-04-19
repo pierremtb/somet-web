@@ -28,6 +28,10 @@ let NotificationsDBSchema = new SimpleSchema({
   "value": {
     type: String,
     label: "The value of this notification."
+  },
+  "date": {
+    type: Date,
+    label: "The date of creation of this notification."
   }
 });
 

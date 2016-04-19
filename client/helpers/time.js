@@ -71,6 +71,19 @@ Template.registerHelper("dispNotificationText", function(type, value) {
   }
 });
 
+Template.registerHelper("dispNotificationType", function(type) {
+  switch(type) {
+    case "trainer_confirmation":
+      return "Confirmation d'entraineur";
+    case "athlete_confirmation":
+      return "Confirmation d'athlète";
+    case "invite_for_trainer":
+      return "Demande d'athlète";
+    case "invite_for_athlete":
+      return "Demande d'entraineur";
+  }
+});
+
 Template.registerHelper('dispName', (cn, usr) => {
   return cn == undefined ? '@' + usr : cn
 });
@@ -81,4 +94,8 @@ Template.registerHelper('dispMonthName', (month) => {
 
 Template.registerHelper('targetedUsername', () => {
   return Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username;
+});
+
+Template.registerHelper('getLarge', (url) => {
+  return url.replace('medium.jpg', 'large.jpg');
 });
