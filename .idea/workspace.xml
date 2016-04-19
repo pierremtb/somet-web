@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5210724f-9f17-47f4-854d-6359d6b2e0a0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/methods/insert/notifications.js" afterPath="$PROJECT_DIR$/both/methods/insert/notifications.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/routes/authenticated.js" afterPath="$PROJECT_DIR$/both/routes/authenticated.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/helpers/time.js" afterPath="$PROJECT_DIR$/client/helpers/time.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/handle-authentication.js" afterPath="$PROJECT_DIR$/client/modules/handle-authentication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/application.scss" afterPath="$PROJECT_DIR$/client/stylesheets/application.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/athletes-search-result/trainer-search-result.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/athletes-search-result/trainer-search-result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/nav/nav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/notification/notification.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/notification/notification.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-dashboard/page-dashboard.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-dashboard/page-dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-settings/page-settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/trainers-search-result/trainer-search-result.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/trainers-search-result/trainer-search-result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/user-dash/user-dash.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/globals/loading.html" afterPath="$PROJECT_DIR$/client/templates/globals/loading.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/layouts/default.html" afterPath="$PROJECT_DIR$/client/templates/layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/public/page-login/page-login.html" afterPath="$PROJECT_DIR$/client/templates/public/page-login/page-login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/public/page-login/page-login.js" afterPath="$PROJECT_DIR$/client/templates/public/page-login/page-login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collections/notifications.js" afterPath="$PROJECT_DIR$/collections/notifications.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collections/users.js" afterPath="$PROJECT_DIR$/collections/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/methods/methods.js" afterPath="$PROJECT_DIR$/server/methods/methods.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publications/publications.js" afterPath="$PROJECT_DIR$/server/publications/publications.js" />
     </list>
     <ignored path="sumrise-rebase.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="page-login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/templates/public/page-login/page-login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -62,6 +42,16 @@
               <folding>
                 <marker date="1461076965659" expanded="false" signature="6262:6279" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="publications.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/publications/publications.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="153" column="26" selection-start-line="153" selection-start-column="26" selection-end-line="153" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,16 +106,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notification.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/templates/authenticated/notification/notification.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="page-notifications.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-notifications/page-notifications.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -166,7 +146,6 @@
         <option value="$PROJECT_DIR$/both/methods/update/plans.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/plan-day/plan-day.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-plans/page-plans.html" />
-        <option value="$PROJECT_DIR$/server/publications/publications.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/calendar-month-line/month-line.js" />
         <option value="$PROJECT_DIR$/client/modules/startup.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.js" />
@@ -213,6 +192,7 @@
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.html" />
         <option value="$PROJECT_DIR$/client/templates/public/page-login/page-login.html" />
+        <option value="$PROJECT_DIR$/server/publications/publications.js" />
       </list>
     </option>
   </component>
@@ -285,6 +265,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="somet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="publications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sumrise-rebase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="somet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -572,12 +588,12 @@
       <workItem from="1460914975134" duration="14748000" />
       <workItem from="1460978716549" duration="37998000" />
       <workItem from="1461051962649" duration="5914000" />
-      <workItem from="1461065821620" duration="11148000" />
+      <workItem from="1461065821620" duration="11911000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105999000" />
+    <option name="totallyTimeSpent" value="106762000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -600,7 +616,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15121952" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47317073" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23494424" sideWeight="0.5202593" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -660,21 +676,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-events/page-events.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-          <folding>
-            <marker date="1460993955984" expanded="true" signature="23:3227" placeholder="..." />
-            <marker date="1460993955984" expanded="true" signature="646:2818" placeholder="..." />
-            <marker date="1460993955984" expanded="true" signature="682:2526" placeholder="..." />
-            <marker date="1460993955984" expanded="true" signature="712:2511" placeholder="..." />
-            <marker date="1460993955984" expanded="true" signature="855:1791" placeholder="..." />
-            <marker date="1460993955984" expanded="true" signature="1356:1500" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/collections/events.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1070,6 +1071,14 @@
           <folding>
             <marker date="1461076965659" expanded="false" signature="6262:6279" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/publications/publications.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="153" column="26" selection-start-line="153" selection-start-column="26" selection-end-line="153" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
