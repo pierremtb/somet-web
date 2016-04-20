@@ -56,7 +56,7 @@ Template.PlanDayInput.helpers({
 });
 
 Template.PlanDayInput.events({
-  'change #type': (e, t) =>{
+  'change #type': function (e, t) {
     Session.set('day_' + this + '_type', e.target.value);
     if(e.target.value == 'nth') {
       t.find("#duration").value = 0;
@@ -71,13 +71,13 @@ Template.PlanDayInput.events({
     $(t.find("#duration")).material_select();
     $(t.find("#support")).material_select();
   },
-  'change #duration': (e, t) =>{
+  'change #duration': function (e, t) {
     Session.set('day_' + this + '_duration', parseInt(e.target.value));
   },
-  'change #description': (e, t) =>{
+  'change #description': function (e, t) {
     Session.set('day_' + this + '_description', e.target.value);
   },
-  'change #support': (e, t) =>{
+  'change #support': function (e, t) {
     Session.set('day_' + this + '_support', e.target.value);
   }
 });
