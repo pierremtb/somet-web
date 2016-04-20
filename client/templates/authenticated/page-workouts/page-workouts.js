@@ -67,7 +67,7 @@ Template.Workouts.helpers({
 });
 
 Template.Workouts.events({
-  'click #n_wk_submit': function (e, t) {
+  'click #n_wk_submit': (e, t) =>{
     Meteor.call("insertWorkout", {
       owner: Meteor.user().username,
       title: t.find('#n_wk_title').value ? t.find('#n_wk_title').value : "",
@@ -113,13 +113,13 @@ Template.Workouts.events({
     Session.set("wk_power_values", "");
     Session.set("wk_cadence_values", "");
   },
-  'change #n_wk_length': function (e, t) {
+  'change #n_wk_length': (e, t) =>{
     Session.set("wk_duration", t.find("#n_wk_length").value);
   },
-  'mousemove #n_wk_length': function (e, t) {
+  'mousemove #n_wk_length': (e, t) =>{
     Session.set("wk_duration", t.find("#n_wk_length").value);
   },
-  'click #open_this_0': function (e, t) {
+  'click #open_this_0': (e, t) =>{
     $('#select_plan').closeModal();
     Session.set('is_plan_based_wk', true);
     Session.set('wk_support', this.monday_support);
@@ -129,7 +129,7 @@ Template.Workouts.events({
     Session.set('wk_desc', this.monday_desc);
     $('#add_workout').openModal();
   },
-  'click #open_this_1': function (e, t) {
+  'click #open_this_1': (e, t) =>{
     $('#select_plan').closeModal();
     Session.set('is_plan_based_wk', true);
     Session.set('wk_support', this.tuesday_support);
@@ -139,7 +139,7 @@ Template.Workouts.events({
     Session.set('wk_desc', this.tuesday_desc);
     $('#add_workout').openModal();
   },
-  'click #open_this_2': function (e, t) {
+  'click #open_this_2': (e, t) =>{
     $('#select_plan').closeModal();
     Session.set('is_plan_based_wk', true);
     Session.set('wk_support', this.wednesday_support);
@@ -149,7 +149,7 @@ Template.Workouts.events({
     Session.set('wk_desc', this.wednesday_desc);
     $('#add_workout').openModal();
   },
-  'click #open_this_3': function (e, t) {
+  'click #open_this_3': (e, t) =>{
     $('#select_plan').closeModal();
     Session.set('is_plan_based_wk', true);
     Session.set('wk_support', this.thursday_support);
@@ -159,7 +159,7 @@ Template.Workouts.events({
     Session.set('wk_desc', this.thursday_desc);
     $('#add_workout').openModal();
   },
-  'click #open_this_4': function (e, t) {
+  'click #open_this_4': (e, t) =>{
     $('#select_plan').closeModal();
     Session.set('is_plan_based_wk', true);
     Session.set('wk_support', this.friday_support);
@@ -169,7 +169,7 @@ Template.Workouts.events({
     Session.set('wk_desc', this.friday_desc);
     $('#add_workout').openModal();
   },
-  'click #open_this_5': function (e, t) {
+  'click #open_this_5': (e, t) =>{
     $('#select_plan').closeModal();
     Session.set('is_plan_based_wk', true);
     Session.set('wk_support', this.saturday_support);
@@ -179,7 +179,7 @@ Template.Workouts.events({
     Session.set('wk_desc', this.saturday_desc);
     $('#add_workout').openModal();
   },
-  'click #open_this_6': function (e, t) {
+  'click #open_this_6': (e, t) =>{
     $('#select_plan').closeModal();
     Session.set('is_plan_based_wk', true);
     Session.set('wk_support', this.sunday_support);

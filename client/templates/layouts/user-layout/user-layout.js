@@ -3,7 +3,7 @@ function isThisPage(p) {
 }
 
 Template.UserLayout.helpers({
-   pageName: function() {
+   pageName: () => {
        switch(Router.current().url) {
            case "/dashboard":
                Session.set("currentPage","Dashboard");
@@ -30,14 +30,14 @@ Template.UserLayout.helpers({
        }
        return Session.get("currentPage");
    },
-    isItDash: function(){ return isThisPage("Dashboard"); },
-    isItWks: function(){ return isThisPage("Entrainements"); },
-    isItPls: function(){ return isThisPage("Plans"); },
-    isItCal: function(){ return isThisPage("Calendrier"); },
-    isItAnl: function(){ return isThisPage("Analyse"); },
-    isItSet: function(){ return isThisPage("Paramètres"); },
-    isItEvt: function(){ return isThisPage("Evénements"); }
+    isItDash: () =>{ return isThisPage("Dashboard"); },
+    isItWks: () =>{ return isThisPage("Entrainements"); },
+    isItPls: () =>{ return isThisPage("Plans"); },
+    isItCal: () =>{ return isThisPage("Calendrier"); },
+    isItAnl: () =>{ return isThisPage("Analyse"); },
+    isItSet: () =>{ return isThisPage("Paramètres"); },
+    isItEvt: () =>{ return isThisPage("Evénements"); }
 });
 
-Template.UserLayout.onRendered(function(){
+Template.UserLayout.onRendered(() =>{
 });

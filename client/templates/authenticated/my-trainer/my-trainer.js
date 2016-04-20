@@ -3,12 +3,12 @@ Template.MyTrainer.helpers({
   });
 
 Template.MyTrainer.events({
-    "click .add_trainer_button": function () {
+    "click .add_trainer_button": () => {
         Meteor.call("sendTrainerInvite",this.username, Meteor.user().username, function(e,r) {
             Materialize.toast(r,1000);
         });
     },
-    "click .rmv_trainer_button": function () {
+    "click .rmv_trainer_button": () => {
         Meteor.call("removeTrainer",this.trainer,Meteor.user().username,function(e,r) {
             Materialize.toast(r,1000);
         });

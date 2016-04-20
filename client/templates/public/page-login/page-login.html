@@ -206,15 +206,15 @@
   <script>
     var signup_mode = false;
 
-    $(document).ready(function() {
+    $(document).ready(() => {
       $('select').material_select();
       $('.select-dropdown').css('font-size', '1.2rem').css('color', 'rgba(0,0,0,0.25)').css('z-index',30);
-      $('select').on('change', function() {
+      $('select').on('change', () => {
         $('.select-dropdown').css('color', 'rgba(0,0,0,1)');
       });
     });
 
-    $('#button_signup').on('click', function () {
+    $('#button_signup').on('click', () => {
       if(signup_mode) {
         $('#login_form').removeClass('signup_mode');
         $('#signup_form').removeClass('signup_mode');
@@ -373,7 +373,7 @@
   </div>
 
   <script>
-    $(document).ready(function () {
+    $(document).ready(() => {
       $('.modal-trigger').leanModal();
     });
   </script>-->

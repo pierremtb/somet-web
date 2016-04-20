@@ -1,5 +1,5 @@
 const fetchStrava = () => {
-  Meteor.setInterval(function () {
+  Meteor.setInterval(() => {
     let users = _getUsers();
     for (let i in users) {
       if (users[i].services.strava && users[i].profile.strava_sync) {

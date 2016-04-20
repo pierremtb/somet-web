@@ -1,8 +1,8 @@
 Template.UserDashGraphs.events({
-  "click #previous": function (e, t) {
+  "click #previous": (e, t) =>{
     dispPreviousMonth(t.data.username, t);
   },
-  "click #next": function (e, t) {
+  "click #next": (e, t) =>{
     dispNextMonth(t.data.username, t);
   }
 });
@@ -15,7 +15,7 @@ Template.UserDashGraphs.helpers({
 
 Template.UserDashGraphs.onCreated(function () {
   let self = this;
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     self.subscribe("workoutsOfUsr", Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username);
   });
   let current_date = new Date();
@@ -27,7 +27,7 @@ Template.UserDashGraphs.onCreated(function () {
 
 Template.UserDashGraphs.onRendered(function () {
   let self = this;
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     if (self.subscriptionsReady()) {
       Modules.client.drawDashboardGraphs(Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username,
                                          graph_date.get(),

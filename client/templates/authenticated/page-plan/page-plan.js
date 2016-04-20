@@ -6,7 +6,7 @@ Template.Plan.onCreated(function () {
   isNew = new ReactiveVar();
   isEditablePlan = new ReactiveVar();
 
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     FlowRouter.watchPathChange();
     isEdit.set(FlowRouter.current().path.indexOf('/plan') != -1 && FlowRouter.current().path.indexOf('/edit') != -1);
     isNew.set(FlowRouter.current().path == "/plan/new");
@@ -44,7 +44,7 @@ Template.Plan.onRendered(function () {
 
   let count = 0;
   if (!isNew.get()) {
-    Tracker.autorun(function () {
+    Tracker.autorun(() => {
       if (FlowRouter.subsReady() && count < 20) {
         if (PlansDB.findOne()) {
           pl.set(PlansDB.findOne());
@@ -99,7 +99,7 @@ Template.Plan.helpers({
   monday_support() {
     return this.monday_support
   },
-  mondayType: function () {
+  mondayType: () => {
     if (this.monday_type == "wk")
       return "Entrainement";
     else if (this.monday_type == "rc")
@@ -107,7 +107,7 @@ Template.Plan.helpers({
     else if (this.monday_type == "nth")
       return "Repos";
   },
-  monday_type: function () {
+  monday_type: () => {
     return this.mondayType;
   },
   isEditablePlan() {
@@ -122,7 +122,7 @@ Template.Plan.helpers({
 });
 
 Template.Plan.events({
-  "click #delete_btn": function (e, t) {
+  "click #delete_btn": (e, t) =>{
     Meteor.call("removePlan", pl.get()._id);
     FlowRouter.go("/plans");
   },

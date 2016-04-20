@@ -114,7 +114,7 @@ Template.CalendarMonthLine.helpers({
 
 Template.CalendarMonthLine.onCreated(function () {
   let self = this;
-  Tracker.autorun(function() {
+  Tracker.autorun(() => {
     self.subscribe('dayEventsOfUsr', Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username, self.data.date);
   });
 });

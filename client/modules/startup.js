@@ -1,5 +1,5 @@
 let startup = () => {
-  Meteor.startup(function() {
+  Meteor.startup(() => {
     GoogleMaps.load({
       key: 'AIzaSyALStwuz3NarVtdaDextjZeuP2PInp0Dtg',
       libraries: 'places'
@@ -20,7 +20,7 @@ let _setUploader = () => {
       Session.set('fit_processing', true);
       Meteor.call('fit2JSON', "" + fileInfo.path + "");
       console.log('converting...');
-      Meteor.setTimeout(function() {
+      Meteor.setTimeout(() => {
         Meteor.call('parseJSON', function(e,r){
           if(e)
             Meteor.throw(e);

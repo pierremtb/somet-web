@@ -24,7 +24,7 @@ function getDaysInMonth(month, year) {
 
 
 Template.CalendarMonthCard.helpers({
-   monthName: function(){ return months[this.month - 1];},
-   days: function() { return getDaysInMonth(this.month,this.year);}
+   monthName: function() {return months[this.month - 1]},
+   days: function() {return getDaysInMonth(this.month,this.year)}
 });
 

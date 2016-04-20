@@ -32,7 +32,7 @@ Template.UserDash.helpers({
 });
 
 Template.UserDash.events({
-  "click #finish_strava_conf": function (e, t) {
+  "click #finish_strava_conf": (e, t) =>{
     let strava_sync = t.find("#strava_sync").checked,
       complete_name = Meteor.user().profile.fullName,
       username = t.find("#new_username").value,
@@ -58,7 +58,7 @@ Template.UserDash.events({
 Template.UserDash.onCreated(function () {
   let self = this;
   self.subscribe("getUserData");
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     self.subscribe("workoutsOfUsr", Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username);
     self.subscribe("thisWeekPlansOfUsr", Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username);
   });

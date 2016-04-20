@@ -3,7 +3,7 @@ Template.Event.onCreated(function () {
   isEdit = new ReactiveVar();
   isNew = new ReactiveVar();
   isEditableEvent= new ReactiveVar();
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     FlowRouter.watchPathChange();
     isEdit.set((FlowRouter.current().path.indexOf('/event') != -1 && FlowRouter.current().path.indexOf('/edit') != -1));
     isNew.set(FlowRouter.current().path == '/event/new');
@@ -12,13 +12,13 @@ Template.Event.onCreated(function () {
 });
 
 Template.Event.onRendered(function () {
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     if (GoogleMaps.loaded()) {
       $("#event_place").geocomplete();
     }
   });
   var done = false;
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     if (FlowRouter.subsReady() && !done) {
       ev.set(EventsDB.findOne());
       done = true;
@@ -76,15 +76,15 @@ Template.Event.helpers({
 });
 
 Template.Event.events({
-  "click #delete_bt": function (e, t) {
+  "click #delete_bt": (e, t) =>{
     Meteor.call("rmThisEv", t.find("#evid").innerHTML);
     document.location = "/events";
   },
-  'click #edit_event': function (e,t) {
+  'click #edit_event': (e, t) =>{
     FlowRouter.go('/event/' + ev.get()._id + '/edit');
     FlowRouter.reload();
   },
-  'click #save_new_event': function (e,t) {
+  'click #save_new_event': (e, t) =>{
     console.log("nsrtaintui");
     if (isNew.get()) {
       Meteor.call("insertEvent", {

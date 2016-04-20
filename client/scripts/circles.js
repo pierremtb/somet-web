@@ -10,7 +10,7 @@
   }
 
 
-}(this, function() {
+}(this, () => {
 
   "use strict";
 
@@ -63,7 +63,7 @@
   Circles.prototype = {
     VERSION: '0.0.6',
 
-    _generate: function() {
+    _generate: () => {
 
       this._svgSize        = this._radius * 2;
       this._radiusAdjusted = this._radius - (this._strokeWidth / 2);
@@ -81,7 +81,7 @@
       this._textContainer.innerHTML	=	this._getText(this.getValueFromPercent(percentage));
     },
 
-    _generateWrapper: function() {
+    _generateWrapper: () => {
       this._wrapContainer	=	document.createElement('div');
       this._wrapContainer.className = this._wrpClass;
 
@@ -96,7 +96,7 @@
       return this;
     },
 
-    _generateText: function() {
+    _generateText: () => {
 
       this._textContainer = document.createElement('div');
       this._textContainer.className = this._textClass;
@@ -132,7 +132,7 @@
       return typeof this._text === 'function' ? this._text.call(this, value) : this._text;
     },
 
-    _generateSvg: function() {
+    _generateSvg: () => {
 
       this._svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       this._svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -228,7 +228,7 @@
       return this;
     },
 
-    getPercent: function() {
+    getPercent: () => {
       return (this._value * 100) / this._maxValue;
     },
 
@@ -236,12 +236,12 @@
       return (this._maxValue * percentage) / 100;
     },
 
-    getValue: function()
+    getValue: () =>
     {
       return this._value;
     },
 
-    getMaxValue: function()
+    getMaxValue: () =>
     {
       return this._maxValue;
     },
@@ -283,11 +283,11 @@
 
         if ((isGreater && oldPercentage >= newPercentage) || (!isGreater && oldPercentage <= newPercentage))
         {
-          requestAnimFrame(function(){ self._setPercentage(newPercentage); });
+          requestAnimFrame(() =>{ self._setPercentage(newPercentage); });
           return;
         }
 
-        requestAnimFrame(function() { self._setPercentage(oldPercentage); });
+        requestAnimFrame(() => { self._setPercentage(oldPercentage); });
 
         var now     = Date.now(),
           deltaTime = now - lastFrame;
@@ -295,7 +295,7 @@
         if (deltaTime >= stepDuration) {
           animate(now);
         } else {
-          setTimeout(function() {
+          setTimeout(() => {
             animate(Date.now());
           }, stepDuration - deltaTime);
         }

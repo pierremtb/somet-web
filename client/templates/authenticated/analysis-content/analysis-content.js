@@ -1,6 +1,6 @@
 Template.AnalysisContent.onCreated(function () {
   let self = this;
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     self.subscribe('thisTargetWorkoutsOfUsr',
       {month: Session.get('month_selected'), year: Session.get('year_selected')},
       Meteor.user().profile.trainer ? Session.get('selectedAthlete') : Meteor.user().username);

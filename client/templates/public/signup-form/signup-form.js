@@ -1,5 +1,5 @@
 Template.SignupForm.events({
-  "click .strava": function (e, t) {
+  "click .strava": (e, t) =>{
     Meteor.loginWithStrava({redirectUrl: "/dashboard"}, function (err) {
       if (err) {
         throw new Meteor.Error("Strava login failed");
@@ -9,7 +9,7 @@ Template.SignupForm.events({
       }
     });
   },
-  'submit #register-form': function (e, t) {
+  'submit #register-form': (e, t) =>{
     e.preventDefault();
     var username = t.find('#account_username').value
       , password = t.find('#account_password').value
@@ -30,7 +30,7 @@ Template.SignupForm.events({
 
     return false;
   },
-  'click #signup_button': function (e, t) {
+  'click #signup_button': (e, t) =>{
     e.preventDefault();
 
     var username = t.find('#account_username').value

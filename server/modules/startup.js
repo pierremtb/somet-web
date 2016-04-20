@@ -22,7 +22,7 @@ var _generateAccounts = () => Modules.server.generateAccounts();
 var _fetchStrava = () => Modules.server.fetchStrava();
 
 var _setUploader = () => {
-  Meteor.startup(function () {
+  Meteor.startup(() => {
     UploadServer.init({
       tmpDir: process.env.PWD + '/.uploads/tmp',
       uploadDir: process.env.PWD + '/.uploads/',

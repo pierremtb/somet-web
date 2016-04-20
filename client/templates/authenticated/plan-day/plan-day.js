@@ -1,5 +1,5 @@
 Template.PlanDay.helpers({
-    isNotNth: function() {
+    isNotNth: () => {
             return true;
     }
 })

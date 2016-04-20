@@ -1,7 +1,7 @@
 Template.WorkoutCRs.helpers({});
 
-Template.WorkoutCRs.onRendered(function() {
-  $(document).ready(function () {
+Template.WorkoutCRs.onRendered(function () {
+  $(document).ready(() => {
     var circle_crten_eff = Circles.create({
       id: 'circle_crten_eff',
       radius: 30,

@@ -1,8 +1,8 @@
 var days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
-Template.PlanDayInput.onRendered(function (){
+Template.PlanDayInput.onRendered(() =>{
   let self = this;
-  Tracker.autorun(function() {
+  Tracker.autorun(() => {
     if (isEdit.get()) {
       let type = Session.get('day_' + self.data + '_type');
       self.find('#type').value = type;
@@ -57,7 +57,7 @@ Template.PlanDayInput.helpers({
 });
 
 Template.PlanDayInput.events({
-  'change #type': function (e,t) {
+  'change #type': (e, t) =>{
     Session.set('day_' + this + '_type', e.target.value);
     if(e.target.value == 'nth') {
       t.find("#duration").value = 0;
@@ -72,13 +72,13 @@ Template.PlanDayInput.events({
     $(t.find("#duration")).material_select();
     $(t.find("#support")).material_select();
   },
-  'change #duration': function (e,t) {
+  'change #duration': (e, t) =>{
     Session.set('day_' + this + '_duration', parseInt(e.target.value));
   },
-  'change #description': function (e,t) {
+  'change #description': (e, t) =>{
     Session.set('day_' + this + '_description', e.target.value);
   },
-  'change #support': function (e,t) {
+  'change #support': (e, t) =>{
     Session.set('day_' + this + '_support', e.target.value);
   }
 });

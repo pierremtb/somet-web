@@ -106,7 +106,7 @@
       return week_commencing_dates;
     }
 
-    $(document).ready(function() {
+    $(document).ready(() => {
       $('.modal-trigger').leanModal();
       var today = new Date();
       let mon = populate_week_range_options(new Date(today.getFullYear(),today.getMonth(),1), new Date(today.getFullYear() + 1,12,31));

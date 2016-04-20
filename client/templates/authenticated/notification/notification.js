@@ -1,5 +1,5 @@
 Template.Notification.events({
-  "click #mark_read": function () {
+  "click #mark_read": () => {
     Meteor.call("declineNotification", this._id);
   },
   "click #accept": function(e,t) {

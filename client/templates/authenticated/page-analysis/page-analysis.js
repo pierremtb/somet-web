@@ -1,5 +1,5 @@
 Template.Analysis.events({
-  'change select': function (e, t) {
+  'change select': (e, t) =>{
     Session.set(e.target.getAttribute('id'), parseInt(e.target.value));
   }
 });

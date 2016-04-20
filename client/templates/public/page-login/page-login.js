@@ -1,5 +1,5 @@
 Template.Login.onCreated( () => {
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     let template = Template.instance();
     template.createOrSignIn = new ReactiveVar();
   });

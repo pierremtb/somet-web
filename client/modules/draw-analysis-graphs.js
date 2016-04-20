@@ -4,7 +4,7 @@ let ppr_data_array = [];
 const drawAnalysisGraphs = (ppr, ppr_e) => {
   ppr_data_array = [];
   _getData(ppr);
-  google.charts.setOnLoadCallback(function() {
+  google.charts.setOnLoadCallback(() => {
     _drawChart(ppr_e);
   });
 };

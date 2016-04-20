@@ -26,7 +26,7 @@ Template.Events.events({
     if (!rowData) return;
     FlowRouter.go('/event/' + rowData._id);
   },
-  "click #e_submit": function (e, t) {
+  "click #e_submit": (e, t) =>{
     Meteor.call("insertEvent", {
       owner: Meteor.user().profile.trainer ? Session.get("selectedAthlete") : Meteor.user().username,
       name: t.find("#e_title").value,
@@ -42,8 +42,8 @@ Template.Events.onCreated(function () {
   this.subscribe('eventsOfUsr', Meteor.user().profile === "trainer" ? Session.get('selectedAthlete') : Meteor.user().username)
 });
 
-Template.Events.onRendered(function() {
-  Tracker.autorun(function () {
+Template.Events.onRendered(function () {
+  Tracker.autorun(() => {
     if (GoogleMaps.loaded()) {
       $("#e_place").geocomplete();
     }

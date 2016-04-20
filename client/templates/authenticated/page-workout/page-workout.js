@@ -5,7 +5,7 @@ Template.Workout.onCreated(function () {
 Template.Workout.onRendered(function () {
   var self = this;
   var done = false;
-  Tracker.autorun(function () {
+  Tracker.autorun(() => {
     if (FlowRouter.subsReady() && !done) {
       if(WorkoutsDB.findOne()) {
         wk.set(WorkoutsDB.findOne());
@@ -40,11 +40,11 @@ Template.Workout.helpers({
 });
 
 Template.Workout.events({
-  "click #delete_bt": function (e, t) {
+  "click #delete_bt": (e, t) => {
     Meteor.call("rmThisWk", t.find(".wkid").innerHTML);
     document.location = "/workouts";
   },
-  "click #accept_cr": function(e, t) {
+  "click #accept_cr": (e, t) => {
     Meteor.call("setCR", Session.get('workout_id'), {
       effort: t.find('#cr_effort').value,
       pleasure: t.find('#cr_pleasure').value,

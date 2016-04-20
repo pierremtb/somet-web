@@ -85,7 +85,7 @@ function _getWorkoutsSupportsData(me, graph_date) {
 }
 
 function _drawMonthGraph(e_d, e_s) {
-  google.charts.setOnLoadCallback(function() {
+  google.charts.setOnLoadCallback(() => {
     _drawChartWkMonth(e_d);
     _drawChartRepart(e_s);
   });

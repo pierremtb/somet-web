@@ -1,23 +1,23 @@
 Template.Nav.events({
-  'click #logout_button': function () {
+  'click #logout_button': () => {
     Meteor.logout(function (e) {
       FlowRouter.go('/settings');
       FlowRouter.redirect('/login');
     });
   },
-  'click #mobile_logout': function () {
+  'click #mobile_logout': () => {
     Meteor.logout(function (e) {
       FlowRouter.go('/');
     });
   },
-  'click .athleteD': function () {
+  'click .athleteD': function() {
     Session.set("selectedAthlete", this.username);
     Session.set("selectedAthleteName", this.complete_name);
   },
-  "click .clear_notifs": function () {
+  "click .clear_notifs": () => {
     Meteor.call("makeAllNotificationsRead", Meteor.user().username);
   },
-  "keyup #search_bar": function (e, t) {
+  "keyup #search_bar": (e, t) =>{
     Session.set("searchQuery", e.target.value);
   },
   'click #action_search a': (e,t) => {
@@ -26,7 +26,7 @@ Template.Nav.events({
 });
 
 Template.Nav.helpers({
-  ifMyProfileSetActive: () => Session.get('current_path').indexOf(Meteor.userId()) != -1 && FlowRouter.getRouteName() == "Profil" ? 'active' : '',
+  ifMyProfileSetActive: () => isMyProfile.get() ? 'active' : '',
   notificationsNotRead() {
     return NotificationsDB.findOne({read: false}) ? NotificationsDB.find({read: false}) : false;
   },
@@ -47,10 +47,16 @@ Template.Nav.helpers({
 Template.Nav.onRendered(function () {
   if(Meteor.user().profile.trainer)
     Session.set("selectedAthlete", Meteor.user().profile.my_athletes[0]);
+  Tracker.autorun(() => {
+    FlowRouter.watchPathChange();
+    isMyProfile.set(FlowRouter.current().path.indexOf(Meteor.userId()) != -1 && FlowRouter.getRouteName() == "Profil");
+  });
 });
 
 Template.Nav.onCreated(function () {
   this.subscribe('allUsers');
   this.subscribe('notificationsOfCurrentUser');
   this.subscribe('getUserData');
+
+  isMyProfile = new ReactiveVar(false);
 });

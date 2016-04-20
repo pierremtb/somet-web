@@ -1,5 +1,5 @@
 Template.WorkoutGraphs.events({
-  "click #x_axis_time": function (e, t) {
+  "click #x_axis_time": (e, t) =>{
     Session.set("x_axis", "time");
     Modules.client.drawWorkoutsGraphs(t.data.workout,
       t.find('#elevation_chart'),
@@ -8,7 +8,7 @@ Template.WorkoutGraphs.events({
       t.find('#cadence_chart'),
       t.find('#heart_rate_chart'));
   },
-  "click #x_axis_distance": function (e, t) {
+  "click #x_axis_distance": (e, t) =>{
     Session.set("x_axis", "distance");
     Modules.client.drawWorkoutsGraphs(t.data.workout,
       t.find('#elevation_chart'),

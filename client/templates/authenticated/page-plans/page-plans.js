@@ -42,7 +42,7 @@ Template.Plans.events({
     });
     Meteor.call("sendPush", Meteor.user().username, Session.get("selectedAthlete"), "Nouveau plan", "Un nouveau plan vous a été ajouté!");
   },
-  'change #n_pl_start_date': function (e, t) {
+  'change #n_pl_start_date': (e, t) =>{
     var d = new Date(t.find('#n_pl_start_date').value);
     console.log(d.getTime());
     Session.set("n_pl_start_date", d);

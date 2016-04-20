@@ -87,7 +87,6 @@
         <item url="file://$USER_HOME$/.meteor/packages/webtempest_animate/0.1.9/web.browser/packages/webtempest_animate/animate.css" />
         <item url="file://$USER_HOME$/.meteor/packages/themeteorchef_jquery-validation/1.14.0/web.browser/packages/themeteorchef_jquery-validation.js" />
         <item url="file://$USER_HOME$/.meteor/packages/percolate_momentum/0.7.2/web.browser/packages/percolate:momentum.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/poetic_materialize-scss/1.97.5_2/web.browser/dist/js/materialize.js" />
         <item url="file://$USER_HOME$/.meteor/packages/random/1.0.8/web.browser/deprecated.js" />
         <item url="file://$USER_HOME$/.meteor/packages/random/1.0.8/web.browser/random_tests.js" />
         <item url="file://$USER_HOME$/.meteor/packages/percolate_velocityjs/1.1.0/web.browser/packages/percolate:velocityjs.js" />
@@ -165,6 +164,9 @@
         <item url="file://$USER_HOME$/.meteor/packages/spacebars-compiler/1.0.10/web.browser/optimizer.js" />
         <item url="file://$USER_HOME$/.meteor/packages/srp/1.0.7/web.browser/srp.js" />
         <item url="file://$USER_HOME$/.meteor/packages/srp/1.0.7/web.browser/biginteger.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.13.1/web.browser/moment.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.13.1/web.browser/meteor/export.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/poetic_materialize-scss/1.97.6_1/web.browser/dist/js/materialize.js" />
         <item url="file://$USER_HOME$/.meteor/packages/alethes_pages/1.8.6/web.browser/lib/pages.coffee" />
         <item url="file://$USER_HOME$/.meteor/packages/alethes_pages/1.8.6/web.browser/client/controllers.coffee" />
         <item url="file://$USER_HOME$/.meteor/packages/alethes_pages/1.8.6/web.browser/client/main.css" />
@@ -234,8 +236,6 @@
         <item url="file://$USER_HOME$/.meteor/packages/ecmascript-runtime/0.2.9/web.browser/runtime-tests.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ecmascript-runtime/0.2.9/web.browser/runtime.js" />
         <item url="file://$USER_HOME$/.meteor/packages/babel-runtime/0.1.7/web.browser/babel-runtime.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.12.0/web.browser/moment.js" />
-        <item url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.12.0/web.browser/meteor/export.js" />
         <item url="file://$USER_HOME$/.meteor/packages/meteorhacks_async/1.0.0/web.browser/packages/meteorhacks:async.js" />
         <item url="file://$USER_HOME$/.meteor/packages/mongo-id/1.0.3/web.browser/id.js" />
         <item url="file://$USER_HOME$/.meteor/packages/aldeed_simple-schema/1.5.3/web.browser/simple-schema-validation.js" />
@@ -398,7 +398,6 @@
       <root url="file://$USER_HOME$/.meteor/packages/webtempest_animate/0.1.9/web.browser/packages/webtempest_animate/animate.css" />
       <root url="file://$USER_HOME$/.meteor/packages/themeteorchef_jquery-validation/1.14.0/web.browser/packages/themeteorchef_jquery-validation.js" />
       <root url="file://$USER_HOME$/.meteor/packages/percolate_momentum/0.7.2/web.browser/packages/percolate:momentum.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/poetic_materialize-scss/1.97.5_2/web.browser/dist/js/materialize.js" />
       <root url="file://$USER_HOME$/.meteor/packages/random/1.0.8/web.browser/deprecated.js" />
       <root url="file://$USER_HOME$/.meteor/packages/random/1.0.8/web.browser/random_tests.js" />
       <root url="file://$USER_HOME$/.meteor/packages/percolate_velocityjs/1.1.0/web.browser/packages/percolate:velocityjs.js" />
@@ -476,6 +475,9 @@
       <root url="file://$USER_HOME$/.meteor/packages/spacebars-compiler/1.0.10/web.browser/optimizer.js" />
       <root url="file://$USER_HOME$/.meteor/packages/srp/1.0.7/web.browser/srp.js" />
       <root url="file://$USER_HOME$/.meteor/packages/srp/1.0.7/web.browser/biginteger.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.13.1/web.browser/moment.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.13.1/web.browser/meteor/export.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/poetic_materialize-scss/1.97.6_1/web.browser/dist/js/materialize.js" />
       <root url="file://$USER_HOME$/.meteor/packages/alethes_pages/1.8.6/web.browser/lib/pages.coffee" />
       <root url="file://$USER_HOME$/.meteor/packages/alethes_pages/1.8.6/web.browser/client/controllers.coffee" />
       <root url="file://$USER_HOME$/.meteor/packages/alethes_pages/1.8.6/web.browser/client/main.css" />
@@ -545,8 +547,6 @@
       <root url="file://$USER_HOME$/.meteor/packages/ecmascript-runtime/0.2.9/web.browser/runtime-tests.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ecmascript-runtime/0.2.9/web.browser/runtime.js" />
       <root url="file://$USER_HOME$/.meteor/packages/babel-runtime/0.1.7/web.browser/babel-runtime.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.12.0/web.browser/moment.js" />
-      <root url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.12.0/web.browser/meteor/export.js" />
       <root url="file://$USER_HOME$/.meteor/packages/meteorhacks_async/1.0.0/web.browser/packages/meteorhacks:async.js" />
       <root url="file://$USER_HOME$/.meteor/packages/mongo-id/1.0.3/web.browser/id.js" />
       <root url="file://$USER_HOME$/.meteor/packages/aldeed_simple-schema/1.5.3/web.browser/simple-schema-validation.js" />

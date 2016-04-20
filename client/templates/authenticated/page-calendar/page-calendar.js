@@ -1,16 +1,16 @@
 var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"];
 
 Template.Calendar.helpers({
-    monthOne: function() { return Session.get("monthOne");},
-    monthTwo: function() { return Session.get("monthTwo");},
-    monthThree: function() { return Session.get("monthThree");},
-    yearOne: function() { return Session.get("yearOne");},
-    yearTwo: function() { return Session.get("yearTwo");},
-    yearThree: function() { return Session.get("yearThree");},
-    previousMonth: function() { return  Session.get("monthOne") == 1 ? months[11] : months[Session.get("monthOne") - 2];},
-    previousYear: function() { return Session.get("monthOne") == 1 ? Session.get("yearThree") - 1 : Session.get("yearOne");},
-    nextMonth: function() { return  Session.get("monthThree") == 12 ? months[0] : months[Session.get("monthThree")];},
-    nextYear: function() { return Session.get("monthThree") == 12 ? Session.get("yearThree") + 1 : Session.get("yearThree");}
+    monthOne: () => Session.get("monthOne"),
+    monthTwo: () => Session.get("monthTwo"),
+    monthThree: () => Session.get("monthThree"),
+    yearOne: () => Session.get("yearOne"),
+    yearTwo: () => Session.get("yearTwo"),
+    yearThree: () => Session.get("yearThree"),
+    previousMonth: () =>  Session.get("monthOne") == 1 ? months[11] : months[Session.get("monthOne") - 2],
+    previousYear: () => Session.get("monthOne") == 1 ? Session.get("yearThree") - 1 : Session.get("yearOne"),
+    nextMonth: () =>  Session.get("monthThree") == 12 ? months[0] : months[Session.get("monthThree")],
+    nextYear: () => Session.get("monthThree") == 12 ? Session.get("yearThree") + 1 : Session.get("yearThree")
 });
 
 Template.Calendar.onRendered(function () {
@@ -24,7 +24,7 @@ Template.Calendar.onRendered(function () {
 });
 
 Template.Calendar.events({
-    "click #next_month": function(e,t) {
+    "click #next_month": (e,t) => {
         if(Session.get("monthOne") < 12 && Session.get("monthTwo") < 12 && Session.get("monthThree") < 12) {
             Session.set("monthOne", Session.get("monthOne") + 1);
             Session.set("monthTwo", Session.get("monthTwo") + 1);
@@ -49,7 +49,7 @@ Template.Calendar.events({
             Session.set("yearOne", Session.get("yearOne") + 1);
         }
     },
-    "click #previous_month": function(e,t) {
+    "click #previous_month": (e,t) => {
         if(Session.get("monthOne") > 1 && Session.get("monthTwo") > 1 && Session.get("monthThree") > 1) {
             Session.set("monthOne", Session.get("monthOne") - 1);
             Session.set("monthTwo", Session.get("monthTwo") - 1);
