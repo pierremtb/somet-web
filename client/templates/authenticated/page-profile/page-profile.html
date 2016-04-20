@@ -92,24 +92,62 @@
             <div class="card" style="z-index:99">
               <div class="card-content">
                 <span class="card-title">Mon profil</span>
-                <p>Nom d'utilisateur : @{{user.username}}</p>
-                <p> Nom complet : {{user.profile.complete_name}}
+                <p class="">
+                  <i class="material-icons f18p vam">
+                    perm_identity
+                  </i>
+                  <span class="secondary_text_color vam">
+                    @{{user.username}}
+                  </span>
+                </p>
+                <p class="pt10p">
+                  <i class="material-icons f18p vam">
+                    face
+                  </i>
+                  <span class="secondary_text_color vam">
+                    {{user.profile.complete_name}}
+                  </span>
                   <a class="modal-trigger" href="#change_complete_name"><i
                           class="material-icons tiny accent_txt">edit</i></a>
                 </p>
-                <p> Changer de mot de passe
+                <p class="pt10p">
+                  <i class="material-icons f18p vam">
+                    fingerprint
+                  </i>
+                  <span class="secondary_text_color vam">
+                    Changer de mot de passe
+                  </span>
                   <a class="modal-trigger" href="#change_pwd"><i class="material-icons tiny accent_txt">edit</i></a>
                 </p>
-                <p> Poids : {{user.profile.weight}} kg
+                <p class="pt10p">
+                  <i class="material-icons f18p vam">
+                    fitness_center
+                  </i>
+                  <span class="secondary_text_color vam">
+                    {{user.profile.weight}} kg
+                  </span>
                   <a class="modal-trigger" href="#change_weight"><i class="material-icons tiny accent_txt">edit</i></a>
                 </p>
-                <p> Taille : {{user.profile.height}} cm
+                <p class="pt10p">
+                  <i class="material-icons f18p vam">
+                    accessibility
+                  </i>
+                  <span class="secondary_text_color vam">
+                    {{user.profile.height}} cm
+                  </span>
                   <a class="modal-trigger" href="#change_height"><i class="material-icons tiny accent_txt">edit</i></a>
                 </p>
                 {{#if user.services.strava}}
-                  <p>Utilisateur Strava : <a target="_blank"
-                                             href="https://www.strava.com/athletes/{{user.services.strava.id}}">Profil</a>
-                  </p>
+                <p class="pt10p">
+                  <i class="material-icons f18p vam">
+                    link
+                  </i>
+                  <span class="secondary_text_color vam">
+                    <a class="secondary_text_color" href="https://www.strava.com/athletes/{{user.services.strava.id}}">
+                        Profil Strava
+                      </a>
+                  </span>
+                </p>
                 {{/if}}
               </div>
             </div>

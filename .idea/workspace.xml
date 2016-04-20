@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5210724f-9f17-47f4-854d-6359d6b2e0a0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/helpers/time.js" afterPath="$PROJECT_DIR$/client/helpers/time.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/application.scss" afterPath="$PROJECT_DIR$/client/stylesheets/application.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.js" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html" afterPath="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html" />
     </list>
     <ignored path="sumrise-rebase.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="page-profile.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="page-profile.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+            <state relative-caret-position="274">
+              <caret line="150" column="15" selection-start-line="150" selection-start-column="15" selection-end-line="150" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -70,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="145" column="41" selection-start-line="145" selection-start-column="41" selection-end-line="145" selection-end-column="41" />
+            <state relative-caret-position="229">
+              <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -194,11 +189,11 @@
         <option value="$PROJECT_DIR$/server/publications/publications.js" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.js" />
         <option value="$PROJECT_DIR$/client/helpers/time.js" />
-        <option value="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-plan/page-plan.html" />
         <option value="$PROJECT_DIR$/client/templates/authenticated/page-workout/page-workout.html" />
         <option value="$PROJECT_DIR$/client/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.html" />
       </list>
     </option>
   </component>
@@ -709,12 +704,12 @@
       <workItem from="1460978716549" duration="37998000" />
       <workItem from="1461051962649" duration="5914000" />
       <workItem from="1461065821620" duration="12533000" />
-      <workItem from="1461144637538" duration="18846000" />
+      <workItem from="1461144637538" duration="20002000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126230000" />
+    <option name="totallyTimeSpent" value="127386000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1167,14 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-event/page-event.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -1203,8 +1190,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/stylesheets/application.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="145" column="41" selection-start-line="145" selection-start-column="41" selection-end-line="145" selection-end-column="41" />
+        <state relative-caret-position="229">
+          <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/authenticated/page-profile/page-profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="150" column="15" selection-start-line="150" selection-start-column="15" selection-end-line="150" selection-end-column="15" />
           <folding />
         </state>
       </provider>
