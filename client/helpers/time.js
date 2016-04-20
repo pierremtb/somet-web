@@ -18,11 +18,11 @@ Template.registerHelper("dispDistance", function (meters) {
 });
 
 Template.registerHelper("dispUserCompleteName", function (usr) {
-  return Meteor.users.find({username: usr}).profile.complete_name;
+  return Meteor.users.findOne({username: usr}).profile.complete_name;
 });
 
 Template.registerHelper("dispUserId", function (usr) {
-  return Meteor.users.find({username: usr})._id;
+  return Meteor.users.findOne({username: usr})._id;
 });
 
 Template.registerHelper("dispType", function (t) {

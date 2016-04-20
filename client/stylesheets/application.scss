@@ -87,6 +87,34 @@ input[type=range] + .thumb {
   color: $secondary-color;
 }
 
+.primary_text_color {
+  color: rgba(0,0,0,0.87)
+}
+
+.secondary_text_color {
+  color: rgba(0,0,0,0.54)
+}
+
+.disabled_text_color {
+  color: rgba(0,0,0,0.38)
+}
+
+.divider_text_color {
+  color: rgba(0,0,0,0.12)
+}
+
+.primary_text_color_dark {
+  color: rgba(255,255,255,1)
+}
+
+.secondary_text_color_dark {
+  color: rgba(255,255,255,0.7)
+}
+
+.disabled_text_color_dark {
+  color: rgba(255,255,255,0.5)
+}
+
 .grey_bg {
   background: $grey-color;
 }
@@ -111,7 +139,12 @@ input[type=range] + .thumb {
 }
 
 .side_item:hover span, .side_item:hover i {
-  color: $secondary-color;
+  color: rgba(255,255,255,0.8);
+}
+
+.side_item:hover {
+  border-left: solid rgba(255,255,255,0.5) 2px;
+  padding-left: 18px;
 }
 
 @font-face {
@@ -204,7 +237,7 @@ body {
 }
 
 .side_item span, .side_item i {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   transition:  all 0.5s;
 }
 
@@ -212,6 +245,11 @@ body {
   padding: 15px;
   padding-left: 20px;
   padding-right: 0px;
+}
+
+.side_item.active {
+  border-left: solid white 2px;
+  padding-left: 18px;
 }
 
 #side_nav .active span, #side_nav .active i {

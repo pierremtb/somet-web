@@ -1,151 +1,166 @@
 <template name="Profile">
-  <div class="col s12">
-    <p>
-      <a class="btn-flat waves-effect primary_txt" onclick="window.history.back()">
-        <i class="material-icons left">
-          arrow_back
-        </i>
-        Retour
-      </a>
-      {{#if isMe}}
-        <a class="btn-flat waves-effect primary_txt" id="logout">
+  {{#if Template.subscriptionsReady}}
+    <div class="col s12">
+      <p>
+        <a class="btn-flat waves-effect primary_txt" onclick="window.history.back()">
           <i class="material-icons left">
-            exit_to_app
+            arrow_back
           </i>
-          Déconnexion
+          Retour
         </a>
-      {{else}}
-        {{#if isMyTrainer}}
-          <a class="btn-flat waves-effect primary_txt">
+        {{#if isMe}}
+          <a class="btn-flat waves-effect primary_txt" id="logout">
             <i class="material-icons left">
-              remove
+              exit_to_app
             </i>
-            Ne plus être entrainé par {{user.profile.complete_name}}
+            Déconnexion
           </a>
         {{else}}
-          {{#if isOneOfMyAthlete}}
+          {{#if isMyTrainer}}
             <a class="btn-flat waves-effect primary_txt">
               <i class="material-icons left">
                 remove
               </i>
-              Retirer {{user.profile.complete_name}} de mes athlètes
+              Ne plus être entrainé par {{user.profile.complete_name}}
             </a>
           {{else}}
-            <a class="btn-flat waves-effect primary_txt">
-              <i class="material-icons left">
-                add
-              </i>
-              {{#if user.profile.trainer}}
-                Demander comme entraineur
-              {{else}}
-                Ajouter à mes athlètes
-              {{/if}}
-            </a>
+            {{#if isOneOfMyAthlete}}
+              <a class="btn-flat waves-effect primary_txt">
+                <i class="material-icons left">
+                  remove
+                </i>
+                Retirer {{user.profile.complete_name}} de mes athlètes
+              </a>
+            {{else}}
+              <a class="btn-flat waves-effect primary_txt">
+                <i class="material-icons left">
+                  add
+                </i>
+                {{#if user.profile.trainer}}
+                  Demander comme entraineur
+                {{else}}
+                  Ajouter à mes athlètes
+                {{/if}}
+              </a>
+            {{/if}}
           {{/if}}
         {{/if}}
-      {{/if}}
-    </p>
+      </p>
 
-    <div class="white-text mt5p relative sides1rem">
-      {{#with user}}
-        <div class="absolute topright">
-          {{#if services.strava}}
-            <span class="card-title mt30p">
+      <div class="white-text mt5p relative sides1rem">
+        {{#with user}}
+          <div class="absolute topright">
+            {{#if services.strava}}
+              <span class="card-title mt30p">
               <div class="chip white">
                 Associé à Strava
               </div>
             </span>
-          {{/if}}
-          <span class="card-title mt30p l20p">
+            {{/if}}
+            <span class="card-title mt30p l20p">
         <div class="chip white">
           {{dispUserType profile.trainer}}
         </div>
       </span>
-        </div>
-        {{#if services.strava}}
-          <img class="rounded white3pborder left" src="{{getLarge services.strava.profile_medium}}" alt="">
+          </div>
+          {{#if services.strava}}
+            <img class="rounded white3pborder left" src="{{getLarge services.strava.profile_medium}}" alt="">
         <span class="l20p view_title light">
           {{profile.complete_name}}
         </span>
-          <br>
-        <span class="l20p hide-on-small-only f18p mt5pm">
+            <br>
+        <span class="l20p hide-on-small-only f18p mt5pm secondary_text_color_dark">
           @{{username}}
         </span>
-        {{else}}
-          <span class="view_title light">
-            {{profile.complete_name}}
-          </span>
-          <br>
+          {{else}}
+            <span class="view_title light">
+              {{profile.complete_name}}
+            </span>
+            <br>
         <span class="hide-on-small-only f18p mt5pm">
           @{{username}}
         </span>
-        {{/if}}
-      {{/with}}
-    </div>
+          {{/if}}
+        {{/with}}
+      </div>
 
-    <div class="clear"></div>
+      <div class="clear"></div>
 
-    {{#if isMe}}
-      <div class="row mt20p">
-        <div class="col s12 m6">
-          <div class="card" style="z-index:99">
-            <div class="card-content">
-              <span class="card-title">Mon profil</span>
-              <p>Nom d'utilisateur : @{{user.username}}</p>
-              <p> Nom complet : {{user.profile.complete_name}}
-                <a class="modal-trigger" href="#change_complete_name"><i
-                        class="material-icons tiny accent_txt">edit</i></a>
-              </p>
-              <p> Changer de mot de passe
-                <a class="modal-trigger" href="#change_pwd"><i class="material-icons tiny accent_txt">edit</i></a>
-              </p>
-              <p> Poids : {{user.profile.weight}} kg
-                <a class="modal-trigger" href="#change_weight"><i class="material-icons tiny accent_txt">edit</i></a>
-              </p>
-              <p> Taille : {{user.profile.height}} cm
-                <a class="modal-trigger" href="#change_height"><i class="material-icons tiny accent_txt">edit</i></a>
-              </p>
-              {{#if user.services.strava}}
-                <p>Utilisateur Strava : <a target="_blank"
-                                           href="https://www.strava.com/athletes/{{user.services.strava.id}}">Profil</a>
-                </p>
-              {{/if}}
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col s12 m6">
-          <div class="card">
-            <div class="card-content">
-              {{#if user.profile.trainer}}
-                <span class="card-title">Mes athletes</span>
-                <a class="modal-trigger btn-flat" href="/search"><i
-                        class="material-icons tiny accent_txt left">add</i>Ajouter un athlete</a>
-                <ul class="collection">
-                  {{#each user.profile.my_athletes}}
-                    <li class="collection-item">
-                      <div>{{dispUserCompleteName this}} (@{{this}})<a class="secondary-content rmv_athlete_button" href="/user/{{dispUserId this}}"><i
-                              class="material-icons">pageview</i></a>
-                      </div>
-                    </li>
-                  {{/each}}
-                </ul>
-              {{else}}
-                <span class="card-title">Mon entraineur</span>
-                <p>
-                  {{trainer}}
-                  <a class="modal-trigger" href="#search_trainer_modal"><i
+      {{#if isMe}}
+        <div class="row mt20p">
+          <div class="col s12 m6">
+            <div class="card" style="z-index:99">
+              <div class="card-content">
+                <span class="card-title">Mon profil</span>
+                <p>Nom d'utilisateur : @{{user.username}}</p>
+                <p> Nom complet : {{user.profile.complete_name}}
+                  <a class="modal-trigger" href="#change_complete_name"><i
                           class="material-icons tiny accent_txt">edit</i></a>
                 </p>
-              {{/if}}
+                <p> Changer de mot de passe
+                  <a class="modal-trigger" href="#change_pwd"><i class="material-icons tiny accent_txt">edit</i></a>
+                </p>
+                <p> Poids : {{user.profile.weight}} kg
+                  <a class="modal-trigger" href="#change_weight"><i class="material-icons tiny accent_txt">edit</i></a>
+                </p>
+                <p> Taille : {{user.profile.height}} cm
+                  <a class="modal-trigger" href="#change_height"><i class="material-icons tiny accent_txt">edit</i></a>
+                </p>
+                {{#if user.services.strava}}
+                  <p>Utilisateur Strava : <a target="_blank"
+                                             href="https://www.strava.com/athletes/{{user.services.strava.id}}">Profil</a>
+                  </p>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-content">
+                {{#if user.profile.trainer}}
+                  <span class="card-title">Mes athletes</span>
+                  <a class="modal-trigger btn-flat" href="/search">
+                    <i class="material-icons tiny accent_txt left">
+                      add
+                    </i>
+                    Ajouter un athlete
+                  </a>
+                  <ul class="collection">
+                    {{#each user.profile.my_athletes}}
+                      <li class="collection-item">
+                        <div>
+                          {{dispUserCompleteName this}} (@{{this}})
+                          <a class="secondary-content rmv_athlete_button" href="/user/{{dispUserId this}}">
+                            <i class="material-icons">
+                              pageview
+                            </i>
+                          </a>
+                        </div>
+                      </li>
+                    {{/each}}
+                  </ul>
+                {{else}}
+                  <span class="card-title">
+                    Mon entraineur
+                  </span>
+                  <p>
+                    <i class="material-icons f18p vam">work</i>
+                    <span class="vam">
+                      <a class="secondary_text_color" href="/user/{{dispUserId user.profile.my_trainer}}">
+                        {{dispUserCompleteName user.profile.my_trainer}} (@{{user.profile.my_trainer}})
+                      </a>
+                    </span>
+                  </p>
+                {{/if}}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    {{/if}}
+      {{/if}}
 
-  </div>
+    </div>
 
     <div id="change_height" class="modal">
       <div class="modal-content">
@@ -233,10 +248,14 @@
       </div>
     </div>
 
-  <script>
-    $(document).ready(function() {
-      $('.modal-trigger').leanModal();
-    });
-  </script>
+    <script>
+      $(document).ready(function () {
+        $('.modal-trigger').leanModal();
+      });
+    </script>
+
+  {{else}}
+    {{> Preloader}}
+  {{/if}}
 
 </template>

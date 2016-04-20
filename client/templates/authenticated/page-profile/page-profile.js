@@ -1,5 +1,6 @@
 Template.Profile.onCreated(function () {
   user_id = new ReactiveVar();
+  this.subscribe("allUsers");
 });
 
 Template.Profile.onRendered(function () {
