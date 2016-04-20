@@ -1,4 +1,4 @@
-Template.Login.onCreated( () => {
+Template.Login.onCreated(() => {
   Tracker.autorun(() => {
     let template = Template.instance();
     template.createOrSignIn = new ReactiveVar();
@@ -12,32 +12,32 @@ Template.Login.helpers({
   }
 });
 
-Template.Login.onRendered( () => {
+Template.Login.onRendered(() => {
 
 });
 
 Template.Login.events({
-  'click [data-social-login]' ( event, template ) {
-    const service = event.target.getAttribute( 'data-social-login' ),
+  'click [data-social-login]' (event, template) {
+    const service = event.target.getAttribute('data-social-login'),
       options = {
         requestPermissions: [ 'email' ]
       };
 
-    Meteor[ service ]( options, ( error ) => {
-      if ( error ) {
-        Materialize.toast( error.message, 1000);
+    Meteor[ service ](options, (error) => {
+      if (error) {
+        Materialize.toast(error.message, 1000);
       }
     });
   },
-  'click [data-auth-type]' ( event, template ) {
-    let type = event.target.getAttribute( 'data-auth-type' );
-    template.createOrSignIn.set( type );
+  'click [data-auth-type]' (event, template) {
+    let type = event.target.getAttribute('data-auth-type');
+    template.createOrSignIn.set(type);
     Modules.client.handleAuthentication({
       form: type == "create" ? '#signup-with-email' : '#login-with-email',
       template: Template.instance()
     });
   },
-  'submit form' ( event ) {
+  'submit form' (event) {
     event.preventDefault();
   },
   'click #button_login': function(e,t) {
@@ -64,7 +64,6 @@ Template.Login.events({
       $('#button_signup').addClass('signup_mode');
       Session.set('signup_mode', true);
     } else {
-      console.log("auiensau");
       Modules.client.handleAuthentication({
         template: Template.instance()
       });

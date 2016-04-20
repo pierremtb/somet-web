@@ -1,13 +1,10 @@
 Meteor.methods({
-  insertWorkout( argument ) {
-    check( argument, Object );
+  insertWorkout(doc) {
+    check(doc, Object);
 
-    try {
-      var documentId = WorkoutsDB.insert( argument );
-      return documentId;
-    } catch( exception ) {
-      return exception;
-    }
+    WorkoutsDB.insert(doc, (e) => {
+      if (e) throw e;
+    });
   },
   fetchLastStravaActivities() {
     let token = Meteor.user().services.strava.accessToken,

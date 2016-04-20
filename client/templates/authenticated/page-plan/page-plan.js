@@ -17,7 +17,6 @@ Template.Plan.onCreated(function () {
 
 function setIfEdit() {
   if (isEdit.get()) {
-    console.log(pl.get());
     for (let i in pl.get().days) {
       Session.set('day_' + i + '_type', pl.get().days[i].type);
       Session.set('day_' + i + '_support', pl.get().days[i].support);
@@ -147,7 +146,6 @@ Template.Plan.events({
         })
       }
     }
-    console.log(days);
     if(FlowRouter.current().path.indexOf(Session.get('pl_id')) != -1) {
       let obj = {
         owner: Session.get("selectedAthlete"),

@@ -1,4 +1,4 @@
-PlansDB = new Meteor.Collection( 'plans' );
+PlansDB = new Meteor.Collection('plans');
 
 PlansDB.allow({
   insert: () => false,
@@ -55,7 +55,7 @@ let PlansDBSchema = new SimpleSchema({
   }
 });
 
-PlansDB.attachSchema( PlansDBSchema );
+PlansDB.attachSchema(PlansDBSchema);
 
 TabularTables.Plans = new Tabular.Table({
   name: "Plans",

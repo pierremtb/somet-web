@@ -1,44 +1,47 @@
 <template name="Event">
-    <div class="col s12">
-        <p>
-            {{#if isEditableEvent}}
-                <a class="btn-flat waves-effect primary_txt" href="/events"><i class="material-icons left">arrow_back</i>
-                  Annuler</a>
-                <a class="btn-flat waves-effect primary_txt" id="save_new_event"><i class="material-icons left">save</i>
-                  Enregistrer</a>
-            {{else}}
-            <a class="btn-flat waves-effect primary_txt" href="/events"><i
-                    class="material-icons left">arrow_back</i> Retourner à la liste</a>
-            <a id="edit_event" class="btn-flat waves-effect primary_txt"><i
-                    class="material-icons left">edit</i> MODIFIER</a>
-            <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_ev"><i
-                    class="material-icons left">delete</i> SUPPRIMER</a>
-              {{/if}}
-        </p>
-        <div class="white-text mt10pm relative sides1rem">
-          {{#if isEditableEvent}}
-            <form class="w100per relative" style="padding-top: 1px">
-                  <div class="input-field mt15p" style="width: 60%">
-                    <input id="event_name" type="text" value="{{event.name}}" placeholder="Nom de l'événement..." class="light" style="padding-bottom: 15px;font-size: 50px">
-                  </div>
-                  <div class="input-field" style="width: 200px">
-                    <input id="event_date" type="date" value="{{moFormat event.date 'LL'}}" class="datepicker" placeholder="Date...">
-                  </div>
-                  <div class="input-field" style="width: 400px">
-                    <input id="event_description" type="text" value="{{event.description}}" placeholder="Description... (falcultatif)">
-                  </div>
-              <div class="input-field mt25p r5p absolute topright">
-                <select id="event_class">
-                  <option value="" disabled selected>Type...</option>
-                  <option value="first">Objectif primaire</option>
-                  <option value="second">Objectif secondaire</option>
-                  <option value="preparation">Préparation</option>
-                  </select>
-              </div>
-            </form>
-          {{else}}
-          {{#with event}}
-            <span class="card-title right absolute mt30p topright">
+  <div class="col s12">
+    <p>
+      {{#if isEditableEvent}}
+        <a class="btn-flat waves-effect primary_txt" href="/events"><i class="material-icons left">arrow_back</i>
+          Annuler</a>
+        <a class="btn-flat waves-effect primary_txt" id="save_new_event"><i class="material-icons left">save</i>
+          Enregistrer</a>
+      {{else}}
+        <a class="btn-flat waves-effect primary_txt" href="/events"><i
+                class="material-icons left">arrow_back</i> Retourner à la liste</a>
+        <a id="edit_event" class="btn-flat waves-effect primary_txt"><i
+                class="material-icons left">edit</i> MODIFIER</a>
+        <a class="btn-flat waves-effect primary_txt modal-trigger" href="#delete_ev"><i
+                class="material-icons left">delete</i> SUPPRIMER</a>
+      {{/if}}
+    </p>
+    <div class="white-text mt10pm relative sides1rem">
+      {{#if isEditableEvent}}
+        <form class="w100per relative" style="padding-top: 1px">
+          <div class="input-field mt15p" style="width: 60%">
+            <input id="event_name" type="text" value="{{event.name}}" placeholder="Nom de l'événement..." class="light"
+                   style="padding-bottom: 15px;font-size: 50px">
+          </div>
+          <div class="input-field" style="width: 200px">
+            <input id="event_date" type="date" value="{{moFormat event.date 'LL'}}" class="datepicker"
+                   placeholder="Date...">
+          </div>
+          <div class="input-field" style="width: 400px">
+            <input id="event_description" type="text" value="{{event.description}}"
+                   placeholder="Description... (falcultatif)">
+          </div>
+          <div class="input-field mt25p r5p absolute topright">
+            <select id="event_class">
+              <option value="" disabled selected>Type...</option>
+              <option value="first">Objectif primaire</option>
+              <option value="second">Objectif secondaire</option>
+              <option value="preparation">Préparation</option>
+            </select>
+          </div>
+        </form>
+      {{else}}
+        {{#with event}}
+          <span class="card-title right absolute mt30p topright">
               <div class="chip white">
                 {{dispEventClass class}}
               </div>
@@ -46,72 +49,73 @@
           <span class="view_title light">
             {{name}}
           </span>
-            <p class="hide-on-small-only f18p mt5pm">
-              {{moFormat date 'DD/MM/YYYY'}}
-              <br>
-              {{description}}
-            </p>
-            {{/with}}
-            {{/if}}
-        </div>
-      <div class="row nopadding">
-        <div class="col s12 m6">
-          <div class="card">
-            <div class="card-content">
-              <span class="card-title">Localisation</span>
-              {{#if isEditableEvent}}
+          <p class="hide-on-small-only f18p mt5pm">
+            {{moFormat date 'DD/MM/YYYY'}}
+            <br>
+            {{description}}
+          </p>
+        {{/with}}
+      {{/if}}
+    </div>
+    <div class="row nopadding">
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Localisation</span>
+            {{#if isEditableEvent}}
               <div class="input-field">
                 <input id="event_place" placeholder="Tapez un lieu..." type="text" value="{{event.place}}">
               </div>
-              {{else}}
-                <p>{{event.place}}</p>
-              {{/if}}
-            </div>
+            {{else}}
+              <p>{{event.place}}</p>
+            {{/if}}
           </div>
         </div>
-        <div class="col s12 m6">
-          <div class="card">
-            <div class="card-content">
-              <span class="card-title">Objectif</span>
-              {{#if isEditableEvent}}
+      </div>
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Objectif</span>
+            {{#if isEditableEvent}}
               <div class="input-field">
                 <input id="event_goal" placeholder="Champion du monde..." type="text" value="{{event.goal}}">
               </div>
-              {{else}}
-                <p>{{event.goal}}</p>
-              {{/if}}
-            </div>
+            {{else}}
+              <p>{{event.goal}}</p>
+            {{/if}}
           </div>
         </div>
-        {{#if over}}
+      </div>
+      {{#if over}}
         <div class="col s12 center-align white-text pointer">
           <br><br>
           <i class="material-icons view_title">add</i>
           <br>
           <span class="f25p">Ajouter mon résultat</span>
         </div>
-        {{/if}}
-        {{#if overAndResult}}
-          <div class="col s12 m6">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">Résultat</span>
-                <p>{{event.result}}</p>
-              </div>
+      {{/if}}
+      {{#if overAndResult}}
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Résultat</span>
+              <p>{{event.result}}</p>
             </div>
           </div>
-        {{/if}}
-      </div>
-    </div>
-    <div id="delete_ev" class="modal">
-        <div class="modal-content">
-            <h4>Voulez-vous vraiment supprimer cet entrainement ?</h4>
-            <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span id="evid">{{id}}</span></p>
         </div>
-        <div class="modal-footer">
-            <a  class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
-            <a  id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
-        </div>
+      {{/if}}
     </div>
+  </div>
+
+  <div id="delete_ev" class="modal">
+    <div class="modal-content">
+      <h4>Voulez-vous vraiment supprimer cet entrainement ?</h4>
+      <p>CETTE ACTION EST IRREVERSIBLE ET SUPPRIMERA L'ENTRAINEMENT <span id="evid">"{{event.name}}"</span></p>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+      <a id="delete_bt" class=" modal-action modal-close waves-effect waves-red btn-flat red-text">Supprimer</a>
+    </div>
+  </div>
 
 </template>

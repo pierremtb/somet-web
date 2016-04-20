@@ -32,7 +32,6 @@ Template.Plans.events({
         })
       }
     }
-    console.log(days);
     Meteor.call("insertPlan", {
       owner: Session.get("selectedAthlete"),
       title: t.find('#n_pl_title').value,
@@ -44,7 +43,6 @@ Template.Plans.events({
   },
   'change #n_pl_start_date': (e, t) =>{
     var d = new Date(t.find('#n_pl_start_date').value);
-    console.log(d.getTime());
     Session.set("n_pl_start_date", d);
     Session.set("n_pl_start_timestamp", d.getTime());
     Session.set("n_pl_start_day", d.getDate());

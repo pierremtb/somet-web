@@ -136,7 +136,7 @@ launch_jcp() {
 
     java_home="`check_parts ${path}`"
     if [ -n "${java_home}" ]; then
-	# launch the JCP using paths relative to 
+	# launch the JCP using paths relative to
 	${java_home}/java -Djavaplugin.user.profile=${USER_JPI_PROFILE}    \
 	                  -Xbootclasspath/a:${java_home}/../lib/deploy.jar \
 	                  ${_JAVA_VM_OPTIONS}                              \
@@ -160,27 +160,27 @@ manage_container() {
    fi
 
    case ${scheme} in
-        ns4 | ns4E )
+        ns4 | ns4E)
               plugin_location="${plugin_stem}/ns4"
               if [ ${mode} = "reg" ]; then
                  echo "${plugin_location}"
               fi
               ;;
-       ns4L ) 
+       ns4L)
               plugin_location="${plugin_stem}/ns4"
               filename=`ls ${plugin_location}`
               container_target="${container_home}/plugins"
               check_container_dir ${container_target} ${container_home}
               link_logic ${plugin_location}/${filename} ${container_target}/${filename}
               ;;
-     ns610 | ns610L )
+     ns610 | ns610L)
               plugin_location="${plugin_stem}/ns610"
               filename=`ls ${plugin_location}`
               container_target="${container_home}/plugins"
               check_container_dir ${container_target} ${container_home}
               link_logic ${plugin_location}/${filename} ${container_target}/${filename}
               ;;
-          * ) 
+          *)
               echo ${ISERROR}${scheme}
               exit 1
    esac
@@ -188,18 +188,18 @@ manage_container() {
 
 while getopts ":r:u:c:j:" opt; do
    case $opt in
-      r ) mode="reg";scheme=${OPTARG}
+      r) mode="reg";scheme=${OPTARG}
           ;;
-      u ) mode="unreg";scheme=${OPTARG}
+      u) mode="unreg";scheme=${OPTARG}
           ;;
-      c ) container_home=${OPTARG}
+      c) container_home=${OPTARG}
           ;;
-      j ) java_home=${OPTARG}
+      j) java_home=${OPTARG}
           ;;
-      : ) echo ${USAGE}
+      :) echo ${USAGE}
           exit 1
           ;;
-     \? ) echo ${USAGE}
+     \?) echo ${USAGE}
           exit 1
           ;;
    esac
@@ -242,4 +242,4 @@ else
     # one or more missing args
     echo ${USAGE}
     exit 1
-fi   
+fi

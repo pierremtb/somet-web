@@ -35,7 +35,6 @@ Template.Profile.events({
     Meteor.call("updateThisUser", Meteor.userId(), {"profile.height" : parseFloat(t.find("#new_height").value)});
   },
   "click #n_pwd_submit": (e, t) => {
-    console.log(t.find("#new_pwd").value);
     Meteor.call("setThisUserPassword", Meteor.userId(), t.find("#new_pwd").value);
   }
 });

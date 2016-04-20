@@ -27,7 +27,6 @@ Template.Workout.onRendered(function () {
 
 Template.Workout.helpers({
   workout() {
-    console.log(wk.get());
     return wk.get();
   },
   fitProcessing() {

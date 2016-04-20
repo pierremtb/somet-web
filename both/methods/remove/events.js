@@ -1,11 +1,9 @@
 Meteor.methods({
-  removeEvent( argument ) {
-    check( argument, String );
+  removeEvent(id) {
+    check(id, String);
 
-    try {
-      EventsDB.remove( argument );
-    } catch( exception ) {
-      return exception;
-    }
+    EventsDB.remove(id, (e) => {
+      if (e) throw e;
+    });
   }
 });

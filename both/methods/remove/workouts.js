@@ -1,11 +1,9 @@
 Meteor.methods({
-  removeWorkout( argument ) {
-    check( argument, String );
+  removeWorkout(id) {
+    check(id, String);
 
-    try {
-      WorkoutsDB.remove( argument );
-    } catch( exception ) {
-      return exception;
-    }
+    WorkoutsDB.remove(id, (e) => {
+      if (e) throw e;
+    });
   }
 });

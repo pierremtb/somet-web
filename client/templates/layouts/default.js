@@ -1,7 +1,7 @@
-const handleRedirect = ( routes, redirect ) => {
+const handleRedirect = (routes, redirect) => {
 	let currentRoute = FlowRouter.getRouteName();
-	if ( routes.indexOf( currentRoute ) > -1 ) {
-		FlowRouter.go( redirect );
+	if (routes.indexOf(currentRoute) > -1) {
+		FlowRouter.go(redirect);
 		return true;
 	}
 };
@@ -22,12 +22,12 @@ Template.default.helpers({
 			'signup',
 			'recover-password',
 			'reset-password'
-		], '/' );
+		], '/');
 	},
 	redirectPublic() {
 		return handleRedirect([
 			'index',
 			'dashboard'
-		], '/login' );
+		], '/login');
 	}
 });

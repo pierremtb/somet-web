@@ -1,4 +1,4 @@
-EventsDB = new Meteor.Collection( 'events' );
+EventsDB = new Meteor.Collection('events');
 
 EventsDB.allow({
   insert: () => false,
@@ -46,7 +46,7 @@ let EventsDBSchema = new SimpleSchema({
   }
 });
 
-EventsDB.attachSchema( EventsDBSchema );
+EventsDB.attachSchema(EventsDBSchema);
 
 TabularTables.Events = new Tabular.Table({
   name: "Events",

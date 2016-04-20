@@ -1,4 +1,4 @@
-NotificationsDB = new Meteor.Collection( 'notifications' );
+NotificationsDB = new Meteor.Collection('notifications');
 
 NotificationsDB.allow({
   insert: () => false,
@@ -35,4 +35,4 @@ let NotificationsDBSchema = new SimpleSchema({
   }
 });
 
-NotificationsDB.attachSchema( NotificationsDBSchema );
+NotificationsDB.attachSchema(NotificationsDBSchema);

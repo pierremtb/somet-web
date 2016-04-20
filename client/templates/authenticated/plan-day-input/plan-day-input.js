@@ -27,7 +27,6 @@ Template.PlanDayInput.onRendered(() =>{
       $(self.find('#type')).material_select();
     }
     if(Template.instance().data == 6) {
-      console.log('nausiteau');
       $('select').material_select();
     }
   });

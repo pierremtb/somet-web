@@ -1,12 +1,13 @@
 Meteor.methods({
-  insertEvent( argument ) {
-    check( argument, Object );
+  insertEvent(doc) {
+    check(doc, Object);
 
-    try {
-      var documentId = EventsDB.insert( argument );
-      return documentId;
-    } catch( exception ) {
-      return exception;
+    if (EventsDB.findOne({date: doc.date})) {
+      throw new Meteor.Error("Existe déjà à cette date");
     }
+
+    EventsDB.insert(doc, (e) => {
+      if (e) throw e;
+    });
   }
 });

@@ -1,11 +1,9 @@
 Meteor.methods({
-  removePlan( argument ) {
-    check( argument, String );
+  removePlan(id) {
+    check(id, String);
 
-    try {
-      PlansDB.remove( argument );
-    } catch( exception ) {
-      return exception;
-    }
+    PlansDB.remove(id, (e) => {
+      if (e) throw e;
+    });
   }
 });
