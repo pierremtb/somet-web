@@ -1,30 +1,29 @@
 var days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
 Template.PlanDayInput.onRendered(() =>{
-  let self = this;
   Tracker.autorun(() => {
     if (isEdit.get()) {
-      let type = Session.get('day_' + self.data + '_type');
-      self.find('#type').value = type;
+      let type = Session.get('day_' + this.data + '_type');
+      this.find('#type').value = type;
       $('select').material_select();
       if(type == 'wk') {
-        let sup = self.find('#support');
-        sup.value = Session.get('day_' + self.data + '_support');
+        let sup = this.find('#support');
+        sup.value = Session.get('day_' + this.data + '_support');
         sup.disabled = false;
         $(sup).material_select();
 
-        let dur = self.find('#duration');
-        dur.value = Session.get('day_' + self.data + '_duration');
+        let dur = this.find('#duration');
+        dur.value = Session.get('day_' + this.data + '_duration');
         dur.disabled = false;
         $(dur).material_select();
 
-        let des = self.find('#description');
-        des.innerHTML = Session.get('day_' + self.data + '_description');
+        let des = this.find('#description');
+        des.innerHTML = Session.get('day_' + this.data + '_description');
         des.disabled = false;
       }
     } else {
-      $(self.find('#duration')).material_select();
-      $(self.find('#type')).material_select();
+      $(this.find('#duration')).material_select();
+      $(this.find('#type')).material_select();
     }
     if(Template.instance().data == 6) {
       $('select').material_select();
