@@ -17,12 +17,15 @@
         {{/if}}
       {{/if}}
     </p>
-    <div class="white-text mt10pm">
+    <div class="white-text mt10pm relative">
+      <span class="absolute topright mt20p chip white">
+        Durée totale : {{dispDuration totalDuration}}
+      </span>
       {{#if isEditablePlan}}
         <form class="w100per">
           <div class="row">
             <div class="col s12">
-              <p>
+              <p class="mt5pm">
                 {{#if isNew}}
                 <span class="light" style="font-size:50px; opacity: 0.7">Semaine du </span>
               <div class="input-field inline-block">

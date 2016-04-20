@@ -17,14 +17,13 @@ Template.PlanDayInput.onRendered(function (){
         dur.value = Session.get('day_' + self.data + '_duration');
         dur.disabled = false;
         $(dur).material_select();
-        
+
         let des = self.find('#description');
         des.innerHTML = Session.get('day_' + self.data + '_description');
         des.disabled = false;
       }
     } else {
       $(self.find('#duration')).material_select();
-      $(self.find('#description')).material_select();
       $(self.find('#type')).material_select();
     }
     if(Template.instance().data == 6) {
@@ -46,32 +45,14 @@ Template.PlanDayInput.helpers({
       Session.set('day_' + this + '_event_id', ev._id);
     }
   },
-  isDurationSelected(dur) {
-    $('select').material_select();
-    return Session.get('day_' + this + '_duration') == dur ? 'true' : 'false';
-  },
-  isTypeSelected(type) {
-    $('select').material_select();
-    return Session.get('day_' + this + '_type') == type ? 'true' : 'false';
-  },
-  isSupportSelected(support) {
-    $('select').material_select();
-    return Session.get('day_' + this + '_support') == support ? 'true' : 'false';
-  },
   sessionDescription() {
     return Session.get('day_' + this + '_title');
-  },
-  isRace() {
-    return Session.get('day_' + this + '_type') == 'rc';
   },
   isWorkout() {
     return Session.get('day_' + this + '_type') == 'wk';
   },
   ifRestSetDisabled() {
     return Session.get('day_' + this + '_type')? 'disabled' : '';
-  },
-  ifRaceSetDisabled() {
-    return Session.get('day_' + this + '_type') ? 'disabled' : '';
   }
 });
 
@@ -83,17 +64,13 @@ Template.PlanDayInput.events({
       t.find("#duration").disabled = true;
       t.find("#support").disabled = true;
       t.find("#description").disabled = true;
-    } else if(e.target.value == 'rc') {
-      t.find("#duration").value = 0;
-      t.find("#duration").disabled = true;
-      t.find("#support").disabled = false;
-      t.find("#description").disabled = false;
     } else {
       t.find("#duration").disabled = false;
       t.find("#support").disabled = false;
       t.find("#description").disabled = false;
     }
-    $('select').material_select();
+    $(t.find("#duration")).material_select();
+    $(t.find("#support")).material_select();
   },
   'change #duration': function (e,t) {
     Session.set('day_' + this + '_duration', parseInt(e.target.value));

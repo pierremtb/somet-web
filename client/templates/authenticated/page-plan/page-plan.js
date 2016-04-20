@@ -34,6 +34,14 @@ function setIfEdit() {
 
 Template.Plan.onRendered(function () {
 
+  for(let i=0;i<7;i++) {
+    Session.set(`day_${i}_duration`, 0);
+    Session.set(`day_${i}_type`, 0);
+    Session.set(`day_${i}_support`, 0);
+    Session.set(`day_${i}_duration`, 0);
+    Session.set(`day_${i}_description`, '');
+  }
+
   let count = 0;
   if (!isNew.get()) {
     Tracker.autorun(function () {
@@ -62,6 +70,22 @@ Template.Plan.helpers({
   },
   _id() {
     return pl.get()._id
+  },
+  totalDuration() {
+    let td = 0;
+    if(isEditablePlan.get()) {
+      for (let i = 0; i < 7; i++) {
+        if (Session.get(`day_${i}_duration`))
+          td += parseInt(Session.get(`day_${i}_duration`));
+      }
+      Session.set('pl_total_duration', td);
+    } else {
+      for (let i in pl.get().days) {
+        if (pl.get().days[i].duration)
+          td += parseInt(pl.get().days[i].duration);
+      }
+    }
+    return td;
   },
   days() {
     return pl.get().days

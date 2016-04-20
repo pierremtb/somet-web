@@ -10,7 +10,7 @@
         {{else}}
           <div class="input-field col s12">
             <select id="type">
-              <option value="" disabled selected>Type</option>
+              <option value="" disabled selected>Choisir un type...</option>
               <option value="nth">Repos</option>
               <option value="wk">Entrainement</option>
             </select>
@@ -19,7 +19,7 @@
 
           <div class="input-field col s12">
             <select id="support"  {{ifRestSetDisabled}}>
-              <option value="" disabled selected>Support</option>
+              <option value="" disabled selected>Chosir un support...</option>
               <option value="mtb">VTT</option>
               <option value="road">Route</option>
               <option value="ht">Home Trainer</option>
@@ -29,12 +29,12 @@
               <option value="endr">Enduro</option>
               <option value="othr">Autre</option>
             </select>
-            <label>Type</label>
+            <label>Support</label>
           </div>
 
           <div class="input-field col s12">
-            <select id="duration" {{ifRestSetDisabled}} {{ifRaceSetDisabled}}>
-              <option value="" disabled selected>Durée</option>
+            <select id="duration" {{ifRestSetDisabled}}>
+              <option value="" disabled selected>Choisir une durée...</option>
               <option value="900">0h15</option>
               <option value="1800">0h30</option>
               <option value="2700">0h45</option>

@@ -37,7 +37,7 @@ Template.Plans.events({
       owner: Session.get("selectedAthlete"),
       title: t.find('#n_pl_title').value,
       monday_date: new Date(t.find('#n_pl_start_date').value),
-      total_duration: parseInt(Session.get("total_duration")),
+      total_duration: parseInt(Session.get("pl_total_duration")),
       days: days
     });
     Meteor.call("sendPush", Meteor.user().username, Session.get("selectedAthlete"), "Nouveau plan", "Un nouveau plan vous a été ajouté!");
