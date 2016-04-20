@@ -34,7 +34,7 @@ Meteor.publish('planOfThisId', function (id) {
   }
 });
 
-Meteor.publish('workoutsOfCurrentUser', () => {
+Meteor.publish('workoutsOfCurrentUser', function() {
   var wks = WorkoutsDB.find({user: Meteor.users.findOne(this.userId).username});
   return wks ? wks : this.ready();
 });
@@ -89,12 +89,12 @@ Meteor.publish('dayEventsOfUsr', function (usr, date) {
   return evts ? evts : this.ready();
 });
 
-Meteor.publish('eventsOfCurrentUser', () => {
+Meteor.publish('eventsOfCurrentUser', function() {
   var evts = EventsDB.find({username: Meteor.users.findOne(this.userId).username});
   return evts ? evts : this.ready();
 });
 
-Meteor.publish('plansOfCurrentUser', () => {
+Meteor.publish('plansOfCurrentUser', function() {
   var wks = PlansDB.find({username: Meteor.users.findOne(this.userId).username});
   return wks ? wks : this.ready();
 });
@@ -104,20 +104,20 @@ Meteor.publish('planOfThisUserForThisWeek', function (m) {
   return pl ? pl : this.ready();
 });
 
-Meteor.publish('allUsers', () => {
+Meteor.publish('allUsers', function() {
   var a = Meteor.users.find();
   return a ? a : this.ready();
 });
 
-Meteor.publish('allUsersSync', () => {
+Meteor.publish('allUsersSync', function() {
   return Meteor.users.find();
 });
 
-Meteor.publish("getUserData", () => {
+Meteor.publish("getUserData", function() {
   return Meteor.users.find({_id: this.userId});
 });
 
-Meteor.publish('notificationsOfCurrentUser', () => {
+Meteor.publish('notificationsOfCurrentUser', function() {
   var n = NotificationsDB.find({owner: Meteor.users.findOne(this.userId).username});
   return n ? n : this.ready();
 });
@@ -147,7 +147,7 @@ Meteor.publish('thisTargetWorkoutsOfUsr', function (target, usr) {
   return wks ? wks : this.ready();
 });
 
-Meteor.publish('mainUserDataSync', () => {
+Meteor.publish('mainUserDataSync', function() {
   let usr = Meteor.users.findOne({_id: this.userId});
   if(usr.profile.trainer) {
     return [

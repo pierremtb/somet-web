@@ -1,5 +1,5 @@
 <template name="Settings">
-    <div class="col s12">
+  <div class="col s12">
     <div class="card">
       <div class="card-content">
         <span class="card-title">A propos</span>
@@ -9,114 +9,6 @@
           Pierre Jacquier - 2015. Tous droits réservés.
         </p>
       </div>
-    </div>
-  </div>
-
-
-  <div id="search_trainer_modal" class="modal search_modal">
-    <div class="modal-content">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">search</i>
-              <input id="trainer_search" placeholder="{{trainer}}" type="text" class="validate">
-              <label class="active" for="trainer_search">Rechercher un entraineur</label>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="row">
-        {{#each trainersWhoMatch}}
-          {{> TrainersSearchResult}}
-        {{/each}}
-      </div>
-    </div>
-  </div>
-
-    <div id="change_height" class="modal">
-        <div class="modal-content">
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input id="new_height" value="{{currentUser.profile.height}}" type="text" class="validate">
-                            <label class="active" for="new_height">Changer votre taille en cm</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a id="n_height_submit"
-               class=" modal-action modal-close waves-effect waves-cyan accent_txt btn-flat">Modifier</a>
-            <a class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
-        </div>
-    </div>
-
-
-    <div id="change_pwd" class="modal">
-        <div class="modal-content">
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">security</i>
-                            <input id="new_pwd" value="" type="password" class="validate">
-                            <label class="active" for="new_pwd">Changer votre mot de passe</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a id="n_pwd_submit"
-               class=" modal-action modal-close waves-effect waves-cyan accent_txt btn-flat">Modifier</a>
-            <a class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
-        </div>
-    </div>
-
-
-  <div id="change_weight" class="modal">
-    <div class="modal-content">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">account_circle</i>
-              <input id="new_weight" value="{{currentUser.profile.weight}}" type="text" class="validate">
-              <label class="active" for="new_weight">Changer votre poids en kg</label>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <a id="n_weight_submit"
-         class=" modal-action modal-close waves-effect waves-cyan accent_txt btn-flat">Modifier</a>
-      <a class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
-    </div>
-  </div>
-
-  <div id="change_complete_name" class="modal">
-    <div class="modal-content">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">account_circle</i>
-              <input id="new_complete_name" value="{{myName}}" type="text" class="validate">
-              <label class="active" for="new_complete_name">Changer de nom complet</label>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <a id="n__submit"
-         class=" modal-action modal-close waves-effect waves-cyan accent_txt btn-flat">Modifier</a>
-      <a class=" modal-action modal-close waves-effect waves-cyan btn-flat">Annuler</a>
     </div>
   </div>
 </template>

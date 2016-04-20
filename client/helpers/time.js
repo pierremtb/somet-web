@@ -17,12 +17,24 @@ Template.registerHelper("dispDistance", function (meters) {
   return (meters / 1000).toFixed(2);
 });
 
+Template.registerHelper("dispUserCompleteName", function (usr) {
+  return Meteor.users.find({username: usr}).profile.complete_name;
+});
+
+Template.registerHelper("dispUserId", function (usr) {
+  return Meteor.users.find({username: usr})._id;
+});
+
 Template.registerHelper("dispType", function (t) {
   switch(t) {
     case 'wk': return "Entrainement";
     case 'rc': return "Compétition";
     case 'nth': return "Repos";
   }
+});
+
+Template.registerHelper("dispUserType", function (t) {
+  return t ? "Entraineur" : "Athlète";
 });
 
 Template.registerHelper("dispEventClass", function (t) {
