@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/sumrise-rebase.iml" filepath="$PROJECT_DIR$/.idea/sumrise-rebase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/somet-web.iml" filepath="$PROJECT_DIR$/.idea/somet-web.iml" />
     </modules>
   </component>
 </project>

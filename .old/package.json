@@ -1,0 +1,10 @@
+{
+  "name": "somet",
+  "version": "0.0.1",
+  "description": "The missing link between riders and trainers.",
+  "scripts": {
+    "start": "meteor --settings settings.json",
+    "staging": "meteor deploy staging.meteor.com --settings settings-development.json",
+    "production": "meteor deploy production.meteor.com --settings settings-production.json"
+  }
+}

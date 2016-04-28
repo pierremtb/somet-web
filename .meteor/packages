@@ -1,52 +1,49 @@
 # Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
+reactive-var            # Reactive variable for tracker
+session
+tracker                 # Meteor's client-side reactive programming library
+
+standard-minifier-css   # CSS minifier run for production mode
+standard-minifier-js    # JS minifier run for production mode
+es5-shim                # ECMAScript 5 compatibility for older browsers.
+ecmascript              # Enable ECMAScript2015+ syntax in app code
+
 accounts-password
 accounts-base
-jquery
 check
 audit-argument-checks
-themeteorchef:jquery-validation
 browser-policy
-meteorhacks:npm
 
-
+fourseven:scss
+aldeed:collection2
+alanning:roles
 themeteorchef:bert
+static-html
+xolvio:cleaner
+practicalmeteor:mocha
+xolvio:backdoor
+mdg:validated-method
+dburles:factory
+react
+jquery
+digilord:faker
+kadira:flow-router
+meteorhacks:fast-render
 meteorhacks:ssr
+reactive-dict
+standard-minifiers
+stevezhu:lodash
+themeteorchef:jquery-validation
+twbs:bootstrap
 
 
 npm-container
-ecmascript
-digilord:faker
-kadira:flow-router
-kadira:blaze-layout
-meteorhacks:fast-render
-meteor-base
-session
-templating
-fourseven:scss
-stevezhu:lodash
-reactive-var
-reactive-dict
-aldeed:collection2
-tracker
-poetic:materialize-scss
-simple:reactive-method
-tomi:upload-jquery
-tomi:upload-server
-lbee:moment-helpers
-easy:search
-service-configuration
-selaias:accounts-strava
-alethes:pages
-aldeed:tabular
-standard-minifier-css
-standard-minifier-js
-linto:jquery-ui
-momentjs:moment
-jeremy:geocomplete
-webtempest:animate
-philippspo:momentum-flow-router
-polyroid:font-roboto
+react-meteor-data
