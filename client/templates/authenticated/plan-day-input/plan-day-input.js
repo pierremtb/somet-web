@@ -1,6 +1,6 @@
 var days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
-Template.PlanDayInput.onRendered(function() {
+Template.PlanDayInput.onRendered(() =>{
   Tracker.autorun(() => {
     if (isEdit.get()) {
       let type = Session.get('day_' + this.data + '_type');
