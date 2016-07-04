@@ -1,17 +1,25 @@
-# The Meteor Chef - Base
-A starting point for Meteor apps.
+# somet-web
+Web client for Somet (currently rewriting using React instead of Blaze)
 
-<table>
-  <tbody>
-    <tr>
-      <th>Base Version</th>
-      <td>v3.4.0</td>
-    </tr>
-    <tr>
-      <th>Meteor Version</th>
-      <td>v1.2.1</td>
-    </tr>
-  </tbody>
-</table>
+# How to test
+- Install [Meteor](http://meteor.com)
+- Clone this repo
+- Run `npm start` from its root
 
-[Read the Documentation](http://themeteorchef.com/base)
+
+```
+Copyright (C) 2016  Pierre Jacquier
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+```
